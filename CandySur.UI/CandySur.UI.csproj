@@ -1,0 +1,389 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9CA9D823-9978-4ED4-BCA0-C7A57C4560B8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CandySur.UI</RootNamespace>
+    <AssemblyName>CandySur.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Backup-Restore\BackupRestore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Backup-Restore\BackupRestore.Designer.cs">
+      <DependentUpon>BackupRestore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Backup-Restore\ReestablecerSistema.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Backup-Restore\ReestablecerSistema.Designer.cs">
+      <DependentUpon>ReestablecerSistema.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bitacora\Consultar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bitacora\Consultar.Designer.cs">
+      <DependentUpon>Consultar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Descuentos\Descuentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Descuentos\Descuentos.Designer.cs">
+      <DependentUpon>Descuentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Descuentos\Gestionar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Descuentos\Gestionar.Designer.cs">
+      <DependentUpon>Gestionar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Familia\Alta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Familia\Alta.Designer.cs">
+      <DependentUpon>Alta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Familia\Asignar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Familia\Asignar.Designer.cs">
+      <DependentUpon>Asignar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Familia\Gestionar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Familia\Gestionar.Designer.cs">
+      <DependentUpon>Gestionar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Familia\GestionPatentes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Familia\GestionPatentes.Designer.cs">
+      <DependentUpon>GestionPatentes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Familia\Listar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Familia\Listar.Designer.cs">
+      <DependentUpon>Listar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Golosina\Alta_Golosina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Golosina\Alta_Golosina.Designer.cs">
+      <DependentUpon>Alta_Golosina.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Golosina\Gestionar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Golosina\Gestionar.Designer.cs">
+      <DependentUpon>Gestionar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Golosina\Listado_Golosinas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Golosina\Listado_Golosinas.Designer.cs">
+      <DependentUpon>Listado_Golosinas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\GenerarContraseña.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\GenerarContraseña.Designer.cs">
+      <DependentUpon>GenerarContraseña.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Paquete\Alta_Paquete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Paquete\Alta_Paquete.Designer.cs">
+      <DependentUpon>Alta_Paquete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Paquete\Gestionar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Paquete\Gestionar.Designer.cs">
+      <DependentUpon>Gestionar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Paquete\Listado_Paquetes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Paquete\Listado_Paquetes.Designer.cs">
+      <DependentUpon>Listado_Paquetes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Patente\Asignar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Patente\Asignar.Designer.cs">
+      <DependentUpon>Asignar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Patente\Listar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Patente\Listar.Designer.cs">
+      <DependentUpon>Listar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Perfil\Gestionar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Perfil\Gestionar.Designer.cs">
+      <DependentUpon>Gestionar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedor\EnviarMail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proveedor\EnviarMail.Designer.cs">
+      <DependentUpon>EnviarMail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedor\Gestionar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proveedor\Gestionar.Designer.cs">
+      <DependentUpon>Gestionar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedor\Listado_Proveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proveedor\Listado_Proveedores.Designer.cs">
+      <DependentUpon>Listado_Proveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedor\Proveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proveedor\Proveedor.Designer.cs">
+      <DependentUpon>Proveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Reportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\Reportes.Designer.cs">
+      <DependentUpon>Reportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Resto\Resto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Resto\Resto.Designer.cs">
+      <DependentUpon>Resto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario\Alta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuario\Alta.Designer.cs">
+      <DependentUpon>Alta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario\Gestionar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuario\Gestionar.Designer.cs">
+      <DependentUpon>Gestionar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario\Listar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuario\Listar.Designer.cs">
+      <DependentUpon>Listar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\Gestionar_Venta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\Gestionar_Venta.Designer.cs">
+      <DependentUpon>Gestionar_Venta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ventas\Resumen_Diario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\Resumen_Diario.Designer.cs">
+      <DependentUpon>Resumen_Diario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\Venta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\Venta.Designer.cs">
+      <DependentUpon>Venta.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Backup-Restore\BackupRestore.resx">
+      <DependentUpon>BackupRestore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Backup-Restore\ReestablecerSistema.resx">
+      <DependentUpon>ReestablecerSistema.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bitacora\Consultar.resx">
+      <DependentUpon>Consultar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Descuentos\Descuentos.resx">
+      <DependentUpon>Descuentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Descuentos\Gestionar.resx">
+      <DependentUpon>Gestionar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Familia\Alta.resx">
+      <DependentUpon>Alta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Familia\Asignar.resx">
+      <DependentUpon>Asignar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Familia\Gestionar.resx">
+      <DependentUpon>Gestionar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Familia\GestionPatentes.resx">
+      <DependentUpon>GestionPatentes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Familia\Listar.resx">
+      <DependentUpon>Listar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Golosina\Alta_Golosina.resx">
+      <DependentUpon>Alta_Golosina.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Golosina\Gestionar.resx">
+      <DependentUpon>Gestionar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Golosina\Listado_Golosinas.resx">
+      <DependentUpon>Listado_Golosinas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\GenerarContraseña.resx">
+      <DependentUpon>GenerarContraseña.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Paquete\Alta_Paquete.resx">
+      <DependentUpon>Alta_Paquete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Paquete\Gestionar.resx">
+      <DependentUpon>Gestionar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Paquete\Listado_Paquetes.resx">
+      <DependentUpon>Listado_Paquetes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Patente\Asignar.resx">
+      <DependentUpon>Asignar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Patente\Listar.resx">
+      <DependentUpon>Listar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Perfil\Gestionar.resx">
+      <DependentUpon>Gestionar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proveedor\EnviarMail.resx">
+      <DependentUpon>EnviarMail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proveedor\Gestionar.resx">
+      <DependentUpon>Gestionar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proveedor\Listado_Proveedores.resx">
+      <DependentUpon>Listado_Proveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proveedor\Proveedor.resx">
+      <DependentUpon>Proveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Reportes.resx">
+      <DependentUpon>Reportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resto\Resto.resx">
+      <DependentUpon>Resto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuario\Alta.resx">
+      <DependentUpon>Alta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuario\Gestionar.resx">
+      <DependentUpon>Gestionar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuario\Listar.resx">
+      <DependentUpon>Listar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\Gestionar_Venta.resx">
+      <DependentUpon>Gestionar_Venta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Ventas\Resumen_Diario.resx">
+      <DependentUpon>Resumen_Diario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\Venta.resx">
+      <DependentUpon>Venta.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FINAL.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FIRST_SET_ICON_part_4-25-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minus-2-icon-14-256.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
