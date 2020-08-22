@@ -109,8 +109,70 @@ namespace CandySur.SEG.Service
 
         public Entity.Usuario Consultar(string nombre)
         {
-            return repository.Consultar(nombre);
+            Entity.Usuario usuario = repository.Consultar(nombre);
+
+            if (usuario == null)
+                throw new Exception("No se encontro al usuario.");
+
+            return usuario;
         }
+
+        public int Eliminar(Entity.Usuario usuario)
+        {
+            try
+            {
+                if (VerificarAdministrador(usuario))
+                    throw new Exception("El usuario contiene permisos de administrador, no puede ser eliminado.");
+
+                usuario.NombreUsuario = Encrypt.Encriptar(usuario.NombreUsuario, (int)TipoEncriptacion.Reversible);
+                usuario.Eliminado = true;
+
+                using (var scope = new TransactionScope(TransactionScopeOption.RequiresNew, new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }))
+                {
+                    int result = repository.Eliminar(usuario, dv.CalcularDVH(this.ConcatenarRegistro(usuario)));
+
+                    dv.ActualizarDVV("Usuario");
+
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public int Modificar(Entity.Usuario usuario)
+        {
+            try
+            {
+                usuario.NombreUsuario = Encrypt.Encriptar(usuario.NombreUsuario, (int)TipoEncriptacion.Reversible);
+
+                using (var scope = new TransactionScope(TransactionScopeOption.RequiresNew, new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }))
+                {
+                    int result = repository.Modificar(usuario, dv.CalcularDVH(this.ConcatenarRegistro(usuario)));
+
+                    dv.ActualizarDVV("Usuario");
+
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<Entity.Usuario> Listar(int filtrarBloqueados)
+        {
+            return repository.Listar(filtrarBloqueados);
+        }
+
+        private bool VerificarAdministrador(Entity.Usuario usuario)
+        {
+            return usuario.Permisos.Any(p => p.Nombre == "Administrador");
+        }
+
 
         public bool ValidarNombre(string username)
         {
@@ -146,6 +208,8 @@ namespace CandySur.SEG.Service
         {
             try
             {
+                usuario.NombreUsuario = Encrypt.Encriptar(usuario.NombreUsuario, (int)TipoEncriptacion.Reversible);
+
                 using (var scope = new TransactionScope(TransactionScopeOption.RequiresNew, new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }))
                 {
                     int result = repository.AumentarContador(usuario.Id, usuario.Reintentos, dv.CalcularDVH(this.ConcatenarRegistro(usuario)));
@@ -165,6 +229,9 @@ namespace CandySur.SEG.Service
         {
             try
             {
+                usuario.NombreUsuario = Encrypt.Encriptar(usuario.NombreUsuario, (int)TipoEncriptacion.Reversible);
+                usuario.Reintentos = 0;
+
                 using (var scope = new TransactionScope(TransactionScopeOption.RequiresNew, new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }))
                 {
                     int result = repository.ReiniciarContador(usuario.Id, dv.CalcularDVH(this.ConcatenarRegistro(usuario)));
@@ -184,9 +251,34 @@ namespace CandySur.SEG.Service
         {
             try
             {
+                usuario.NombreUsuario = Encrypt.Encriptar(usuario.NombreUsuario, (int)TipoEncriptacion.Reversible);
+                usuario.Bloqueado = true;
+
                 using (var scope = new TransactionScope(TransactionScopeOption.RequiresNew, new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }))
                 {
                     int result = repository.BloquearUsuario(usuario.Id, dv.CalcularDVH(this.ConcatenarRegistro(usuario)));
+
+                    dv.ActualizarDVV("Usuario");
+
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public int Desbloquear(Entity.Usuario usuario)
+        {
+            try
+            {
+                usuario.NombreUsuario = Encrypt.Encriptar(usuario.NombreUsuario, (int)TipoEncriptacion.Reversible);
+                usuario.Bloqueado = false;
+
+                using (var scope = new TransactionScope(TransactionScopeOption.RequiresNew, new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }))
+                {
+                    int result = repository.Desbloquear(usuario.Id, dv.CalcularDVH(this.ConcatenarRegistro(usuario)));
 
                     dv.ActualizarDVV("Usuario");
 

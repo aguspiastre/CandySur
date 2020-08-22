@@ -1,4 +1,5 @@
 ﻿using CandySur.SEG.Request;
+using CandySur.SEG.Util;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -45,6 +46,13 @@ namespace CandySur.SEG.Repository
             return db.ExecuteSqlCommand(sqlCommand);
         }
 
+        public int Desbloquear(int id, string DVH)
+        {
+            string sqlCommand = @"UPDATE Usuario SET Bloqueado = 0 " + ", DVH=" + "'" + DVH + "'" + " WHERE Id=" + id;
+
+            return db.ExecuteSqlCommand(sqlCommand);
+        }
+
         public int ValidarNombre(string username)
         {
             string sqlCommand = @"SELECT COUNT(*) FROM USUARIO WHERE Nombre_Usuario = " + "'" + username + "'";
@@ -56,6 +64,21 @@ namespace CandySur.SEG.Repository
         public int GenerarContraseña(Entity.Usuario usuario)
         {
             string sqlCommand = @"UPDATE Usuario SET DVH=" + "'" + usuario.DVH + "'" + "," + "Contraseña=" + "'" + usuario.Contraseña + "'" + " WHERE Id=" + usuario.Id;
+
+            return db.ExecuteSqlCommand(sqlCommand);
+        }
+
+        public int Eliminar(Entity.Usuario usuario, string DVH)
+        {
+            string sqlCommand = @"UPDATE Usuario SET DVH=" + "'" + DVH + "'" + "," + "Eliminado=" + usuario.Eliminado + " WHERE Id=" + usuario.Id;
+
+            return db.ExecuteSqlCommand(sqlCommand);
+        }
+
+        public int Modificar(Entity.Usuario usuario, string DVH)
+        {
+            string sqlCommand = @"UPDATE Usuario SET DVH=" + "'" + DVH + "'" + "," + "Direccion=" + "'" + usuario.Direccion + "'" + ","
+                + "Mail=" + "'" + usuario.Mail + "'" + "," + "Telefono=" + "'" + usuario.Telefono + "'" + "," + " WHERE Id=" + usuario.Id;
 
             return db.ExecuteSqlCommand(sqlCommand);
         }
@@ -72,7 +95,7 @@ namespace CandySur.SEG.Repository
             Entity.Usuario user = new Entity.Usuario
             {
                 Id = int.Parse(tabla.Rows[0]["Id"].ToString()),
-                NombreUsuario = tabla.Rows[0]["Nombre_Usuario"].ToString(),
+                NombreUsuario = Encrypt.Desencriptar(tabla.Rows[0]["Nombre_Usuario"].ToString()),
                 Mail = tabla.Rows[0]["Mail"].ToString(),
                 Bloqueado = (bool)tabla.Rows[0]["Bloqueado"],
                 Eliminado = (bool)tabla.Rows[0]["Eliminado"],
@@ -89,5 +112,38 @@ namespace CandySur.SEG.Repository
             return user;
         }
 
+        public List<Entity.Usuario> Listar(int filtrarBloqueados)
+        {
+            string sqlCommand = @"SELECT * FROM USUARIO WHERE Eliminado = 0";
+            string sqlWhere = string.Empty;
+
+            if (filtrarBloqueados == 1)
+                sqlWhere = " WHERE Bloqueado = 1";
+
+            if (!String.IsNullOrEmpty(sqlWhere))
+                sqlCommand += sqlWhere;
+
+            DataTable tabla = db.ExecuteReader(sqlCommand);
+
+            if (tabla.Rows.Count == 0)
+                return null;
+
+            List<Entity.Usuario> usuarios = new List<Entity.Usuario>();
+
+            foreach (DataRow row in tabla.Rows)
+            {
+                Entity.Usuario user = new Entity.Usuario
+                {
+                    NombreUsuario = tabla.Rows[0]["Nombre_Usuario"].ToString(),
+                    Bloqueado = (bool)tabla.Rows[0]["Bloqueado"],
+                    Apellido = tabla.Rows[0]["Apellido"].ToString(),
+                    Nombre = tabla.Rows[0]["Nombre"].ToString()
+                };
+
+                usuarios.Add(user);
+            }
+
+            return usuarios;
+        }
     }
 }

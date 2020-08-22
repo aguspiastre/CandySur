@@ -22,5 +22,6 @@ namespace CandySur.SEG.Entity
         public bool Eliminado { get; set; }
         public bool Bloqueado { get; set; }
         public string DVH { get; set; }
+        public List<Permiso> Permisos { get; set; }
     }
 }

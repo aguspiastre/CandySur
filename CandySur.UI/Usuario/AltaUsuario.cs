@@ -14,10 +14,10 @@ namespace CandySur.UI.Usuario
 {
     public partial class AltaUsuario : Form
     {
+        private SEG.Entity.SessionManager Session;
 
         SEG.Service.Usuario usuarioService = new SEG.Service.Usuario();
-        SEG.Service.BitacoraService bitacoraService = new SEG.Service.BitacoraService();
-        SEG.Entity.Usuario usuario;
+        SEG.Service.Bitacora bitacoraService = new SEG.Service.Bitacora();
         public AltaUsuario()
         {
             InitializeComponent();
@@ -25,7 +25,7 @@ namespace CandySur.UI.Usuario
 
         private void Alta_Load(object sender, EventArgs e)
         {
-
+            Session = SEG.Entity.SessionManager.GetInstance();
         }
 
         private void txtNombre_KeyUp(object sender, KeyEventArgs e)
@@ -71,9 +71,9 @@ namespace CandySur.UI.Usuario
 
                     SEG.Entity.Bitacora reg = new SEG.Entity.Bitacora
                     {
-                        IdUsuario = usuario.Id,
+                        IdUsuario = this.Session.Usuario.Id,
                         IdCriticidad = (int)Enums.Criticidad.Baja,
-                        Descripcion = "Usuario dado de alta."
+                        Descripcion = "Usuario dado de alta. " + txtUsername.Text
                     };
 
                     bitacoraService.Registrar(reg);

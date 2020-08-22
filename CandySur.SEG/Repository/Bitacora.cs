@@ -46,7 +46,7 @@ namespace CandySur.SEG.Repository
                     Id = int.Parse(row["Id"].ToString()),
                     Usuario = row["Usuario"].ToString(),
                     Criticidad = row["Criticidad"].ToString(),
-                    Descripcion = row["Descripcion"].ToString(),
+                    Descripcion = Util.Encrypt.Desencriptar(row["Descripcion"].ToString()),
                     Fecha = row.Field<DateTime>("Fecha"),
                     DVH = row["DVH"].ToString()
                 };

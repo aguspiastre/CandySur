@@ -8,6 +8,7 @@ namespace CandySur.SEG.Entity
 {
     public class Familia : Permiso
     {
+        public bool Eliminado { get; set; }
         public List<Permiso> Permisos { get; set; }
     }
 }

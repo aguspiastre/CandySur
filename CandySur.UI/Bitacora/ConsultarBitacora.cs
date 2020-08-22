@@ -15,7 +15,7 @@ namespace CandySur.UI.Bitacora
 {
     public partial class ConsultarBitacora : Form
     {
-        CandySur.SEG.Service.BitacoraService bitacoraService = new SEG.Service.BitacoraService();
+        CandySur.SEG.Service.Bitacora bitacoraService = new SEG.Service.Bitacora();
 
         public ConsultarBitacora()
         {

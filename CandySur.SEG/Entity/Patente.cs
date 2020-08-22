@@ -8,5 +8,6 @@ namespace CandySur.SEG.Entity
 {
     public class Patente : Permiso
     {
+
     }
 }

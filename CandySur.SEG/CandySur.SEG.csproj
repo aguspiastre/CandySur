@@ -47,7 +47,11 @@
     <Compile Include="Entity\Familia.cs" />
     <Compile Include="Entity\Patente.cs" />
     <Compile Include="Entity\Permiso.cs" />
+    <Compile Include="Entity\SessionManager.cs" />
     <Compile Include="Entity\Usuario.cs" />
+    <Compile Include="Service\Familia.cs" />
+    <Compile Include="Service\Patente.cs" />
+    <Compile Include="Service\Permiso.cs" />
     <Compile Include="Util\Enums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\Bitacora.cs" />
@@ -56,8 +60,8 @@
     <Compile Include="Repository\Usuario.cs" />
     <Compile Include="Request\RequestConsultarBitacora.cs" />
     <Compile Include="Service\Usuario.cs" />
-    <Compile Include="Service\BitacoraService.cs" />
-    <Compile Include="Service\DataBaseService.cs" />
+    <Compile Include="Service\Bitacora.cs" />
+    <Compile Include="Service\DataBase.cs" />
     <Compile Include="Service\DigitoVerificador.cs" />
     <Compile Include="Util\Encrypt.cs" />
   </ItemGroup>

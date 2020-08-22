@@ -120,6 +120,7 @@
             // 
             // cmbCriticidad
             // 
+            this.cmbCriticidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCriticidad.FormattingEnabled = true;
             this.cmbCriticidad.Location = new System.Drawing.Point(303, 45);
             this.cmbCriticidad.Name = "cmbCriticidad";
@@ -128,6 +129,7 @@
             // 
             // cmbUsuario
             // 
+            this.cmbUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbUsuario.FormattingEnabled = true;
             this.cmbUsuario.Location = new System.Drawing.Point(10, 45);
             this.cmbUsuario.Name = "cmbUsuario";
@@ -190,14 +192,14 @@
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
-            // Consultar
+            // ConsultarBitacora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(613, 586);
             this.Controls.Add(this.groupBox1);
-            this.Name = "Consultar";
+            this.Name = "ConsultarBitacora";
             this.Text = "Consultar Bitacora";
             this.Load += new System.EventHandler(this.Consultar_Load);
             this.groupBox1.ResumeLayout(false);

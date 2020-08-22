@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CandySur.SEG.Service
 {
-    public class DataBaseService
+    public class DataBase
     {
         Repository.DataBase repository = new Repository.DataBase();
 

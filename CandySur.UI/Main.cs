@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CandySur.SEG.Util;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,9 @@ namespace CandySur.UI
 {
     public partial class Main : Form
     {
+        SEG.Service.Usuario usuarioService = new SEG.Service.Usuario();
+        SEG.Service.Bitacora bitacoraService = new SEG.Service.Bitacora();
+        SEG.Entity.Usuario usuario;
         public Main()
         {
             InitializeComponent();
@@ -41,6 +45,25 @@ namespace CandySur.UI
             var altaUsuario = new Usuario.AltaUsuario();
             altaUsuario.MdiParent = this;
             altaUsuario.Show();
+        }
+
+        private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Desea cerrar sesión?", "Cerrar Sesión", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if(result == DialogResult.Yes)
+            {
+                SEG.Entity.Bitacora reg = new SEG.Entity.Bitacora
+                {
+                    IdUsuario = usuario.Id,
+                    IdCriticidad = (int)Enums.Criticidad.Baja,
+                    Descripcion = "Cierre de sesión"
+                };
+
+                bitacoraService.Registrar(reg);
+
+                this.Close();
+            }
         }
     }
 }

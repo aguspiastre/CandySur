@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CandySur.SEG.Entity
+namespace CandySur.SEG.Service
 {
     public abstract class Permiso
     {
-        public int Id { get; set; }
-        public string Nombre { get; set; }
-        public string DVH { get; set; }
+        public abstract List<Permiso> Listar();
 
+        public abstract Permiso Consultar();
     }
 }

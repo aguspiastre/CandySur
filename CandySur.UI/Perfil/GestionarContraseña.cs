@@ -13,12 +13,14 @@ namespace CandySur.UI.Perfil
 {
     public partial class GestionarContraseña : Form
     {
+        private CandySur.SEG.Entity.SessionManager Session;
         SEG.Service.Usuario usuarioService = new SEG.Service.Usuario();
-        SEG.Service.BitacoraService bitacoraService = new SEG.Service.BitacoraService();
-        SEG.Entity.Usuario usuario;
+        SEG.Service.Bitacora bitacoraService = new SEG.Service.Bitacora();
 
         public GestionarContraseña()
         {
+            Session = SEG.Entity.SessionManager.GetInstance();
+
             InitializeComponent();
         }
 
@@ -34,11 +36,11 @@ namespace CandySur.UI.Perfil
                 }
                 else
                 {
-                    usuarioService.CambiarContraseña(usuario.Nombre, txtContraseñaActual.Text, txtRepetirpw.Text);
+                    usuarioService.CambiarContraseña(Session.Usuario.Nombre, txtContraseñaActual.Text, txtRepetirpw.Text);
 
                     SEG.Entity.Bitacora reg = new SEG.Entity.Bitacora
                     {
-                        IdUsuario = usuario.Id,
+                        IdUsuario = Session.Usuario.Id,
                         IdCriticidad = (int)Enums.Criticidad.Media,
                         Descripcion = "Contraseña modificada."
                     };
@@ -74,6 +76,11 @@ namespace CandySur.UI.Perfil
             }
 
             return string.Empty;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

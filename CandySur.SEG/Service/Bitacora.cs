@@ -10,7 +10,7 @@ using static CandySur.SEG.Util.Enums;
 
 namespace CandySur.SEG.Service
 {
-    public class BitacoraService
+    public class Bitacora
     {
         Repository.Bitacora repository = new Repository.Bitacora();
         Service.DigitoVerificador dv = new Service.DigitoVerificador();
