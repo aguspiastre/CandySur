@@ -58,11 +58,11 @@
     <Compile Include="Backup-Restore\ReestablecerSistema.Designer.cs">
       <DependentUpon>ReestablecerSistema.cs</DependentUpon>
     </Compile>
-    <Compile Include="Bitacora\Consultar.cs">
+    <Compile Include="Bitacora\ConsultarBitacora.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Bitacora\Consultar.Designer.cs">
-      <DependentUpon>Consultar.cs</DependentUpon>
+    <Compile Include="Bitacora\ConsultarBitacora.Designer.cs">
+      <DependentUpon>ConsultarBitacora.cs</DependentUpon>
     </Compile>
     <Compile Include="Descuentos\Descuentos.cs">
       <SubType>Form</SubType>
@@ -136,6 +136,12 @@
     <Compile Include="Login\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
     <Compile Include="Paquete\Alta_Paquete.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,11 +172,11 @@
     <Compile Include="Patente\Listar.Designer.cs">
       <DependentUpon>Listar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Perfil\Gestionar.cs">
+    <Compile Include="Perfil\GestionarContraseña.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Perfil\Gestionar.Designer.cs">
-      <DependentUpon>Gestionar.cs</DependentUpon>
+    <Compile Include="Perfil\GestionarContraseña.Designer.cs">
+      <DependentUpon>GestionarContraseña.cs</DependentUpon>
     </Compile>
     <Compile Include="Proveedor\EnviarMail.cs">
       <SubType>Form</SubType>
@@ -208,23 +214,23 @@
     <Compile Include="Resto\Resto.Designer.cs">
       <DependentUpon>Resto.cs</DependentUpon>
     </Compile>
-    <Compile Include="Usuario\Alta.cs">
+    <Compile Include="Usuario\AltaUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Usuario\Alta.Designer.cs">
-      <DependentUpon>Alta.cs</DependentUpon>
+    <Compile Include="Usuario\AltaUsuario.Designer.cs">
+      <DependentUpon>AltaUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Usuario\Gestionar.cs">
+    <Compile Include="Usuario\GestionarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Usuario\Gestionar.Designer.cs">
-      <DependentUpon>Gestionar.cs</DependentUpon>
+    <Compile Include="Usuario\GestionarUsuario.Designer.cs">
+      <DependentUpon>GestionarUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Usuario\Listar.cs">
+    <Compile Include="Usuario\ListarUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Usuario\Listar.Designer.cs">
-      <DependentUpon>Listar.cs</DependentUpon>
+    <Compile Include="Usuario\ListarUsuarios.Designer.cs">
+      <DependentUpon>ListarUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Ventas\Gestionar_Venta.cs">
       <SubType>Form</SubType>
@@ -252,8 +258,8 @@
     <EmbeddedResource Include="Backup-Restore\ReestablecerSistema.resx">
       <DependentUpon>ReestablecerSistema.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Bitacora\Consultar.resx">
-      <DependentUpon>Consultar.cs</DependentUpon>
+    <EmbeddedResource Include="Bitacora\ConsultarBitacora.resx">
+      <DependentUpon>ConsultarBitacora.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Descuentos\Descuentos.resx">
       <DependentUpon>Descuentos.cs</DependentUpon>
@@ -291,6 +297,9 @@
     <EmbeddedResource Include="Login\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Paquete\Alta_Paquete.resx">
       <DependentUpon>Alta_Paquete.cs</DependentUpon>
     </EmbeddedResource>
@@ -306,8 +315,8 @@
     <EmbeddedResource Include="Patente\Listar.resx">
       <DependentUpon>Listar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Perfil\Gestionar.resx">
-      <DependentUpon>Gestionar.cs</DependentUpon>
+    <EmbeddedResource Include="Perfil\GestionarContraseña.resx">
+      <DependentUpon>GestionarContraseña.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Proveedor\EnviarMail.resx">
       <DependentUpon>EnviarMail.cs</DependentUpon>
@@ -327,14 +336,14 @@
     <EmbeddedResource Include="Resto\Resto.resx">
       <DependentUpon>Resto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Usuario\Alta.resx">
-      <DependentUpon>Alta.cs</DependentUpon>
+    <EmbeddedResource Include="Usuario\AltaUsuario.resx">
+      <DependentUpon>AltaUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Usuario\Gestionar.resx">
-      <DependentUpon>Gestionar.cs</DependentUpon>
+    <EmbeddedResource Include="Usuario\GestionarUsuario.resx">
+      <DependentUpon>GestionarUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Usuario\Listar.resx">
-      <DependentUpon>Listar.cs</DependentUpon>
+    <EmbeddedResource Include="Usuario\ListarUsuarios.resx">
+      <DependentUpon>ListarUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventas\Gestionar_Venta.resx">
       <DependentUpon>Gestionar_Venta.cs</DependentUpon>
@@ -377,7 +386,12 @@
   <ItemGroup>
     <None Include="Resources\minus-2-icon-14-256.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\CandySur.SEG\CandySur.SEG.csproj">
+      <Project>{78bb57ec-de85-4411-8fa9-dfab57451b66}</Project>
+      <Name>CandySur.SEG</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

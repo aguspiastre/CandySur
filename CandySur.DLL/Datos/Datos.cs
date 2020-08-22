@@ -53,9 +53,29 @@ namespace CandySur.DLL
             }
         }
 
+        public string ExecuteScalar(string sqlString)
+        {
+            try
+            {
+                DataTable table = new DataTable();
+                SqlCommand command = new SqlCommand(sqlString, ObtenerConexion());
+
+                command.CommandType = System.Data.CommandType.Text;
+
+                if (command.Connection.State == System.Data.ConnectionState.Closed)
+                    command.Connection.Open();
+
+                return command.ExecuteScalar().ToString();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         private SqlConnection ObtenerConexion()
         {
-            return new SqlConnection(ConfigurationManager.ConnectionStrings["conn"].ConnectionString);
+            return new SqlConnection(ConfigurationManager.AppSettings["conn"].ToString());
         }
     }
 }

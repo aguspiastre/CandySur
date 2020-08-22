@@ -1,6 +1,6 @@
 ﻿namespace CandySur.UI.Usuario
 {
-    partial class Alta
+    partial class AltaUsuario
     {
         /// <summary>
         /// Required designer variable.
@@ -30,25 +30,25 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateFechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.txtUsername = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
+            this.txtDireccion = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.txtApellido = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.txtDni = new System.Windows.Forms.TextBox();
             this.button6 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnFinalizar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -59,7 +59,7 @@
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.button6);
             this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btnFinalizar);
             this.groupBox1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(3, 5);
             this.groupBox1.Name = "groupBox1";
@@ -70,22 +70,22 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.dateTimePicker1);
+            this.groupBox2.Controls.Add(this.dateFechaNacimiento);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.textBox8);
+            this.groupBox2.Controls.Add(this.txtEmail);
             this.groupBox2.Controls.Add(this.label14);
-            this.groupBox2.Controls.Add(this.textBox12);
+            this.groupBox2.Controls.Add(this.txtUsername);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.textBox13);
-            this.groupBox2.Controls.Add(this.textBox10);
-            this.groupBox2.Controls.Add(this.textBox9);
+            this.groupBox2.Controls.Add(this.txtTelefono);
+            this.groupBox2.Controls.Add(this.txtDireccion);
+            this.groupBox2.Controls.Add(this.txtNombre);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.textBox11);
+            this.groupBox2.Controls.Add(this.txtApellido);
             this.groupBox2.Controls.Add(this.label13);
-            this.groupBox2.Controls.Add(this.textBox14);
+            this.groupBox2.Controls.Add(this.txtDni);
             this.groupBox2.Location = new System.Drawing.Point(10, 98);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(582, 233);
@@ -93,12 +93,12 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "DATOS DEL USUARIO:";
             // 
-            // dateTimePicker1
+            // dateFechaNacimiento
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(291, 92);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(282, 26);
-            this.dateTimePicker1.TabIndex = 29;
+            this.dateFechaNacimiento.Location = new System.Drawing.Point(291, 92);
+            this.dateFechaNacimiento.Name = "dateFechaNacimiento";
+            this.dateFechaNacimiento.Size = new System.Drawing.Size(282, 26);
+            this.dateFechaNacimiento.TabIndex = 29;
             // 
             // label1
             // 
@@ -114,19 +114,18 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(6, 22);
+            this.label4.Location = new System.Drawing.Point(8, 70);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(37, 19);
             this.label4.TabIndex = 18;
             this.label4.Text = "DNI:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
-            // textBox8
+            // txtEmail
             // 
-            this.textBox8.Location = new System.Drawing.Point(10, 194);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(263, 26);
-            this.textBox8.TabIndex = 27;
+            this.txtEmail.Location = new System.Drawing.Point(10, 194);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(263, 26);
+            this.txtEmail.TabIndex = 27;
             // 
             // label14
             // 
@@ -138,13 +137,13 @@
             this.label14.TabIndex = 16;
             this.label14.Text = "Nombre de usuario:";
             // 
-            // textBox12
+            // txtUsername
             // 
-            this.textBox12.Enabled = false;
-            this.textBox12.Location = new System.Drawing.Point(10, 143);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(263, 26);
-            this.textBox12.TabIndex = 21;
+            this.txtUsername.Enabled = false;
+            this.txtUsername.Location = new System.Drawing.Point(10, 143);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(263, 26);
+            this.txtUsername.TabIndex = 21;
             // 
             // label12
             // 
@@ -166,26 +165,27 @@
             this.label11.TabIndex = 13;
             this.label11.Text = "Dirección:";
             // 
-            // textBox13
+            // txtTelefono
             // 
-            this.textBox13.Location = new System.Drawing.Point(291, 194);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(282, 26);
-            this.textBox13.TabIndex = 25;
+            this.txtTelefono.Location = new System.Drawing.Point(291, 194);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(282, 26);
+            this.txtTelefono.TabIndex = 25;
             // 
-            // textBox10
+            // txtDireccion
             // 
-            this.textBox10.Location = new System.Drawing.Point(291, 143);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(282, 26);
-            this.textBox10.TabIndex = 22;
+            this.txtDireccion.Location = new System.Drawing.Point(291, 143);
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Size = new System.Drawing.Size(282, 26);
+            this.txtDireccion.TabIndex = 22;
             // 
-            // textBox9
+            // txtNombre
             // 
-            this.textBox9.Location = new System.Drawing.Point(290, 41);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(283, 26);
-            this.textBox9.TabIndex = 10;
+            this.txtNombre.Location = new System.Drawing.Point(10, 41);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(263, 26);
+            this.txtNombre.TabIndex = 10;
+            this.txtNombre.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtNombre_KeyUp);
             // 
             // label8
             // 
@@ -201,35 +201,36 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(286, 22);
+            this.label9.Location = new System.Drawing.Point(8, 22);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(64, 19);
             this.label9.TabIndex = 4;
             this.label9.Text = "Nombre:";
             // 
-            // textBox11
+            // txtApellido
             // 
-            this.textBox11.Location = new System.Drawing.Point(10, 92);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(263, 26);
-            this.textBox11.TabIndex = 14;
+            this.txtApellido.Location = new System.Drawing.Point(291, 41);
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.Size = new System.Drawing.Size(282, 26);
+            this.txtApellido.TabIndex = 14;
+            this.txtApellido.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtApellido_KeyUp);
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(6, 70);
+            this.label13.Location = new System.Drawing.Point(290, 22);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(66, 19);
             this.label13.TabIndex = 15;
             this.label13.Text = "Apellido:";
             // 
-            // textBox14
+            // txtDni
             // 
-            this.textBox14.Location = new System.Drawing.Point(10, 41);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(263, 26);
-            this.textBox14.TabIndex = 19;
+            this.txtDni.Location = new System.Drawing.Point(10, 92);
+            this.txtDni.Name = "txtDni";
+            this.txtDni.Size = new System.Drawing.Size(263, 26);
+            this.txtDni.TabIndex = 19;
             // 
             // button6
             // 
@@ -245,33 +246,34 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global:: CandySur.UI.Properties.Resources.FINAL;
+            this.pictureBox1.Image = global::CandySur.UI.Properties.Resources.FINAL;
             this.pictureBox1.Location = new System.Drawing.Point(10, 20);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(582, 72);
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
-            // button1
+            // btnFinalizar
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Green;
-            this.button1.Location = new System.Drawing.Point(436, 335);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 31);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Finalizar";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnFinalizar.BackColor = System.Drawing.Color.Transparent;
+            this.btnFinalizar.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFinalizar.ForeColor = System.Drawing.Color.Green;
+            this.btnFinalizar.Location = new System.Drawing.Point(436, 335);
+            this.btnFinalizar.Name = "btnFinalizar";
+            this.btnFinalizar.Size = new System.Drawing.Size(75, 31);
+            this.btnFinalizar.TabIndex = 2;
+            this.btnFinalizar.Text = "Finalizar";
+            this.btnFinalizar.UseVisualStyleBackColor = false;
+            this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
             // 
-            // Alta
+            // AltaUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(618, 385);
             this.Controls.Add(this.groupBox1);
-            this.Name = "Alta";
+            this.Name = "AltaUsuario";
             this.Text = "Alta";
             this.Load += new System.EventHandler(this.Alta_Load);
             this.groupBox1.ResumeLayout(false);
@@ -287,23 +289,23 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox txtDireccion;
+        private System.Windows.Forms.TextBox txtApellido;
+        private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.TextBox txtDni;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button btnFinalizar;
+        private System.Windows.Forms.DateTimePicker dateFechaNacimiento;
         private System.Windows.Forms.Label label1;
     }
 }

@@ -33,6 +33,8 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,12 +48,17 @@
     <Compile Include="Entity\Patente.cs" />
     <Compile Include="Entity\Permiso.cs" />
     <Compile Include="Entity\Usuario.cs" />
+    <Compile Include="Util\Enums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\BitacoraRepository.cs" />
+    <Compile Include="Repository\Bitacora.cs" />
     <Compile Include="Repository\DataBase.cs" />
+    <Compile Include="Repository\DigitoVerificador.cs" />
+    <Compile Include="Repository\Usuario.cs" />
     <Compile Include="Request\RequestConsultarBitacora.cs" />
+    <Compile Include="Service\Usuario.cs" />
     <Compile Include="Service\BitacoraService.cs" />
     <Compile Include="Service\DataBaseService.cs" />
+    <Compile Include="Service\DigitoVerificador.cs" />
     <Compile Include="Util\Encrypt.cs" />
   </ItemGroup>
   <ItemGroup />
@@ -59,6 +66,10 @@
     <ProjectReference Include="..\CandySur.DLL\CandySur.DLL.csproj">
       <Project>{3ed96596-13e7-449e-a274-ea77fc268313}</Project>
       <Name>CandySur.DLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CandySur.UTIL\CandySur.UTIL.csproj">
+      <Project>{70b7baef-300a-4802-92da-33ac91885c82}</Project>
+      <Name>CandySur.UTIL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CandySur.UI.Usuario
 {
-    public partial class Gestionar : Form
+    public partial class ListarUsuarios : Form
     {
-        public Gestionar()
+        public ListarUsuarios()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
 ﻿namespace CandySur.UI.Usuario
 {
-    partial class Listar
+    partial class ListarUsuarios
     {
         /// <summary>
         /// Required designer variable.

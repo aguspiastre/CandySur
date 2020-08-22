@@ -2,19 +2,20 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CandySur.SEG.Repository
 {
-    public class BitacoraRepository
+    public class Bitacora
     {
         private CandySur.DLL.Datos db = new CandySur.DLL.Datos();
         public int Registrar(Entity.Bitacora reg)
         {
             string sqlCommand = @"INSERT INTO bitacora (FECHA, ID_CRITICIDAD, DESCRIPCION, ID_USUARIO, DVH)
-                                VALUES (" + reg.Fecha + "," + reg.IdCriticidad + "," + reg.Descripcion + "," + reg.IdUsuario + "," + reg.DVH + ")";
+                                VALUES (" + DateTime.Now.ToString() + "," + reg.IdCriticidad + "," + reg.Descripcion + "," + reg.IdUsuario + "," + reg.DVH + ")";
 
             return db.ExecuteSqlCommand(sqlCommand);
         }
@@ -26,7 +27,7 @@ namespace CandySur.SEG.Repository
                                 INNER JOIN criticidad c on c.id = b.id
                                 INNER JOIN usuario u on u.Id = b.Id_Usuario";
 
-            string sqlWhere = " WHERE b.Fecha BEETWEEN " + request.FechaDesde + "AND " + request.FechaHasta;
+            string sqlWhere = " WHERE b.Fecha BETWEEN " + "'" + Convert.ToDateTime(request.FechaDesde).ToShortDateString() + "'" + " AND " + "'" + Convert.ToDateTime(request.FechaHasta).ToShortDateString() + "'";
 
             if (request.IdCriticidad != null)
                 sqlWhere += " AND c.id =" + request.IdCriticidad;

@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CandySur.UI.Perfil
+namespace CandySur.UI.Usuario
 {
-    public partial class Gestionar : Form
+    public partial class GestionarUsuario : Form
     {
-        public Gestionar()
+        public GestionarUsuario()
         {
             InitializeComponent();
         }

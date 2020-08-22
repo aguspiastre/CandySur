@@ -29,26 +29,27 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GenerarContraseña));
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnGenerarContraseña = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // btnGenerarContraseña
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Green;
-            this.button1.Location = new System.Drawing.Point(246, 129);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(143, 31);
-            this.button1.TabIndex = 32;
-            this.button1.Text = "Generar Contraseña";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnGenerarContraseña.BackColor = System.Drawing.Color.Transparent;
+            this.btnGenerarContraseña.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerarContraseña.ForeColor = System.Drawing.Color.Green;
+            this.btnGenerarContraseña.Location = new System.Drawing.Point(246, 129);
+            this.btnGenerarContraseña.Name = "btnGenerarContraseña";
+            this.btnGenerarContraseña.Size = new System.Drawing.Size(143, 31);
+            this.btnGenerarContraseña.TabIndex = 32;
+            this.btnGenerarContraseña.Text = "Generar Contraseña";
+            this.btnGenerarContraseña.UseVisualStyleBackColor = false;
+            this.btnGenerarContraseña.Click += new System.EventHandler(this.btnGenerarContraseña_Click);
             // 
             // label5
             // 
@@ -60,13 +61,13 @@
             this.label5.TabIndex = 28;
             this.label5.Text = "E-mail:";
             // 
-            // textBox3
+            // txtEmail
             // 
-            this.textBox3.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(203, 88);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(214, 26);
-            this.textBox3.TabIndex = 29;
+            this.txtEmail.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Location = new System.Drawing.Point(203, 88);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(214, 26);
+            this.txtEmail.TabIndex = 29;
             // 
             // pictureBox1
             // 
@@ -87,13 +88,13 @@
             this.label1.TabIndex = 33;
             this.label1.Text = "Usuario:";
             // 
-            // textBox1
+            // txtUsuario
             // 
-            this.textBox1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(203, 31);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(214, 26);
-            this.textBox1.TabIndex = 34;
+            this.txtUsuario.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsuario.Location = new System.Drawing.Point(203, 31);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(214, 26);
+            this.txtUsuario.TabIndex = 34;
             // 
             // GenerarContraseña
             // 
@@ -102,10 +103,10 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(425, 172);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.txtUsuario);
+            this.Controls.Add(this.btnGenerarContraseña);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.pictureBox1);
             this.Name = "GenerarContraseña";
             this.Text = "Generar Contraseña";
@@ -116,11 +117,11 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnGenerarContraseña;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtUsuario;
     }
 }

@@ -16,7 +16,7 @@ namespace CandySur.UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Usuario.Alta());
+            Application.Run(new Main());
         }
     }
 }

@@ -5,11 +5,11 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CandySur.BLL
+namespace CandySur.UTIL
 {
     public class Mail
     {
-        public static void EnviarMail(string cliente, string mailUsuario, string asunto, string body)
+        public static void EnviarMail(string mailUsuario, string asunto, string body)
         {
             MailMessage mail = new MailMessage();
             SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
@@ -25,6 +25,5 @@ namespace CandySur.BLL
 
             SmtpServer.Send(mail);
         }
-
     }
 }
