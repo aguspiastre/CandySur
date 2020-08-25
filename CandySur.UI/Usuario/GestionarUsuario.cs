@@ -61,7 +61,7 @@ namespace CandySur.UI.Usuario
         {
             try
             {
-                if (!String.IsNullOrEmpty(txtUsername.Text))
+                if (String.IsNullOrEmpty(txtUsername.Text))
                 {
                     MessageBox.Show("El campo nombre es requerido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }

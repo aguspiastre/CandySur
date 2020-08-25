@@ -1,6 +1,6 @@
 ﻿namespace CandySur.UI.Patente
 {
-    partial class Asignar
+    partial class AsignarPatenteUsuario
     {
         /// <summary>
         /// Required designer variable.
@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Asignar));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AsignarPatenteUsuario));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnAceptar = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.listView2 = new System.Windows.Forms.ListView();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.listPatenteAsignar = new System.Windows.Forms.ListView();
+            this.listPatenteDesasignar = new System.Windows.Forms.ListView();
+            this.btnDesasignar = new System.Windows.Forms.Button();
+            this.btnAsignar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.txtNombreUsuario = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnBuscarProducto = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -51,7 +51,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.btnAceptar);
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.pictureBox1);
@@ -63,26 +63,27 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ASIGNAR PATENTE A USUARIO";
             // 
-            // button3
+            // btnAceptar
             // 
-            this.button3.BackColor = System.Drawing.Color.Transparent;
-            this.button3.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.Green;
-            this.button3.Location = new System.Drawing.Point(517, 454);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 31);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "Aceptar";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnAceptar.BackColor = System.Drawing.Color.Transparent;
+            this.btnAceptar.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAceptar.ForeColor = System.Drawing.Color.Green;
+            this.btnAceptar.Location = new System.Drawing.Point(517, 454);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(75, 31);
+            this.btnAceptar.TabIndex = 6;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.UseVisualStyleBackColor = false;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Controls.Add(this.listView1);
-            this.groupBox3.Controls.Add(this.listView2);
-            this.groupBox3.Controls.Add(this.button2);
-            this.groupBox3.Controls.Add(this.button1);
+            this.groupBox3.Controls.Add(this.listPatenteAsignar);
+            this.groupBox3.Controls.Add(this.listPatenteDesasignar);
+            this.groupBox3.Controls.Add(this.btnDesasignar);
+            this.groupBox3.Controls.Add(this.btnAsignar);
             this.groupBox3.Location = new System.Drawing.Point(10, 193);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(582, 255);
@@ -108,50 +109,52 @@
             this.label1.TabIndex = 23;
             this.label1.Text = "Patentes  a Asignar";
             // 
-            // listView1
+            // listPatenteAsignar
             // 
-            this.listView1.Location = new System.Drawing.Point(6, 45);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(222, 191);
-            this.listView1.TabIndex = 22;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listPatenteAsignar.Location = new System.Drawing.Point(6, 45);
+            this.listPatenteAsignar.Name = "listPatenteAsignar";
+            this.listPatenteAsignar.Size = new System.Drawing.Size(222, 191);
+            this.listPatenteAsignar.TabIndex = 22;
+            this.listPatenteAsignar.UseCompatibleStateImageBehavior = false;
             // 
-            // listView2
+            // listPatenteDesasignar
             // 
-            this.listView2.Location = new System.Drawing.Point(351, 45);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(222, 191);
-            this.listView2.TabIndex = 21;
-            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.listPatenteDesasignar.Location = new System.Drawing.Point(351, 45);
+            this.listPatenteDesasignar.Name = "listPatenteDesasignar";
+            this.listPatenteDesasignar.Size = new System.Drawing.Size(222, 191);
+            this.listPatenteDesasignar.TabIndex = 21;
+            this.listPatenteDesasignar.UseCompatibleStateImageBehavior = false;
             // 
-            // button2
+            // btnDesasignar
             // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button2.Location = new System.Drawing.Point(234, 139);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(111, 31);
-            this.button2.TabIndex = 17;
-            this.button2.Text = "<- Desasignar ";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnDesasignar.BackColor = System.Drawing.Color.Transparent;
+            this.btnDesasignar.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDesasignar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnDesasignar.Location = new System.Drawing.Point(234, 139);
+            this.btnDesasignar.Name = "btnDesasignar";
+            this.btnDesasignar.Size = new System.Drawing.Size(111, 31);
+            this.btnDesasignar.TabIndex = 17;
+            this.btnDesasignar.Text = "<- Desasignar ";
+            this.btnDesasignar.UseVisualStyleBackColor = false;
+            this.btnDesasignar.Click += new System.EventHandler(this.btnDesasignar_Click);
             // 
-            // button1
+            // btnAsignar
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Blue;
-            this.button1.Location = new System.Drawing.Point(234, 102);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(111, 31);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Asignar ->";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnAsignar.BackColor = System.Drawing.Color.Transparent;
+            this.btnAsignar.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAsignar.ForeColor = System.Drawing.Color.Blue;
+            this.btnAsignar.Location = new System.Drawing.Point(234, 102);
+            this.btnAsignar.Name = "btnAsignar";
+            this.btnAsignar.Size = new System.Drawing.Size(111, 31);
+            this.btnAsignar.TabIndex = 2;
+            this.btnAsignar.Text = "Asignar ->";
+            this.btnAsignar.UseVisualStyleBackColor = false;
+            this.btnAsignar.Click += new System.EventHandler(this.btnAsignar_Click);
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox12);
-            this.groupBox2.Controls.Add(this.btnBuscarProducto);
+            this.groupBox2.Controls.Add(this.txtNombreUsuario);
+            this.groupBox2.Controls.Add(this.btnBuscar);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Location = new System.Drawing.Point(10, 99);
             this.groupBox2.Name = "groupBox2";
@@ -160,12 +163,22 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "FILTROS DE BUSQUEDA";
             // 
-            // textBox12
+            // txtNombreUsuario
             // 
-            this.textBox12.Location = new System.Drawing.Point(10, 43);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(211, 26);
-            this.textBox12.TabIndex = 35;
+            this.txtNombreUsuario.Location = new System.Drawing.Point(10, 43);
+            this.txtNombreUsuario.Name = "txtNombreUsuario";
+            this.txtNombreUsuario.Size = new System.Drawing.Size(211, 26);
+            this.txtNombreUsuario.TabIndex = 35;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
+            this.btnBuscar.Location = new System.Drawing.Point(227, 41);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(43, 29);
+            this.btnBuscar.TabIndex = 34;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // label5
             // 
@@ -177,15 +190,6 @@
             this.label5.TabIndex = 18;
             this.label5.Text = "Nombre del usuario:";
             // 
-            // btnBuscarProducto
-            // 
-            this.btnBuscarProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarProducto.Image")));
-            this.btnBuscarProducto.Location = new System.Drawing.Point(227, 41);
-            this.btnBuscarProducto.Name = "btnBuscarProducto";
-            this.btnBuscarProducto.Size = new System.Drawing.Size(43, 29);
-            this.btnBuscarProducto.TabIndex = 34;
-            this.btnBuscarProducto.UseVisualStyleBackColor = true;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::CandySur.UI.Properties.Resources.FINAL;
@@ -195,15 +199,16 @@
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
-            // Asignar
+            // AsignarPatenteUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(611, 503);
             this.Controls.Add(this.groupBox1);
-            this.Name = "Asignar";
+            this.Name = "AsignarPatenteUsuario";
             this.Text = "Gestion de Patentes";
+            this.Load += new System.EventHandler(this.AsignarPatenteUsuario_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
@@ -217,17 +222,17 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ListView listView2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ListView listPatenteAsignar;
+        private System.Windows.Forms.ListView listPatenteDesasignar;
+        private System.Windows.Forms.Button btnDesasignar;
+        private System.Windows.Forms.Button btnAsignar;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.Button btnBuscarProducto;
+        private System.Windows.Forms.TextBox txtNombreUsuario;
+        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pictureBox1;
     }

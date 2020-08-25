@@ -49,6 +49,8 @@
     <Compile Include="Entity\Permiso.cs" />
     <Compile Include="Entity\SessionManager.cs" />
     <Compile Include="Entity\Usuario.cs" />
+    <Compile Include="Repository\Familia.cs" />
+    <Compile Include="Repository\Patente.cs" />
     <Compile Include="Service\Familia.cs" />
     <Compile Include="Service\Patente.cs" />
     <Compile Include="Service\Permiso.cs" />

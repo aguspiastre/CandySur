@@ -76,35 +76,35 @@
     <Compile Include="Descuentos\Gestionar.Designer.cs">
       <DependentUpon>Gestionar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Familia\Alta.cs">
+    <Compile Include="Familia\AltaFamilia.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Familia\Alta.Designer.cs">
-      <DependentUpon>Alta.cs</DependentUpon>
+    <Compile Include="Familia\AltaFamilia.Designer.cs">
+      <DependentUpon>AltaFamilia.cs</DependentUpon>
     </Compile>
-    <Compile Include="Familia\Asignar.cs">
+    <Compile Include="Familia\AsignarFamiliaUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Familia\Asignar.Designer.cs">
-      <DependentUpon>Asignar.cs</DependentUpon>
+    <Compile Include="Familia\AsignarFamiliaUsuario.Designer.cs">
+      <DependentUpon>AsignarFamiliaUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Familia\Gestionar.cs">
+    <Compile Include="Familia\GestionarFamilia.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Familia\Gestionar.Designer.cs">
-      <DependentUpon>Gestionar.cs</DependentUpon>
+    <Compile Include="Familia\GestionarFamilia.Designer.cs">
+      <DependentUpon>GestionarFamilia.cs</DependentUpon>
     </Compile>
-    <Compile Include="Familia\GestionPatentes.cs">
+    <Compile Include="Familia\AsignarPatentesFamilia.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Familia\GestionPatentes.Designer.cs">
-      <DependentUpon>GestionPatentes.cs</DependentUpon>
+    <Compile Include="Familia\AsignarPatentesFamilia.Designer.cs">
+      <DependentUpon>AsignarPatentesFamilia.cs</DependentUpon>
     </Compile>
-    <Compile Include="Familia\Listar.cs">
+    <Compile Include="Familia\ListarFamilias.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Familia\Listar.Designer.cs">
-      <DependentUpon>Listar.cs</DependentUpon>
+    <Compile Include="Familia\ListarFamilias.Designer.cs">
+      <DependentUpon>ListarFamilias.cs</DependentUpon>
     </Compile>
     <Compile Include="Golosina\Alta_Golosina.cs">
       <SubType>Form</SubType>
@@ -160,17 +160,17 @@
     <Compile Include="Paquete\Listado_Paquetes.Designer.cs">
       <DependentUpon>Listado_Paquetes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Patente\Asignar.cs">
+    <Compile Include="Patente\AsignarPatenteUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Patente\Asignar.Designer.cs">
-      <DependentUpon>Asignar.cs</DependentUpon>
+    <Compile Include="Patente\AsignarPatenteUsuario.Designer.cs">
+      <DependentUpon>AsignarPatenteUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Patente\Listar.cs">
+    <Compile Include="Patente\ListarPatentes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Patente\Listar.Designer.cs">
-      <DependentUpon>Listar.cs</DependentUpon>
+    <Compile Include="Patente\ListarPatentes.Designer.cs">
+      <DependentUpon>ListarPatentes.cs</DependentUpon>
     </Compile>
     <Compile Include="Perfil\GestionarContraseña.cs">
       <SubType>Form</SubType>
@@ -267,20 +267,20 @@
     <EmbeddedResource Include="Descuentos\Gestionar.resx">
       <DependentUpon>Gestionar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Familia\Alta.resx">
-      <DependentUpon>Alta.cs</DependentUpon>
+    <EmbeddedResource Include="Familia\AltaFamilia.resx">
+      <DependentUpon>AltaFamilia.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Familia\Asignar.resx">
-      <DependentUpon>Asignar.cs</DependentUpon>
+    <EmbeddedResource Include="Familia\AsignarFamiliaUsuario.resx">
+      <DependentUpon>AsignarFamiliaUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Familia\Gestionar.resx">
-      <DependentUpon>Gestionar.cs</DependentUpon>
+    <EmbeddedResource Include="Familia\GestionarFamilia.resx">
+      <DependentUpon>GestionarFamilia.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Familia\GestionPatentes.resx">
-      <DependentUpon>GestionPatentes.cs</DependentUpon>
+    <EmbeddedResource Include="Familia\AsignarPatentesFamilia.resx">
+      <DependentUpon>AsignarPatentesFamilia.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Familia\Listar.resx">
-      <DependentUpon>Listar.cs</DependentUpon>
+    <EmbeddedResource Include="Familia\ListarFamilias.resx">
+      <DependentUpon>ListarFamilias.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Golosina\Alta_Golosina.resx">
       <DependentUpon>Alta_Golosina.cs</DependentUpon>
@@ -309,11 +309,11 @@
     <EmbeddedResource Include="Paquete\Listado_Paquetes.resx">
       <DependentUpon>Listado_Paquetes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Patente\Asignar.resx">
-      <DependentUpon>Asignar.cs</DependentUpon>
+    <EmbeddedResource Include="Patente\AsignarPatenteUsuario.resx">
+      <DependentUpon>AsignarPatenteUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Patente\Listar.resx">
-      <DependentUpon>Listar.cs</DependentUpon>
+    <EmbeddedResource Include="Patente\ListarPatentes.resx">
+      <DependentUpon>ListarPatentes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Perfil\GestionarContraseña.resx">
       <DependentUpon>GestionarContraseña.cs</DependentUpon>

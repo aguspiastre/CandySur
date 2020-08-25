@@ -1,6 +1,6 @@
 ﻿namespace CandySur.UI.Familia
 {
-    partial class Alta
+    partial class AltaFamilia
     {
         /// <summary>
         /// Required designer variable.
@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Alta));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AltaFamilia));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.button6 = new System.Windows.Forms.Button();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnFinalizar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -46,9 +46,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Controls.Add(this.button6);
+            this.groupBox1.Controls.Add(this.btnCancelar);
             this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btnFinalizar);
             this.groupBox1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(3, 5);
             this.groupBox1.Name = "groupBox1";
@@ -60,9 +60,9 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.textBox11);
+            this.groupBox2.Controls.Add(this.txtDescripcion);
             this.groupBox2.Controls.Add(this.label13);
-            this.groupBox2.Controls.Add(this.textBox14);
+            this.groupBox2.Controls.Add(this.txtNombre);
             this.groupBox2.Location = new System.Drawing.Point(10, 98);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(317, 233);
@@ -80,13 +80,14 @@
             this.label4.TabIndex = 18;
             this.label4.Text = "Nombre:";
             // 
-            // textBox11
+            // txtDescripcion
             // 
-            this.textBox11.Location = new System.Drawing.Point(10, 92);
-            this.textBox11.Multiline = true;
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(298, 130);
-            this.textBox11.TabIndex = 14;
+            this.txtDescripcion.Location = new System.Drawing.Point(10, 92);
+            this.txtDescripcion.MaxLength = 200;
+            this.txtDescripcion.Multiline = true;
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(298, 130);
+            this.txtDescripcion.TabIndex = 14;
             // 
             // label13
             // 
@@ -98,24 +99,24 @@
             this.label13.TabIndex = 15;
             this.label13.Text = "Descripcion:";
             // 
-            // textBox14
+            // txtNombre
             // 
-            this.textBox14.Location = new System.Drawing.Point(10, 41);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(298, 26);
-            this.textBox14.TabIndex = 19;
+            this.txtNombre.Location = new System.Drawing.Point(10, 41);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(298, 26);
+            this.txtNombre.TabIndex = 19;
             // 
-            // button6
+            // btnCancelar
             // 
-            this.button6.BackColor = System.Drawing.Color.Transparent;
-            this.button6.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button6.Location = new System.Drawing.Point(252, 333);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 31);
-            this.button6.TabIndex = 3;
-            this.button6.Text = "Cancelar";
-            this.button6.UseVisualStyleBackColor = false;
+            this.btnCancelar.BackColor = System.Drawing.Color.Transparent;
+            this.btnCancelar.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCancelar.Location = new System.Drawing.Point(252, 333);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 31);
+            this.btnCancelar.TabIndex = 3;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
             // 
             // pictureBox1
             // 
@@ -126,27 +127,29 @@
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
-            // button1
+            // btnFinalizar
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Green;
-            this.button1.Location = new System.Drawing.Point(171, 333);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 31);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Finalizar";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnFinalizar.BackColor = System.Drawing.Color.Transparent;
+            this.btnFinalizar.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFinalizar.ForeColor = System.Drawing.Color.Green;
+            this.btnFinalizar.Location = new System.Drawing.Point(171, 333);
+            this.btnFinalizar.Name = "btnFinalizar";
+            this.btnFinalizar.Size = new System.Drawing.Size(75, 31);
+            this.btnFinalizar.TabIndex = 2;
+            this.btnFinalizar.Text = "Finalizar";
+            this.btnFinalizar.UseVisualStyleBackColor = false;
+            this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
             // 
-            // Alta
+            // AltaFamilia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(349, 382);
             this.Controls.Add(this.groupBox1);
-            this.Name = "Alta";
+            this.Name = "AltaFamilia";
             this.Text = "Familia";
+            this.Load += new System.EventHandler(this.AltaFamilia_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -160,11 +163,11 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnFinalizar;
     }
 }

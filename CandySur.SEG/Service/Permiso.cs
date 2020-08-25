@@ -8,8 +8,12 @@ namespace CandySur.SEG.Service
 {
     public abstract class Permiso
     {
-        public abstract List<Permiso> Listar();
+        public abstract List<Entity.Permiso> Listar();
 
-        public abstract Permiso Consultar();
+        public abstract int Asignar(Entity.Usuario usuario, string nombre);
+
+        public abstract int Desasignar(Entity.Usuario usuario, string nombre);
+
+        public abstract Entity.Permiso Consultar(string nombre);
     }
 }

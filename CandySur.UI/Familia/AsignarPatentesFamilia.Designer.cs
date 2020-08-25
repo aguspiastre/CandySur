@@ -1,6 +1,6 @@
 ﻿namespace CandySur.UI.Familia
 {
-    partial class GestionPatentes
+    partial class AsignarPatentesFamilia
     {
         /// <summary>
         /// Required designer variable.
@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnAceptar = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.listView2 = new System.Windows.Forms.ListView();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.listPatentesAsignar = new System.Windows.Forms.ListView();
+            this.listPatentesDesasignar = new System.Windows.Forms.ListView();
+            this.btnDesasignar = new System.Windows.Forms.Button();
+            this.btnAsignar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cmbFamilia = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -49,7 +49,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.btnAceptar);
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.pictureBox1);
@@ -61,26 +61,27 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ASIGNAR PATENTES A FAMILIA";
             // 
-            // button3
+            // btnAceptar
             // 
-            this.button3.BackColor = System.Drawing.Color.Transparent;
-            this.button3.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.Green;
-            this.button3.Location = new System.Drawing.Point(517, 454);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 31);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "Aceptar";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnAceptar.BackColor = System.Drawing.Color.Transparent;
+            this.btnAceptar.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAceptar.ForeColor = System.Drawing.Color.Green;
+            this.btnAceptar.Location = new System.Drawing.Point(517, 454);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(75, 31);
+            this.btnAceptar.TabIndex = 6;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.UseVisualStyleBackColor = false;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Controls.Add(this.listView1);
-            this.groupBox3.Controls.Add(this.listView2);
-            this.groupBox3.Controls.Add(this.button2);
-            this.groupBox3.Controls.Add(this.button1);
+            this.groupBox3.Controls.Add(this.listPatentesAsignar);
+            this.groupBox3.Controls.Add(this.listPatentesDesasignar);
+            this.groupBox3.Controls.Add(this.btnDesasignar);
+            this.groupBox3.Controls.Add(this.btnAsignar);
             this.groupBox3.Location = new System.Drawing.Point(10, 193);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(582, 255);
@@ -106,49 +107,51 @@
             this.label1.TabIndex = 23;
             this.label1.Text = "Patentes a Asignar";
             // 
-            // listView1
+            // listPatentesAsignar
             // 
-            this.listView1.Location = new System.Drawing.Point(6, 45);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(222, 191);
-            this.listView1.TabIndex = 22;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listPatentesAsignar.Location = new System.Drawing.Point(6, 45);
+            this.listPatentesAsignar.Name = "listPatentesAsignar";
+            this.listPatentesAsignar.Size = new System.Drawing.Size(222, 191);
+            this.listPatentesAsignar.TabIndex = 22;
+            this.listPatentesAsignar.UseCompatibleStateImageBehavior = false;
             // 
-            // listView2
+            // listPatentesDesasignar
             // 
-            this.listView2.Location = new System.Drawing.Point(351, 45);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(222, 191);
-            this.listView2.TabIndex = 21;
-            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.listPatentesDesasignar.Location = new System.Drawing.Point(351, 45);
+            this.listPatentesDesasignar.Name = "listPatentesDesasignar";
+            this.listPatentesDesasignar.Size = new System.Drawing.Size(222, 191);
+            this.listPatentesDesasignar.TabIndex = 21;
+            this.listPatentesDesasignar.UseCompatibleStateImageBehavior = false;
             // 
-            // button2
+            // btnDesasignar
             // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button2.Location = new System.Drawing.Point(234, 139);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(111, 31);
-            this.button2.TabIndex = 17;
-            this.button2.Text = "<- Desasignar ";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnDesasignar.BackColor = System.Drawing.Color.Transparent;
+            this.btnDesasignar.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDesasignar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnDesasignar.Location = new System.Drawing.Point(234, 139);
+            this.btnDesasignar.Name = "btnDesasignar";
+            this.btnDesasignar.Size = new System.Drawing.Size(111, 31);
+            this.btnDesasignar.TabIndex = 17;
+            this.btnDesasignar.Text = "<- Desasignar ";
+            this.btnDesasignar.UseVisualStyleBackColor = false;
+            this.btnDesasignar.Click += new System.EventHandler(this.btnDesasignar_Click);
             // 
-            // button1
+            // btnAsignar
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Blue;
-            this.button1.Location = new System.Drawing.Point(234, 102);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(111, 31);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Asignar ->";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnAsignar.BackColor = System.Drawing.Color.Transparent;
+            this.btnAsignar.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAsignar.ForeColor = System.Drawing.Color.Blue;
+            this.btnAsignar.Location = new System.Drawing.Point(234, 102);
+            this.btnAsignar.Name = "btnAsignar";
+            this.btnAsignar.Size = new System.Drawing.Size(111, 31);
+            this.btnAsignar.TabIndex = 2;
+            this.btnAsignar.Text = "Asignar ->";
+            this.btnAsignar.UseVisualStyleBackColor = false;
+            this.btnAsignar.Click += new System.EventHandler(this.btnAsignar_Click);
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.comboBox1);
+            this.groupBox2.Controls.Add(this.cmbFamilia);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Location = new System.Drawing.Point(10, 99);
             this.groupBox2.Name = "groupBox2";
@@ -156,6 +159,16 @@
             this.groupBox2.TabIndex = 19;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "FILTROS DE BUSQUEDA";
+            // 
+            // cmbFamilia
+            // 
+            this.cmbFamilia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbFamilia.FormattingEnabled = true;
+            this.cmbFamilia.Location = new System.Drawing.Point(10, 44);
+            this.cmbFamilia.Name = "cmbFamilia";
+            this.cmbFamilia.Size = new System.Drawing.Size(218, 26);
+            this.cmbFamilia.TabIndex = 19;
+            this.cmbFamilia.SelectedIndexChanged += new System.EventHandler(this.cmbFamilia_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -176,23 +189,16 @@
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(10, 44);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(218, 26);
-            this.comboBox1.TabIndex = 19;
-            // 
-            // GestionPatentes
+            // AsignarPatentesFamilia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(613, 504);
             this.Controls.Add(this.groupBox1);
-            this.Name = "GestionPatentes";
+            this.Name = "AsignarPatentesFamilia";
             this.Text = "Gestion de Patentes/Familia";
+            this.Load += new System.EventHandler(this.AsignarPatentesFamilia_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
@@ -206,17 +212,17 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ListView listView2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ListView listPatentesAsignar;
+        private System.Windows.Forms.ListView listPatentesDesasignar;
+        private System.Windows.Forms.Button btnDesasignar;
+        private System.Windows.Forms.Button btnAsignar;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbFamilia;
     }
 }
