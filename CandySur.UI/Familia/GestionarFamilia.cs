@@ -49,6 +49,7 @@ namespace CandySur.UI.Familia
                     {
                         IdUsuario = this.Session.Usuario.Id,
                         IdCriticidad = (int)Enums.Criticidad.Baja,
+                        Fecha = DateTime.Now,
                         Descripcion = "Familia eliminada. " + this.cmbFamilia.SelectedText
                     };
 
@@ -84,6 +85,7 @@ namespace CandySur.UI.Familia
                     {
                         IdUsuario = this.Session.Usuario.Id,
                         IdCriticidad = (int)Enums.Criticidad.Baja,
+                        Fecha = DateTime.Now,
                         Descripcion = "Familia modificada. " + txtNombre.Text
                     };
 

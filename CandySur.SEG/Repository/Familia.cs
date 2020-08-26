@@ -11,7 +11,7 @@ namespace CandySur.SEG.Repository
 {
     public class Familia
     {
-        private CandySur.DLL.Datos db = new CandySur.DLL.Datos();
+        private CandySur.DLL.Datos db = CandySur.DLL.Datos.GetInstance();
 
         public int Alta(Entity.Familia familia)
         {

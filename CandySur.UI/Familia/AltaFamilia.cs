@@ -52,6 +52,7 @@ namespace CandySur.UI.Familia
                     {
                         IdUsuario = this.Session.Usuario.Id,
                         IdCriticidad = (int)Enums.Criticidad.Baja,
+                        Fecha = DateTime.Now,
                         Descripcion = "Familia dada de alta. " + txtNombre.Text
                     };
 

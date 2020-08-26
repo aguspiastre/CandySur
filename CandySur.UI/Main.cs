@@ -57,6 +57,7 @@ namespace CandySur.UI
                 {
                     IdUsuario = usuario.Id,
                     IdCriticidad = (int)Enums.Criticidad.Baja,
+                    Fecha = DateTime.Now,
                     Descripcion = "Cierre de sesión"
                 };
 
@@ -64,6 +65,20 @@ namespace CandySur.UI
 
                 this.Close();
             }
+        }
+
+        private void gestionarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var gestionarUsuario = new Usuario.GestionarUsuario();
+            gestionarUsuario.MdiParent = this;
+            gestionarUsuario.Show();
+        }
+
+        private void listarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var listarUsuarios = new Usuario.ListarUsuarios();
+            listarUsuarios.MdiParent = this;
+            listarUsuarios.Show();
         }
     }
 }

@@ -11,14 +11,14 @@ namespace CandySur.SEG.Repository
 {
     public class Usuario
     {
-        private CandySur.DLL.Datos db = new CandySur.DLL.Datos();
+        private CandySur.DLL.Datos db = CandySur.DLL.Datos.GetInstance();
 
         public int Alta(Entity.Usuario usuario)
         {
             string sqlCommand = @"INSERT INTO usuario (NOMBRE, APELLIDO, DNI, NOMBRE_USUARIO, CONTRASEÑA, DIRECCION, TELEFONO, REINTENTOS, MAIL, FECHA_NAC, ELIMINADO, BLOQUEADO, DVH)
-                                VALUES (" + "'" + usuario.Nombre + "'" + "," + "'" + usuario.Apellido + "'" + "," + usuario.DNI + "," + "'" + usuario.Nombre + "'" + "," +
-                                "'" + usuario.Contraseña + "'" + "," + "'" + usuario.Direccion + "'" + "," + usuario.Telefono + "," + 0 + "," + "'" + usuario.Mail + "'" +
-                                "'" + usuario.FechaNac.ToShortDateString() + "'" + "," + usuario.Eliminado + "," + usuario.Bloqueado + "," + "'" + usuario.DVH + "'" + ")";
+                                VALUES (" + "'" + usuario.Nombre + "'" + "," + "'" + usuario.Apellido + "'" + "," + usuario.DNI + "," + "'" + usuario.NombreUsuario + "'" + "," +
+                                "'" + usuario.Contraseña + "'" + "," + "'" + usuario.Direccion + "'" + "," + usuario.Telefono + "," + 0 + "," + "'" + usuario.Mail + "'"  + "," +
+                                "'" + usuario.FechaNac.ToShortDateString() + "'" + "," + Convert.ToInt16(usuario.Eliminado) + "," + Convert.ToInt16(usuario.Bloqueado) + "," + "'" + usuario.DVH + "'" + ")";
 
             return db.ExecuteSqlCommand(sqlCommand);
         }
@@ -55,7 +55,7 @@ namespace CandySur.SEG.Repository
 
         public int ValidarNombre(string username)
         {
-            string sqlCommand = @"SELECT COUNT(*) FROM USUARIO WHERE Nombre_Usuario = " + "'" + username + "'";
+            string sqlCommand = @"SELECT COUNT(*) FROM USUARIO WHERE Nombre_Usuario = " + "'" + username + "'" + " AND Eliminado = 0";
 
             return Convert.ToInt32(db.ExecuteScalar(sqlCommand));
         }
@@ -70,7 +70,7 @@ namespace CandySur.SEG.Repository
 
         public int Eliminar(Entity.Usuario usuario, string DVH)
         {
-            string sqlCommand = @"UPDATE Usuario SET DVH=" + "'" + DVH + "'" + "," + "Eliminado=" + usuario.Eliminado + " WHERE Id=" + usuario.Id;
+            string sqlCommand = @"UPDATE Usuario SET DVH=" + "'" + DVH + "'" + "," + "Eliminado=" + Convert.ToInt16(usuario.Eliminado) + " WHERE Id=" + usuario.Id;
 
             return db.ExecuteSqlCommand(sqlCommand);
         }
@@ -78,14 +78,14 @@ namespace CandySur.SEG.Repository
         public int Modificar(Entity.Usuario usuario, string DVH)
         {
             string sqlCommand = @"UPDATE Usuario SET DVH=" + "'" + DVH + "'" + "," + "Direccion=" + "'" + usuario.Direccion + "'" + ","
-                + "Mail=" + "'" + usuario.Mail + "'" + "," + "Telefono=" + "'" + usuario.Telefono + "'" + "," + " WHERE Id=" + usuario.Id;
+                + "Mail=" + "'" + usuario.Mail + "'" + "," + "Telefono=" + "'" + usuario.Telefono + "'" + " WHERE Id=" + usuario.Id;
 
             return db.ExecuteSqlCommand(sqlCommand);
         }
 
         public Entity.Usuario Consultar(string username)
         {
-            string sqlCommand = @"SELECT * FROM USUARIO WHERE Nombre_Usuario = " + "'" + username + "'";
+            string sqlCommand = @"SELECT * FROM USUARIO WHERE Nombre_Usuario = " + "'" + username + "'" + " AND Eliminado = 0";
 
             DataTable tabla = db.ExecuteReader(sqlCommand);
 
@@ -118,7 +118,7 @@ namespace CandySur.SEG.Repository
             string sqlWhere = string.Empty;
 
             if (filtrarBloqueados == 1)
-                sqlWhere = " WHERE Bloqueado = 1";
+                sqlWhere = " AND Bloqueado = 1";
 
             if (!String.IsNullOrEmpty(sqlWhere))
                 sqlCommand += sqlWhere;
@@ -134,7 +134,7 @@ namespace CandySur.SEG.Repository
             {
                 Entity.Usuario user = new Entity.Usuario
                 {
-                    NombreUsuario = tabla.Rows[0]["Nombre_Usuario"].ToString(),
+                    NombreUsuario = Encrypt.Desencriptar(tabla.Rows[0]["Nombre_Usuario"].ToString()),
                     Bloqueado = (bool)tabla.Rows[0]["Bloqueado"],
                     Apellido = tabla.Rows[0]["Apellido"].ToString(),
                     Nombre = tabla.Rows[0]["Nombre"].ToString()

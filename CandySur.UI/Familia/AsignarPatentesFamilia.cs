@@ -77,6 +77,7 @@ namespace CandySur.UI.Familia
                     {
                         IdUsuario = Session.Usuario.Id,
                         IdCriticidad = (int)Enums.Criticidad.Baja,
+                        Fecha = DateTime.Now,
                         Descripcion = "Se asigno la patente " + patente.Nombre + " a la familia " + familia.Nombre
                     };
 
@@ -111,6 +112,7 @@ namespace CandySur.UI.Familia
                     {
                         IdUsuario = Session.Usuario.Id,
                         IdCriticidad = (int)Enums.Criticidad.Baja,
+                        Fecha = DateTime.Now,
                         Descripcion = "Se desasigno la patente " + patente.Nombre + " a la familia " + familia.Nombre
                     };
 

@@ -10,7 +10,7 @@ namespace CandySur.SEG.Repository
 {
     public class DataBase
     {
-        CandySur.DLL.Datos db = new DLL.Datos();
+        CandySur.DLL.Datos db = CandySur.DLL.Datos.GetInstance();
         public void NuevoBackup(string database, string path)
         {
             db.ExecuteSqlCommand("BACKUP DATABASE " + database + " TO disk='" + path + ".bak'");

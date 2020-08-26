@@ -11,11 +11,11 @@ namespace CandySur.SEG.Repository
 {
     public class Bitacora
     {
-        private CandySur.DLL.Datos db = new CandySur.DLL.Datos();
+        private CandySur.DLL.Datos db = CandySur.DLL.Datos.GetInstance();
         public int Registrar(Entity.Bitacora reg)
         {
             string sqlCommand = @"INSERT INTO bitacora (FECHA, ID_CRITICIDAD, DESCRIPCION, ID_USUARIO, DVH)
-                                VALUES (" + DateTime.Now.ToString() + "," + reg.IdCriticidad + "," + reg.Descripcion + "," + reg.IdUsuario + "," + reg.DVH + ")";
+                                VALUES ("  + "'" + reg.Fecha.ToString() + "'" + "," + reg.IdCriticidad + "," + "'" + reg.Descripcion + "'" + "," + reg.IdUsuario + "," + "'" + reg.DVH + "'" +")";
 
             return db.ExecuteSqlCommand(sqlCommand);
         }

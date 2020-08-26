@@ -52,11 +52,11 @@
     <Compile Include="Backup-Restore\BackupRestore.Designer.cs">
       <DependentUpon>BackupRestore.cs</DependentUpon>
     </Compile>
-    <Compile Include="Backup-Restore\ReestablecerSistema.cs">
+    <Compile Include="Backup-Restore\ReiniciarSistema.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Backup-Restore\ReestablecerSistema.Designer.cs">
-      <DependentUpon>ReestablecerSistema.cs</DependentUpon>
+    <Compile Include="Backup-Restore\ReiniciarSistema.Designer.cs">
+      <DependentUpon>ReiniciarSistema.cs</DependentUpon>
     </Compile>
     <Compile Include="Bitacora\ConsultarBitacora.cs">
       <SubType>Form</SubType>
@@ -255,8 +255,8 @@
     <EmbeddedResource Include="Backup-Restore\BackupRestore.resx">
       <DependentUpon>BackupRestore.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Backup-Restore\ReestablecerSistema.resx">
-      <DependentUpon>ReestablecerSistema.cs</DependentUpon>
+    <EmbeddedResource Include="Backup-Restore\ReiniciarSistema.resx">
+      <DependentUpon>ReiniciarSistema.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Bitacora\ConsultarBitacora.resx">
       <DependentUpon>ConsultarBitacora.cs</DependentUpon>

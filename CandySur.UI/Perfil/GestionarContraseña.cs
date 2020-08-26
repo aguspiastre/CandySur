@@ -42,6 +42,7 @@ namespace CandySur.UI.Perfil
                     {
                         IdUsuario = Session.Usuario.Id,
                         IdCriticidad = (int)Enums.Criticidad.Media,
+                        Fecha = DateTime.Now,
                         Descripcion = "Contraseña modificada."
                     };
 

@@ -25,6 +25,8 @@ namespace CandySur.SEG.Service
 
                 dv.ActualizarDVV("Bitacora");
 
+                scope.Complete();
+
                 return result;
             }
         }

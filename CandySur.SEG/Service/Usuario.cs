@@ -38,6 +38,8 @@ namespace CandySur.SEG.Service
                     int result = repository.Alta(usuario);
 
                     dv.ActualizarDVV("Usuario");
+
+                    scope.Complete();
                 }
 
                 this.EnviarMailContraseña(usuario);
@@ -52,7 +54,7 @@ namespace CandySur.SEG.Service
         {
             try
             {
-                Entity.Usuario usuario = this.Consultar(Util.Encrypt.Encriptar(nombre, (int)TipoEncriptacion.Reversible));
+                Entity.Usuario usuario = this.Consultar(nombre);
 
                 if (usuario != null)
                     throw new Exception("No se encontro al usuario.");
@@ -71,6 +73,8 @@ namespace CandySur.SEG.Service
                     int result = repository.GenerarContraseña(usuario);
 
                     dv.ActualizarDVV("Usuario");
+
+                    scope.Complete();
                 }
 
                 this.EnviarMailContraseña(usuario);
@@ -85,7 +89,7 @@ namespace CandySur.SEG.Service
         {
             try
             {
-                Entity.Usuario usuario = this.Consultar(Util.Encrypt.Encriptar(nombre, (int)TipoEncriptacion.Reversible));
+                Entity.Usuario usuario = this.Consultar(nombre);
 
                 if (!usuario.Contraseña.Equals(Util.Encrypt.Encriptar(passwordVieja, (int)TipoEncriptacion.Irreversible)))
                     throw new Exception("Contraseña incorrecta.");
@@ -99,6 +103,8 @@ namespace CandySur.SEG.Service
                     int result = repository.GenerarContraseña(usuario);
 
                     dv.ActualizarDVV("Usuario");
+
+                    scope.Complete();
                 }
             }
             catch (Exception ex)
@@ -109,7 +115,7 @@ namespace CandySur.SEG.Service
 
         public Entity.Usuario Consultar(string nombre)
         {
-            Entity.Usuario usuario = repository.Consultar(nombre);
+            Entity.Usuario usuario = repository.Consultar(Util.Encrypt.Encriptar(nombre, (int)TipoEncriptacion.Reversible));
 
             if (usuario == null)
                 throw new Exception("No se encontro al usuario.");
@@ -133,6 +139,8 @@ namespace CandySur.SEG.Service
 
                     dv.ActualizarDVV("Usuario");
 
+                    scope.Complete();
+
                     return result;
                 }
             }
@@ -154,6 +162,8 @@ namespace CandySur.SEG.Service
 
                     dv.ActualizarDVV("Usuario");
 
+                    scope.Complete();
+
                     return result;
                 }
             }
@@ -170,7 +180,10 @@ namespace CandySur.SEG.Service
 
         private bool VerificarAdministrador(Entity.Usuario usuario)
         {
-            return usuario.Permisos.Any(p => p.Nombre == "Administrador");
+            if(usuario.Permisos != null)
+                return usuario.Permisos.Any(p => p.Nombre == "Administrador");
+
+            return false;
         }
 
 
@@ -216,6 +229,8 @@ namespace CandySur.SEG.Service
 
                     dv.ActualizarDVV("Usuario");
 
+                    scope.Complete();
+
                     return result;
                 }
             }
@@ -237,6 +252,8 @@ namespace CandySur.SEG.Service
                     int result = repository.ReiniciarContador(usuario.Id, dv.CalcularDVH(this.ConcatenarRegistro(usuario)));
 
                     dv.ActualizarDVV("Usuario");
+
+                    scope.Complete();
 
                     return result;
                 }
@@ -260,6 +277,8 @@ namespace CandySur.SEG.Service
 
                     dv.ActualizarDVV("Usuario");
 
+                    scope.Complete();
+
                     return result;
                 }
             }
@@ -282,6 +301,8 @@ namespace CandySur.SEG.Service
 
                     dv.ActualizarDVV("Usuario");
 
+                    scope.Complete();
+
                     return result;
                 }
             }
@@ -293,8 +314,8 @@ namespace CandySur.SEG.Service
 
         private string ConcatenarRegistro(Entity.Usuario usuario)
         {
-            return usuario.Id + usuario.Nombre + usuario.Apellido + usuario.DNI + usuario.NombreUsuario + usuario.Contraseña + usuario.Direccion + usuario.Telefono + usuario.Reintentos
-                + usuario.Mail + usuario.FechaNac + Convert.ToInt32(usuario.Eliminado) + Convert.ToInt32(usuario.Bloqueado);
+            return usuario.Nombre + usuario.Apellido + usuario.DNI + usuario.NombreUsuario + usuario.Contraseña + usuario.Direccion + usuario.Telefono + usuario.Reintentos
+                + usuario.Mail + usuario.FechaNac.ToShortDateString() + Convert.ToInt32(usuario.Eliminado) + Convert.ToInt32(usuario.Bloqueado);
         }
 
     }

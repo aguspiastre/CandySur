@@ -88,6 +88,7 @@ namespace CandySur.UI.Patente
                     {
                         IdUsuario = Session.Usuario.Id,
                         IdCriticidad = (int)Enums.Criticidad.Baja,
+                        Fecha = DateTime.Now,
                         Descripcion = "Se asigno la patente " + patente + " al usuario " + usuario.NombreUsuario
                     };
 
@@ -121,6 +122,7 @@ namespace CandySur.UI.Patente
                     {
                         IdUsuario = Session.Usuario.Id,
                         IdCriticidad = (int)Enums.Criticidad.Baja,
+                        Fecha = DateTime.Now,
                         Descripcion = "Se desasigno la patente " + patente + " al usuario " + usuario.NombreUsuario
                     };
 

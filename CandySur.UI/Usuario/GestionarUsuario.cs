@@ -39,10 +39,13 @@ namespace CandySur.UI.Usuario
                 {
                     usuarioService.Eliminar(usuario);
 
+                    LimpiarCampos();
+
                     SEG.Entity.Bitacora reg = new SEG.Entity.Bitacora
                     {
                         IdUsuario = Session.Usuario.Id,
                         IdCriticidad = (int)Enums.Criticidad.Baja,
+                        Fecha = DateTime.Now,
                         Descripcion = "Usuario eliminado. " + txtUsername.Text
                     };
 
@@ -106,6 +109,7 @@ namespace CandySur.UI.Usuario
                     {
                         IdUsuario = Session.Usuario.Id,
                         IdCriticidad = (int)Enums.Criticidad.Baja,
+                        Fecha = DateTime.Now,
                         Descripcion = "Usuario modificado. " + txtUsername.Text
                     };
 
@@ -136,6 +140,7 @@ namespace CandySur.UI.Usuario
                     {
                         IdUsuario = Session.Usuario.Id,
                         IdCriticidad = (int)Enums.Criticidad.Media,
+                        Fecha = DateTime.Now,
                         Descripcion = "Usuario desbloqueado. " + txtUsername.Text
                     };
 
@@ -153,6 +158,20 @@ namespace CandySur.UI.Usuario
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void LimpiarCampos()
+        {
+            usuario = null;
+
+            txtUsername.Text = string.Empty;
+            txtEmail.Text = string.Empty;
+            txtApellido.Text = string.Empty;
+            txtDni.Text = string.Empty;
+            txtNombrePersonal.Text = string.Empty;
+            txtTelefono.Text = string.Empty;
+            txtDireccion.Text = string.Empty;
+            dtpFechaNac.Value = DateTime.Now;
         }
     }
 }

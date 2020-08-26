@@ -81,21 +81,23 @@
             // altaToolStripMenuItem
             // 
             this.altaToolStripMenuItem.Name = "altaToolStripMenuItem";
-            this.altaToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.altaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.altaToolStripMenuItem.Text = "Alta";
             this.altaToolStripMenuItem.Click += new System.EventHandler(this.altaToolStripMenuItem_Click);
             // 
             // gestionarToolStripMenuItem
             // 
             this.gestionarToolStripMenuItem.Name = "gestionarToolStripMenuItem";
-            this.gestionarToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.gestionarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.gestionarToolStripMenuItem.Text = "Gestionar";
+            this.gestionarToolStripMenuItem.Click += new System.EventHandler(this.gestionarToolStripMenuItem_Click);
             // 
             // listarToolStripMenuItem
             // 
             this.listarToolStripMenuItem.Name = "listarToolStripMenuItem";
-            this.listarToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.listarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.listarToolStripMenuItem.Text = "Listar";
+            this.listarToolStripMenuItem.Click += new System.EventHandler(this.listarToolStripMenuItem_Click);
             // 
             // gestionDePermisosToolStripMenuItem
             // 

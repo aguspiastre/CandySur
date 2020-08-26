@@ -32,6 +32,8 @@ namespace CandySur.SEG.Service
 
                     dv.ActualizarDVV("Familia");
 
+                    scope.Complete();
+
                     return result;
                 }
             }
@@ -54,6 +56,8 @@ namespace CandySur.SEG.Service
 
                     dv.ActualizarDVV("Familia");
 
+                    scope.Complete();
+
                     return result;
                 }
             }
@@ -74,6 +78,8 @@ namespace CandySur.SEG.Service
                     int result = repository.Modificar(familia, dv.CalcularDVH(this.ConcatenarRegistro(familia)));
 
                     dv.ActualizarDVV("Familia");
+
+                    scope.Complete();
 
                     return result;
                 }

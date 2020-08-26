@@ -9,15 +9,32 @@ using System.Threading.Tasks;
 
 namespace CandySur.DLL
 {
-    public class Datos
+    public sealed class Datos
     {
+        private static Datos _instance = new Datos();
+        private SqlConnection Conexion { get; set; }
+
+        private Datos()
+        {
+            this.Conexion = new SqlConnection(ConfigurationManager.AppSettings["conn"].ToString());
+        }
+
+        public static Datos GetInstance()
+        {
+            if (_instance == null)
+            {
+                _instance = new Datos();
+            }
+            return _instance;
+        }
+
         public int ExecuteSqlCommand(string sqlString)
         {
+            SqlCommand command = new SqlCommand(sqlString, this.Conexion);
+
             try
             {
-                SqlCommand command = new SqlCommand(sqlString, ObtenerConexion());
-
-                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.CommandType = System.Data.CommandType.Text;
 
                 if (command.Connection.State == System.Data.ConnectionState.Closed)
                     command.Connection.Open();
@@ -33,10 +50,11 @@ namespace CandySur.DLL
 
         public DataTable ExecuteReader(string sqlString)
         {
+            SqlCommand command = new SqlCommand(sqlString, this.Conexion);
+
             try
             {
                 DataTable table = new DataTable();
-                SqlCommand command = new SqlCommand(sqlString, ObtenerConexion());
 
                 command.CommandType = System.Data.CommandType.Text;
 

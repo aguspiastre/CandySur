@@ -73,6 +73,7 @@ namespace CandySur.UI.Usuario
                     {
                         IdUsuario = this.Session.Usuario.Id,
                         IdCriticidad = (int)Enums.Criticidad.Baja,
+                        Fecha = DateTime.Now,
                         Descripcion = "Usuario dado de alta. " + txtUsername.Text
                     };
 
