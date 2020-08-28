@@ -15,22 +15,22 @@ namespace CandySur.SEG.Repository
 
         public int Alta(Entity.Familia familia)
         {
-            string sqlCommand = @"INSERT INTO permiso (ID, NOMBRE, DVH, COMPUESTO, ELIMINADO, DESCRIPCION)
-                                VALUES (" + familia.Id + "," + "'" + familia.Nombre + "'" + "," + familia.DVH + "," + Convert.ToInt16(familia.Compuesto) + "," +
+            string sqlCommand = @"INSERT INTO permiso (NOMBRE, DVH, COMPUESTO, ELIMINADO, DESCRIPCION)
+                                VALUES (" + "'" + familia.Nombre + "'" + "," + "'" + familia.DVH + "'" + "," + Convert.ToInt16(familia.Compuesto) + "," +
                      +Convert.ToInt16(familia.Eliminado) + "," + "'" + familia.Descripcion + "'" + ")";
 
             return db.ExecuteSqlCommand(sqlCommand);
         }
         public int Eliminar(Entity.Familia familia, string DVH)
         {
-            string sqlCommand = @"UPDATE familia SET DVH=" + "'" + DVH + "'" + "," + "Eliminado=" + familia.Eliminado + " WHERE Id=" + familia.Id;
+            string sqlCommand = @"UPDATE permiso SET DVH=" + "'" + DVH + "'" + "," + "Eliminado=" + Convert.ToInt16(familia.Eliminado) + " WHERE Id=" + familia.Id;
 
             return db.ExecuteSqlCommand(sqlCommand);
         }
 
         public int Modificar(Entity.Familia familia, string DVH)
         {
-            string sqlCommand = @"UPDATE familia SET DVH=" + "'" + DVH + "'" + "," + "Descripcion=" + "'" + familia.Descripcion + "'" + " WHERE Id=" + familia.Id;
+            string sqlCommand = @"UPDATE permiso SET DVH=" + "'" + DVH + "'" + "," + "Descripcion=" + "'" + familia.Descripcion + "'" + " WHERE Id=" + familia.Id;
 
             return db.ExecuteSqlCommand(sqlCommand);
         }
@@ -67,8 +67,8 @@ namespace CandySur.SEG.Repository
 
         public List<Entity.Permiso> Listar()
         {
-            List<Entity.Permiso> patentes = new List<Entity.Permiso>();
-            string sqlCommand = @"SELECT * FROM permiso p WHERE p.Compuesto = 1";
+            List<Entity.Permiso> familias = new List<Entity.Permiso>();
+            string sqlCommand = @"SELECT * FROM permiso p WHERE p.Compuesto = 1 AND p.Eliminado = 0";
 
             DataTable tabla = db.ExecuteReader(sqlCommand);
 
@@ -84,15 +84,14 @@ namespace CandySur.SEG.Repository
                     DVH = row["DVH"].ToString()
                 };
 
-                patentes.Add(r);
+                familias.Add(r);
             }
 
-            return patentes;
+            return familias;
         }
 
         public Entity.Permiso Consultar(string nombre)
         {
-            List<Entity.Permiso> patentes = new List<Entity.Permiso>();
             string sqlCommand = @"SELECT * FROM permiso p WHERE p.Compuesto = 1 AND p.Eliminado = 0 AND p.Nombre = " + "'" + nombre + "'";
 
             DataTable tabla = db.ExecuteReader(sqlCommand);

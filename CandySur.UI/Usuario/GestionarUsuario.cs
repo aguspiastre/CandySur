@@ -79,6 +79,8 @@ namespace CandySur.UI.Usuario
                     txtTelefono.Text = usuario.Telefono.ToString();
                     txtDireccion.Text = usuario.Direccion;
                     dtpFechaNac.Value = usuario.FechaNac.Date;
+
+                    this.btnDesbloquear.Visible = usuario.Bloqueado;
                 }
             }
             catch (Exception ex)
@@ -146,7 +148,9 @@ namespace CandySur.UI.Usuario
 
                     bitacoraService.Registrar(reg);
 
-                    MessageBox.Show("Usuario modificado con exito.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.btnDesbloquear.Visible = false;
+
+                    MessageBox.Show("Usuario desbloqueado con exito.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)

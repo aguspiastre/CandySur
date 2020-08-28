@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace CandySur.UI.Patente
 {
-    public partial class AsignarPatenteUsuario : Form
+    public partial class GestionarPatenteUsuario : Form
     {
         private SEG.Entity.SessionManager Session;
         SEG.Service.Usuario usuarioService = new SEG.Service.Usuario();
@@ -19,7 +19,7 @@ namespace CandySur.UI.Patente
         SEG.Service.Patente patenteService = new SEG.Service.Patente();
         SEG.Entity.Usuario usuario;
 
-        public AsignarPatenteUsuario()
+        public GestionarPatenteUsuario()
         {
             InitializeComponent();
         }
@@ -54,14 +54,24 @@ namespace CandySur.UI.Patente
                 {
                     usuario = usuarioService.Consultar(txtNombreUsuario.Text);
 
-                    this.listPatenteDesasignar.Items.AddRange
-                    (
-                        (
-                            from f in usuario.Permisos
-                            where f.Compuesto == false
-                            select new ListViewItem(f.Nombre)
-                        ).ToArray()
-                    );
+                    if (usuario == null)
+                    {
+                        MessageBox.Show("No se encontro al usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        if (usuario.Permisos != null && usuario.Permisos.Any())
+                        {
+                            this.listPatenteDesasignar.Items.AddRange
+                            (
+                                (
+                                    from f in usuario.Permisos
+                                    where f.Compuesto == false
+                                    select new ListViewItem(f.Nombre)
+                                ).ToArray()
+                            );
+                        }
+                    }
                 }
             }
             catch (Exception ex)
@@ -74,14 +84,18 @@ namespace CandySur.UI.Patente
         {
             try
             {
-                string patente = listPatenteAsignar.SelectedItems[0].Text;
-
-                if (String.IsNullOrEmpty(patente))
+                if (usuario == null)
+                {
+                    MessageBox.Show("Debe buscar un usuario previo a asignar una patente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (listPatenteAsignar.SelectedItems.Count == 0)
                 {
                     MessageBox.Show("Debe seleccionar una patente a asignar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
+                    string patente = listPatenteAsignar.SelectedItems[0].Text;
+
                     patenteService.Asignar(usuario, patente);
 
                     SEG.Entity.Bitacora reg = new SEG.Entity.Bitacora
@@ -93,6 +107,9 @@ namespace CandySur.UI.Patente
                     };
 
                     bitacoraService.Registrar(reg);
+
+                    //Agrego la patente a la lista para desasignar
+                    this.listPatenteDesasignar.Items.Add(patente);
 
                     MessageBox.Show("Patente asignada de manera correcta.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -107,14 +124,17 @@ namespace CandySur.UI.Patente
         {
             try
             {
-                string patente = listPatenteDesasignar.SelectedItems[0].Text;
-
-                if (String.IsNullOrEmpty(patente))
+                if (usuario == null)
+                {
+                    MessageBox.Show("Debe buscar un usuario previo a desasignar una patente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (listPatenteAsignar.SelectedItems.Count == 0)
                 {
                     MessageBox.Show("Debe seleccionar una patente a desasignar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
+                    string patente = listPatenteDesasignar.SelectedItems[0].Text;
 
                     patenteService.Desasignar(usuario, patente);
 
@@ -127,6 +147,9 @@ namespace CandySur.UI.Patente
                     };
 
                     bitacoraService.Registrar(reg);
+
+                    //Elimino a la patente de la lista para desasignar.
+                    this.listPatenteDesasignar.Items.RemoveAt(listPatenteDesasignar.SelectedIndices[0]);
 
                     MessageBox.Show("Patente desasignada de manera correcta.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

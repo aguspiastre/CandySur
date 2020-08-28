@@ -85,6 +85,7 @@
             // 
             // dgvPatentes
             // 
+            this.dgvPatentes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPatentes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPatentes.Location = new System.Drawing.Point(10, 126);
             this.dgvPatentes.Name = "dgvPatentes";

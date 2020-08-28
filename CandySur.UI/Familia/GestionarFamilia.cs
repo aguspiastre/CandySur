@@ -27,6 +27,10 @@ namespace CandySur.UI.Familia
         {
             Session = SEG.Entity.SessionManager.GetInstance();
             Familias = familiaService.Listar();
+
+            cmbFamilia.DataSource = Familias;
+            cmbFamilia.DisplayMember = "Nombre";
+            cmbFamilia.ValueMember = "Id";
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -41,7 +45,7 @@ namespace CandySur.UI.Familia
                 }
                 else
                 {
-                    SEG.Entity.Familia familia = this.Familias.FirstOrDefault(f => f.Nombre == this.cmbFamilia.SelectedText) as SEG.Entity.Familia;
+                    SEG.Entity.Familia familia = (SEG.Entity.Familia)this.cmbFamilia.SelectedItem as SEG.Entity.Familia;
 
                     familiaService.Eliminar(familia);
 
@@ -54,6 +58,8 @@ namespace CandySur.UI.Familia
                     };
 
                     bitacoraService.Registrar(reg);
+
+                    LimpiarCampos();
 
                     MessageBox.Show("Familia eliminada correctamente", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -77,7 +83,9 @@ namespace CandySur.UI.Familia
                 }
                 else
                 {
-                    SEG.Entity.Familia familia = this.Familias.FirstOrDefault(f => f.Nombre == this.cmbFamilia.SelectedText) as SEG.Entity.Familia;
+                    SEG.Entity.Familia familia = (SEG.Entity.Familia)this.cmbFamilia.SelectedItem as SEG.Entity.Familia;
+
+                    familia.Descripcion = txtDescripcion.Text;
 
                     familiaService.Modificar(familia);
 
@@ -121,9 +129,25 @@ namespace CandySur.UI.Familia
 
         private void cmbFamilia_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SEG.Entity.Familia familia = this.Familias.FirstOrDefault(f => f.Nombre == this.cmbFamilia.SelectedText) as SEG.Entity.Familia;
-            txtNombre.Text = familia.Nombre;
-            txtDescripcion.Text = familia.Descripcion;
+            SEG.Entity.Familia familia = (SEG.Entity.Familia)this.cmbFamilia.SelectedItem as SEG.Entity.Familia;
+
+            if(familia != null)
+            {
+                txtNombre.Text = familia.Nombre;
+                txtDescripcion.Text = familia.Descripcion;
+            }
+        }
+
+        private void LimpiarCampos()
+        {
+            txtNombre.Text = string.Empty;
+            txtDescripcion.Text = string.Empty;
+
+            Familias = familiaService.Listar();
+            cmbFamilia.DataSource = Familias;
+
+            cmbFamilia.DisplayMember = "Nombre";
+            cmbFamilia.ValueMember = "Id";
         }
     }
 }

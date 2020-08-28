@@ -20,7 +20,7 @@ namespace CandySur.SEG.Service
 
         public override Entity.Permiso Consultar(string nombre)
         {
-            return repository.Consultar(nombre);
+            return repository.Consultar(Util.Encrypt.Encriptar(nombre, (int)TipoEncriptacion.Reversible));
         }
 
         public override int Asignar(Entity.Usuario usuario, string nombre)
@@ -50,7 +50,7 @@ namespace CandySur.SEG.Service
                 if (patente == null)
                     throw new Exception("No se encontro la patente.");
 
-                return repository.Asignar(patente.Id, usuario.Id);
+                return repository.Desasignar(patente.Id, usuario.Id);
             }
             catch (Exception ex)
             {
@@ -59,6 +59,9 @@ namespace CandySur.SEG.Service
         }
         private bool ValidarAsignacion(Entity.Usuario usuario, string nombrePatente)
         {
+            if (usuario.Permisos == null)
+                return false;
+
             List<Entity.Permiso> permisos = usuario.Permisos.Where(p => p.Compuesto).ToList();
 
             foreach (Entity.Permiso item in permisos)

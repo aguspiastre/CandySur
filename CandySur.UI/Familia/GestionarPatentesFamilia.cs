@@ -11,15 +11,16 @@ using System.Windows.Forms;
 
 namespace CandySur.UI.Familia
 {
-    public partial class AsignarPatentesFamilia : Form
+    public partial class GestionarPatentesFamilia : Form
     {
         private SEG.Entity.SessionManager Session;
         private SEG.Entity.Familia familia;
+        private List<SEG.Entity.Permiso> patentes;
         SEG.Service.Bitacora bitacoraService = new SEG.Service.Bitacora();
         SEG.Service.Familia familiaService = new SEG.Service.Familia();
         SEG.Service.Patente patenteService = new SEG.Service.Patente();
 
-        public AsignarPatentesFamilia()
+        public GestionarPatentesFamilia()
         {
             InitializeComponent();
         }
@@ -31,14 +32,17 @@ namespace CandySur.UI.Familia
 
         private void AsignarPatentesFamilia_Load(object sender, EventArgs e)
         {
+            patentes = patenteService.Listar();
             Session = SEG.Entity.SessionManager.GetInstance();
 
             this.cmbFamilia.DataSource = familiaService.Listar();
+            this.cmbFamilia.DisplayMember = "Nombre";
+            this.cmbFamilia.ValueMember = "Id";
 
             this.listPatentesAsignar.Items.AddRange
             (
                 (
-                    from f in patenteService.Listar()
+                    from f in patentes
                     select new ListViewItem(f.Nombre)
                 ).ToArray()
             );
@@ -47,29 +51,33 @@ namespace CandySur.UI.Familia
         private void cmbFamilia_SelectedIndexChanged(object sender, EventArgs e)
         {
             familia = (SEG.Entity.Familia)this.cmbFamilia.SelectedItem;
+            this.listPatentesDesasignar.Items.Clear();
 
-            this.listPatentesDesasignar.Items.AddRange
-            (
+            if (familia.Permisos != null)
+            {
+                this.listPatentesDesasignar.Items.AddRange
                 (
-                    from f in familia.Permisos
-                    select new ListViewItem(f.Nombre)
-                ).ToArray()
-            );
+                    (
+                        from f in familia.Permisos
+                        select new ListViewItem(f.Nombre)
+                    ).ToArray()
+                );
+            }
         }
 
         private void btnAsignar_Click(object sender, EventArgs e)
         {
             try
             {
-                string nombrePatente = listPatentesAsignar.SelectedItems[0].Text;
-
-                if (String.IsNullOrEmpty(nombrePatente))
+                if (listPatentesAsignar.SelectedItems.Count == 0)
                 {
                     MessageBox.Show("Debe seleccionar una patente a asignar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    SEG.Entity.Patente patente = familia.Permisos.FirstOrDefault(p => p.Compuesto && p.Nombre == nombrePatente) as SEG.Entity.Patente;
+                    string nombrePatente = listPatentesAsignar.SelectedItems[0].Text;
+
+                    SEG.Entity.Patente patente = patentes.FirstOrDefault(p => !p.Compuesto && p.Nombre == nombrePatente) as SEG.Entity.Patente;
 
                     familiaService.Asignar(familia, patente);
 
@@ -82,6 +90,10 @@ namespace CandySur.UI.Familia
                     };
 
                     bitacoraService.Registrar(reg);
+
+                    //Agrego la familia a la lista para desasignar
+                    this.listPatentesDesasignar.Items.Add(patente.Nombre);
+                    familia.Permisos.Add(patente);
 
                     MessageBox.Show("Patente asignada de manera correcta.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -96,15 +108,15 @@ namespace CandySur.UI.Familia
         {
             try
             {
-                string nombrePatente = listPatentesDesasignar.SelectedItems[0].Text;
-
-                if (String.IsNullOrEmpty(nombrePatente))
+                if (listPatentesDesasignar.SelectedItems.Count == 0)
                 {
                     MessageBox.Show("Debe seleccionar una patente a desasignar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    SEG.Entity.Patente patente = familia.Permisos.FirstOrDefault(p => p.Compuesto && p.Nombre == nombrePatente) as SEG.Entity.Patente;
+                    string nombrePatente = listPatentesDesasignar.SelectedItems[0].Text;
+
+                    SEG.Entity.Patente patente = familia.Permisos.FirstOrDefault(p => !p.Compuesto && p.Nombre == nombrePatente) as SEG.Entity.Patente;
 
                     familiaService.Desasignar(familia, patente);
 
@@ -117,6 +129,10 @@ namespace CandySur.UI.Familia
                     };
 
                     bitacoraService.Registrar(reg);
+
+                    //Elimino a la familia de la lista para desasignar.
+                    this.listPatentesDesasignar.Items.RemoveAt(listPatentesDesasignar.SelectedIndices[0]);
+                    familia.Permisos.Remove(patente);
 
                     MessageBox.Show("Patente desasignada de manera correcta.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

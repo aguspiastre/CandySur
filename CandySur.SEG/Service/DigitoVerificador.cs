@@ -60,10 +60,16 @@ namespace CandySur.SEG.Service
                 {
                     DataTable tabla = repository.ConsultarTabla(row["Nombre_Tabla"].ToString());
 
+                    if (tabla.Columns.Contains("Id"))
+                        tabla.Columns.Remove("Id");
+
                     foreach (DataRow r in tabla.Rows)
                     {
-                        string dvh = this.CalcularDVH(ConcatenarRegistro(row));
-                        repository.ActualizarDVH(dvh, row["Nombre_Tabla"].ToString(), r["Id"].ToString());
+                        string dvh = r["DVH"].ToString();
+                        // Dejo vacio el dvh para no tomarlo en cuenta la generacion y comparacion.
+                        r["DVH"] = string.Empty;
+
+                        repository.ActualizarDVH(this.CalcularDVH(ConcatenarRegistro(row)), row["Nombre_Tabla"].ToString(), r["Id"].ToString());
                     }
 
                     this.ActualizarDVV(row["Nombre_Tabla"].ToString());
@@ -87,17 +93,18 @@ namespace CandySur.SEG.Service
                 {
                     DataTable tabla = repository.ConsultarTabla(row["Nombre_Tabla"].ToString());
 
-                    string dvv = this.CalcularDVV(tabla);
-
-                    if (!this.CompararDVV(row["Nombre_Tabla"].ToString(), dvv))
+                    if (!this.CompararDVV(row["Nombre_Tabla"].ToString(), (row["DVV"].ToString())))
                         return false;
+
+                    if (tabla.Columns.Contains("Id")) tabla.Columns.Remove("Id");
 
                     foreach (DataRow r in tabla.Rows)
                     {
-                        string registro = this.ConcatenarRegistro(r);
-                        string dvh = this.CalcularDVH(registro);
+                        string dvh = r["DVH"].ToString();
+                        // Dejo vacio el dvh para no tenerlo en cuenta en la generacion y comparacion.
+                        r["DVH"] = string.Empty;
 
-                        if (!this.CompararDVH(registro, dvh))
+                        if (!this.CompararDVH(this.ConcatenarRegistro(r), dvh))
                             return false;
                     }
                 }
@@ -140,9 +147,9 @@ namespace CandySur.SEG.Service
         {
             string text = string.Empty;
 
-            foreach (DataColumn c in row.ItemArray)
+            foreach (var prop in row.ItemArray)
             {
-                text += c.ToString();
+                text += prop.ToString();
             }
 
             return text;

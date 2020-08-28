@@ -80,5 +80,61 @@ namespace CandySur.UI
             listarUsuarios.MdiParent = this;
             listarUsuarios.Show();
         }
+
+        private void listarToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            var listarPatentes = new Patente.ListarPatentes();
+            listarPatentes.MdiParent = this;
+            listarPatentes.Show();
+        }
+
+        private void altaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var altaFamilia = new Familia.AltaFamilia();
+            altaFamilia.MdiParent = this;
+            altaFamilia.Show();
+        }
+
+        private void gestionarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var gestionarFamilia = new Familia.GestionarFamilia();
+            gestionarFamilia.MdiParent = this;
+            gestionarFamilia.Show();
+        }
+
+        private void listarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var listarFamilia = new Familia.ListarFamilias();
+            listarFamilia.MdiParent = this;
+            listarFamilia.Show();
+        }
+
+        private void asignacionAUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var asignarFamilia = new Familia.GestionarFamiliaUsuario();
+            asignarFamilia.MdiParent = this;
+            asignarFamilia.Show();
+        }
+
+        private void asignacionAUsuarioToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var asignarPatenteUsuario = new Patente.GestionarPatenteUsuario();
+            asignarPatenteUsuario.MdiParent = this;
+            asignarPatenteUsuario.Show();
+        }
+
+        private void gestionarToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            var gestionarContraseña = new Perfil.GestionarContraseña();
+            gestionarContraseña.MdiParent = this;
+            gestionarContraseña.Show();
+        }
+
+        private void asignacionAFamiliaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var asignarPatenteFamilia = new Familia.GestionarPatentesFamilia();
+            asignarPatenteFamilia.MdiParent = this;
+            asignarPatenteFamilia.Show();
+        }
     }
 }

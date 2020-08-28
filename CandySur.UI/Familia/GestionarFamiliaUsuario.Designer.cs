@@ -1,6 +1,6 @@
 ﻿namespace CandySur.UI.Familia
 {
-    partial class AsignarFamiliaUsuario
+    partial class GestionarFamiliaUsuario
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AsignarFamiliaUsuario));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionarFamiliaUsuario));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtNombreUsuario = new System.Windows.Forms.TextBox();
@@ -138,6 +138,7 @@
             this.listFamiliasAsignar.Size = new System.Drawing.Size(222, 191);
             this.listFamiliasAsignar.TabIndex = 22;
             this.listFamiliasAsignar.UseCompatibleStateImageBehavior = false;
+            this.listFamiliasAsignar.View = System.Windows.Forms.View.List;
             // 
             // listFamiliaDesasignar
             // 
@@ -146,6 +147,7 @@
             this.listFamiliaDesasignar.Size = new System.Drawing.Size(222, 191);
             this.listFamiliaDesasignar.TabIndex = 21;
             this.listFamiliaDesasignar.UseCompatibleStateImageBehavior = false;
+            this.listFamiliaDesasignar.View = System.Windows.Forms.View.List;
             // 
             // btnDesasignar
             // 

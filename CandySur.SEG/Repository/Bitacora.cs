@@ -44,7 +44,7 @@ namespace CandySur.SEG.Repository
                 Entity.Bitacora r = new Entity.Bitacora
                 {
                     Id = int.Parse(row["Id"].ToString()),
-                    Usuario = row["Usuario"].ToString(),
+                    Usuario = Util.Encrypt.Desencriptar(row["Usuario"].ToString()),
                     Criticidad = row["Criticidad"].ToString(),
                     Descripcion = Util.Encrypt.Desencriptar(row["Descripcion"].ToString()),
                     Fecha = row.Field<DateTime>("Fecha"),

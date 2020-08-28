@@ -31,11 +31,11 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.chkFiltarBloqueados = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.dgvListarUsuarios = new System.Windows.Forms.DataGridView();
-            this.chkFiltarBloqueados = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -81,6 +81,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "FILTROS";
             // 
+            // chkFiltarBloqueados
+            // 
+            this.chkFiltarBloqueados.AutoSize = true;
+            this.chkFiltarBloqueados.Location = new System.Drawing.Point(6, 38);
+            this.chkFiltarBloqueados.Name = "chkFiltarBloqueados";
+            this.chkFiltarBloqueados.Size = new System.Drawing.Size(164, 22);
+            this.chkFiltarBloqueados.TabIndex = 8;
+            this.chkFiltarBloqueados.Text = "Filtrar por bloqueados";
+            this.chkFiltarBloqueados.UseVisualStyleBackColor = true;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -114,21 +124,12 @@
             // 
             // dgvListarUsuarios
             // 
+            this.dgvListarUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListarUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListarUsuarios.Location = new System.Drawing.Point(10, 202);
             this.dgvListarUsuarios.Name = "dgvListarUsuarios";
             this.dgvListarUsuarios.Size = new System.Drawing.Size(582, 272);
             this.dgvListarUsuarios.TabIndex = 0;
-            // 
-            // chkFiltarBloqueados
-            // 
-            this.chkFiltarBloqueados.AutoSize = true;
-            this.chkFiltarBloqueados.Location = new System.Drawing.Point(6, 38);
-            this.chkFiltarBloqueados.Name = "chkFiltarBloqueados";
-            this.chkFiltarBloqueados.Size = new System.Drawing.Size(164, 22);
-            this.chkFiltarBloqueados.TabIndex = 8;
-            this.chkFiltarBloqueados.Text = "Filtrar por bloqueados";
-            this.chkFiltarBloqueados.UseVisualStyleBackColor = true;
             // 
             // ListarUsuarios
             // 

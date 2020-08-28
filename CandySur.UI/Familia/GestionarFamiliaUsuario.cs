@@ -11,14 +11,14 @@ using System.Windows.Forms;
 
 namespace CandySur.UI.Familia
 {
-    public partial class AsignarFamiliaUsuario : Form
+    public partial class GestionarFamiliaUsuario : Form
     {
         private SEG.Entity.SessionManager Session;
         SEG.Service.Usuario usuarioService = new SEG.Service.Usuario();
         SEG.Service.Bitacora bitacoraService = new SEG.Service.Bitacora();
         SEG.Service.Familia familiaService = new SEG.Service.Familia();
         SEG.Entity.Usuario usuario;
-        public AsignarFamiliaUsuario()
+        public GestionarFamiliaUsuario()
         {
             InitializeComponent();
         }
@@ -40,14 +40,24 @@ namespace CandySur.UI.Familia
                 {
                     usuario = usuarioService.Consultar(txtNombreUsuario.Text);
 
-                    this.listFamiliaDesasignar.Items.AddRange
-                    (
-                        (
-                            from f in usuario.Permisos
-                            where f.Compuesto == true
-                            select new ListViewItem(f.Nombre)
-                        ).ToArray()
-                    );
+                    if (usuario == null)
+                    {
+                        MessageBox.Show("No se encontro al usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        if (usuario.Permisos != null && usuario.Permisos.Any())
+                        {
+                            this.listFamiliaDesasignar.Items.AddRange
+                            (
+                                (
+                                    from f in usuario.Permisos
+                                    where f.Compuesto == true
+                                    select new ListViewItem(f.Nombre)
+                                ).ToArray()
+                            );
+                        }
+                    }
                 }
             }
             catch (Exception ex)
@@ -73,14 +83,18 @@ namespace CandySur.UI.Familia
         {
             try
             {
-                string familia = listFamiliasAsignar.SelectedItems[0].Text;
-
-                if (String.IsNullOrEmpty(familia))
+                if (usuario == null)
+                {
+                    MessageBox.Show("Debe buscar un usuario previo a asignar una familia", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (listFamiliasAsignar.SelectedItems.Count == 0)
                 {
                     MessageBox.Show("Debe seleccionar una familia a asignar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
+                    string familia = listFamiliasAsignar.SelectedItems[0].Text;
+
                     familiaService.Asignar(usuario, familia);
 
                     SEG.Entity.Bitacora reg = new SEG.Entity.Bitacora
@@ -92,6 +106,9 @@ namespace CandySur.UI.Familia
                     };
 
                     bitacoraService.Registrar(reg);
+
+                    //Agrego la familia a la lista para desasignar
+                    this.listFamiliaDesasignar.Items.Add(familia);
 
                     MessageBox.Show("Familia asignada de manera correcta.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -106,14 +123,17 @@ namespace CandySur.UI.Familia
         {
             try
             {
-                string familia = listFamiliaDesasignar.SelectedItems[0].Text;
-
-                if (String.IsNullOrEmpty(familia))
+                if (usuario == null)
+                {
+                    MessageBox.Show("Debe buscar un usuario previo a desasignar una familia", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (listFamiliaDesasignar.SelectedItems.Count == 0)
                 {
                     MessageBox.Show("Debe seleccionar una familia a desasignar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
+                    string familia = listFamiliasAsignar.SelectedItems[0].Text;
 
                     familiaService.Desasignar(usuario, familia);
 
@@ -126,6 +146,9 @@ namespace CandySur.UI.Familia
                     };
 
                     bitacoraService.Registrar(reg);
+
+                    //Elimino a la familia de la lista para desasignar.
+                    this.listFamiliaDesasignar.Items.RemoveAt(listFamiliasAsignar.SelectedIndices[0]);
 
                     MessageBox.Show("Familia desasignada de manera correcta.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

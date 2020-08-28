@@ -78,6 +78,8 @@ namespace CandySur.UI.Usuario
                     };
 
                     bitacoraService.Registrar(reg);
+
+                    MessageBox.Show("Usuario dado de alta correctamente", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)

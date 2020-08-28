@@ -42,7 +42,7 @@ namespace CandySur.SEG.Service
                     scope.Complete();
                 }
 
-                this.EnviarMailContraseña(usuario);
+                this.EnviarMailContraseña(password, usuario.Mail);
             }
             catch (Exception ex)
             {
@@ -56,7 +56,7 @@ namespace CandySur.SEG.Service
             {
                 Entity.Usuario usuario = this.Consultar(nombre);
 
-                if (usuario != null)
+                if (usuario == null)
                     throw new Exception("No se encontro al usuario.");
 
                 if (!usuario.Mail.Equals(mail))
@@ -77,7 +77,7 @@ namespace CandySur.SEG.Service
                     scope.Complete();
                 }
 
-                this.EnviarMailContraseña(usuario);
+                this.EnviarMailContraseña(password, mail);
             }
             catch (Exception ex)
             {
@@ -173,7 +173,7 @@ namespace CandySur.SEG.Service
             }
         }
 
-        public List<Entity.Usuario> Listar(int filtrarBloqueados)
+        public List<Entity.Usuario> Listar(int filtrarBloqueados = 0)
         {
             return repository.Listar(filtrarBloqueados);
         }
@@ -209,12 +209,11 @@ namespace CandySur.SEG.Service
             return new String(stringChars);
         }
 
-        public void EnviarMailContraseña(Entity.Usuario usuario)
+        public void EnviarMailContraseña(string contraseña, string mail)
         {
-            string body = @"Se genero una contraseña para su usuario. Podra cambiar la misma desde el login de la aplicación.
-                            Contraseña generado: " + usuario.Contraseña;
+            string body = @"Se genero una contraseña para su usuario. Podra cambiar la misma desde el login de la aplicación. Contraseña generada: " + contraseña;
 
-            CandySur.UTIL.Mail.EnviarMail(usuario.Mail, "Generacion de contraseña", body);
+            CandySur.UTIL.Mail.EnviarMail(mail, "Generacion de contraseña", body);
         }
 
         public int AumentarContador(Entity.Usuario usuario)
@@ -222,16 +221,17 @@ namespace CandySur.SEG.Service
             try
             {
                 usuario.NombreUsuario = Encrypt.Encriptar(usuario.NombreUsuario, (int)TipoEncriptacion.Reversible);
+                usuario.Reintentos += 1;
 
                 using (var scope = new TransactionScope(TransactionScopeOption.RequiresNew, new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }))
                 {
-                    int result = repository.AumentarContador(usuario.Id, usuario.Reintentos, dv.CalcularDVH(this.ConcatenarRegistro(usuario)));
+                    int reintentos = repository.AumentarContador(usuario.Id, usuario.Reintentos, dv.CalcularDVH(this.ConcatenarRegistro(usuario)));
 
                     dv.ActualizarDVV("Usuario");
 
                     scope.Complete();
 
-                    return result;
+                    return reintentos;
                 }
             }
             catch (Exception ex)
@@ -315,7 +315,7 @@ namespace CandySur.SEG.Service
         private string ConcatenarRegistro(Entity.Usuario usuario)
         {
             return usuario.Nombre + usuario.Apellido + usuario.DNI + usuario.NombreUsuario + usuario.Contraseña + usuario.Direccion + usuario.Telefono + usuario.Reintentos
-                + usuario.Mail + usuario.FechaNac.ToShortDateString() + Convert.ToInt32(usuario.Eliminado) + Convert.ToInt32(usuario.Bloqueado);
+                + usuario.Mail + usuario.FechaNac.ToString() + usuario.Eliminado + usuario.Bloqueado;
         }
 
     }

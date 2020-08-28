@@ -1,6 +1,6 @@
 ﻿namespace CandySur.UI.Patente
 {
-    partial class AsignarPatenteUsuario
+    partial class GestionarPatenteUsuario
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AsignarPatenteUsuario));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionarPatenteUsuario));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -116,6 +116,7 @@
             this.listPatenteAsignar.Size = new System.Drawing.Size(222, 191);
             this.listPatenteAsignar.TabIndex = 22;
             this.listPatenteAsignar.UseCompatibleStateImageBehavior = false;
+            this.listPatenteAsignar.View = System.Windows.Forms.View.List;
             // 
             // listPatenteDesasignar
             // 
@@ -124,6 +125,7 @@
             this.listPatenteDesasignar.Size = new System.Drawing.Size(222, 191);
             this.listPatenteDesasignar.TabIndex = 21;
             this.listPatenteDesasignar.UseCompatibleStateImageBehavior = false;
+            this.listPatenteDesasignar.View = System.Windows.Forms.View.List;
             // 
             // btnDesasignar
             // 
@@ -199,14 +201,14 @@
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
-            // AsignarPatenteUsuario
+            // GestionarPatenteUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(611, 503);
             this.Controls.Add(this.groupBox1);
-            this.Name = "AsignarPatenteUsuario";
+            this.Name = "GestionarPatenteUsuario";
             this.Text = "Gestion de Patentes";
             this.Load += new System.EventHandler(this.AsignarPatenteUsuario_Load);
             this.groupBox1.ResumeLayout(false);

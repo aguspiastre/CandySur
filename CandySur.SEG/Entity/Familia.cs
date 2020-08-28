@@ -8,6 +8,10 @@ namespace CandySur.SEG.Entity
 {
     public class Familia : Permiso
     {
+        public Familia()
+        {
+            this.Permisos = new List<Permiso>();
+        }
         public List<Permiso> Permisos { get; set; }
     }
 }

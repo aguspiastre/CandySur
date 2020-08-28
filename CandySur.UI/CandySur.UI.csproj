@@ -82,11 +82,11 @@
     <Compile Include="Familia\AltaFamilia.Designer.cs">
       <DependentUpon>AltaFamilia.cs</DependentUpon>
     </Compile>
-    <Compile Include="Familia\AsignarFamiliaUsuario.cs">
+    <Compile Include="Familia\GestionarFamiliaUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Familia\AsignarFamiliaUsuario.Designer.cs">
-      <DependentUpon>AsignarFamiliaUsuario.cs</DependentUpon>
+    <Compile Include="Familia\GestionarFamiliaUsuario.Designer.cs">
+      <DependentUpon>GestionarFamiliaUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Familia\GestionarFamilia.cs">
       <SubType>Form</SubType>
@@ -94,11 +94,11 @@
     <Compile Include="Familia\GestionarFamilia.Designer.cs">
       <DependentUpon>GestionarFamilia.cs</DependentUpon>
     </Compile>
-    <Compile Include="Familia\AsignarPatentesFamilia.cs">
+    <Compile Include="Familia\GestionarPatentesFamilia.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Familia\AsignarPatentesFamilia.Designer.cs">
-      <DependentUpon>AsignarPatentesFamilia.cs</DependentUpon>
+    <Compile Include="Familia\GestionarPatentesFamilia.Designer.cs">
+      <DependentUpon>GestionarPatentesFamilia.cs</DependentUpon>
     </Compile>
     <Compile Include="Familia\ListarFamilias.cs">
       <SubType>Form</SubType>
@@ -160,11 +160,11 @@
     <Compile Include="Paquete\Listado_Paquetes.Designer.cs">
       <DependentUpon>Listado_Paquetes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Patente\AsignarPatenteUsuario.cs">
+    <Compile Include="Patente\GestionarPatenteUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Patente\AsignarPatenteUsuario.Designer.cs">
-      <DependentUpon>AsignarPatenteUsuario.cs</DependentUpon>
+    <Compile Include="Patente\GestionarPatenteUsuario.Designer.cs">
+      <DependentUpon>GestionarPatenteUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Patente\ListarPatentes.cs">
       <SubType>Form</SubType>
@@ -270,14 +270,14 @@
     <EmbeddedResource Include="Familia\AltaFamilia.resx">
       <DependentUpon>AltaFamilia.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Familia\AsignarFamiliaUsuario.resx">
-      <DependentUpon>AsignarFamiliaUsuario.cs</DependentUpon>
+    <EmbeddedResource Include="Familia\GestionarFamiliaUsuario.resx">
+      <DependentUpon>GestionarFamiliaUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Familia\GestionarFamilia.resx">
       <DependentUpon>GestionarFamilia.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Familia\AsignarPatentesFamilia.resx">
-      <DependentUpon>AsignarPatentesFamilia.cs</DependentUpon>
+    <EmbeddedResource Include="Familia\GestionarPatentesFamilia.resx">
+      <DependentUpon>GestionarPatentesFamilia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Familia\ListarFamilias.resx">
       <DependentUpon>ListarFamilias.cs</DependentUpon>
@@ -309,8 +309,8 @@
     <EmbeddedResource Include="Paquete\Listado_Paquetes.resx">
       <DependentUpon>Listado_Paquetes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Patente\AsignarPatenteUsuario.resx">
-      <DependentUpon>AsignarPatenteUsuario.cs</DependentUpon>
+    <EmbeddedResource Include="Patente\GestionarPatenteUsuario.resx">
+      <DependentUpon>GestionarPatenteUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Patente\ListarPatentes.resx">
       <DependentUpon>ListarPatentes.cs</DependentUpon>

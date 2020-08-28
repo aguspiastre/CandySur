@@ -14,13 +14,13 @@ namespace CandySur.UTIL
             MailMessage mail = new MailMessage();
             SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
 
-            mail.From = new MailAddress("agustin.e.piastrellini@gmail.com");
+            mail.From = new MailAddress("candy.sur.lomas@gmail.com");
             mail.To.Add(mailUsuario);
             mail.Subject = asunto;
             mail.Body = body;
 
             SmtpServer.Port = 587;
-            SmtpServer.Credentials = new System.Net.NetworkCredential("username", "password");
+            SmtpServer.Credentials = new System.Net.NetworkCredential("candy.sur.lomas", "candysur123");
             SmtpServer.EnableSsl = true;
 
             SmtpServer.Send(mail);

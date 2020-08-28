@@ -57,6 +57,10 @@ namespace CandySur.UI.Familia
                     };
 
                     bitacoraService.Registrar(reg);
+
+                    this.LimpiarCampos();
+
+                    MessageBox.Show("Familia dada de alta correctamente", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
@@ -79,7 +83,15 @@ namespace CandySur.UI.Familia
             return string.Empty;
         }
 
+        private void LimpiarCampos()
+        {
+            txtDescripcion.Text = "";
+            txtNombre.Text = "";
+        }
 
-
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

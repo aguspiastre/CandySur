@@ -16,7 +16,7 @@ namespace CandySur.UI.Bitacora
     public partial class ConsultarBitacora : Form
     {
         CandySur.SEG.Service.Bitacora bitacoraService = new SEG.Service.Bitacora();
-
+        CandySur.SEG.Service.Usuario usuarioSerivice = new SEG.Service.Usuario();
         public ConsultarBitacora()
         {
             InitializeComponent();
@@ -31,7 +31,7 @@ namespace CandySur.UI.Bitacora
                 FechaDesde = this.dateTimeFechaDesde.Value.Date,
                 FechaHasta = this.dateTimeFechaHasta.Value.Date,
                 IdCriticidad = (int)criticidad,
-                IdUsuario = Convert.ToInt32(this.cmbUsuario.SelectedItem.ToString())
+                IdUsuario = Convert.ToInt32(this.cmbUsuario.SelectedValue.ToString())
             };
 
             List<CandySur.SEG.Entity.Bitacora> list = bitacoraService.Consultar(req);
@@ -42,6 +42,10 @@ namespace CandySur.UI.Bitacora
         private void Consultar_Load(object sender, EventArgs e)
         {
             cmbCriticidad.DataSource = Enum.GetValues(typeof(CandySur.SEG.Util.Enums.Criticidad));
+
+            cmbUsuario.DataSource = usuarioSerivice.Listar();
+            cmbUsuario.DisplayMember = "NombreUsuario";
+            cmbUsuario.ValueMember = "Id";
         }
     }
 }

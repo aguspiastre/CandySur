@@ -1,6 +1,6 @@
 ﻿namespace CandySur.UI.Familia
 {
-    partial class AsignarPatentesFamilia
+    partial class GestionarPatentesFamilia
     {
         /// <summary>
         /// Required designer variable.
@@ -114,6 +114,7 @@
             this.listPatentesAsignar.Size = new System.Drawing.Size(222, 191);
             this.listPatentesAsignar.TabIndex = 22;
             this.listPatentesAsignar.UseCompatibleStateImageBehavior = false;
+            this.listPatentesAsignar.View = System.Windows.Forms.View.List;
             // 
             // listPatentesDesasignar
             // 
@@ -122,6 +123,7 @@
             this.listPatentesDesasignar.Size = new System.Drawing.Size(222, 191);
             this.listPatentesDesasignar.TabIndex = 21;
             this.listPatentesDesasignar.UseCompatibleStateImageBehavior = false;
+            this.listPatentesDesasignar.View = System.Windows.Forms.View.List;
             // 
             // btnDesasignar
             // 
@@ -189,14 +191,14 @@
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
-            // AsignarPatentesFamilia
+            // GestionarPatentesFamilia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(613, 504);
             this.Controls.Add(this.groupBox1);
-            this.Name = "AsignarPatentesFamilia";
+            this.Name = "GestionarPatentesFamilia";
             this.Text = "Gestion de Patentes/Familia";
             this.Load += new System.EventHandler(this.AsignarPatentesFamilia_Load);
             this.groupBox1.ResumeLayout(false);

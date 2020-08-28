@@ -29,10 +29,7 @@ namespace CandySur.UI.Backup_Restore
         {
             Session = SEG.Entity.SessionManager.GetInstance();
 
-            DirectoryInfo d = new DirectoryInfo(@"C:\\Program Files (x86)\\Microsoft SQL Server\\MSSQL.1\\MSSQL\\Backup");
-            FileInfo[] Files = d.GetFiles("*CandySur*");
-
-            foreach (FileInfo file in Files) { cmbBackup.Items.Add(file); }
+            this.CargarBackups();
         }
 
         private void btnRestore_Click(object sender, EventArgs e)
@@ -66,6 +63,8 @@ namespace CandySur.UI.Backup_Restore
                 string fullUri = RUTA_DESTINO + "\\CandySur" + "_" + DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
                 databaseService.NuevoBackup("CandySur", fullUri);
 
+                this.CargarBackups();
+
                 SEG.Entity.Bitacora reg = new SEG.Entity.Bitacora
                 {
                     IdUsuario = 1,
@@ -82,6 +81,16 @@ namespace CandySur.UI.Backup_Restore
             {
                 MessageBox.Show(ex.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void CargarBackups()
+        {
+            DirectoryInfo d = new DirectoryInfo(@"C:\\Program Files (x86)\\Microsoft SQL Server\\MSSQL.1\\MSSQL\\Backup");
+            FileInfo[] Files = d.GetFiles("*CandySur*");
+
+            cmbBackup.Items.Clear();
+
+            foreach (FileInfo file in Files) { cmbBackup.Items.Add(file); }
         }
     }
 }

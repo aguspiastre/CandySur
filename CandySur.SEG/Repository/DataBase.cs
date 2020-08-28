@@ -18,7 +18,6 @@ namespace CandySur.SEG.Repository
 
         public void RealizarRestore(string database, string path)
         {
-            string pathDest = path.Substring(0, path.Length - 5);
             string query = "Use Master ALTER DATABASE " + database + " SET OFFLINE WITH ROLLBACK IMMEDIATE ";
             query += "RESTORE DATABASE " + database + " FROM DISK = '" + path + "' ALTER DATABASE " + database + " SET ONLINE WITH ROLLBACK IMMEDIATE";
 

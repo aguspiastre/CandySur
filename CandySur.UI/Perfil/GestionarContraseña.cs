@@ -47,6 +47,8 @@ namespace CandySur.UI.Perfil
                     };
 
                     bitacoraService.Registrar(reg);
+
+                    MessageBox.Show("Contraseña modificada con exito.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
@@ -58,7 +60,6 @@ namespace CandySur.UI.Perfil
 
         private string ValidarCampos()
         {
-
             if (txtNuevapw.Text  == "")
             {
                 return "El campo nueva contraseña es requerido.";

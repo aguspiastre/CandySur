@@ -25,11 +25,11 @@ namespace CandySur.SEG.Repository
 
         public int AumentarContador(int id, int reintentos, string DVH)
         {
-            string sqlCommand = @"UPDATE Usuario SET Reintentos= " + (reintentos + 1).ToString() + ", DVH=" + "'" + DVH + "'" + " WHERE Id=" + id;
+            string sqlCommand = @"UPDATE Usuario SET Reintentos= " + reintentos + ", DVH=" + "'" + DVH + "'" + " WHERE Id=" + id;
 
             db.ExecuteSqlCommand(sqlCommand);
 
-            return reintentos + 1;
+            return reintentos;
         }
 
         public int ReiniciarContador(int id, string DVH)
@@ -137,7 +137,8 @@ namespace CandySur.SEG.Repository
                     NombreUsuario = Encrypt.Desencriptar(tabla.Rows[0]["Nombre_Usuario"].ToString()),
                     Bloqueado = (bool)tabla.Rows[0]["Bloqueado"],
                     Apellido = tabla.Rows[0]["Apellido"].ToString(),
-                    Nombre = tabla.Rows[0]["Nombre"].ToString()
+                    Nombre = tabla.Rows[0]["Nombre"].ToString(),
+                    Id = Convert.ToInt32(tabla.Rows[0]["Id"].ToString())
                 };
 
                 usuarios.Add(user);

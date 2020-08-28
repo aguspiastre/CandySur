@@ -30,7 +30,7 @@ namespace CandySur.SEG.Service
                 {
                     int result = repository.Alta(familia);
 
-                    dv.ActualizarDVV("Familia");
+                    dv.ActualizarDVV("Permiso");
 
                     scope.Complete();
 
@@ -54,7 +54,7 @@ namespace CandySur.SEG.Service
                 {
                     int result = repository.Eliminar(familia, dv.CalcularDVH(this.ConcatenarRegistro(familia)));
 
-                    dv.ActualizarDVV("Familia");
+                    dv.ActualizarDVV("Permiso");
 
                     scope.Complete();
 
@@ -77,7 +77,7 @@ namespace CandySur.SEG.Service
                 {
                     int result = repository.Modificar(familia, dv.CalcularDVH(this.ConcatenarRegistro(familia)));
 
-                    dv.ActualizarDVV("Familia");
+                    dv.ActualizarDVV("Permiso");
 
                     scope.Complete();
 
@@ -97,7 +97,7 @@ namespace CandySur.SEG.Service
 
         public override Entity.Permiso Consultar(string nombre)
         {
-            return repository.Consultar(nombre);
+            return repository.Consultar(Util.Encrypt.Encriptar(nombre, (int)TipoEncriptacion.Reversible));
         }
 
         public override int Asignar(Entity.Usuario usuario, string nombre)
@@ -167,23 +167,29 @@ namespace CandySur.SEG.Service
 
         private bool ValidarFamilia(string nombre)
         {
-            return this.Listar().Any(f => f.Nombre == nombre);
+            return this.Listar().Any(f => f.Nombre.ToUpper() == nombre.ToUpper());
         }
 
         private bool ValidarAsignacion(Entity.Usuario usuario, string nombreFamilia)
         {
-            return usuario.Permisos.Any(p => p.Compuesto && p.Nombre == nombreFamilia);
+            if (usuario.Permisos != null)
+                return usuario.Permisos.Any(p => p.Compuesto && p.Nombre == nombreFamilia);
+
+            return false;
         }
 
         private bool ValidarAsignacion(Entity.Familia familia, string nombrePatente)
         {
+            if (familia.Permisos == null)
+                return false;
+
             return familia.Permisos.Any(p => p.Nombre == nombrePatente);
         }
 
 
         private string ConcatenarRegistro(Entity.Familia familia)
         {
-            return familia.Id + familia.Nombre + familia.DVH + Convert.ToInt16(familia.Compuesto) + Convert.ToInt16(familia.Eliminado) + familia.Descripcion;
+            return familia.Nombre + familia.Compuesto + familia.Eliminado + familia.Descripcion;
         }
     }
 }
