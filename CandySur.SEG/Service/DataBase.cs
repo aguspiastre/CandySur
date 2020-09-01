@@ -9,7 +9,11 @@ namespace CandySur.SEG.Service
 {
     public class DataBase
     {
-        Repository.DataBase repository = new Repository.DataBase();
+        private Repository.DataBase repository;
+        public DataBase()
+        {
+            repository = new Repository.DataBase();
+        }
 
         public void NuevoBackup(string database, string path)
         {

@@ -11,7 +11,11 @@ namespace CandySur.SEG.Repository
 {
     public class Familia
     {
-        private CandySur.DLL.Datos db = CandySur.DLL.Datos.GetInstance();
+        private CandySur.DLL.Datos db;
+        public Familia()
+        {
+            db = CandySur.DLL.Datos.GetInstance();
+        }
 
         public int Alta(Entity.Familia familia)
         {
@@ -65,9 +69,9 @@ namespace CandySur.SEG.Repository
             return db.ExecuteSqlCommand(sqlCommand);
         }
 
-        public List<Entity.Permiso> Listar()
+        public List<Entity.Familia> Listar()
         {
-            List<Entity.Permiso> familias = new List<Entity.Permiso>();
+            List<Entity.Familia> familias = new List<Entity.Familia>();
             string sqlCommand = @"SELECT * FROM permiso p WHERE p.Compuesto = 1 AND p.Eliminado = 0";
 
             DataTable tabla = db.ExecuteReader(sqlCommand);
@@ -84,13 +88,15 @@ namespace CandySur.SEG.Repository
                     DVH = row["DVH"].ToString()
                 };
 
+                this.ConsultarPatentesPorFamilia(r);
+
                 familias.Add(r);
             }
 
             return familias;
         }
 
-        public Entity.Permiso Consultar(string nombre)
+        public Entity.Familia Consultar(string nombre)
         {
             string sqlCommand = @"SELECT * FROM permiso p WHERE p.Compuesto = 1 AND p.Eliminado = 0 AND p.Nombre = " + "'" + nombre + "'";
 
@@ -109,7 +115,32 @@ namespace CandySur.SEG.Repository
                 DVH = tabla.Rows[0]["DVH"].ToString()
             };
 
+            this.ConsultarPatentesPorFamilia(familia);
+
             return familia;
+        }
+
+        public void ConsultarPatentesPorFamilia(Entity.Familia familia)
+        {
+            string sqlCommand = @"SELECT c.* FROM permiso_compuesto pc
+                                 INNER JOIN permiso p on p.Id = pc.Id_Permiso
+                                 INNER JOIN permiso c on c.Id = pc.Id_Compuesto
+                                 WHERE c.Eliminado = 0 AND p.id = " + familia.Id;
+
+            DataTable tablaPatentes = db.ExecuteReader(sqlCommand);
+
+            foreach (DataRow row in tablaPatentes.Rows)
+            {
+                familia.Permisos.Add(new Entity.Patente
+                {
+                    Id = int.Parse(row["Id"].ToString()),
+                    Nombre = Util.Encrypt.Desencriptar(row["Nombre"].ToString()),
+                    Compuesto = (bool)row["Compuesto"],
+                    Eliminado = (bool)row["Eliminado"],
+                    Descripcion = row["Descripcion"].ToString(),
+                    DVH = row["DVH"].ToString()
+                });
+            }
         }
     }
 }

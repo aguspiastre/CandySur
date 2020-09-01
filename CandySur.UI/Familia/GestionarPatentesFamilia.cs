@@ -15,7 +15,7 @@ namespace CandySur.UI.Familia
     {
         private SEG.Entity.SessionManager Session;
         private SEG.Entity.Familia familia;
-        private List<SEG.Entity.Permiso> patentes;
+        private List<SEG.Entity.Patente> patentes;
         SEG.Service.Bitacora bitacoraService = new SEG.Service.Bitacora();
         SEG.Service.Familia familiaService = new SEG.Service.Familia();
         SEG.Service.Patente patenteService = new SEG.Service.Patente();

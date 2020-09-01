@@ -73,8 +73,23 @@ namespace CandySur.Test
 
             bool integridad = dvService.VerificarIntegridad();
 
-
         }
 
+        [TestMethod]
+        public void RecalcularDigitos()
+        {
+            SEG.Service.DigitoVerificador dvService = new SEG.Service.DigitoVerificador();
+
+            dvService.RecalcularDVV();
+        }
+
+
+        [TestMethod]
+        public void ConsultarFamilia()
+        {
+            SEG.Service.Familia familiaService = new SEG.Service.Familia();
+
+            familiaService.Consultar("PruebaAgus");
+        }
     }
 }

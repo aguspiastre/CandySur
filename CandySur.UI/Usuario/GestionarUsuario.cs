@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static CandySur.SEG.Util.Enums;
 
 namespace CandySur.UI.Usuario
 {
@@ -138,15 +139,13 @@ namespace CandySur.UI.Usuario
                 {
                     usuarioService.Desbloquear(usuario);
 
-                    SEG.Entity.Bitacora reg = new SEG.Entity.Bitacora
+                    bitacoraService.Registrar(new SEG.Entity.Bitacora
                     {
+                        IdCriticidad = (int)Criticidad.Baja,
+                        Descripcion = "Usuario desbloqueado. " + usuario.NombreUsuario,
                         IdUsuario = Session.Usuario.Id,
-                        IdCriticidad = (int)Enums.Criticidad.Media,
-                        Fecha = DateTime.Now,
-                        Descripcion = "Usuario desbloqueado. " + txtUsername.Text
-                    };
-
-                    bitacoraService.Registrar(reg);
+                        Fecha = DateTime.Now
+                    });
 
                     this.btnDesbloquear.Visible = false;
 

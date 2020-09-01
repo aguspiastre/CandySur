@@ -13,9 +13,9 @@ namespace CandySur.UI
 {
     public partial class Main : Form
     {
+        private SEG.Entity.SessionManager Session;
         SEG.Service.Usuario usuarioService = new SEG.Service.Usuario();
         SEG.Service.Bitacora bitacoraService = new SEG.Service.Bitacora();
-        SEG.Entity.Usuario usuario;
         public Main()
         {
             InitializeComponent();
@@ -23,7 +23,7 @@ namespace CandySur.UI
 
         private void Main_Load(object sender, EventArgs e)
         {
-
+            Session = SEG.Entity.SessionManager.GetInstance();
         }
 
         private void consultarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -55,13 +55,15 @@ namespace CandySur.UI
             {
                 SEG.Entity.Bitacora reg = new SEG.Entity.Bitacora
                 {
-                    IdUsuario = usuario.Id,
+                    IdUsuario = Session.Usuario.Id,
                     IdCriticidad = (int)Enums.Criticidad.Baja,
                     Fecha = DateTime.Now,
                     Descripcion = "Cierre de sesión"
                 };
 
                 bitacoraService.Registrar(reg);
+
+                SEG.Entity.SessionManager.LogOut();
 
                 this.Close();
             }

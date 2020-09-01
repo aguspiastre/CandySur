@@ -9,21 +9,26 @@ using static CandySur.SEG.Util.Enums;
 
 namespace CandySur.SEG.Service
 {
-    public class Patente : Permiso
+    public class Patente 
     {
-        SEG.Repository.Patente repository = new Repository.Patente();
+        private SEG.Repository.Patente repository;
 
-        public override List<Entity.Permiso> Listar()
+        public Patente()
+        {
+            repository = new Repository.Patente();
+        }
+
+        public List<Entity.Patente> Listar()
         {
             return repository.Listar();
         }
 
-        public override Entity.Permiso Consultar(string nombre)
+        public  Entity.Patente Consultar(string nombre)
         {
             return repository.Consultar(Util.Encrypt.Encriptar(nombre, (int)TipoEncriptacion.Reversible));
         }
 
-        public override int Asignar(Entity.Usuario usuario, string nombre)
+        public int Asignar(Entity.Usuario usuario, string nombre)
         {
             try
             {
@@ -32,7 +37,7 @@ namespace CandySur.SEG.Service
                 if (contienePatente)
                     throw new Exception("El usuario ya contiene la patente asignada.");
 
-                Entity.Patente patente = this.Consultar(nombre) as Entity.Patente;
+                Entity.Patente patente = this.Consultar(nombre);
 
                 return repository.Asignar(patente.Id, usuario.Id);
             }
@@ -41,11 +46,11 @@ namespace CandySur.SEG.Service
                 throw ex;
             }
         }
-        public override int Desasignar(Entity.Usuario usuario, string nombre)
+        public int Desasignar(Entity.Usuario usuario, string nombre)
         {
             try
             {
-                Entity.Patente patente = this.Consultar(nombre) as Entity.Patente;
+                Entity.Patente patente = this.Consultar(nombre);
 
                 if (patente == null)
                     throw new Exception("No se encontro la patente.");

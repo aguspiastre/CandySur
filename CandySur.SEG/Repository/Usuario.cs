@@ -11,8 +11,12 @@ namespace CandySur.SEG.Repository
 {
     public class Usuario
     {
-        private CandySur.DLL.Datos db = CandySur.DLL.Datos.GetInstance();
-
+        private CandySur.DLL.Datos db;
+        public Usuario()
+        {
+            db = CandySur.DLL.Datos.GetInstance();
+        }
+        
         public int Alta(Entity.Usuario usuario)
         {
             string sqlCommand = @"INSERT INTO usuario (NOMBRE, APELLIDO, DNI, NOMBRE_USUARIO, CONTRASEÑA, DIRECCION, TELEFONO, REINTENTOS, MAIL, FECHA_NAC, ELIMINADO, BLOQUEADO, DVH)
@@ -110,6 +114,34 @@ namespace CandySur.SEG.Repository
             };
 
             return user;
+        }
+
+        public List<Entity.Permiso> ObtenerPermisos(int id)
+        {
+            string sqlCommand = @"SELECT p.Id, p.Nombre, p.Compuesto, p.Descripcion FROM usuario_permiso up
+                                INNER JOIN usuario u ON u.id = up.id_usuario
+                                INNER JOIN permiso p ON p.id = up.id_permiso
+                                WHERE p.Eliminado = 0 AND u.id =" + id;
+
+            DataTable tabla = db.ExecuteReader(sqlCommand);
+
+            if (tabla.Rows.Count == 0)
+                return null;
+            
+            List<Entity.Permiso> permisos = new List<Entity.Permiso>();
+
+            foreach (DataRow row in tabla.Rows)
+            {
+                permisos.Add(new Entity.Patente
+                {
+                    Id = int.Parse(row["Id"].ToString()),
+                    Nombre = Util.Encrypt.Desencriptar(row["Nombre"].ToString()),
+                    Compuesto = (bool)row["Compuesto"],
+                    Descripcion = row["Descripcion"].ToString()
+                });
+            }
+
+            return permisos;
         }
 
         public List<Entity.Usuario> Listar(int filtrarBloqueados)

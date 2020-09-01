@@ -28,5 +28,10 @@ namespace CandySur.SEG.Entity
                 session.Usuario = usuario;
             }
         }
+
+        public static void LogOut()
+        {
+            session = null;
+        }
     }
 }

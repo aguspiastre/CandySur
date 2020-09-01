@@ -67,7 +67,7 @@ namespace CandySur.UI.Backup_Restore
 
                 SEG.Entity.Bitacora reg = new SEG.Entity.Bitacora
                 {
-                    IdUsuario = 1,
+                    IdUsuario = this.Session.Usuario.Id,
                     IdCriticidad = (int)Enums.Criticidad.Alta,
                     Fecha = DateTime.Now,
                     Descripcion = "Backup guardado con exito"

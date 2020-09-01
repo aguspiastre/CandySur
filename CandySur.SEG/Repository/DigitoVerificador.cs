@@ -9,7 +9,12 @@ namespace CandySur.SEG.Repository
 {
     public class DigitoVerificador
     {
-        private CandySur.DLL.Datos db = CandySur.DLL.Datos.GetInstance();
+        private CandySur.DLL.Datos db;
+
+        public DigitoVerificador()
+        {
+            db = CandySur.DLL.Datos.GetInstance();
+        }
 
         public string ConsultarDVV(string tabla)
         {

@@ -6,12 +6,22 @@ using System.Threading.Tasks;
 
 namespace CandySur.SEG.Entity
 {
-    public class Familia : Permiso
+    public class Familia : Permiso, IPermisoOperaciones
     {
         public Familia()
         {
             this.Permisos = new List<Permiso>();
         }
         public List<Permiso> Permisos { get; set; }
+
+        public void Agregar(Permiso permiso)
+        {
+            this.Permisos.Add(permiso);
+        }
+
+        public void Eliminar(Permiso permiso)
+        {
+            this.Permisos.Remove(permiso);
+        }
     }
 }

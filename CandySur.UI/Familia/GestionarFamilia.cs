@@ -14,7 +14,7 @@ namespace CandySur.UI.Familia
     public partial class GestionarFamilia : Form
     {
         private SEG.Entity.SessionManager Session;
-        private List<SEG.Entity.Permiso> Familias;
+        private List<SEG.Entity.Familia> Familias;
         SEG.Service.Bitacora bitacoraService = new SEG.Service.Bitacora();
         SEG.Service.Familia familiaService = new SEG.Service.Familia();
 

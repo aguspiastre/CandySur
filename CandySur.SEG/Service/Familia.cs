@@ -8,10 +8,16 @@ using static CandySur.SEG.Util.Enums;
 
 namespace CandySur.SEG.Service
 {
-    public class Familia : Permiso
+    public class Familia 
     {
-        SEG.Repository.Familia repository = new Repository.Familia();
-        SEG.Service.DigitoVerificador dv = new Service.DigitoVerificador();
+        private SEG.Repository.Familia repository;
+        private SEG.Service.DigitoVerificador dv;
+
+        public Familia()
+        {
+            repository = new Repository.Familia();
+            dv = new Service.DigitoVerificador();
+        }
 
         public int Alta(Entity.Familia familia)
         {
@@ -90,17 +96,17 @@ namespace CandySur.SEG.Service
             }
         }
 
-        public override List<Entity.Permiso> Listar()
+        public List<Entity.Familia> Listar()
         {
             return repository.Listar();
         }
 
-        public override Entity.Permiso Consultar(string nombre)
+        public Entity.Familia Consultar(string nombre)
         {
             return repository.Consultar(Util.Encrypt.Encriptar(nombre, (int)TipoEncriptacion.Reversible));
         }
 
-        public override int Asignar(Entity.Usuario usuario, string nombre)
+        public int Asignar(Entity.Usuario usuario, string nombre)
         {
             try
             {
@@ -109,7 +115,7 @@ namespace CandySur.SEG.Service
                 if (contieneFamilia)
                     throw new Exception("El usuario ya contiene la familia asignada.");
 
-                Entity.Familia familia = this.Consultar(nombre) as Entity.Familia;
+                Entity.Familia familia = this.Consultar(nombre);
 
                 return repository.Asignar(familia.Id, usuario.Id);
             }
@@ -119,7 +125,7 @@ namespace CandySur.SEG.Service
             }
         }
 
-        public override int Desasignar(Entity.Usuario usuario, string nombre)
+        public int Desasignar(Entity.Usuario usuario, string nombre)
         {
             try
             {

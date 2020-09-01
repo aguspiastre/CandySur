@@ -12,8 +12,20 @@ namespace CandySur.SEG.Service
 {
     public class Usuario
     {
-        Repository.Usuario repository = new Repository.Usuario();
-        Service.DigitoVerificador dv = new Service.DigitoVerificador();
+        private Repository.Usuario repository;
+        private Service.DigitoVerificador dv;
+        private Service.Familia familia;
+        private Service.Patente patente;
+        private Service.Bitacora bitacora;
+
+        public Usuario()
+        {
+            repository = new Repository.Usuario();
+            dv = new Service.DigitoVerificador();
+            familia = new Service.Familia();
+            patente = new Service.Patente();
+            bitacora = new Service.Bitacora();
+        }
 
         public void AltaUsuario(Entity.Usuario usuario)
         {
@@ -180,7 +192,7 @@ namespace CandySur.SEG.Service
 
         private bool VerificarAdministrador(Entity.Usuario usuario)
         {
-            if(usuario.Permisos != null)
+            if (usuario.Permisos != null)
                 return usuario.Permisos.Any(p => p.Nombre == "Administrador");
 
             return false;
@@ -220,12 +232,26 @@ namespace CandySur.SEG.Service
         {
             try
             {
-                usuario.NombreUsuario = Encrypt.Encriptar(usuario.NombreUsuario, (int)TipoEncriptacion.Reversible);
-                usuario.Reintentos += 1;
+                Entity.Usuario user = new Entity.Usuario
+                {
+                    Id = usuario.Id,
+                    Apellido = usuario.Apellido,
+                    Bloqueado = usuario.Bloqueado,
+                    Nombre = usuario.Nombre,
+                    NombreUsuario = Encrypt.Encriptar(usuario.NombreUsuario, (int)TipoEncriptacion.Reversible),
+                    Contraseña = usuario.Contraseña,
+                    Direccion = usuario.Direccion,
+                    DNI = usuario.DNI,
+                    Eliminado = usuario.Eliminado,
+                    FechaNac = usuario.FechaNac,
+                    Mail = usuario.Mail,
+                    Telefono = usuario.Telefono,
+                    Reintentos = usuario.Reintentos + 1
+                };
 
                 using (var scope = new TransactionScope(TransactionScopeOption.RequiresNew, new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }))
                 {
-                    int reintentos = repository.AumentarContador(usuario.Id, usuario.Reintentos, dv.CalcularDVH(this.ConcatenarRegistro(usuario)));
+                    int reintentos = repository.AumentarContador(user.Id, user.Reintentos, dv.CalcularDVH(this.ConcatenarRegistro(user)));
 
                     dv.ActualizarDVV("Usuario");
 
@@ -244,12 +270,26 @@ namespace CandySur.SEG.Service
         {
             try
             {
-                usuario.NombreUsuario = Encrypt.Encriptar(usuario.NombreUsuario, (int)TipoEncriptacion.Reversible);
-                usuario.Reintentos = 0;
+                Entity.Usuario user = new Entity.Usuario
+                {
+                    Id = usuario.Id,
+                    Apellido = usuario.Apellido,
+                    Bloqueado = usuario.Bloqueado,
+                    Nombre = usuario.Nombre,
+                    NombreUsuario = Encrypt.Encriptar(usuario.NombreUsuario, (int)TipoEncriptacion.Reversible),
+                    Contraseña = usuario.Contraseña,
+                    Direccion = usuario.Direccion,
+                    DNI = usuario.DNI,
+                    Eliminado = usuario.Eliminado,
+                    FechaNac = usuario.FechaNac,
+                    Mail = usuario.Mail,
+                    Telefono = usuario.Telefono,
+                    Reintentos = 0
+                };
 
                 using (var scope = new TransactionScope(TransactionScopeOption.RequiresNew, new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }))
                 {
-                    int result = repository.ReiniciarContador(usuario.Id, dv.CalcularDVH(this.ConcatenarRegistro(usuario)));
+                    int result = repository.ReiniciarContador(user.Id, dv.CalcularDVH(this.ConcatenarRegistro(user)));
 
                     dv.ActualizarDVV("Usuario");
 
@@ -268,12 +308,26 @@ namespace CandySur.SEG.Service
         {
             try
             {
-                usuario.NombreUsuario = Encrypt.Encriptar(usuario.NombreUsuario, (int)TipoEncriptacion.Reversible);
-                usuario.Bloqueado = true;
+                Entity.Usuario user = new Entity.Usuario
+                {
+                    Id = usuario.Id,
+                    Apellido = usuario.Apellido,
+                    Reintentos = usuario.Reintentos,
+                    Nombre = usuario.Nombre,
+                    NombreUsuario = Encrypt.Encriptar(usuario.NombreUsuario, (int)TipoEncriptacion.Reversible),
+                    Contraseña = usuario.Contraseña,
+                    Direccion = usuario.Direccion,
+                    DNI = usuario.DNI,
+                    Eliminado = usuario.Eliminado,
+                    FechaNac = usuario.FechaNac,
+                    Mail = usuario.Mail,
+                    Telefono = usuario.Telefono,
+                    Bloqueado = true
+                };
 
                 using (var scope = new TransactionScope(TransactionScopeOption.RequiresNew, new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }))
                 {
-                    int result = repository.BloquearUsuario(usuario.Id, dv.CalcularDVH(this.ConcatenarRegistro(usuario)));
+                    int result = repository.BloquearUsuario(user.Id, dv.CalcularDVH(this.ConcatenarRegistro(user)));
 
                     dv.ActualizarDVV("Usuario");
 
@@ -310,6 +364,38 @@ namespace CandySur.SEG.Service
             {
                 throw ex;
             }
+        }
+
+        public List<Entity.Permiso> ObtenerPermisos(Entity.Usuario usuario)
+        {
+            try
+            {
+                List<Entity.Permiso> permisos = repository.ObtenerPermisos(usuario.Id);
+
+                foreach (Entity.Permiso p in permisos)
+                {
+                    if (p.Compuesto)
+                        usuario.Permisos.Add(familia.Consultar(p.Nombre));
+                    else
+                        usuario.Permisos.Add(patente.Consultar(p.Nombre));
+                }
+
+                return permisos;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public bool CompararContraseña(string contraseña, string contraseñaIngresada)
+        {
+            return contraseña == contraseñaIngresada;
+        }
+
+        public bool ValidarEstado(Entity.Usuario usuario)
+        {
+            return usuario.Bloqueado;
         }
 
         private string ConcatenarRegistro(Entity.Usuario usuario)

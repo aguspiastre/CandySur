@@ -12,8 +12,14 @@ namespace CandySur.SEG.Service
 {
     public class Bitacora
     {
-        Repository.Bitacora repository = new Repository.Bitacora();
-        Service.DigitoVerificador dv = new Service.DigitoVerificador();
+        private Repository.Bitacora repository;
+        private Service.DigitoVerificador dv;
+
+        public Bitacora()
+        {
+            repository = new Repository.Bitacora();
+            dv = new Service.DigitoVerificador();
+        }
         public int Registrar(Entity.Bitacora reg)
         {
             using (var scope = new TransactionScope(TransactionScopeOption.RequiresNew, new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }))

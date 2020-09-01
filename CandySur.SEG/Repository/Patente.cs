@@ -11,11 +11,16 @@ namespace CandySur.SEG.Repository
 {
     public class Patente
     {
-        private CandySur.DLL.Datos db = CandySur.DLL.Datos.GetInstance();
+        private CandySur.DLL.Datos db;
 
-        public List<Entity.Permiso> Listar()
+        public Patente()
         {
-            List<Entity.Permiso> patentes = new List<Entity.Permiso>();
+            db = CandySur.DLL.Datos.GetInstance();
+        }
+
+        public List<Entity.Patente> Listar()
+        {
+            List<Entity.Patente> patentes = new List<Entity.Patente>();
             string sqlCommand = @"SELECT * FROM permiso p WHERE p.Compuesto = 0";
 
             DataTable tabla = db.ExecuteReader(sqlCommand);
@@ -38,9 +43,8 @@ namespace CandySur.SEG.Repository
             return patentes;
         }
 
-        public Entity.Permiso Consultar(string nombre)
+        public Entity.Patente Consultar(string nombre)
         {
-            List<Entity.Permiso> patentes = new List<Entity.Permiso>();
             string sqlCommand = @"SELECT * FROM permiso p WHERE p.Compuesto = 0 AND p.Eliminado = 0 AND p.Nombre = " + "'" + nombre + "'";
 
             DataTable tabla = db.ExecuteReader(sqlCommand);

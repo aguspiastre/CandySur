@@ -5,12 +5,19 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
+using static CandySur.SEG.Util.Enums;
 
 namespace CandySur.SEG.Service
 {
     public class DigitoVerificador
     {
-        private Repository.DigitoVerificador repository = new Repository.DigitoVerificador();
+        private Repository.DigitoVerificador repository;
+
+        public DigitoVerificador()
+        {
+            repository = new Repository.DigitoVerificador();
+        }
 
         public string CalcularDVV(DataTable tabla)
         {
@@ -54,32 +61,42 @@ namespace CandySur.SEG.Service
         {
             try
             {
-                DataTable dvvs = repository.ListarDVV();
-
-                foreach (DataRow row in dvvs.Rows)
+                using (var scope = new TransactionScope())
                 {
-                    DataTable tabla = repository.ConsultarTabla(row["Nombre_Tabla"].ToString());
+                    DataTable dvvs = repository.ListarDVV();
 
-                    if (tabla.Columns.Contains("Id"))
-                        tabla.Columns.Remove("Id");
-
-                    foreach (DataRow r in tabla.Rows)
+                    foreach (DataRow row in dvvs.Rows)
                     {
-                        string dvh = r["DVH"].ToString();
-                        // Dejo vacio el dvh para no tomarlo en cuenta la generacion y comparacion.
-                        r["DVH"] = string.Empty;
+                        DataTable tabla = repository.ConsultarTabla(row["Nombre_Tabla"].ToString());
 
-                        repository.ActualizarDVH(this.CalcularDVH(ConcatenarRegistro(row)), row["Nombre_Tabla"].ToString(), r["Id"].ToString());
+                        //Saco el solo lectura y permito null (PK)
+                        if (tabla.Columns.Contains("Id"))
+                        {
+                            tabla.Columns["Id"].ReadOnly = false;
+                            tabla.Columns["Id"].AllowDBNull = true;
+                        }
+
+                        if (tabla.Columns.Contains("DVH")) tabla.Columns.Remove("DVH");
+
+                        foreach (DataRow r in tabla.Rows)
+                        {
+                            string id = r["Id"].ToString();
+                            r["Id"] = DBNull.Value;
+
+                            repository.ActualizarDVH(this.CalcularDVH(ConcatenarRegistro(r)), row["Nombre_Tabla"].ToString(), id);
+                        }
+
+                        this.ActualizarDVV(row["Nombre_Tabla"].ToString());
                     }
 
-                    this.ActualizarDVV(row["Nombre_Tabla"].ToString());
+                    scope.Complete();
                 }
 
                 return true;
             }
             catch (Exception ex)
             {
-                throw ex;
+                return false;
             }
         }
 
@@ -87,6 +104,8 @@ namespace CandySur.SEG.Service
         {
             try
             {
+                Service.Bitacora bitacoraService = new Service.Bitacora();
+                bool resultado = true;
                 DataTable dvvs = repository.ListarDVV();
 
                 foreach (DataRow row in dvvs.Rows)
@@ -94,22 +113,50 @@ namespace CandySur.SEG.Service
                     DataTable tabla = repository.ConsultarTabla(row["Nombre_Tabla"].ToString());
 
                     if (!this.CompararDVV(row["Nombre_Tabla"].ToString(), (row["DVV"].ToString())))
-                        return false;
+                    {
+                        bitacoraService.Registrar(new Entity.Bitacora
+                        {
+                            IdCriticidad = (int)Criticidad.Alta,
+                            Descripcion = "La tabla " + row["Nombre_Tabla"].ToString() + " no se encuentra en un estado valido.",
+                            Fecha = DateTime.Now,
+                            IdUsuario = 1
+                        });
 
-                    if (tabla.Columns.Contains("Id")) tabla.Columns.Remove("Id");
+                        resultado = false;
+                    }
+
+                    //Saco el solo lectura y permito null (PK)
+                    if (tabla.Columns.Contains("Id"))
+                    {
+                        tabla.Columns["Id"].ReadOnly = false;
+                        tabla.Columns["Id"].AllowDBNull = true;
+                    }
 
                     foreach (DataRow r in tabla.Rows)
                     {
                         string dvh = r["DVH"].ToString();
-                        // Dejo vacio el dvh para no tenerlo en cuenta en la generacion y comparacion.
+                        string id = r["Id"].ToString();
+
+                        // Dejo vacio el dvh y el id para no tenerlo en cuenta en la generacion y comparacion.
                         r["DVH"] = string.Empty;
+                        r["Id"] = DBNull.Value;
 
                         if (!this.CompararDVH(this.ConcatenarRegistro(r), dvh))
-                            return false;
+                        {
+                            bitacoraService.Registrar(new Entity.Bitacora
+                            {
+                                IdCriticidad = (int)Criticidad.Alta,
+                                Descripcion = "El registro con id " + id + " de la tabla " + row["Nombre_Tabla"].ToString() + " no se encuentra en un estado valido.",
+                                Fecha = DateTime.Now,
+                                IdUsuario = 1
+                            });
+
+                            resultado = false;
+                        }
                     }
                 }
 
-                return true;
+                return resultado;
             }
             catch (Exception ex)
             {
