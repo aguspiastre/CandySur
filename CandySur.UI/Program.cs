@@ -17,6 +17,8 @@ namespace CandySur.UI
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            //Application.Run(new Main());
+
             Login.Login formLogin = new Login.Login();
             formLogin.DialogResult = formLogin.ShowDialog();
 
@@ -24,7 +26,7 @@ namespace CandySur.UI
             {
                 Application.Run(new Main());
             }
-            else if(formLogin.DialogResult == DialogResult.Abort)
+            else if (formLogin.DialogResult == DialogResult.Abort)
             {
                 Application.Run(new Backup_Restore.ReiniciarSistema());
             }

@@ -48,11 +48,22 @@ namespace CandySur.UI.Familia
                     {
                         if (usuario.Permisos != null && usuario.Permisos.Any())
                         {
+                            this.listFamiliaDesasignar.Items.Clear();
+                            this.listFamiliasAsignar.Items.Clear();
+
                             this.listFamiliaDesasignar.Items.AddRange
                             (
                                 (
                                     from f in usuario.Permisos
                                     where f.Compuesto == true
+                                    select new ListViewItem(f.Nombre)
+                                ).ToArray()
+                            );
+
+                            this.listFamiliasAsignar.Items.AddRange
+                            (
+                                (
+                                    from f in familiaService.Listar()
                                     select new ListViewItem(f.Nombre)
                                 ).ToArray()
                             );

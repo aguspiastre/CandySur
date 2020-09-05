@@ -64,6 +64,12 @@
     <Compile Include="Bitacora\ConsultarBitacora.Designer.cs">
       <DependentUpon>ConsultarBitacora.cs</DependentUpon>
     </Compile>
+    <Compile Include="Bitacora\ControlCambios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bitacora\ControlCambios.Designer.cs">
+      <DependentUpon>ControlCambios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Descuentos\Descuentos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -260,6 +266,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Bitacora\ConsultarBitacora.resx">
       <DependentUpon>ConsultarBitacora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bitacora\ControlCambios.resx">
+      <DependentUpon>ControlCambios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Descuentos\Descuentos.resx">
       <DependentUpon>Descuentos.cs</DependentUpon>

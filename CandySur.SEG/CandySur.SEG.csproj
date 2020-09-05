@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entity\ControlCambios.cs" />
     <Compile Include="Entity\Bitacora.cs" />
     <Compile Include="Entity\Familia.cs" />
     <Compile Include="Entity\IPermisoOperaciones.cs" />
@@ -50,8 +51,10 @@
     <Compile Include="Entity\Permiso.cs" />
     <Compile Include="Entity\SessionManager.cs" />
     <Compile Include="Entity\Usuario.cs" />
+    <Compile Include="Repository\ControlCambios.cs" />
     <Compile Include="Repository\Familia.cs" />
     <Compile Include="Repository\Patente.cs" />
+    <Compile Include="Service\ControlCambios.cs" />
     <Compile Include="Service\Familia.cs" />
     <Compile Include="Service\Patente.cs" />
     <Compile Include="Util\Enums.cs" />

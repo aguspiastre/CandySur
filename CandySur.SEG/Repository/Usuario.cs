@@ -16,12 +16,12 @@ namespace CandySur.SEG.Repository
         {
             db = CandySur.DLL.Datos.GetInstance();
         }
-        
+
         public int Alta(Entity.Usuario usuario)
         {
             string sqlCommand = @"INSERT INTO usuario (NOMBRE, APELLIDO, DNI, NOMBRE_USUARIO, CONTRASEÑA, DIRECCION, TELEFONO, REINTENTOS, MAIL, FECHA_NAC, ELIMINADO, BLOQUEADO, DVH)
                                 VALUES (" + "'" + usuario.Nombre + "'" + "," + "'" + usuario.Apellido + "'" + "," + usuario.DNI + "," + "'" + usuario.NombreUsuario + "'" + "," +
-                                "'" + usuario.Contraseña + "'" + "," + "'" + usuario.Direccion + "'" + "," + usuario.Telefono + "," + 0 + "," + "'" + usuario.Mail + "'"  + "," +
+                                "'" + usuario.Contraseña + "'" + "," + "'" + usuario.Direccion + "'" + "," + usuario.Telefono + "," + 0 + "," + "'" + usuario.Mail + "'" + "," +
                                 "'" + usuario.FechaNac.ToShortDateString() + "'" + "," + Convert.ToInt16(usuario.Eliminado) + "," + Convert.ToInt16(usuario.Bloqueado) + "," + "'" + usuario.DVH + "'" + ")";
 
             return db.ExecuteSqlCommand(sqlCommand);
@@ -52,7 +52,7 @@ namespace CandySur.SEG.Repository
 
         public int Desbloquear(int id, string DVH)
         {
-            string sqlCommand = @"UPDATE Usuario SET Bloqueado = 0 " + ", DVH=" + "'" + DVH + "'" + " WHERE Id=" + id;
+            string sqlCommand = @"UPDATE Usuario SET Bloqueado = 0, Reintentos = 0" + ", DVH=" + "'" + DVH + "'" + " WHERE Id=" + id;
 
             return db.ExecuteSqlCommand(sqlCommand);
         }
@@ -79,12 +79,30 @@ namespace CandySur.SEG.Repository
             return db.ExecuteSqlCommand(sqlCommand);
         }
 
-        public int Modificar(Entity.Usuario usuario, string DVH)
+        public int Modificar(Entity.Usuario usuario, string DVH, bool esControlCambio)
         {
-            string sqlCommand = @"UPDATE Usuario SET DVH=" + "'" + DVH + "'" + "," + "Direccion=" + "'" + usuario.Direccion + "'" + ","
-                + "Mail=" + "'" + usuario.Mail + "'" + "," + "Telefono=" + "'" + usuario.Telefono + "'" + " WHERE Id=" + usuario.Id;
+            string sqlCommand = string.Empty;
+
+            if (!esControlCambio)
+            {
+                sqlCommand = @"UPDATE Usuario SET DVH=" + "'" + DVH + "'" + "," + "Direccion=" + "'" + usuario.Direccion + "'" + ","
+                 + "Mail=" + "'" + usuario.Mail + "'" + "," + "Telefono=" + "'" + usuario.Telefono + "'" + " WHERE Id=" + usuario.Id;
+            }
+            else
+            {
+                sqlCommand = @"UPDATE Usuario SET DVH=" + "'" + DVH + "'" + "," + "Direccion=" + "'" + usuario.Direccion + "'" + ","
+                + "Mail=" + "'" + usuario.Mail + "'" + "," + "Telefono="  + usuario.Telefono  + "," + "Contraseña=" + "'" + usuario.Contraseña + "'" + ","
+                + "Reintentos=" + usuario.Reintentos + "," + "Eliminado=" + Convert.ToInt16(usuario.Eliminado) +  "," + "Bloqueado=" + Convert.ToInt16(usuario.Bloqueado) + " WHERE Id=" + usuario.Id;
+            }
 
             return db.ExecuteSqlCommand(sqlCommand);
+        }
+
+        public int ObtenerUltimoId()
+        {
+            string sqlCommand = @"SELECT MAX(Id) FROM USUARIO";
+
+            return Convert.ToInt32(db.ExecuteScalar(sqlCommand));
         }
 
         public Entity.Usuario Consultar(string username)
@@ -127,7 +145,7 @@ namespace CandySur.SEG.Repository
 
             if (tabla.Rows.Count == 0)
                 return null;
-            
+
             List<Entity.Permiso> permisos = new List<Entity.Permiso>();
 
             foreach (DataRow row in tabla.Rows)
@@ -166,11 +184,11 @@ namespace CandySur.SEG.Repository
             {
                 Entity.Usuario user = new Entity.Usuario
                 {
-                    NombreUsuario = Encrypt.Desencriptar(tabla.Rows[0]["Nombre_Usuario"].ToString()),
-                    Bloqueado = (bool)tabla.Rows[0]["Bloqueado"],
-                    Apellido = tabla.Rows[0]["Apellido"].ToString(),
-                    Nombre = tabla.Rows[0]["Nombre"].ToString(),
-                    Id = Convert.ToInt32(tabla.Rows[0]["Id"].ToString())
+                    NombreUsuario = Encrypt.Desencriptar(row["Nombre_Usuario"].ToString()),
+                    Bloqueado = (bool)row["Bloqueado"],
+                    Apellido = row["Apellido"].ToString(),
+                    Nombre = row["Nombre"].ToString(),
+                    Id = Convert.ToInt32(row["Id"].ToString())
                 };
 
                 usuarios.Add(user);

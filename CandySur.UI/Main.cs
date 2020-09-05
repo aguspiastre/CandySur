@@ -138,5 +138,12 @@ namespace CandySur.UI
             asignarPatenteFamilia.MdiParent = this;
             asignarPatenteFamilia.Show();
         }
+
+        private void controlDeCambiosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var controlCambios = new Bitacora.ControlCambios();
+            controlCambios.MdiParent = this;
+            controlCambios.Show();
+        }
     }
 }

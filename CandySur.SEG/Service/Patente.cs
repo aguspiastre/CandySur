@@ -55,6 +55,9 @@ namespace CandySur.SEG.Service
                 if (patente == null)
                     throw new Exception("No se encontro la patente.");
 
+                if(!this.ValidarDesasignacion(usuario.Id))
+                    throw new Exception("Por normas de control interno no puede quedar zona de nadie. No se puede desasignar la patente al usuario.");
+
                 return repository.Desasignar(patente.Id, usuario.Id);
             }
             catch (Exception ex)
@@ -83,6 +86,19 @@ namespace CandySur.SEG.Service
                         return true;
                 }
             }
+            return false;
+        }
+
+        private bool ValidarDesasignacion(int idUsuarioADesignar)
+        {
+            Service.Usuario usuarioSerivice = new Service.Usuario();
+
+            foreach (Entity.Usuario item in usuarioSerivice.Listar().Where(u => u.Id != idUsuarioADesignar))
+            {
+                if (item.Permisos.Any())
+                    return true;
+            }
+
             return false;
         }
     }

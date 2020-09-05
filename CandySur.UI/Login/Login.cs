@@ -118,7 +118,11 @@ namespace CandySur.UI.Login
                     this.DialogResult = DialogResult.OK;
 
                     if (!verificarIntegridad && esAdministrador)
+                    {
+                        MessageBox.Show("La base de datos no se encuentra en un estado correcto, sera redirigido para resolver los errores.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                         this.DialogResult = DialogResult.Abort;
+                    }
                 }
             }
             catch (Exception ex)

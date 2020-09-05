@@ -106,7 +106,7 @@ namespace CandySur.UI.Usuario
                     usuario.Mail = txtEmail.Text;
                     usuario.FechaNac = dtpFechaNac.Value.Date;
 
-                    usuarioService.Modificar(usuario);
+                    usuarioService.Modificar(usuario, false);
 
                     SEG.Entity.Bitacora reg = new SEG.Entity.Bitacora
                     {

@@ -17,6 +17,7 @@ namespace CandySur.SEG.Service
         private Service.Familia familia;
         private Service.Patente patente;
         private Service.Bitacora bitacora;
+        private Service.ControlCambios controlCambios;
 
         public Usuario()
         {
@@ -25,6 +26,7 @@ namespace CandySur.SEG.Service
             familia = new Service.Familia();
             patente = new Service.Patente();
             bitacora = new Service.Bitacora();
+            controlCambios = new Service.ControlCambios();
         }
 
         public void AltaUsuario(Entity.Usuario usuario)
@@ -50,6 +52,11 @@ namespace CandySur.SEG.Service
                     int result = repository.Alta(usuario);
 
                     dv.ActualizarDVV("Usuario");
+
+                    int idUsuario = repository.ObtenerUltimoId();
+
+                    //Control de Cambios
+                    this.RegistrarControlCambios(usuario, idUsuario);
 
                     scope.Complete();
                 }
@@ -84,6 +91,9 @@ namespace CandySur.SEG.Service
                 {
                     int result = repository.GenerarContraseña(usuario);
 
+                    //Control de Cambios
+                    this.RegistrarControlCambios(usuario, usuario.Id);
+
                     dv.ActualizarDVV("Usuario");
 
                     scope.Complete();
@@ -114,6 +124,9 @@ namespace CandySur.SEG.Service
                 {
                     int result = repository.GenerarContraseña(usuario);
 
+                    //Control de Cambios
+                    this.RegistrarControlCambios(usuario, usuario.Id);
+
                     dv.ActualizarDVV("Usuario");
 
                     scope.Complete();
@@ -132,6 +145,8 @@ namespace CandySur.SEG.Service
             if (usuario == null)
                 throw new Exception("No se encontro al usuario.");
 
+            ObtenerPermisos(usuario);
+
             return usuario;
         }
 
@@ -142,12 +157,26 @@ namespace CandySur.SEG.Service
                 if (VerificarAdministrador(usuario))
                     throw new Exception("El usuario contiene permisos de administrador, no puede ser eliminado.");
 
+                List<Entity.Usuario> usuarios = this.Listar();
+
+                foreach (Entity.Usuario user in usuarios)
+                {
+                    ObtenerPermisos(user);
+                }
+
+                if (!this.ValidarPermisos(usuarios, usuario.Id))
+                    throw new Exception("No se puede eliminar al usuario, debido a que no hay otro usuario con permisos asignados.");
+
                 usuario.NombreUsuario = Encrypt.Encriptar(usuario.NombreUsuario, (int)TipoEncriptacion.Reversible);
                 usuario.Eliminado = true;
+                usuario.DVH = dv.CalcularDVH(this.ConcatenarRegistro(usuario));
 
                 using (var scope = new TransactionScope(TransactionScopeOption.RequiresNew, new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }))
                 {
-                    int result = repository.Eliminar(usuario, dv.CalcularDVH(this.ConcatenarRegistro(usuario)));
+                    int result = repository.Eliminar(usuario, usuario.DVH);
+
+                    //Control de Cambios
+                    this.RegistrarControlCambios(usuario, usuario.Id);
 
                     dv.ActualizarDVV("Usuario");
 
@@ -162,15 +191,19 @@ namespace CandySur.SEG.Service
             }
         }
 
-        public int Modificar(Entity.Usuario usuario)
+        public int Modificar(Entity.Usuario usuario, bool esControlCambios)
         {
             try
             {
                 usuario.NombreUsuario = Encrypt.Encriptar(usuario.NombreUsuario, (int)TipoEncriptacion.Reversible);
+                usuario.DVH = dv.CalcularDVH(this.ConcatenarRegistro(usuario));
 
                 using (var scope = new TransactionScope(TransactionScopeOption.RequiresNew, new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }))
                 {
-                    int result = repository.Modificar(usuario, dv.CalcularDVH(this.ConcatenarRegistro(usuario)));
+                    int result = repository.Modificar(usuario, usuario.DVH, esControlCambios);
+
+                    //Control de Cambios
+                    this.RegistrarControlCambios(usuario, usuario.Id);
 
                     dv.ActualizarDVV("Usuario");
 
@@ -249,9 +282,14 @@ namespace CandySur.SEG.Service
                     Reintentos = usuario.Reintentos + 1
                 };
 
+                user.DVH = dv.CalcularDVH(this.ConcatenarRegistro(user));
+
                 using (var scope = new TransactionScope(TransactionScopeOption.RequiresNew, new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }))
                 {
-                    int reintentos = repository.AumentarContador(user.Id, user.Reintentos, dv.CalcularDVH(this.ConcatenarRegistro(user)));
+                    int reintentos = repository.AumentarContador(user.Id, user.Reintentos, user.DVH);
+
+                    //Control de Cambios
+                    this.RegistrarControlCambios(user, user.Id);
 
                     dv.ActualizarDVV("Usuario");
 
@@ -284,12 +322,17 @@ namespace CandySur.SEG.Service
                     FechaNac = usuario.FechaNac,
                     Mail = usuario.Mail,
                     Telefono = usuario.Telefono,
-                    Reintentos = 0
+                    Reintentos = 0,
                 };
+
+                user.DVH = dv.CalcularDVH(this.ConcatenarRegistro(user));
 
                 using (var scope = new TransactionScope(TransactionScopeOption.RequiresNew, new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }))
                 {
-                    int result = repository.ReiniciarContador(user.Id, dv.CalcularDVH(this.ConcatenarRegistro(user)));
+                    int result = repository.ReiniciarContador(user.Id, user.DVH);
+
+                    //Control de Cambios
+                    this.RegistrarControlCambios(user, user.Id);
 
                     dv.ActualizarDVV("Usuario");
 
@@ -325,9 +368,14 @@ namespace CandySur.SEG.Service
                     Bloqueado = true
                 };
 
+                user.DVH = dv.CalcularDVH(this.ConcatenarRegistro(user));
+
                 using (var scope = new TransactionScope(TransactionScopeOption.RequiresNew, new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }))
                 {
-                    int result = repository.BloquearUsuario(user.Id, dv.CalcularDVH(this.ConcatenarRegistro(user)));
+                    int result = repository.BloquearUsuario(user.Id, user.DVH);
+
+                    //Control de Cambios
+                    this.RegistrarControlCambios(user, user.Id);
 
                     dv.ActualizarDVV("Usuario");
 
@@ -348,10 +396,14 @@ namespace CandySur.SEG.Service
             {
                 usuario.NombreUsuario = Encrypt.Encriptar(usuario.NombreUsuario, (int)TipoEncriptacion.Reversible);
                 usuario.Bloqueado = false;
+                usuario.DVH = dv.CalcularDVH(this.ConcatenarRegistro(usuario));
 
                 using (var scope = new TransactionScope(TransactionScopeOption.RequiresNew, new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }))
                 {
-                    int result = repository.Desbloquear(usuario.Id, dv.CalcularDVH(this.ConcatenarRegistro(usuario)));
+                    int result = repository.Desbloquear(usuario.Id, usuario.DVH);
+
+                    //Control de Cambios
+                    this.RegistrarControlCambios(usuario, usuario.Id);
 
                     dv.ActualizarDVV("Usuario");
 
@@ -398,10 +450,45 @@ namespace CandySur.SEG.Service
             return usuario.Bloqueado;
         }
 
+        private bool ValidarPermisos(List<Entity.Usuario> usuarios, int idAEliminar)
+        {
+            foreach (Entity.Usuario item in usuarios.Where(u => u.Id != idAEliminar))
+            {
+                if (item.Permisos.Any())
+                    return true;
+            }
+
+            return false;
+        }
+
         private string ConcatenarRegistro(Entity.Usuario usuario)
         {
             return usuario.Nombre + usuario.Apellido + usuario.DNI + usuario.NombreUsuario + usuario.Contraseña + usuario.Direccion + usuario.Telefono + usuario.Reintentos
                 + usuario.Mail + usuario.FechaNac.ToString() + usuario.Eliminado + usuario.Bloqueado;
+        }
+
+        private void RegistrarControlCambios(Entity.Usuario usuario, int idUsuario)
+        {
+            Entity.ControlCambios c = new Entity.ControlCambios
+            {
+                Id = idUsuario,
+                Apellido = usuario.Apellido,
+                Bloqueado = usuario.Bloqueado,
+                Contraseña = usuario.Contraseña,
+                Direccion = usuario.Direccion,
+                DNI = usuario.DNI,
+                Eliminado = usuario.Eliminado,
+                FechaNac = usuario.FechaNac,
+                Fecha_Modif = DateTime.Now,
+                Id_Usuario = usuario.Id,
+                Mail = usuario.Mail,
+                Nombre = usuario.Nombre,
+                NombreUsuario = usuario.NombreUsuario,
+                Reintentos = usuario.Reintentos,
+                Telefono = usuario.Telefono
+            };
+
+            controlCambios.Registrar(c);
         }
 
     }

@@ -54,6 +54,9 @@ namespace CandySur.SEG.Util
 
         public static string Desencriptar(string texto)
         {
+            if (texto == string.Empty)
+                return texto;
+
             byte[] keyArray;
             byte[] Array_a_Descifrar = Convert.FromBase64String(texto);
 

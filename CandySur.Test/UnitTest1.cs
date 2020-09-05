@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using static CandySur.SEG.Util.Enums;
 
 namespace CandySur.Test
 {
@@ -17,6 +18,14 @@ namespace CandySur.Test
 
             string dvh = dv.CalcularDVH(user.Apellido);
         }
+
+        [TestMethod]
+        public void Encriptar()
+        {
+            string nombre = SEG.Util.Encrypt.Encriptar("Eliminar Usuario", (int)TipoEncriptacion.Reversible);
+        }
+
+
         [TestMethod]
         public void AumentarContadorReintentos()
         {

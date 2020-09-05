@@ -118,8 +118,7 @@ namespace CandySur.SEG.Service
                         {
                             IdCriticidad = (int)Criticidad.Alta,
                             Descripcion = "La tabla " + row["Nombre_Tabla"].ToString() + " no se encuentra en un estado valido.",
-                            Fecha = DateTime.Now,
-                            IdUsuario = 1
+                            Fecha = DateTime.Now
                         });
 
                         resultado = false;
@@ -148,7 +147,6 @@ namespace CandySur.SEG.Service
                                 IdCriticidad = (int)Criticidad.Alta,
                                 Descripcion = "El registro con id " + id + " de la tabla " + row["Nombre_Tabla"].ToString() + " no se encuentra en un estado valido.",
                                 Fecha = DateTime.Now,
-                                IdUsuario = 1
                             });
 
                             resultado = false;

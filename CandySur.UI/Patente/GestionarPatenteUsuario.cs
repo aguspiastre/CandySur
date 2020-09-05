@@ -32,14 +32,6 @@ namespace CandySur.UI.Patente
         private void AsignarPatenteUsuario_Load(object sender, EventArgs e)
         {
             Session = SEG.Entity.SessionManager.GetInstance();
-
-            this.listPatenteAsignar.Items.AddRange
-            (
-                (
-                    from p in patenteService.Listar()
-                    select new ListViewItem(p.Nombre)
-                ).ToArray()
-            );
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -60,8 +52,20 @@ namespace CandySur.UI.Patente
                     }
                     else
                     {
+                        this.listPatenteAsignar.Items.Clear();
+
+                        this.listPatenteAsignar.Items.AddRange
+                        (
+                            (
+                                from p in patenteService.Listar()
+                                select new ListViewItem(p.Nombre)
+                            ).ToArray()
+                        );
+
                         if (usuario.Permisos != null && usuario.Permisos.Any())
                         {
+                            this.listPatenteDesasignar.Items.Clear();
+
                             this.listPatenteDesasignar.Items.AddRange
                             (
                                 (

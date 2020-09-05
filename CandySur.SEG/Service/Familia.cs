@@ -56,6 +56,10 @@ namespace CandySur.SEG.Service
                 familia.Nombre = Util.Encrypt.Encriptar(familia.Nombre, (int)TipoEncriptacion.Reversible);
                 familia.Eliminado = true;
 
+                
+
+
+
                 using (var scope = new TransactionScope(TransactionScopeOption.RequiresNew, new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }))
                 {
                     int result = repository.Eliminar(familia, dv.CalcularDVH(this.ConcatenarRegistro(familia)));
