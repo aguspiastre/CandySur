@@ -14,7 +14,7 @@ namespace CandySur.UI.Usuario
 {
     public partial class AltaUsuario : Form
     {
-        private SEG.Entity.SessionManager Session;
+        private SEG.Service.SessionManager Session;
 
         SEG.Service.Usuario usuarioService = new SEG.Service.Usuario();
         SEG.Service.Bitacora bitacoraService = new SEG.Service.Bitacora();
@@ -25,7 +25,7 @@ namespace CandySur.UI.Usuario
 
         private void Alta_Load(object sender, EventArgs e)
         {
-            Session = SEG.Entity.SessionManager.GetInstance();
+            Session = SEG.Service.SessionManager.GetInstance();
         }
 
         private void txtNombre_KeyUp(object sender, KeyEventArgs e)

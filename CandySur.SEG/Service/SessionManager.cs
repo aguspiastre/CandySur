@@ -1,17 +1,21 @@
-﻿using System;
+﻿using CandySur.SEG.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CandySur.SEG.Entity
+namespace CandySur.SEG.Service
 {
     public class SessionManager
     {
+        static List<IIdiomaObserver> observers = new List<IIdiomaObserver>();
         private SessionManager() { }
 
         private static SessionManager session;
-        public Usuario Usuario { get; set; }
+        public Entity.Usuario Usuario { get; set; }
+
+        public Entity.Idioma Idioma { get; set; }
 
         public static SessionManager GetInstance()
         {
@@ -20,7 +24,7 @@ namespace CandySur.SEG.Entity
             return session;
         }
 
-        public static void Login(Usuario usuario)
+        public static void Login(Entity.Usuario usuario)
         {
             if (session == null)
             {

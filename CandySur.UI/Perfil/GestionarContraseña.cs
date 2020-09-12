@@ -13,13 +13,13 @@ namespace CandySur.UI.Perfil
 {
     public partial class GestionarContraseña : Form
     {
-        private CandySur.SEG.Entity.SessionManager Session;
+        private CandySur.SEG.Service.SessionManager Session;
         SEG.Service.Usuario usuarioService = new SEG.Service.Usuario();
         SEG.Service.Bitacora bitacoraService = new SEG.Service.Bitacora();
 
         public GestionarContraseña()
         {
-            Session = SEG.Entity.SessionManager.GetInstance();
+            Session = SEG.Service.SessionManager.GetInstance();
 
             InitializeComponent();
         }

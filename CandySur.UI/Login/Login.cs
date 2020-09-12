@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CandySur.SEG.Service;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,14 +9,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static CandySur.SEG.Util.Enums;
+using CandySur.SEG.Entity;
 
 namespace CandySur.UI.Login
 {
-    public partial class Login : Form
+    public partial class Login : Form, IIdiomaObserver
     {
         SEG.Service.Bitacora bitacoraService = new SEG.Service.Bitacora();
         SEG.Service.Usuario usuarioService = new SEG.Service.Usuario();
         SEG.Service.DigitoVerificador digitoverificadorService = new SEG.Service.DigitoVerificador();
+        private SEG.Service.IdiomaManager idiomaManager;
+        private SEG.Entity.Idioma Idioma;
         public bool VisualizarRestablecerSistema = true;
 
         public Login()
@@ -23,19 +27,11 @@ namespace CandySur.UI.Login
             InitializeComponent();
         }
 
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Login_Load(object sender, EventArgs e)
         {
-
+            this.idiomaManager = SEG.Service.IdiomaManager.GetInstance();
+            SEG.Service.IdiomaManager.Suscribir(this);
+            Traducir();
         }
 
         private void btnIngresar_Click(object sender, EventArgs e)
@@ -101,7 +97,7 @@ namespace CandySur.UI.Login
                     }
 
                     // Logueo.
-                    SEG.Entity.SessionManager.Login(usuario);
+                    SEG.Service.SessionManager.Login(usuario);
 
                     // Reinicio el contador
                     usuarioService.ReiniciarContador(usuario);
@@ -149,6 +145,67 @@ namespace CandySur.UI.Login
         {
             this.DialogResult = DialogResult.No;
             this.Close();
+        }
+
+        private void Login_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SEG.Service.IdiomaManager.Desuscribir(this);
+        }
+
+        public void ActualizarIdioma(SEG.Entity.Idioma idioma)
+        {
+            this.Traducir(idioma);
+        }
+
+        private void Traducir(SEG.Entity.Idioma idioma = null)
+        {
+            SEG.Service.Traductor traductor = new Traductor();
+
+            var traducciones = traductor.ObtenerTraducciones(idioma);
+
+            //Menu.
+            this.lblContraseña.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.txtContraseña.Name).Descripcion;
+
+            this.lblUsuario.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.txtUsuario.Name).Descripcion;
+
+            this.btnCancelarLogin.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.btnCancelarLogin.Name).Descripcion;
+
+            this.btnIngresar.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.btnIngresar.Name).Descripcion;
+
+            this.linkGenerarContraseña.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.linkGenerarContraseña.Name).Descripcion;
+
+            this.menuIdioma.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.menuIdioma.Name).Descripcion;
+
+            this.SubMenuEspañol.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.SubMenuEspañol.Name).Descripcion;
+
+            this.SubMenuIngles.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.SubMenuIngles.Name).Descripcion;
+        }
+
+        private void SubMenuEspañol_Click(object sender, EventArgs e)
+        {
+            // TODO MEJORAR ESTO.
+            Idioma = new SEG.Entity.Idioma
+            {
+                Id = 1,
+                Nombre = "Español",
+                Principal = true
+            };
+
+            SEG.Service.IdiomaManager.CambiarIdioma(Idioma);
+
+        }
+
+        private void SubMenuIngles_Click(object sender, EventArgs e)
+        {
+            // TODO MEJORAR ESTO.
+            Idioma = new SEG.Entity.Idioma
+            {
+                Id = 2,
+                Nombre = "Ingles",
+                Principal = false
+            };
+
+            SEG.Service.IdiomaManager.CambiarIdioma(Idioma);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace CandySur.UI.Patente
 {
     public partial class ListarPatentes : Form
     {
-        private SEG.Entity.SessionManager Session;
+        private SEG.Service.SessionManager Session;
         SEG.Service.Patente patenteService = new SEG.Service.Patente();
 
         public ListarPatentes()
@@ -27,7 +27,7 @@ namespace CandySur.UI.Patente
 
         private void ListarPatentes_Load(object sender, EventArgs e)
         {
-            Session = SEG.Entity.SessionManager.GetInstance();
+            Session = SEG.Service.SessionManager.GetInstance();
 
             this.dgvPatentes.DataSource = patenteService.Listar().Select(x => new { Nombre = x.Nombre, Descripcion = x.Descripcion }).ToList();
         }

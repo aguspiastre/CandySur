@@ -13,7 +13,7 @@ namespace CandySur.UI.Familia
 {
     public partial class GestionarPatentesFamilia : Form
     {
-        private SEG.Entity.SessionManager Session;
+        private SEG.Service.SessionManager Session;
         private SEG.Entity.Familia familia;
         private List<SEG.Entity.Patente> patentes;
         SEG.Service.Bitacora bitacoraService = new SEG.Service.Bitacora();
@@ -33,7 +33,7 @@ namespace CandySur.UI.Familia
         private void AsignarPatentesFamilia_Load(object sender, EventArgs e)
         {
             patentes = patenteService.Listar();
-            Session = SEG.Entity.SessionManager.GetInstance();
+            Session = SEG.Service.SessionManager.GetInstance();
 
             this.cmbFamilia.DataSource = familiaService.Listar();
             this.cmbFamilia.DisplayMember = "Nombre";

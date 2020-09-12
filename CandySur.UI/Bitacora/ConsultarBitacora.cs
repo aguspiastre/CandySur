@@ -15,7 +15,7 @@ namespace CandySur.UI.Bitacora
 {
     public partial class ConsultarBitacora : Form
     {
-        private CandySur.SEG.Entity.SessionManager Session;
+        private CandySur.SEG.Service.SessionManager Session;
         CandySur.SEG.Service.Bitacora bitacoraService = new SEG.Service.Bitacora();
         CandySur.SEG.Service.Usuario usuarioSerivice = new SEG.Service.Usuario();
         public ConsultarBitacora()
@@ -43,7 +43,7 @@ namespace CandySur.UI.Bitacora
 
         private void Consultar_Load(object sender, EventArgs e)
         {
-            Session = SEG.Entity.SessionManager.GetInstance();
+            Session = SEG.Service.SessionManager.GetInstance();
 
             cmbCriticidad.DataSource = Enum.GetValues(typeof(CandySur.SEG.Util.Enums.Criticidad));
 

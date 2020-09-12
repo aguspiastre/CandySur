@@ -13,7 +13,7 @@ namespace CandySur.UI.Patente
 {
     public partial class GestionarPatenteUsuario : Form
     {
-        private SEG.Entity.SessionManager Session;
+        private SEG.Service.SessionManager Session;
         SEG.Service.Usuario usuarioService = new SEG.Service.Usuario();
         SEG.Service.Bitacora bitacoraService = new SEG.Service.Bitacora();
         SEG.Service.Patente patenteService = new SEG.Service.Patente();
@@ -31,7 +31,7 @@ namespace CandySur.UI.Patente
 
         private void AsignarPatenteUsuario_Load(object sender, EventArgs e)
         {
-            Session = SEG.Entity.SessionManager.GetInstance();
+            Session = SEG.Service.SessionManager.GetInstance();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)

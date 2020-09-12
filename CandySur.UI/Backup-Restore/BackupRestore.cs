@@ -15,7 +15,7 @@ namespace CandySur.UI.Backup_Restore
 {
     public partial class BackupRestore : Form
     {
-        private CandySur.SEG.Entity.SessionManager Session;
+        private CandySur.SEG.Service.SessionManager Session;
         private const string RUTA_DESTINO = "C:\\Program Files (x86)\\Microsoft SQL Server\\MSSQL.1\\MSSQL\\Backup";
         SEG.Service.DataBase databaseService = new SEG.Service.DataBase();
         SEG.Service.Bitacora bitacoraService = new SEG.Service.Bitacora();
@@ -27,7 +27,7 @@ namespace CandySur.UI.Backup_Restore
 
         private void BackupRestore_Load(object sender, EventArgs e)
         {
-            Session = SEG.Entity.SessionManager.GetInstance();
+            Session = SEG.Service.SessionManager.GetInstance();
 
             this.CargarBackups();
         }

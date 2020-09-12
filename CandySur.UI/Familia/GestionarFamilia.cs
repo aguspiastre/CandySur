@@ -13,7 +13,7 @@ namespace CandySur.UI.Familia
 {
     public partial class GestionarFamilia : Form
     {
-        private SEG.Entity.SessionManager Session;
+        private SEG.Service.SessionManager Session;
         private List<SEG.Entity.Familia> Familias;
         SEG.Service.Bitacora bitacoraService = new SEG.Service.Bitacora();
         SEG.Service.Familia familiaService = new SEG.Service.Familia();
@@ -25,7 +25,7 @@ namespace CandySur.UI.Familia
 
         private void GestionarFamilia_Load(object sender, EventArgs e)
         {
-            Session = SEG.Entity.SessionManager.GetInstance();
+            Session = SEG.Service.SessionManager.GetInstance();
             Familias = familiaService.Listar();
 
             cmbFamilia.DataSource = Familias;

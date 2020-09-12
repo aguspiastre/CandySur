@@ -12,7 +12,7 @@ namespace CandySur.UI.Bitacora
 {
     public partial class ControlCambios : Form
     {
-        private CandySur.SEG.Entity.SessionManager Session;
+        private CandySur.SEG.Service.SessionManager Session;
         private CandySur.SEG.Entity.Usuario Usuario;
         CandySur.SEG.Service.Usuario usuarioService = new SEG.Service.Usuario();
         CandySur.SEG.Service.ControlCambios controlService = new SEG.Service.ControlCambios();
@@ -23,7 +23,7 @@ namespace CandySur.UI.Bitacora
 
         private void ControlCambios_Load(object sender, EventArgs e)
         {
-            Session = SEG.Entity.SessionManager.GetInstance();
+            Session = SEG.Service.SessionManager.GetInstance();
 
             Dictionary<string, string> comboUser = new Dictionary<string, string>();
             cmbUsuario.DisplayMember = "Value";

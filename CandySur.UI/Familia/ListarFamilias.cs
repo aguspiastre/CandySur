@@ -12,7 +12,7 @@ namespace CandySur.UI.Familia
 {
     public partial class ListarFamilias : Form
     {
-        private SEG.Entity.SessionManager Session;
+        private SEG.Service.SessionManager Session;
         SEG.Service.Familia familiaService = new SEG.Service.Familia();
         public ListarFamilias()
         {
@@ -26,7 +26,7 @@ namespace CandySur.UI.Familia
 
         private void ListarFamilias_Load(object sender, EventArgs e)
         {
-            Session = SEG.Entity.SessionManager.GetInstance();
+            Session = SEG.Service.SessionManager.GetInstance();
 
             this.dgvFamilias.DataSource = familiaService.Listar().Select(x => new { Nombre = x.Nombre, Descripcion = x.Descripcion }).ToList();
         }

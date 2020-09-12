@@ -29,231 +29,231 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.altaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gestionarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gestionDePermisosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.familiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.altaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.gestionarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.listarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.asignacionAUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.patenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listarToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.asignacionAFamiliaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.asignacionAUsuarioToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.bitacoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.backupRestoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.backupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.miPerfilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gestionarToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.gestionDeIdiomaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cerrarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.controlDeCambiosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuUsuarios = new System.Windows.Forms.ToolStripMenuItem();
+            this.SubMenuUsuarioAlta = new System.Windows.Forms.ToolStripMenuItem();
+            this.SubMenuUsuarioGestionar = new System.Windows.Forms.ToolStripMenuItem();
+            this.SubMenuUsuarioListar = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuGestionPermisos = new System.Windows.Forms.ToolStripMenuItem();
+            this.SubMenuFamilia = new System.Windows.Forms.ToolStripMenuItem();
+            this.SubItemAltaFamilia = new System.Windows.Forms.ToolStripMenuItem();
+            this.SubItemGestionarFamilia = new System.Windows.Forms.ToolStripMenuItem();
+            this.SubItemListarFamilias = new System.Windows.Forms.ToolStripMenuItem();
+            this.SubItemAsignacionFamUsuario = new System.Windows.Forms.ToolStripMenuItem();
+            this.SubMenuPatente = new System.Windows.Forms.ToolStripMenuItem();
+            this.SubItemListarPatentes = new System.Windows.Forms.ToolStripMenuItem();
+            this.SubItemAsignacionPatFamilia = new System.Windows.Forms.ToolStripMenuItem();
+            this.SubItemAsignacionPatUsuario = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuBitacora = new System.Windows.Forms.ToolStripMenuItem();
+            this.SubMenuBitacoraConsultar = new System.Windows.Forms.ToolStripMenuItem();
+            this.SubMenuBitacoraControlCambios = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuBackupRestore = new System.Windows.Forms.ToolStripMenuItem();
+            this.SubMenuBackupRestoreBackup = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuMiPerfil = new System.Windows.Forms.ToolStripMenuItem();
+            this.SubMenuMiPerfilCambiarContraseña = new System.Windows.Forms.ToolStripMenuItem();
+            this.SubMenuMiPerfilGestionaIdioma = new System.Windows.Forms.ToolStripMenuItem();
+            this.SubMenuMiPerfilAyuda = new System.Windows.Forms.ToolStripMenuItem();
+            this.SubMenuMiPerfilCerrarSession = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.usuariosToolStripMenuItem,
-            this.gestionDePermisosToolStripMenuItem,
-            this.bitacoraToolStripMenuItem,
-            this.backupRestoreToolStripMenuItem,
-            this.miPerfilToolStripMenuItem});
+            this.menuUsuarios,
+            this.menuGestionPermisos,
+            this.menuBitacora,
+            this.menuBackupRestore,
+            this.menuMiPerfil});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(473, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // usuariosToolStripMenuItem
+            // menuUsuarios
             // 
-            this.usuariosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.altaToolStripMenuItem,
-            this.gestionarToolStripMenuItem,
-            this.listarToolStripMenuItem});
-            this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
-            this.usuariosToolStripMenuItem.Text = "Usuarios";
+            this.menuUsuarios.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SubMenuUsuarioAlta,
+            this.SubMenuUsuarioGestionar,
+            this.SubMenuUsuarioListar});
+            this.menuUsuarios.Name = "menuUsuarios";
+            this.menuUsuarios.Size = new System.Drawing.Size(64, 20);
+            this.menuUsuarios.Text = "Usuarios";
             // 
-            // altaToolStripMenuItem
+            // SubMenuUsuarioAlta
             // 
-            this.altaToolStripMenuItem.Name = "altaToolStripMenuItem";
-            this.altaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.altaToolStripMenuItem.Text = "Alta";
-            this.altaToolStripMenuItem.Click += new System.EventHandler(this.altaToolStripMenuItem_Click);
+            this.SubMenuUsuarioAlta.Name = "SubMenuUsuarioAlta";
+            this.SubMenuUsuarioAlta.Size = new System.Drawing.Size(152, 22);
+            this.SubMenuUsuarioAlta.Text = "Alta";
+            this.SubMenuUsuarioAlta.Click += new System.EventHandler(this.altaToolStripMenuItem_Click);
             // 
-            // gestionarToolStripMenuItem
+            // SubMenuUsuarioGestionar
             // 
-            this.gestionarToolStripMenuItem.Name = "gestionarToolStripMenuItem";
-            this.gestionarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.gestionarToolStripMenuItem.Text = "Gestionar";
-            this.gestionarToolStripMenuItem.Click += new System.EventHandler(this.gestionarToolStripMenuItem_Click);
+            this.SubMenuUsuarioGestionar.Name = "SubMenuUsuarioGestionar";
+            this.SubMenuUsuarioGestionar.Size = new System.Drawing.Size(152, 22);
+            this.SubMenuUsuarioGestionar.Text = "Gestionar";
+            this.SubMenuUsuarioGestionar.Click += new System.EventHandler(this.gestionarToolStripMenuItem_Click);
             // 
-            // listarToolStripMenuItem
+            // SubMenuUsuarioListar
             // 
-            this.listarToolStripMenuItem.Name = "listarToolStripMenuItem";
-            this.listarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.listarToolStripMenuItem.Text = "Listar";
-            this.listarToolStripMenuItem.Click += new System.EventHandler(this.listarToolStripMenuItem_Click);
+            this.SubMenuUsuarioListar.Name = "SubMenuUsuarioListar";
+            this.SubMenuUsuarioListar.Size = new System.Drawing.Size(152, 22);
+            this.SubMenuUsuarioListar.Text = "Listar";
+            this.SubMenuUsuarioListar.Click += new System.EventHandler(this.listarToolStripMenuItem_Click);
             // 
-            // gestionDePermisosToolStripMenuItem
+            // menuGestionPermisos
             // 
-            this.gestionDePermisosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.familiaToolStripMenuItem,
-            this.patenteToolStripMenuItem});
-            this.gestionDePermisosToolStripMenuItem.Name = "gestionDePermisosToolStripMenuItem";
-            this.gestionDePermisosToolStripMenuItem.Size = new System.Drawing.Size(126, 20);
-            this.gestionDePermisosToolStripMenuItem.Text = "Gestion de Permisos";
+            this.menuGestionPermisos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SubMenuFamilia,
+            this.SubMenuPatente});
+            this.menuGestionPermisos.Name = "menuGestionPermisos";
+            this.menuGestionPermisos.Size = new System.Drawing.Size(126, 20);
+            this.menuGestionPermisos.Text = "Gestion de Permisos";
             // 
-            // familiaToolStripMenuItem
+            // SubMenuFamilia
             // 
-            this.familiaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.altaToolStripMenuItem1,
-            this.gestionarToolStripMenuItem1,
-            this.listarToolStripMenuItem1,
-            this.asignacionAUsuarioToolStripMenuItem});
-            this.familiaToolStripMenuItem.Name = "familiaToolStripMenuItem";
-            this.familiaToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
-            this.familiaToolStripMenuItem.Text = "Familia";
+            this.SubMenuFamilia.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SubItemAltaFamilia,
+            this.SubItemGestionarFamilia,
+            this.SubItemListarFamilias,
+            this.SubItemAsignacionFamUsuario});
+            this.SubMenuFamilia.Name = "SubMenuFamilia";
+            this.SubMenuFamilia.Size = new System.Drawing.Size(152, 22);
+            this.SubMenuFamilia.Text = "Familia";
             // 
-            // altaToolStripMenuItem1
+            // SubItemAltaFamilia
             // 
-            this.altaToolStripMenuItem1.Name = "altaToolStripMenuItem1";
-            this.altaToolStripMenuItem1.Size = new System.Drawing.Size(185, 22);
-            this.altaToolStripMenuItem1.Text = "Alta";
-            this.altaToolStripMenuItem1.Click += new System.EventHandler(this.altaToolStripMenuItem1_Click);
+            this.SubItemAltaFamilia.Name = "SubItemAltaFamilia";
+            this.SubItemAltaFamilia.Size = new System.Drawing.Size(185, 22);
+            this.SubItemAltaFamilia.Text = "Alta";
+            this.SubItemAltaFamilia.Click += new System.EventHandler(this.altaToolStripMenuItem1_Click);
             // 
-            // gestionarToolStripMenuItem1
+            // SubItemGestionarFamilia
             // 
-            this.gestionarToolStripMenuItem1.Name = "gestionarToolStripMenuItem1";
-            this.gestionarToolStripMenuItem1.Size = new System.Drawing.Size(185, 22);
-            this.gestionarToolStripMenuItem1.Text = "Gestionar";
-            this.gestionarToolStripMenuItem1.Click += new System.EventHandler(this.gestionarToolStripMenuItem1_Click);
+            this.SubItemGestionarFamilia.Name = "SubItemGestionarFamilia";
+            this.SubItemGestionarFamilia.Size = new System.Drawing.Size(185, 22);
+            this.SubItemGestionarFamilia.Text = "Gestionar";
+            this.SubItemGestionarFamilia.Click += new System.EventHandler(this.gestionarToolStripMenuItem1_Click);
             // 
-            // listarToolStripMenuItem1
+            // SubItemListarFamilias
             // 
-            this.listarToolStripMenuItem1.Name = "listarToolStripMenuItem1";
-            this.listarToolStripMenuItem1.Size = new System.Drawing.Size(185, 22);
-            this.listarToolStripMenuItem1.Text = "Listar";
-            this.listarToolStripMenuItem1.Click += new System.EventHandler(this.listarToolStripMenuItem1_Click);
+            this.SubItemListarFamilias.Name = "SubItemListarFamilias";
+            this.SubItemListarFamilias.Size = new System.Drawing.Size(185, 22);
+            this.SubItemListarFamilias.Text = "Listar";
+            this.SubItemListarFamilias.Click += new System.EventHandler(this.listarToolStripMenuItem1_Click);
             // 
-            // asignacionAUsuarioToolStripMenuItem
+            // SubItemAsignacionFamUsuario
             // 
-            this.asignacionAUsuarioToolStripMenuItem.Name = "asignacionAUsuarioToolStripMenuItem";
-            this.asignacionAUsuarioToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.asignacionAUsuarioToolStripMenuItem.Text = "Asignacion a Usuario";
-            this.asignacionAUsuarioToolStripMenuItem.Click += new System.EventHandler(this.asignacionAUsuarioToolStripMenuItem_Click);
+            this.SubItemAsignacionFamUsuario.Name = "SubItemAsignacionFamUsuario";
+            this.SubItemAsignacionFamUsuario.Size = new System.Drawing.Size(185, 22);
+            this.SubItemAsignacionFamUsuario.Text = "Asignacion a Usuario";
+            this.SubItemAsignacionFamUsuario.Click += new System.EventHandler(this.asignacionAUsuarioToolStripMenuItem_Click);
             // 
-            // patenteToolStripMenuItem
+            // SubMenuPatente
             // 
-            this.patenteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.listarToolStripMenuItem2,
-            this.asignacionAFamiliaToolStripMenuItem,
-            this.asignacionAUsuarioToolStripMenuItem1});
-            this.patenteToolStripMenuItem.Name = "patenteToolStripMenuItem";
-            this.patenteToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
-            this.patenteToolStripMenuItem.Text = "Patente";
+            this.SubMenuPatente.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SubItemListarPatentes,
+            this.SubItemAsignacionPatFamilia,
+            this.SubItemAsignacionPatUsuario});
+            this.SubMenuPatente.Name = "SubMenuPatente";
+            this.SubMenuPatente.Size = new System.Drawing.Size(152, 22);
+            this.SubMenuPatente.Text = "Patente";
             // 
-            // listarToolStripMenuItem2
+            // SubItemListarPatentes
             // 
-            this.listarToolStripMenuItem2.Name = "listarToolStripMenuItem2";
-            this.listarToolStripMenuItem2.Size = new System.Drawing.Size(185, 22);
-            this.listarToolStripMenuItem2.Text = "Listar";
-            this.listarToolStripMenuItem2.Click += new System.EventHandler(this.listarToolStripMenuItem2_Click);
+            this.SubItemListarPatentes.Name = "SubItemListarPatentes";
+            this.SubItemListarPatentes.Size = new System.Drawing.Size(185, 22);
+            this.SubItemListarPatentes.Text = "Listar";
+            this.SubItemListarPatentes.Click += new System.EventHandler(this.listarToolStripMenuItem2_Click);
             // 
-            // asignacionAFamiliaToolStripMenuItem
+            // SubItemAsignacionPatFamilia
             // 
-            this.asignacionAFamiliaToolStripMenuItem.Name = "asignacionAFamiliaToolStripMenuItem";
-            this.asignacionAFamiliaToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.asignacionAFamiliaToolStripMenuItem.Text = "Asignacion a Familia";
-            this.asignacionAFamiliaToolStripMenuItem.Click += new System.EventHandler(this.asignacionAFamiliaToolStripMenuItem_Click);
+            this.SubItemAsignacionPatFamilia.Name = "SubItemAsignacionPatFamilia";
+            this.SubItemAsignacionPatFamilia.Size = new System.Drawing.Size(185, 22);
+            this.SubItemAsignacionPatFamilia.Text = "Asignacion a Familia";
+            this.SubItemAsignacionPatFamilia.Click += new System.EventHandler(this.asignacionAFamiliaToolStripMenuItem_Click);
             // 
-            // asignacionAUsuarioToolStripMenuItem1
+            // SubItemAsignacionPatUsuario
             // 
-            this.asignacionAUsuarioToolStripMenuItem1.Name = "asignacionAUsuarioToolStripMenuItem1";
-            this.asignacionAUsuarioToolStripMenuItem1.Size = new System.Drawing.Size(185, 22);
-            this.asignacionAUsuarioToolStripMenuItem1.Text = "Asignacion a Usuario";
-            this.asignacionAUsuarioToolStripMenuItem1.Click += new System.EventHandler(this.asignacionAUsuarioToolStripMenuItem1_Click);
+            this.SubItemAsignacionPatUsuario.Name = "SubItemAsignacionPatUsuario";
+            this.SubItemAsignacionPatUsuario.Size = new System.Drawing.Size(185, 22);
+            this.SubItemAsignacionPatUsuario.Text = "Asignacion a Usuario";
+            this.SubItemAsignacionPatUsuario.Click += new System.EventHandler(this.asignacionAUsuarioToolStripMenuItem1_Click);
             // 
-            // bitacoraToolStripMenuItem
+            // menuBitacora
             // 
-            this.bitacoraToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.consultarToolStripMenuItem,
-            this.controlDeCambiosToolStripMenuItem});
-            this.bitacoraToolStripMenuItem.Name = "bitacoraToolStripMenuItem";
-            this.bitacoraToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
-            this.bitacoraToolStripMenuItem.Text = "Bitacora";
+            this.menuBitacora.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SubMenuBitacoraConsultar,
+            this.SubMenuBitacoraControlCambios});
+            this.menuBitacora.Name = "menuBitacora";
+            this.menuBitacora.Size = new System.Drawing.Size(62, 20);
+            this.menuBitacora.Text = "Bitacora";
             // 
-            // consultarToolStripMenuItem
+            // SubMenuBitacoraConsultar
             // 
-            this.consultarToolStripMenuItem.Name = "consultarToolStripMenuItem";
-            this.consultarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.consultarToolStripMenuItem.Text = "Consultar";
-            this.consultarToolStripMenuItem.Click += new System.EventHandler(this.consultarToolStripMenuItem_Click);
+            this.SubMenuBitacoraConsultar.Name = "SubMenuBitacoraConsultar";
+            this.SubMenuBitacoraConsultar.Size = new System.Drawing.Size(180, 22);
+            this.SubMenuBitacoraConsultar.Text = "Consultar";
+            this.SubMenuBitacoraConsultar.Click += new System.EventHandler(this.consultarToolStripMenuItem_Click);
             // 
-            // backupRestoreToolStripMenuItem
+            // SubMenuBitacoraControlCambios
             // 
-            this.backupRestoreToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.backupToolStripMenuItem});
-            this.backupRestoreToolStripMenuItem.Name = "backupRestoreToolStripMenuItem";
-            this.backupRestoreToolStripMenuItem.Size = new System.Drawing.Size(102, 20);
-            this.backupRestoreToolStripMenuItem.Text = "Backup/Restore";
+            this.SubMenuBitacoraControlCambios.Name = "SubMenuBitacoraControlCambios";
+            this.SubMenuBitacoraControlCambios.Size = new System.Drawing.Size(180, 22);
+            this.SubMenuBitacoraControlCambios.Text = "Control de Cambios";
+            this.SubMenuBitacoraControlCambios.Click += new System.EventHandler(this.controlDeCambiosToolStripMenuItem_Click);
             // 
-            // backupToolStripMenuItem
+            // menuBackupRestore
             // 
-            this.backupToolStripMenuItem.Name = "backupToolStripMenuItem";
-            this.backupToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
-            this.backupToolStripMenuItem.Text = "Backup";
-            this.backupToolStripMenuItem.Click += new System.EventHandler(this.backupToolStripMenuItem_Click);
+            this.menuBackupRestore.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SubMenuBackupRestoreBackup});
+            this.menuBackupRestore.Name = "menuBackupRestore";
+            this.menuBackupRestore.Size = new System.Drawing.Size(102, 20);
+            this.menuBackupRestore.Text = "Backup/Restore";
             // 
-            // miPerfilToolStripMenuItem
+            // SubMenuBackupRestoreBackup
             // 
-            this.miPerfilToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.gestionarToolStripMenuItem2,
-            this.gestionDeIdiomaToolStripMenuItem,
-            this.ayudaToolStripMenuItem,
-            this.cerrarSesionToolStripMenuItem});
-            this.miPerfilToolStripMenuItem.Name = "miPerfilToolStripMenuItem";
-            this.miPerfilToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
-            this.miPerfilToolStripMenuItem.Text = "Mi Perfil";
+            this.SubMenuBackupRestoreBackup.Name = "SubMenuBackupRestoreBackup";
+            this.SubMenuBackupRestoreBackup.Size = new System.Drawing.Size(152, 22);
+            this.SubMenuBackupRestoreBackup.Text = "Backup";
+            this.SubMenuBackupRestoreBackup.Click += new System.EventHandler(this.backupToolStripMenuItem_Click);
             // 
-            // gestionarToolStripMenuItem2
+            // menuMiPerfil
             // 
-            this.gestionarToolStripMenuItem2.Name = "gestionarToolStripMenuItem2";
-            this.gestionarToolStripMenuItem2.Size = new System.Drawing.Size(182, 22);
-            this.gestionarToolStripMenuItem2.Text = "Cambiar Contraseña";
-            this.gestionarToolStripMenuItem2.Click += new System.EventHandler(this.gestionarToolStripMenuItem2_Click);
+            this.menuMiPerfil.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SubMenuMiPerfilCambiarContraseña,
+            this.SubMenuMiPerfilGestionaIdioma,
+            this.SubMenuMiPerfilAyuda,
+            this.SubMenuMiPerfilCerrarSession});
+            this.menuMiPerfil.Name = "menuMiPerfil";
+            this.menuMiPerfil.Size = new System.Drawing.Size(63, 20);
+            this.menuMiPerfil.Text = "Mi Perfil";
             // 
-            // gestionDeIdiomaToolStripMenuItem
+            // SubMenuMiPerfilCambiarContraseña
             // 
-            this.gestionDeIdiomaToolStripMenuItem.Name = "gestionDeIdiomaToolStripMenuItem";
-            this.gestionDeIdiomaToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.gestionDeIdiomaToolStripMenuItem.Text = "Gestion de Idioma";
+            this.SubMenuMiPerfilCambiarContraseña.Name = "SubMenuMiPerfilCambiarContraseña";
+            this.SubMenuMiPerfilCambiarContraseña.Size = new System.Drawing.Size(182, 22);
+            this.SubMenuMiPerfilCambiarContraseña.Text = "Cambiar Contraseña";
+            this.SubMenuMiPerfilCambiarContraseña.Click += new System.EventHandler(this.gestionarToolStripMenuItem2_Click);
             // 
-            // ayudaToolStripMenuItem
+            // SubMenuMiPerfilGestionaIdioma
             // 
-            this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
-            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.ayudaToolStripMenuItem.Text = "Ayuda";
+            this.SubMenuMiPerfilGestionaIdioma.Name = "SubMenuMiPerfilGestionaIdioma";
+            this.SubMenuMiPerfilGestionaIdioma.Size = new System.Drawing.Size(182, 22);
+            this.SubMenuMiPerfilGestionaIdioma.Text = "Gestion de Idioma";
             // 
-            // cerrarSesionToolStripMenuItem
+            // SubMenuMiPerfilAyuda
             // 
-            this.cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
-            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.cerrarSesionToolStripMenuItem.Text = "Cerrar Sesion";
-            this.cerrarSesionToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesionToolStripMenuItem_Click);
+            this.SubMenuMiPerfilAyuda.Name = "SubMenuMiPerfilAyuda";
+            this.SubMenuMiPerfilAyuda.Size = new System.Drawing.Size(182, 22);
+            this.SubMenuMiPerfilAyuda.Text = "Ayuda";
             // 
-            // controlDeCambiosToolStripMenuItem
+            // SubMenuMiPerfilCerrarSession
             // 
-            this.controlDeCambiosToolStripMenuItem.Name = "controlDeCambiosToolStripMenuItem";
-            this.controlDeCambiosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.controlDeCambiosToolStripMenuItem.Text = "Control de Cambios";
-            this.controlDeCambiosToolStripMenuItem.Click += new System.EventHandler(this.controlDeCambiosToolStripMenuItem_Click);
+            this.SubMenuMiPerfilCerrarSession.Name = "SubMenuMiPerfilCerrarSession";
+            this.SubMenuMiPerfilCerrarSession.Size = new System.Drawing.Size(182, 22);
+            this.SubMenuMiPerfilCerrarSession.Text = "Cerrar Sesion";
+            this.SubMenuMiPerfilCerrarSession.Click += new System.EventHandler(this.cerrarSesionToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -265,6 +265,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Main";
             this.Text = "Candy Sur";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.Load += new System.EventHandler(this.Main_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -276,29 +277,29 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem altaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem gestionarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem listarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem gestionDePermisosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem familiaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem altaToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem gestionarToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem listarToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem asignacionAUsuarioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem patenteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem listarToolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem asignacionAFamiliaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem bitacoraToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem consultarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem miPerfilToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem gestionarToolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem gestionDeIdiomaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cerrarSesionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem backupRestoreToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem backupToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem asignacionAUsuarioToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem controlDeCambiosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuUsuarios;
+        private System.Windows.Forms.ToolStripMenuItem SubMenuUsuarioAlta;
+        private System.Windows.Forms.ToolStripMenuItem SubMenuUsuarioGestionar;
+        private System.Windows.Forms.ToolStripMenuItem SubMenuUsuarioListar;
+        private System.Windows.Forms.ToolStripMenuItem menuGestionPermisos;
+        private System.Windows.Forms.ToolStripMenuItem SubMenuFamilia;
+        private System.Windows.Forms.ToolStripMenuItem SubItemAltaFamilia;
+        private System.Windows.Forms.ToolStripMenuItem SubItemGestionarFamilia;
+        private System.Windows.Forms.ToolStripMenuItem SubItemListarFamilias;
+        private System.Windows.Forms.ToolStripMenuItem SubItemAsignacionFamUsuario;
+        private System.Windows.Forms.ToolStripMenuItem SubMenuPatente;
+        private System.Windows.Forms.ToolStripMenuItem SubItemListarPatentes;
+        private System.Windows.Forms.ToolStripMenuItem SubItemAsignacionPatFamilia;
+        private System.Windows.Forms.ToolStripMenuItem menuBitacora;
+        private System.Windows.Forms.ToolStripMenuItem SubMenuBitacoraConsultar;
+        private System.Windows.Forms.ToolStripMenuItem menuMiPerfil;
+        private System.Windows.Forms.ToolStripMenuItem SubMenuMiPerfilCambiarContraseña;
+        private System.Windows.Forms.ToolStripMenuItem SubMenuMiPerfilGestionaIdioma;
+        private System.Windows.Forms.ToolStripMenuItem SubMenuMiPerfilAyuda;
+        private System.Windows.Forms.ToolStripMenuItem SubMenuMiPerfilCerrarSession;
+        private System.Windows.Forms.ToolStripMenuItem menuBackupRestore;
+        private System.Windows.Forms.ToolStripMenuItem SubMenuBackupRestoreBackup;
+        private System.Windows.Forms.ToolStripMenuItem SubItemAsignacionPatUsuario;
+        private System.Windows.Forms.ToolStripMenuItem SubMenuBitacoraControlCambios;
     }
 }

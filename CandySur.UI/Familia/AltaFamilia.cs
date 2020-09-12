@@ -13,7 +13,7 @@ namespace CandySur.UI.Familia
 {
     public partial class AltaFamilia : Form
     {
-        private SEG.Entity.SessionManager Session;
+        private SEG.Service.SessionManager Session;
         SEG.Service.Bitacora bitacoraService = new SEG.Service.Bitacora();
         SEG.Service.Familia familiaService = new SEG.Service.Familia();
         public AltaFamilia()
@@ -23,7 +23,7 @@ namespace CandySur.UI.Familia
 
         private void AltaFamilia_Load(object sender, EventArgs e)
         {
-            Session = SEG.Entity.SessionManager.GetInstance();
+            Session = SEG.Service.SessionManager.GetInstance();
         }
 
         private void btnFinalizar_Click(object sender, EventArgs e)
