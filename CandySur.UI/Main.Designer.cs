@@ -53,6 +53,8 @@
             this.SubMenuMiPerfilGestionaIdioma = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuMiPerfilAyuda = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuMiPerfilCerrarSession = new System.Windows.Forms.ToolStripMenuItem();
+            this.SubMenuEspañol = new System.Windows.Forms.ToolStripMenuItem();
+            this.SubMenuIngles = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,21 +85,21 @@
             // SubMenuUsuarioAlta
             // 
             this.SubMenuUsuarioAlta.Name = "SubMenuUsuarioAlta";
-            this.SubMenuUsuarioAlta.Size = new System.Drawing.Size(152, 22);
+            this.SubMenuUsuarioAlta.Size = new System.Drawing.Size(124, 22);
             this.SubMenuUsuarioAlta.Text = "Alta";
             this.SubMenuUsuarioAlta.Click += new System.EventHandler(this.altaToolStripMenuItem_Click);
             // 
             // SubMenuUsuarioGestionar
             // 
             this.SubMenuUsuarioGestionar.Name = "SubMenuUsuarioGestionar";
-            this.SubMenuUsuarioGestionar.Size = new System.Drawing.Size(152, 22);
+            this.SubMenuUsuarioGestionar.Size = new System.Drawing.Size(124, 22);
             this.SubMenuUsuarioGestionar.Text = "Gestionar";
             this.SubMenuUsuarioGestionar.Click += new System.EventHandler(this.gestionarToolStripMenuItem_Click);
             // 
             // SubMenuUsuarioListar
             // 
             this.SubMenuUsuarioListar.Name = "SubMenuUsuarioListar";
-            this.SubMenuUsuarioListar.Size = new System.Drawing.Size(152, 22);
+            this.SubMenuUsuarioListar.Size = new System.Drawing.Size(124, 22);
             this.SubMenuUsuarioListar.Text = "Listar";
             this.SubMenuUsuarioListar.Click += new System.EventHandler(this.listarToolStripMenuItem_Click);
             // 
@@ -118,7 +120,7 @@
             this.SubItemListarFamilias,
             this.SubItemAsignacionFamUsuario});
             this.SubMenuFamilia.Name = "SubMenuFamilia";
-            this.SubMenuFamilia.Size = new System.Drawing.Size(152, 22);
+            this.SubMenuFamilia.Size = new System.Drawing.Size(114, 22);
             this.SubMenuFamilia.Text = "Familia";
             // 
             // SubItemAltaFamilia
@@ -156,7 +158,7 @@
             this.SubItemAsignacionPatFamilia,
             this.SubItemAsignacionPatUsuario});
             this.SubMenuPatente.Name = "SubMenuPatente";
-            this.SubMenuPatente.Size = new System.Drawing.Size(152, 22);
+            this.SubMenuPatente.Size = new System.Drawing.Size(114, 22);
             this.SubMenuPatente.Text = "Patente";
             // 
             // SubItemListarPatentes
@@ -214,7 +216,7 @@
             // SubMenuBackupRestoreBackup
             // 
             this.SubMenuBackupRestoreBackup.Name = "SubMenuBackupRestoreBackup";
-            this.SubMenuBackupRestoreBackup.Size = new System.Drawing.Size(152, 22);
+            this.SubMenuBackupRestoreBackup.Size = new System.Drawing.Size(113, 22);
             this.SubMenuBackupRestoreBackup.Text = "Backup";
             this.SubMenuBackupRestoreBackup.Click += new System.EventHandler(this.backupToolStripMenuItem_Click);
             // 
@@ -238,6 +240,9 @@
             // 
             // SubMenuMiPerfilGestionaIdioma
             // 
+            this.SubMenuMiPerfilGestionaIdioma.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SubMenuEspañol,
+            this.SubMenuIngles});
             this.SubMenuMiPerfilGestionaIdioma.Name = "SubMenuMiPerfilGestionaIdioma";
             this.SubMenuMiPerfilGestionaIdioma.Size = new System.Drawing.Size(182, 22);
             this.SubMenuMiPerfilGestionaIdioma.Text = "Gestion de Idioma";
@@ -254,6 +259,20 @@
             this.SubMenuMiPerfilCerrarSession.Size = new System.Drawing.Size(182, 22);
             this.SubMenuMiPerfilCerrarSession.Text = "Cerrar Sesion";
             this.SubMenuMiPerfilCerrarSession.Click += new System.EventHandler(this.cerrarSesionToolStripMenuItem_Click);
+            // 
+            // SubMenuEspañol
+            // 
+            this.SubMenuEspañol.Name = "SubMenuEspañol";
+            this.SubMenuEspañol.Size = new System.Drawing.Size(152, 22);
+            this.SubMenuEspañol.Text = "Español";
+            this.SubMenuEspañol.Click += new System.EventHandler(this.SubMenuEspañol_Click);
+            // 
+            // SubMenuIngles
+            // 
+            this.SubMenuIngles.Name = "SubMenuIngles";
+            this.SubMenuIngles.Size = new System.Drawing.Size(152, 22);
+            this.SubMenuIngles.Text = "Ingles";
+            this.SubMenuIngles.Click += new System.EventHandler(this.SubMenuIngles_Click);
             // 
             // Main
             // 
@@ -301,5 +320,7 @@
         private System.Windows.Forms.ToolStripMenuItem SubMenuBackupRestoreBackup;
         private System.Windows.Forms.ToolStripMenuItem SubItemAsignacionPatUsuario;
         private System.Windows.Forms.ToolStripMenuItem SubMenuBitacoraControlCambios;
+        private System.Windows.Forms.ToolStripMenuItem SubMenuEspañol;
+        private System.Windows.Forms.ToolStripMenuItem SubMenuIngles;
     }
 }

@@ -225,11 +225,41 @@ namespace CandySur.UI
 
             this.SubItemAsignacionFamUsuario.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.SubItemAsignacionFamUsuario.Name).Descripcion;
 
+            this.SubMenuEspañol.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.SubMenuEspañol.Name).Descripcion;
+
+            this.SubMenuIngles.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.SubMenuIngles.Name).Descripcion;
+
         }
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
             SEG.Service.IdiomaManager.Desuscribir(this);
+        }
+
+        private void SubMenuEspañol_Click(object sender, EventArgs e)
+        {
+            // TODO MEJORAR ESTO.
+            SEG.Entity.Idioma idioma = new SEG.Entity.Idioma
+            {
+                Id = 1,
+                Nombre = "Español",
+                Principal = true
+            };
+
+            SEG.Service.IdiomaManager.CambiarIdioma(idioma);
+        }
+
+        private void SubMenuIngles_Click(object sender, EventArgs e)
+        {
+            // TODO MEJORAR ESTO.
+            SEG.Entity.Idioma idioma = new SEG.Entity.Idioma
+            {
+                Id = 2,
+                Nombre = "Ingles",
+                Principal = false
+            };
+
+            SEG.Service.IdiomaManager.CambiarIdioma(idioma);
         }
     }
 }
