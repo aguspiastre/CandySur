@@ -28,35 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbListado = new System.Windows.Forms.GroupBox();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gbFiltros = new System.Windows.Forms.GroupBox();
             this.chkFiltarBloqueados = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblListadoUsuariosActivos = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.dgvListarUsuarios = new System.Windows.Forms.DataGridView();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.gbListado.SuspendLayout();
+            this.gbFiltros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListarUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // gbListado
             // 
-            this.groupBox1.Controls.Add(this.btnBuscar);
-            this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.btnAceptar);
-            this.groupBox1.Controls.Add(this.dgvListarUsuarios);
-            this.groupBox1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(4, 5);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(603, 517);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "LISTADO";
+            this.gbListado.Controls.Add(this.btnBuscar);
+            this.gbListado.Controls.Add(this.gbFiltros);
+            this.gbListado.Controls.Add(this.lblListadoUsuariosActivos);
+            this.gbListado.Controls.Add(this.pictureBox1);
+            this.gbListado.Controls.Add(this.btnAceptar);
+            this.gbListado.Controls.Add(this.dgvListarUsuarios);
+            this.gbListado.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbListado.Location = new System.Drawing.Point(4, 5);
+            this.gbListado.Name = "gbListado";
+            this.gbListado.Size = new System.Drawing.Size(603, 517);
+            this.gbListado.TabIndex = 5;
+            this.gbListado.TabStop = false;
+            this.gbListado.Text = "LISTADO";
             // 
             // btnBuscar
             // 
@@ -71,15 +71,15 @@
             this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // groupBox2
+            // gbFiltros
             // 
-            this.groupBox2.Controls.Add(this.chkFiltarBloqueados);
-            this.groupBox2.Location = new System.Drawing.Point(10, 98);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(581, 80);
-            this.groupBox2.TabIndex = 11;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "FILTROS";
+            this.gbFiltros.Controls.Add(this.chkFiltarBloqueados);
+            this.gbFiltros.Location = new System.Drawing.Point(10, 98);
+            this.gbFiltros.Name = "gbFiltros";
+            this.gbFiltros.Size = new System.Drawing.Size(581, 80);
+            this.gbFiltros.TabIndex = 11;
+            this.gbFiltros.TabStop = false;
+            this.gbFiltros.Text = "FILTROS";
             // 
             // chkFiltarBloqueados
             // 
@@ -91,14 +91,14 @@
             this.chkFiltarBloqueados.Text = "Filtrar por bloqueados";
             this.chkFiltarBloqueados.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // lblListadoUsuariosActivos
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 181);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(201, 18);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "LISTADO DE USUARIOS ACTIVOS";
+            this.lblListadoUsuariosActivos.AutoSize = true;
+            this.lblListadoUsuariosActivos.Location = new System.Drawing.Point(8, 181);
+            this.lblListadoUsuariosActivos.Name = "lblListadoUsuariosActivos";
+            this.lblListadoUsuariosActivos.Size = new System.Drawing.Size(201, 18);
+            this.lblListadoUsuariosActivos.TabIndex = 6;
+            this.lblListadoUsuariosActivos.Text = "LISTADO DE USUARIOS ACTIVOS";
             // 
             // pictureBox1
             // 
@@ -137,13 +137,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(611, 527);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbListado);
             this.Name = "ListarUsuarios";
             this.Text = "Listar Usuarios";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ListarUsuarios_FormClosing);
+            this.Load += new System.EventHandler(this.ListarUsuarios_Load);
+            this.gbListado.ResumeLayout(false);
+            this.gbListado.PerformLayout();
+            this.gbFiltros.ResumeLayout(false);
+            this.gbFiltros.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListarUsuarios)).EndInit();
             this.ResumeLayout(false);
@@ -152,12 +154,12 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox gbListado;
+        private System.Windows.Forms.Label lblListadoUsuariosActivos;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.DataGridView dgvListarUsuarios;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gbFiltros;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.CheckBox chkFiltarBloqueados;
     }

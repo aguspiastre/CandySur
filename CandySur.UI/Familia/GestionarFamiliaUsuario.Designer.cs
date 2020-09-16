@@ -30,23 +30,23 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionarFamiliaUsuario));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gbFiltrosBusquedaBitacora = new System.Windows.Forms.GroupBox();
             this.txtNombreUsuario = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblNombreDelUsuario = new System.Windows.Forms.Label();
+            this.gbFamiliasDisponibles = new System.Windows.Forms.GroupBox();
+            this.lblFamiliasDesasingar = new System.Windows.Forms.Label();
+            this.lblFamiliasAsignar = new System.Windows.Forms.Label();
             this.listFamiliasAsignar = new System.Windows.Forms.ListView();
             this.listFamiliaDesasignar = new System.Windows.Forms.ListView();
             this.btnDesasignar = new System.Windows.Forms.Button();
             this.btnAsignar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbAsignarFamiliaUsuario = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.gbFiltrosBusquedaBitacora.SuspendLayout();
+            this.gbFamiliasDisponibles.SuspendLayout();
+            this.gbAsignarFamiliaUsuario.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -58,17 +58,17 @@
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
-            // groupBox2
+            // gbFiltrosBusquedaBitacora
             // 
-            this.groupBox2.Controls.Add(this.txtNombreUsuario);
-            this.groupBox2.Controls.Add(this.btnBuscar);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Location = new System.Drawing.Point(10, 99);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(582, 88);
-            this.groupBox2.TabIndex = 19;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "FILTROS DE BUSQUEDA";
+            this.gbFiltrosBusquedaBitacora.Controls.Add(this.txtNombreUsuario);
+            this.gbFiltrosBusquedaBitacora.Controls.Add(this.btnBuscar);
+            this.gbFiltrosBusquedaBitacora.Controls.Add(this.lblNombreDelUsuario);
+            this.gbFiltrosBusquedaBitacora.Location = new System.Drawing.Point(10, 99);
+            this.gbFiltrosBusquedaBitacora.Name = "gbFiltrosBusquedaBitacora";
+            this.gbFiltrosBusquedaBitacora.Size = new System.Drawing.Size(582, 88);
+            this.gbFiltrosBusquedaBitacora.TabIndex = 19;
+            this.gbFiltrosBusquedaBitacora.TabStop = false;
+            this.gbFiltrosBusquedaBitacora.Text = "FILTROS DE BUSQUEDA";
             // 
             // txtNombreUsuario
             // 
@@ -87,48 +87,48 @@
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // label5
+            // lblNombreDelUsuario
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(6, 22);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(140, 19);
-            this.label5.TabIndex = 18;
-            this.label5.Text = "Nombre del usuario:";
+            this.lblNombreDelUsuario.AutoSize = true;
+            this.lblNombreDelUsuario.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreDelUsuario.Location = new System.Drawing.Point(6, 22);
+            this.lblNombreDelUsuario.Name = "lblNombreDelUsuario";
+            this.lblNombreDelUsuario.Size = new System.Drawing.Size(140, 19);
+            this.lblNombreDelUsuario.TabIndex = 18;
+            this.lblNombreDelUsuario.Text = "Nombre del usuario:";
             // 
-            // groupBox3
+            // gbFamiliasDisponibles
             // 
-            this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Controls.Add(this.listFamiliasAsignar);
-            this.groupBox3.Controls.Add(this.listFamiliaDesasignar);
-            this.groupBox3.Controls.Add(this.btnDesasignar);
-            this.groupBox3.Controls.Add(this.btnAsignar);
-            this.groupBox3.Location = new System.Drawing.Point(10, 193);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(582, 255);
-            this.groupBox3.TabIndex = 22;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "FAMILIAS DISPONIBLES";
+            this.gbFamiliasDisponibles.Controls.Add(this.lblFamiliasDesasingar);
+            this.gbFamiliasDisponibles.Controls.Add(this.lblFamiliasAsignar);
+            this.gbFamiliasDisponibles.Controls.Add(this.listFamiliasAsignar);
+            this.gbFamiliasDisponibles.Controls.Add(this.listFamiliaDesasignar);
+            this.gbFamiliasDisponibles.Controls.Add(this.btnDesasignar);
+            this.gbFamiliasDisponibles.Controls.Add(this.btnAsignar);
+            this.gbFamiliasDisponibles.Location = new System.Drawing.Point(10, 193);
+            this.gbFamiliasDisponibles.Name = "gbFamiliasDisponibles";
+            this.gbFamiliasDisponibles.Size = new System.Drawing.Size(582, 255);
+            this.gbFamiliasDisponibles.TabIndex = 22;
+            this.gbFamiliasDisponibles.TabStop = false;
+            this.gbFamiliasDisponibles.Text = "FAMILIAS DISPONIBLES";
             // 
-            // label2
+            // lblFamiliasDesasingar
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(394, 24);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(139, 18);
-            this.label2.TabIndex = 24;
-            this.label2.Text = "Familias a Desasignar";
+            this.lblFamiliasDesasingar.AutoSize = true;
+            this.lblFamiliasDesasingar.Location = new System.Drawing.Point(394, 24);
+            this.lblFamiliasDesasingar.Name = "lblFamiliasDesasingar";
+            this.lblFamiliasDesasingar.Size = new System.Drawing.Size(139, 18);
+            this.lblFamiliasDesasingar.TabIndex = 24;
+            this.lblFamiliasDesasingar.Text = "Familias a Desasignar";
             // 
-            // label1
+            // lblFamiliasAsignar
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(53, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(118, 18);
-            this.label1.TabIndex = 23;
-            this.label1.Text = "Familias a Asignar";
+            this.lblFamiliasAsignar.AutoSize = true;
+            this.lblFamiliasAsignar.Location = new System.Drawing.Point(53, 24);
+            this.lblFamiliasAsignar.Name = "lblFamiliasAsignar";
+            this.lblFamiliasAsignar.Size = new System.Drawing.Size(118, 18);
+            this.lblFamiliasAsignar.TabIndex = 23;
+            this.lblFamiliasAsignar.Text = "Familias a Asignar";
             // 
             // listFamiliasAsignar
             // 
@@ -188,36 +188,37 @@
             this.btnAceptar.UseVisualStyleBackColor = false;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
-            // groupBox1
+            // gbAsignarFamiliaUsuario
             // 
-            this.groupBox1.Controls.Add(this.btnAceptar);
-            this.groupBox1.Controls.Add(this.groupBox3);
-            this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(6, 6);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(602, 493);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "ASIGNAR FAMILIA A USUARIO";
+            this.gbAsignarFamiliaUsuario.Controls.Add(this.btnAceptar);
+            this.gbAsignarFamiliaUsuario.Controls.Add(this.gbFamiliasDisponibles);
+            this.gbAsignarFamiliaUsuario.Controls.Add(this.gbFiltrosBusquedaBitacora);
+            this.gbAsignarFamiliaUsuario.Controls.Add(this.pictureBox1);
+            this.gbAsignarFamiliaUsuario.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbAsignarFamiliaUsuario.Location = new System.Drawing.Point(6, 6);
+            this.gbAsignarFamiliaUsuario.Name = "gbAsignarFamiliaUsuario";
+            this.gbAsignarFamiliaUsuario.Size = new System.Drawing.Size(602, 493);
+            this.gbAsignarFamiliaUsuario.TabIndex = 5;
+            this.gbAsignarFamiliaUsuario.TabStop = false;
+            this.gbAsignarFamiliaUsuario.Text = "ASIGNAR FAMILIA A USUARIO";
             // 
-            // AsignarFamiliaUsuario
+            // GestionarFamiliaUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(615, 506);
-            this.Controls.Add(this.groupBox1);
-            this.Name = "AsignarFamiliaUsuario";
+            this.Controls.Add(this.gbAsignarFamiliaUsuario);
+            this.Name = "GestionarFamiliaUsuario";
             this.Text = "Gestion de Familias";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GestionarFamiliaUsuario_FormClosing);
             this.Load += new System.EventHandler(this.AsignarFamiliaUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
+            this.gbFiltrosBusquedaBitacora.ResumeLayout(false);
+            this.gbFiltrosBusquedaBitacora.PerformLayout();
+            this.gbFamiliasDisponibles.ResumeLayout(false);
+            this.gbFamiliasDisponibles.PerformLayout();
+            this.gbAsignarFamiliaUsuario.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -225,18 +226,18 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gbFiltrosBusquedaBitacora;
         private System.Windows.Forms.TextBox txtNombreUsuario;
         private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblNombreDelUsuario;
+        private System.Windows.Forms.GroupBox gbFamiliasDisponibles;
+        private System.Windows.Forms.Label lblFamiliasDesasingar;
+        private System.Windows.Forms.Label lblFamiliasAsignar;
         private System.Windows.Forms.ListView listFamiliasAsignar;
         private System.Windows.Forms.ListView listFamiliaDesasignar;
         private System.Windows.Forms.Button btnDesasignar;
         private System.Windows.Forms.Button btnAsignar;
         private System.Windows.Forms.Button btnAceptar;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbAsignarFamiliaUsuario;
     }
 }

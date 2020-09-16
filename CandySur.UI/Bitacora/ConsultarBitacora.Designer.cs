@@ -28,50 +28,50 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.gbMovimientosBitacora = new System.Windows.Forms.GroupBox();
+            this.gbBitacora = new System.Windows.Forms.GroupBox();
             this.dataGridBitacora = new System.Windows.Forms.DataGridView();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.gbFiltrosBusquedaBitacora = new System.Windows.Forms.GroupBox();
+            this.lblCriticidad = new System.Windows.Forms.Label();
+            this.lblUsuario = new System.Windows.Forms.Label();
             this.cmbCriticidad = new System.Windows.Forms.ComboBox();
             this.cmbUsuario = new System.Windows.Forms.ComboBox();
             this.dateTimeFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.dateTimeFechaDesde = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblFechaDsd = new System.Windows.Forms.Label();
+            this.lblFechaHst = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.groupBox1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.gbMovimientosBitacora.SuspendLayout();
+            this.gbBitacora.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridBitacora)).BeginInit();
-            this.groupBox2.SuspendLayout();
+            this.gbFiltrosBusquedaBitacora.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // gbMovimientosBitacora
             // 
-            this.groupBox1.Controls.Add(this.groupBox3);
-            this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Controls.Add(this.btnBuscar);
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(3, 4);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(602, 578);
-            this.groupBox1.TabIndex = 7;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "MOVIMIENTOS EN LA BITACORA";
+            this.gbMovimientosBitacora.Controls.Add(this.gbBitacora);
+            this.gbMovimientosBitacora.Controls.Add(this.gbFiltrosBusquedaBitacora);
+            this.gbMovimientosBitacora.Controls.Add(this.btnBuscar);
+            this.gbMovimientosBitacora.Controls.Add(this.pictureBox1);
+            this.gbMovimientosBitacora.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbMovimientosBitacora.Location = new System.Drawing.Point(3, 4);
+            this.gbMovimientosBitacora.Name = "gbMovimientosBitacora";
+            this.gbMovimientosBitacora.Size = new System.Drawing.Size(602, 578);
+            this.gbMovimientosBitacora.TabIndex = 7;
+            this.gbMovimientosBitacora.TabStop = false;
+            this.gbMovimientosBitacora.Text = "MOVIMIENTOS EN LA BITACORA";
             // 
-            // groupBox3
+            // gbBitacora
             // 
-            this.groupBox3.Controls.Add(this.dataGridBitacora);
-            this.groupBox3.Location = new System.Drawing.Point(7, 253);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(585, 279);
-            this.groupBox3.TabIndex = 6;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "BITACORA";
+            this.gbBitacora.Controls.Add(this.dataGridBitacora);
+            this.gbBitacora.Location = new System.Drawing.Point(7, 253);
+            this.gbBitacora.Name = "gbBitacora";
+            this.gbBitacora.Size = new System.Drawing.Size(585, 279);
+            this.gbBitacora.TabIndex = 6;
+            this.gbBitacora.TabStop = false;
+            this.gbBitacora.Text = "BITACORA";
             // 
             // dataGridBitacora
             // 
@@ -81,42 +81,42 @@
             this.dataGridBitacora.Size = new System.Drawing.Size(573, 248);
             this.dataGridBitacora.TabIndex = 0;
             // 
-            // groupBox2
+            // gbFiltrosBusquedaBitacora
             // 
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.cmbCriticidad);
-            this.groupBox2.Controls.Add(this.cmbUsuario);
-            this.groupBox2.Controls.Add(this.dateTimeFechaHasta);
-            this.groupBox2.Controls.Add(this.dateTimeFechaDesde);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Location = new System.Drawing.Point(7, 98);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(585, 149);
-            this.groupBox2.TabIndex = 37;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "FILTROS DE BUSQUEDA";
+            this.gbFiltrosBusquedaBitacora.Controls.Add(this.lblCriticidad);
+            this.gbFiltrosBusquedaBitacora.Controls.Add(this.lblUsuario);
+            this.gbFiltrosBusquedaBitacora.Controls.Add(this.cmbCriticidad);
+            this.gbFiltrosBusquedaBitacora.Controls.Add(this.cmbUsuario);
+            this.gbFiltrosBusquedaBitacora.Controls.Add(this.dateTimeFechaHasta);
+            this.gbFiltrosBusquedaBitacora.Controls.Add(this.dateTimeFechaDesde);
+            this.gbFiltrosBusquedaBitacora.Controls.Add(this.lblFechaDsd);
+            this.gbFiltrosBusquedaBitacora.Controls.Add(this.lblFechaHst);
+            this.gbFiltrosBusquedaBitacora.Location = new System.Drawing.Point(7, 98);
+            this.gbFiltrosBusquedaBitacora.Name = "gbFiltrosBusquedaBitacora";
+            this.gbFiltrosBusquedaBitacora.Size = new System.Drawing.Size(585, 149);
+            this.gbFiltrosBusquedaBitacora.TabIndex = 37;
+            this.gbFiltrosBusquedaBitacora.TabStop = false;
+            this.gbFiltrosBusquedaBitacora.Text = "FILTROS DE BUSQUEDA";
             // 
-            // label1
+            // lblCriticidad
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(299, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 19);
-            this.label1.TabIndex = 34;
-            this.label1.Text = "Criticidad:";
+            this.lblCriticidad.AutoSize = true;
+            this.lblCriticidad.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCriticidad.Location = new System.Drawing.Point(299, 23);
+            this.lblCriticidad.Name = "lblCriticidad";
+            this.lblCriticidad.Size = new System.Drawing.Size(75, 19);
+            this.lblCriticidad.TabIndex = 34;
+            this.lblCriticidad.Text = "Criticidad:";
             // 
-            // label3
+            // lblUsuario
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(6, 23);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 19);
-            this.label3.TabIndex = 32;
-            this.label3.Text = "Usuario:";
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.Location = new System.Drawing.Point(6, 23);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(63, 19);
+            this.lblUsuario.TabIndex = 32;
+            this.lblUsuario.Text = "Usuario:";
             // 
             // cmbCriticidad
             // 
@@ -150,25 +150,25 @@
             this.dateTimeFechaDesde.Size = new System.Drawing.Size(272, 26);
             this.dateTimeFechaDesde.TabIndex = 25;
             // 
-            // label2
+            // lblFechaDsd
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 74);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 19);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "Fecha desde:";
+            this.lblFechaDsd.AutoSize = true;
+            this.lblFechaDsd.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFechaDsd.Location = new System.Drawing.Point(6, 74);
+            this.lblFechaDsd.Name = "lblFechaDsd";
+            this.lblFechaDsd.Size = new System.Drawing.Size(94, 19);
+            this.lblFechaDsd.TabIndex = 15;
+            this.lblFechaDsd.Text = "Fecha desde:";
             // 
-            // label6
+            // lblFechaHst
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(299, 74);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(91, 19);
-            this.label6.TabIndex = 24;
-            this.label6.Text = "Fecha hasta:";
+            this.lblFechaHst.AutoSize = true;
+            this.lblFechaHst.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFechaHst.Location = new System.Drawing.Point(299, 74);
+            this.lblFechaHst.Name = "lblFechaHst";
+            this.lblFechaHst.Size = new System.Drawing.Size(91, 19);
+            this.lblFechaHst.TabIndex = 24;
+            this.lblFechaHst.Text = "Fecha hasta:";
             // 
             // btnBuscar
             // 
@@ -198,15 +198,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(613, 586);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbMovimientosBitacora);
             this.Name = "ConsultarBitacora";
             this.Text = "Consultar Bitacora";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ConsultarBitacora_FormClosing);
             this.Load += new System.EventHandler(this.Consultar_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
+            this.gbMovimientosBitacora.ResumeLayout(false);
+            this.gbBitacora.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridBitacora)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.gbFiltrosBusquedaBitacora.ResumeLayout(false);
+            this.gbFiltrosBusquedaBitacora.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -214,18 +215,18 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox gbMovimientosBitacora;
+        private System.Windows.Forms.GroupBox gbBitacora;
         private System.Windows.Forms.DataGridView dataGridBitacora;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.GroupBox gbFiltrosBusquedaBitacora;
+        private System.Windows.Forms.Label lblCriticidad;
+        private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.ComboBox cmbCriticidad;
         private System.Windows.Forms.ComboBox cmbUsuario;
         private System.Windows.Forms.DateTimePicker dateTimeFechaHasta;
         private System.Windows.Forms.DateTimePicker dateTimeFechaDesde;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblFechaDsd;
+        private System.Windows.Forms.Label lblFechaHst;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.PictureBox pictureBox1;
     }

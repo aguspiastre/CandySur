@@ -28,38 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.gbListadoPatentes = new System.Windows.Forms.GroupBox();
+            this.lblPatentesDisponibles = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.dgvPatentes = new System.Windows.Forms.DataGridView();
-            this.groupBox1.SuspendLayout();
+            this.gbListadoPatentes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPatentes)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // gbListadoPatentes
             // 
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.btnAceptar);
-            this.groupBox1.Controls.Add(this.dgvPatentes);
-            this.groupBox1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(3, 4);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(603, 442);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "LISTADO DE PATENTES";
+            this.gbListadoPatentes.Controls.Add(this.lblPatentesDisponibles);
+            this.gbListadoPatentes.Controls.Add(this.pictureBox1);
+            this.gbListadoPatentes.Controls.Add(this.btnAceptar);
+            this.gbListadoPatentes.Controls.Add(this.dgvPatentes);
+            this.gbListadoPatentes.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbListadoPatentes.Location = new System.Drawing.Point(3, 4);
+            this.gbListadoPatentes.Name = "gbListadoPatentes";
+            this.gbListadoPatentes.Size = new System.Drawing.Size(603, 442);
+            this.gbListadoPatentes.TabIndex = 4;
+            this.gbListadoPatentes.TabStop = false;
+            this.gbListadoPatentes.Text = "LISTADO DE PATENTES";
             // 
-            // label1
+            // lblPatentesDisponibles
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 105);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(155, 18);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "PATENTES DISPONIBLES:";
+            this.lblPatentesDisponibles.AutoSize = true;
+            this.lblPatentesDisponibles.Location = new System.Drawing.Point(7, 105);
+            this.lblPatentesDisponibles.Name = "lblPatentesDisponibles";
+            this.lblPatentesDisponibles.Size = new System.Drawing.Size(155, 18);
+            this.lblPatentesDisponibles.TabIndex = 6;
+            this.lblPatentesDisponibles.Text = "PATENTES DISPONIBLES:";
             // 
             // pictureBox1
             // 
@@ -98,12 +98,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(611, 451);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbListadoPatentes);
             this.Name = "ListarPatentes";
             this.Text = "Listar Patentes";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ListarPatentes_FormClosing);
             this.Load += new System.EventHandler(this.ListarPatentes_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gbListadoPatentes.ResumeLayout(false);
+            this.gbListadoPatentes.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPatentes)).EndInit();
             this.ResumeLayout(false);
@@ -112,8 +113,8 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox gbListadoPatentes;
+        private System.Windows.Forms.Label lblPatentesDisponibles;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.DataGridView dgvPatentes;

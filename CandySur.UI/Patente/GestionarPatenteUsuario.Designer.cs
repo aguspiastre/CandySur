@@ -29,39 +29,39 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionarPatenteUsuario));
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbAsignarPatenteUsuario = new System.Windows.Forms.GroupBox();
             this.btnAceptar = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.gbPatentesDisponibles = new System.Windows.Forms.GroupBox();
+            this.lblPatentesDesasignar = new System.Windows.Forms.Label();
+            this.lblPatentesAsignar = new System.Windows.Forms.Label();
             this.listPatenteAsignar = new System.Windows.Forms.ListView();
             this.listPatenteDesasignar = new System.Windows.Forms.ListView();
             this.btnDesasignar = new System.Windows.Forms.Button();
             this.btnAsignar = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gbFiltrosBusquedaBitacora = new System.Windows.Forms.GroupBox();
             this.txtNombreUsuario = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblNombreDelUsuario = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.groupBox1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.gbAsignarPatenteUsuario.SuspendLayout();
+            this.gbPatentesDisponibles.SuspendLayout();
+            this.gbFiltrosBusquedaBitacora.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // gbAsignarPatenteUsuario
             // 
-            this.groupBox1.Controls.Add(this.btnAceptar);
-            this.groupBox1.Controls.Add(this.groupBox3);
-            this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(3, 6);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(602, 493);
-            this.groupBox1.TabIndex = 6;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "ASIGNAR PATENTE A USUARIO";
+            this.gbAsignarPatenteUsuario.Controls.Add(this.btnAceptar);
+            this.gbAsignarPatenteUsuario.Controls.Add(this.gbPatentesDisponibles);
+            this.gbAsignarPatenteUsuario.Controls.Add(this.gbFiltrosBusquedaBitacora);
+            this.gbAsignarPatenteUsuario.Controls.Add(this.pictureBox1);
+            this.gbAsignarPatenteUsuario.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbAsignarPatenteUsuario.Location = new System.Drawing.Point(3, 6);
+            this.gbAsignarPatenteUsuario.Name = "gbAsignarPatenteUsuario";
+            this.gbAsignarPatenteUsuario.Size = new System.Drawing.Size(602, 493);
+            this.gbAsignarPatenteUsuario.TabIndex = 6;
+            this.gbAsignarPatenteUsuario.TabStop = false;
+            this.gbAsignarPatenteUsuario.Text = "ASIGNAR PATENTE A USUARIO";
             // 
             // btnAceptar
             // 
@@ -76,38 +76,38 @@
             this.btnAceptar.UseVisualStyleBackColor = false;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
-            // groupBox3
+            // gbPatentesDisponibles
             // 
-            this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Controls.Add(this.listPatenteAsignar);
-            this.groupBox3.Controls.Add(this.listPatenteDesasignar);
-            this.groupBox3.Controls.Add(this.btnDesasignar);
-            this.groupBox3.Controls.Add(this.btnAsignar);
-            this.groupBox3.Location = new System.Drawing.Point(10, 193);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(582, 255);
-            this.groupBox3.TabIndex = 22;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "PATENTES DISPONIBLES";
+            this.gbPatentesDisponibles.Controls.Add(this.lblPatentesDesasignar);
+            this.gbPatentesDisponibles.Controls.Add(this.lblPatentesAsignar);
+            this.gbPatentesDisponibles.Controls.Add(this.listPatenteAsignar);
+            this.gbPatentesDisponibles.Controls.Add(this.listPatenteDesasignar);
+            this.gbPatentesDisponibles.Controls.Add(this.btnDesasignar);
+            this.gbPatentesDisponibles.Controls.Add(this.btnAsignar);
+            this.gbPatentesDisponibles.Location = new System.Drawing.Point(10, 193);
+            this.gbPatentesDisponibles.Name = "gbPatentesDisponibles";
+            this.gbPatentesDisponibles.Size = new System.Drawing.Size(582, 255);
+            this.gbPatentesDisponibles.TabIndex = 22;
+            this.gbPatentesDisponibles.TabStop = false;
+            this.gbPatentesDisponibles.Text = "PATENTES DISPONIBLES";
             // 
-            // label2
+            // lblPatentesDesasignar
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(394, 24);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(143, 18);
-            this.label2.TabIndex = 24;
-            this.label2.Text = "Patentes a Desasignar";
+            this.lblPatentesDesasignar.AutoSize = true;
+            this.lblPatentesDesasignar.Location = new System.Drawing.Point(394, 24);
+            this.lblPatentesDesasignar.Name = "lblPatentesDesasignar";
+            this.lblPatentesDesasignar.Size = new System.Drawing.Size(143, 18);
+            this.lblPatentesDesasignar.TabIndex = 24;
+            this.lblPatentesDesasignar.Text = "Patentes a Desasignar";
             // 
-            // label1
+            // lblPatentesAsignar
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(53, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(125, 18);
-            this.label1.TabIndex = 23;
-            this.label1.Text = "Patentes  a Asignar";
+            this.lblPatentesAsignar.AutoSize = true;
+            this.lblPatentesAsignar.Location = new System.Drawing.Point(53, 24);
+            this.lblPatentesAsignar.Name = "lblPatentesAsignar";
+            this.lblPatentesAsignar.Size = new System.Drawing.Size(125, 18);
+            this.lblPatentesAsignar.TabIndex = 23;
+            this.lblPatentesAsignar.Text = "Patentes  a Asignar";
             // 
             // listPatenteAsignar
             // 
@@ -153,17 +153,17 @@
             this.btnAsignar.UseVisualStyleBackColor = false;
             this.btnAsignar.Click += new System.EventHandler(this.btnAsignar_Click);
             // 
-            // groupBox2
+            // gbFiltrosBusquedaBitacora
             // 
-            this.groupBox2.Controls.Add(this.txtNombreUsuario);
-            this.groupBox2.Controls.Add(this.btnBuscar);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Location = new System.Drawing.Point(10, 99);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(582, 88);
-            this.groupBox2.TabIndex = 19;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "FILTROS DE BUSQUEDA";
+            this.gbFiltrosBusquedaBitacora.Controls.Add(this.txtNombreUsuario);
+            this.gbFiltrosBusquedaBitacora.Controls.Add(this.btnBuscar);
+            this.gbFiltrosBusquedaBitacora.Controls.Add(this.lblNombreDelUsuario);
+            this.gbFiltrosBusquedaBitacora.Location = new System.Drawing.Point(10, 99);
+            this.gbFiltrosBusquedaBitacora.Name = "gbFiltrosBusquedaBitacora";
+            this.gbFiltrosBusquedaBitacora.Size = new System.Drawing.Size(582, 88);
+            this.gbFiltrosBusquedaBitacora.TabIndex = 19;
+            this.gbFiltrosBusquedaBitacora.TabStop = false;
+            this.gbFiltrosBusquedaBitacora.Text = "FILTROS DE BUSQUEDA";
             // 
             // txtNombreUsuario
             // 
@@ -182,15 +182,15 @@
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // label5
+            // lblNombreDelUsuario
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(6, 22);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(140, 19);
-            this.label5.TabIndex = 18;
-            this.label5.Text = "Nombre del usuario:";
+            this.lblNombreDelUsuario.AutoSize = true;
+            this.lblNombreDelUsuario.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreDelUsuario.Location = new System.Drawing.Point(6, 22);
+            this.lblNombreDelUsuario.Name = "lblNombreDelUsuario";
+            this.lblNombreDelUsuario.Size = new System.Drawing.Size(140, 19);
+            this.lblNombreDelUsuario.TabIndex = 18;
+            this.lblNombreDelUsuario.Text = "Nombre del usuario:";
             // 
             // pictureBox1
             // 
@@ -207,15 +207,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(611, 503);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbAsignarPatenteUsuario);
             this.Name = "GestionarPatenteUsuario";
             this.Text = "Gestion de Patentes";
             this.Load += new System.EventHandler(this.AsignarPatenteUsuario_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.gbAsignarPatenteUsuario.ResumeLayout(false);
+            this.gbPatentesDisponibles.ResumeLayout(false);
+            this.gbPatentesDisponibles.PerformLayout();
+            this.gbFiltrosBusquedaBitacora.ResumeLayout(false);
+            this.gbFiltrosBusquedaBitacora.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -223,19 +223,19 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbAsignarPatenteUsuario;
         private System.Windows.Forms.Button btnAceptar;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox gbPatentesDisponibles;
+        private System.Windows.Forms.Label lblPatentesDesasignar;
+        private System.Windows.Forms.Label lblPatentesAsignar;
         private System.Windows.Forms.ListView listPatenteAsignar;
         private System.Windows.Forms.ListView listPatenteDesasignar;
         private System.Windows.Forms.Button btnDesasignar;
         private System.Windows.Forms.Button btnAsignar;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gbFiltrosBusquedaBitacora;
         private System.Windows.Forms.TextBox txtNombreUsuario;
         private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblNombreDelUsuario;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

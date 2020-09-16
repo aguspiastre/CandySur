@@ -29,48 +29,48 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionarContraseña));
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.gbCambiarContraseña = new System.Windows.Forms.GroupBox();
+            this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCambiarContraseña = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.gbIngresoDatos = new System.Windows.Forms.GroupBox();
             this.txtContraseñaActual = new System.Windows.Forms.TextBox();
             this.txtNuevapw = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblContraseñaActual = new System.Windows.Forms.Label();
+            this.lblRepetirContraseña = new System.Windows.Forms.Label();
             this.txtRepetirpw = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
+            this.lblNuevaContraseña = new System.Windows.Forms.Label();
+            this.gbCambiarContraseña.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.groupBox3.SuspendLayout();
+            this.gbIngresoDatos.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // gbCambiarContraseña
             // 
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.btnCambiarContraseña);
-            this.groupBox1.Controls.Add(this.pictureBox2);
-            this.groupBox1.Controls.Add(this.groupBox3);
-            this.groupBox1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(3, 4);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(336, 349);
-            this.groupBox1.TabIndex = 7;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "CAMBIAR CONTRASEÑA";
+            this.gbCambiarContraseña.Controls.Add(this.btnAceptar);
+            this.gbCambiarContraseña.Controls.Add(this.btnCambiarContraseña);
+            this.gbCambiarContraseña.Controls.Add(this.pictureBox2);
+            this.gbCambiarContraseña.Controls.Add(this.gbIngresoDatos);
+            this.gbCambiarContraseña.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbCambiarContraseña.Location = new System.Drawing.Point(3, 4);
+            this.gbCambiarContraseña.Name = "gbCambiarContraseña";
+            this.gbCambiarContraseña.Size = new System.Drawing.Size(336, 349);
+            this.gbCambiarContraseña.TabIndex = 7;
+            this.gbCambiarContraseña.TabStop = false;
+            this.gbCambiarContraseña.Text = "CAMBIAR CONTRASEÑA";
             // 
-            // button1
+            // btnAceptar
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Green;
-            this.button1.Location = new System.Drawing.Point(232, 310);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 31);
-            this.button1.TabIndex = 38;
-            this.button1.Text = "Aceptar";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnAceptar.BackColor = System.Drawing.Color.Transparent;
+            this.btnAceptar.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAceptar.ForeColor = System.Drawing.Color.Green;
+            this.btnAceptar.Location = new System.Drawing.Point(232, 310);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(94, 31);
+            this.btnAceptar.TabIndex = 38;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.UseVisualStyleBackColor = false;
+            this.btnAceptar.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnCambiarContraseña
             // 
@@ -94,20 +94,20 @@
             this.pictureBox2.TabIndex = 36;
             this.pictureBox2.TabStop = false;
             // 
-            // groupBox3
+            // gbIngresoDatos
             // 
-            this.groupBox3.Controls.Add(this.txtContraseñaActual);
-            this.groupBox3.Controls.Add(this.txtNuevapw);
-            this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Controls.Add(this.txtRepetirpw);
-            this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Location = new System.Drawing.Point(9, 98);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(317, 206);
-            this.groupBox3.TabIndex = 22;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "INGRESO DE DATOS";
+            this.gbIngresoDatos.Controls.Add(this.txtContraseñaActual);
+            this.gbIngresoDatos.Controls.Add(this.txtNuevapw);
+            this.gbIngresoDatos.Controls.Add(this.lblContraseñaActual);
+            this.gbIngresoDatos.Controls.Add(this.lblRepetirContraseña);
+            this.gbIngresoDatos.Controls.Add(this.txtRepetirpw);
+            this.gbIngresoDatos.Controls.Add(this.lblNuevaContraseña);
+            this.gbIngresoDatos.Location = new System.Drawing.Point(9, 98);
+            this.gbIngresoDatos.Name = "gbIngresoDatos";
+            this.gbIngresoDatos.Size = new System.Drawing.Size(317, 206);
+            this.gbIngresoDatos.TabIndex = 22;
+            this.gbIngresoDatos.TabStop = false;
+            this.gbIngresoDatos.Text = "INGRESO DE DATOS";
             // 
             // txtContraseñaActual
             // 
@@ -127,25 +127,25 @@
             this.txtNuevapw.Size = new System.Drawing.Size(301, 26);
             this.txtNuevapw.TabIndex = 32;
             // 
-            // label1
+            // lblContraseñaActual
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 19);
-            this.label1.TabIndex = 28;
-            this.label1.Text = "Contraseña actual:";
+            this.lblContraseñaActual.AutoSize = true;
+            this.lblContraseñaActual.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContraseñaActual.Location = new System.Drawing.Point(6, 22);
+            this.lblContraseñaActual.Name = "lblContraseñaActual";
+            this.lblContraseñaActual.Size = new System.Drawing.Size(131, 19);
+            this.lblContraseñaActual.TabIndex = 28;
+            this.lblContraseñaActual.Text = "Contraseña actual:";
             // 
-            // label6
+            // lblRepetirContraseña
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(6, 124);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(134, 19);
-            this.label6.TabIndex = 34;
-            this.label6.Text = "Repetir Contraseña";
+            this.lblRepetirContraseña.AutoSize = true;
+            this.lblRepetirContraseña.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRepetirContraseña.Location = new System.Drawing.Point(6, 124);
+            this.lblRepetirContraseña.Name = "lblRepetirContraseña";
+            this.lblRepetirContraseña.Size = new System.Drawing.Size(134, 19);
+            this.lblRepetirContraseña.TabIndex = 34;
+            this.lblRepetirContraseña.Text = "Repetir Contraseña";
             // 
             // txtRepetirpw
             // 
@@ -156,15 +156,15 @@
             this.txtRepetirpw.Size = new System.Drawing.Size(302, 26);
             this.txtRepetirpw.TabIndex = 35;
             // 
-            // label3
+            // lblNuevaContraseña
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(6, 73);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(132, 19);
-            this.label3.TabIndex = 31;
-            this.label3.Text = "Nueva Contraseña:";
+            this.lblNuevaContraseña.AutoSize = true;
+            this.lblNuevaContraseña.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNuevaContraseña.Location = new System.Drawing.Point(6, 73);
+            this.lblNuevaContraseña.Name = "lblNuevaContraseña";
+            this.lblNuevaContraseña.Size = new System.Drawing.Size(132, 19);
+            this.lblNuevaContraseña.TabIndex = 31;
+            this.lblNuevaContraseña.Text = "Nueva Contraseña:";
             // 
             // GestionarContraseña
             // 
@@ -172,29 +172,31 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(343, 358);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbCambiarContraseña);
             this.Name = "GestionarContraseña";
             this.Text = "Gestionar Contraseña";
-            this.groupBox1.ResumeLayout(false);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GestionarContraseña_FormClosing);
+            this.Load += new System.EventHandler(this.GestionarContraseña_Load);
+            this.gbCambiarContraseña.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.gbIngresoDatos.ResumeLayout(false);
+            this.gbIngresoDatos.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox gbCambiarContraseña;
+        private System.Windows.Forms.GroupBox gbIngresoDatos;
         private System.Windows.Forms.TextBox txtContraseñaActual;
         private System.Windows.Forms.TextBox txtNuevapw;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblContraseñaActual;
+        private System.Windows.Forms.Label lblRepetirContraseña;
         private System.Windows.Forms.TextBox txtRepetirpw;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblNuevaContraseña;
         private System.Windows.Forms.Button btnCambiarContraseña;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAceptar;
     }
 }

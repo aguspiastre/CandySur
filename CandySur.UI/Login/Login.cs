@@ -163,22 +163,13 @@ namespace CandySur.UI.Login
 
             var traducciones = traductor.ObtenerTraducciones(idioma);
 
-            //Menu.
-            this.lblContraseña.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.txtContraseña.Name).Descripcion;
-
-            this.lblUsuario.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.txtUsuario.Name).Descripcion;
-
-            this.btnCancelarLogin.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.btnCancelarLogin.Name).Descripcion;
-
-            this.btnIngresar.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.btnIngresar.Name).Descripcion;
-
-            this.linkGenerarContraseña.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.linkGenerarContraseña.Name).Descripcion;
-
-            this.menuIdioma.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.menuIdioma.Name).Descripcion;
-
-            this.SubMenuEspañol.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.SubMenuEspañol.Name).Descripcion;
-
-            this.SubMenuIngles.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.SubMenuIngles.Name).Descripcion;
+            foreach (Control item in this.Controls)
+            {
+                if (traducciones.Any(t => t.Etiqueta == item.Name))
+                {
+                    item.Text = traducciones.FirstOrDefault(t => t.Etiqueta == item.Name).Descripcion;
+                }
+            }
         }
 
         private void SubMenuEspañol_Click(object sender, EventArgs e)

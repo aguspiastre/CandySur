@@ -28,31 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbBackupRestore = new System.Windows.Forms.GroupBox();
             this.btnNuevoBackup = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.gbBackupDisponibles = new System.Windows.Forms.GroupBox();
+            this.lblBackup = new System.Windows.Forms.Label();
             this.cmbBackup = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnRestore = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.gbBackupRestore.SuspendLayout();
+            this.gbBackupDisponibles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // gbBackupRestore
             // 
-            this.groupBox1.Controls.Add(this.btnNuevoBackup);
-            this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.btnRestore);
-            this.groupBox1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(3, 7);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(602, 239);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "BACK-UP Y RESTORE";
+            this.gbBackupRestore.Controls.Add(this.btnNuevoBackup);
+            this.gbBackupRestore.Controls.Add(this.gbBackupDisponibles);
+            this.gbBackupRestore.Controls.Add(this.pictureBox1);
+            this.gbBackupRestore.Controls.Add(this.btnRestore);
+            this.gbBackupRestore.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbBackupRestore.Location = new System.Drawing.Point(3, 7);
+            this.gbBackupRestore.Name = "gbBackupRestore";
+            this.gbBackupRestore.Size = new System.Drawing.Size(602, 239);
+            this.gbBackupRestore.TabIndex = 5;
+            this.gbBackupRestore.TabStop = false;
+            this.gbBackupRestore.Text = "BACK-UP Y RESTORE";
             // 
             // btnNuevoBackup
             // 
@@ -67,26 +67,26 @@
             this.btnNuevoBackup.UseVisualStyleBackColor = false;
             this.btnNuevoBackup.Click += new System.EventHandler(this.btnNuevoBackup_Click);
             // 
-            // groupBox2
+            // gbBackupDisponibles
             // 
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.cmbBackup);
-            this.groupBox2.Location = new System.Drawing.Point(9, 98);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(583, 95);
-            this.groupBox2.TabIndex = 5;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "BACK-UP DISPONIBLES";
+            this.gbBackupDisponibles.Controls.Add(this.lblBackup);
+            this.gbBackupDisponibles.Controls.Add(this.cmbBackup);
+            this.gbBackupDisponibles.Location = new System.Drawing.Point(9, 98);
+            this.gbBackupDisponibles.Name = "gbBackupDisponibles";
+            this.gbBackupDisponibles.Size = new System.Drawing.Size(583, 95);
+            this.gbBackupDisponibles.TabIndex = 5;
+            this.gbBackupDisponibles.TabStop = false;
+            this.gbBackupDisponibles.Text = "BACK-UP DISPONIBLES";
             // 
-            // label5
+            // lblBackup
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(6, 22);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(64, 19);
-            this.label5.TabIndex = 18;
-            this.label5.Text = "Back-up:";
+            this.lblBackup.AutoSize = true;
+            this.lblBackup.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBackup.Location = new System.Drawing.Point(6, 22);
+            this.lblBackup.Name = "lblBackup";
+            this.lblBackup.Size = new System.Drawing.Size(64, 19);
+            this.lblBackup.TabIndex = 18;
+            this.lblBackup.Text = "Back-up:";
             // 
             // cmbBackup
             // 
@@ -125,13 +125,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(611, 251);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbBackupRestore);
             this.Name = "BackupRestore";
             this.Text = "Backup y Restore";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BackupRestore_FormClosing);
             this.Load += new System.EventHandler(this.BackupRestore_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.gbBackupRestore.ResumeLayout(false);
+            this.gbBackupDisponibles.ResumeLayout(false);
+            this.gbBackupDisponibles.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -139,9 +140,9 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.GroupBox gbBackupRestore;
+        private System.Windows.Forms.GroupBox gbBackupDisponibles;
+        private System.Windows.Forms.Label lblBackup;
         private System.Windows.Forms.ComboBox cmbBackup;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnRestore;

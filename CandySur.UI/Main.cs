@@ -54,7 +54,18 @@ namespace CandySur.UI
 
         private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("¿Desea cerrar sesión?", "Cerrar Sesión", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            string msg = "¿Desea cerrar sesión?";
+            string tittle = "Cerrar Sesion";
+
+            var idiomaManager = SEG.Service.IdiomaManager.GetInstance();
+
+            if (!idiomaManager.Idioma.Principal)
+            {
+                msg = "¿Are you sure that you want to sign off?";
+                tittle = "Sign Off";
+            }
+
+            DialogResult result = MessageBox.Show(msg, tittle, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {

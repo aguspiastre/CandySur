@@ -1,4 +1,6 @@
-﻿using CandySur.SEG.Util;
+﻿using CandySur.SEG.Entity;
+using CandySur.SEG.Service;
+using CandySur.SEG.Util;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,7 +14,7 @@ using static CandySur.SEG.Util.Enums;
 
 namespace CandySur.UI.Usuario
 {
-    public partial class GestionarUsuario : Form
+    public partial class GestionarUsuario : Form, IIdiomaObserver
     {
         private SEG.Service.SessionManager Session;
         SEG.Service.Usuario usuarioService = new SEG.Service.Usuario();
@@ -26,6 +28,9 @@ namespace CandySur.UI.Usuario
         private void GestionarUsuario_Load(object sender, EventArgs e)
         {
             Session = SEG.Service.SessionManager.GetInstance();
+
+            this.Traducir();
+            SEG.Service.IdiomaManager.Suscribir(this);
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -175,6 +180,50 @@ namespace CandySur.UI.Usuario
             txtTelefono.Text = string.Empty;
             txtDireccion.Text = string.Empty;
             dtpFechaNac.Value = DateTime.Now;
+        }
+
+        public void ActualizarIdioma(SEG.Entity.Idioma idioma)
+        {
+            this.Traducir();
+        }
+
+        private void Traducir()
+        {
+            SEG.Service.Traductor traductor = new Traductor();
+            var idiomaManager = SEG.Service.IdiomaManager.GetInstance();
+
+            var traducciones = traductor.ObtenerTraducciones(idiomaManager.Idioma);
+
+            foreach (Control item in this.Controls)
+            {
+                if (traducciones.Any(t => t.Etiqueta == item.Name))
+                {
+                    item.Text = traducciones.FirstOrDefault(t => t.Etiqueta == item.Name).Descripcion;
+                }
+
+                TraducirControlesInternos(item, traducciones);
+            }
+        }
+
+        private void TraducirControlesInternos(Control item, List<Traduccion> traducciones)
+        {
+            if (item is GroupBox)
+            {
+                foreach (Control subItem in item.Controls)
+                {
+                    if (traducciones.Any(t => t.Etiqueta == subItem.Name))
+                    {
+                        subItem.Text = traducciones.FirstOrDefault(t => t.Etiqueta == subItem.Name).Descripcion;
+                    }
+
+                    TraducirControlesInternos(subItem, traducciones);
+                }
+            }
+        }
+
+        private void GestionarUsuario_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SEG.Service.IdiomaManager.Desuscribir(this);
         }
     }
 }

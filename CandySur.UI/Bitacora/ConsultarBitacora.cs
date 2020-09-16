@@ -10,10 +10,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CandySur.SEG;
 using CandySur.SEG.Util;
+using CandySur.SEG.Entity;
+using CandySur.SEG.Service;
 
 namespace CandySur.UI.Bitacora
 {
-    public partial class ConsultarBitacora : Form
+    public partial class ConsultarBitacora : Form, IIdiomaObserver
     {
         private CandySur.SEG.Service.SessionManager Session;
         CandySur.SEG.Service.Bitacora bitacoraService = new SEG.Service.Bitacora();
@@ -44,6 +46,8 @@ namespace CandySur.UI.Bitacora
         private void Consultar_Load(object sender, EventArgs e)
         {
             Session = SEG.Service.SessionManager.GetInstance();
+            this.Traducir();
+            SEG.Service.IdiomaManager.Suscribir(this);
 
             cmbCriticidad.DataSource = Enum.GetValues(typeof(CandySur.SEG.Util.Enums.Criticidad));
 
@@ -59,6 +63,49 @@ namespace CandySur.UI.Bitacora
 
             cmbUsuario.DataSource = new BindingSource(comboUser, null);
             cmbUsuario.SelectedIndex = 0;
+        }
+        private void Traducir()
+        {
+            SEG.Service.Traductor traductor = new Traductor();
+            var idiomaManager = SEG.Service.IdiomaManager.GetInstance();
+
+            var traducciones = traductor.ObtenerTraducciones(idiomaManager.Idioma);
+
+            foreach (Control item in this.Controls)
+            {
+                if (traducciones.Any(t => t.Etiqueta == item.Name))
+                {
+                    item.Text = traducciones.FirstOrDefault(t => t.Etiqueta == item.Name).Descripcion;
+                }
+
+                TraducirControlesInternos(item, traducciones);
+            }
+        }
+
+        private void TraducirControlesInternos(Control item, List<Traduccion> traducciones)
+        {
+            if (item is GroupBox)
+            {
+                foreach (Control subItem in item.Controls)
+                {
+                    if (traducciones.Any(t => t.Etiqueta == subItem.Name))
+                    {
+                        subItem.Text = traducciones.FirstOrDefault(t => t.Etiqueta == subItem.Name).Descripcion;
+                    }
+
+                    TraducirControlesInternos(subItem, traducciones);
+                }
+            }
+        }
+
+        public void ActualizarIdioma(SEG.Entity.Idioma idioma)
+        {
+            this.Traducir();
+        }
+
+        private void ConsultarBitacora_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SEG.Service.IdiomaManager.Desuscribir(this);
         }
     }
 }

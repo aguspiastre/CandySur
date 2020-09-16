@@ -28,60 +28,83 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnActualizar = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dataGridCambios = new System.Windows.Forms.DataGridView();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cmbUsuario = new System.Windows.Forms.ComboBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.groupBox1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridCambios)).BeginInit();
-            this.groupBox2.SuspendLayout();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.gbFiltrosBusquedaBitacora = new System.Windows.Forms.GroupBox();
+            this.cmbUsuario = new System.Windows.Forms.ComboBox();
+            this.lblUsuario = new System.Windows.Forms.Label();
+            this.gbCambios = new System.Windows.Forms.GroupBox();
+            this.dataGridCambios = new System.Windows.Forms.DataGridView();
+            this.btnActualizar = new System.Windows.Forms.Button();
+            this.gbControlCambios = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.gbFiltrosBusquedaBitacora.SuspendLayout();
+            this.gbCambios.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridCambios)).BeginInit();
+            this.gbControlCambios.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // pictureBox1
             // 
-            this.groupBox1.Controls.Add(this.btnActualizar);
-            this.groupBox1.Controls.Add(this.groupBox3);
-            this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Controls.Add(this.btnBuscar);
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(8, 8);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(602, 554);
-            this.groupBox1.TabIndex = 8;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "CONTROL DE CAMBIOS";
+            this.pictureBox1.Image = global::CandySur.UI.Properties.Resources.FINAL;
+            this.pictureBox1.Location = new System.Drawing.Point(10, 20);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(582, 72);
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
             // 
-            // btnActualizar
+            // btnBuscar
             // 
-            this.btnActualizar.BackColor = System.Drawing.Color.Transparent;
-            this.btnActualizar.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActualizar.ForeColor = System.Drawing.Color.Blue;
-            this.btnActualizar.Location = new System.Drawing.Point(513, 514);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(79, 31);
-            this.btnActualizar.TabIndex = 20;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseMnemonic = false;
-            this.btnActualizar.UseVisualStyleBackColor = false;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            this.btnBuscar.BackColor = System.Drawing.Color.Transparent;
+            this.btnBuscar.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.ForeColor = System.Drawing.Color.Green;
+            this.btnBuscar.Location = new System.Drawing.Point(429, 514);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(78, 31);
+            this.btnBuscar.TabIndex = 19;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // groupBox3
+            // gbFiltrosBusquedaBitacora
             // 
-            this.groupBox3.Controls.Add(this.dataGridCambios);
-            this.groupBox3.Location = new System.Drawing.Point(7, 193);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(585, 315);
-            this.groupBox3.TabIndex = 6;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "CAMBIOS";
+            this.gbFiltrosBusquedaBitacora.Controls.Add(this.lblUsuario);
+            this.gbFiltrosBusquedaBitacora.Controls.Add(this.cmbUsuario);
+            this.gbFiltrosBusquedaBitacora.Location = new System.Drawing.Point(7, 98);
+            this.gbFiltrosBusquedaBitacora.Name = "gbFiltrosBusquedaBitacora";
+            this.gbFiltrosBusquedaBitacora.Size = new System.Drawing.Size(585, 89);
+            this.gbFiltrosBusquedaBitacora.TabIndex = 37;
+            this.gbFiltrosBusquedaBitacora.TabStop = false;
+            this.gbFiltrosBusquedaBitacora.Text = "FILTROS DE BUSQUEDA";
+            // 
+            // cmbUsuario
+            // 
+            this.cmbUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbUsuario.FormattingEnabled = true;
+            this.cmbUsuario.Location = new System.Drawing.Point(10, 45);
+            this.cmbUsuario.Name = "cmbUsuario";
+            this.cmbUsuario.Size = new System.Drawing.Size(276, 26);
+            this.cmbUsuario.TabIndex = 31;
+            // 
+            // lblUsuario
+            // 
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.Location = new System.Drawing.Point(6, 23);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(63, 19);
+            this.lblUsuario.TabIndex = 32;
+            this.lblUsuario.Text = "Usuario:";
+            // 
+            // gbCambios
+            // 
+            this.gbCambios.Controls.Add(this.dataGridCambios);
+            this.gbCambios.Location = new System.Drawing.Point(7, 193);
+            this.gbCambios.Name = "gbCambios";
+            this.gbCambios.Size = new System.Drawing.Size(585, 315);
+            this.gbCambios.TabIndex = 6;
+            this.gbCambios.TabStop = false;
+            this.gbCambios.Text = "CAMBIOS";
             // 
             // dataGridCambios
             // 
@@ -97,87 +120,64 @@
             this.dataGridCambios.TabIndex = 0;
             this.dataGridCambios.SelectionChanged += new System.EventHandler(this.dataGridCambios_SelectionChanged);
             // 
-            // groupBox2
+            // btnActualizar
             // 
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.cmbUsuario);
-            this.groupBox2.Location = new System.Drawing.Point(7, 98);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(585, 89);
-            this.groupBox2.TabIndex = 37;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "FILTROS DE BUSQUEDA";
+            this.btnActualizar.BackColor = System.Drawing.Color.Transparent;
+            this.btnActualizar.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActualizar.ForeColor = System.Drawing.Color.Blue;
+            this.btnActualizar.Location = new System.Drawing.Point(513, 514);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(79, 31);
+            this.btnActualizar.TabIndex = 20;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.UseMnemonic = false;
+            this.btnActualizar.UseVisualStyleBackColor = false;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
-            // label3
+            // gbControlCambios
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(6, 23);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 19);
-            this.label3.TabIndex = 32;
-            this.label3.Text = "Usuario:";
-            // 
-            // cmbUsuario
-            // 
-            this.cmbUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbUsuario.FormattingEnabled = true;
-            this.cmbUsuario.Location = new System.Drawing.Point(10, 45);
-            this.cmbUsuario.Name = "cmbUsuario";
-            this.cmbUsuario.Size = new System.Drawing.Size(276, 26);
-            this.cmbUsuario.TabIndex = 31;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.BackColor = System.Drawing.Color.Transparent;
-            this.btnBuscar.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.ForeColor = System.Drawing.Color.Green;
-            this.btnBuscar.Location = new System.Drawing.Point(429, 514);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(78, 31);
-            this.btnBuscar.TabIndex = 19;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = false;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::CandySur.UI.Properties.Resources.FINAL;
-            this.pictureBox1.Location = new System.Drawing.Point(10, 20);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(582, 72);
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
+            this.gbControlCambios.Controls.Add(this.btnActualizar);
+            this.gbControlCambios.Controls.Add(this.gbCambios);
+            this.gbControlCambios.Controls.Add(this.gbFiltrosBusquedaBitacora);
+            this.gbControlCambios.Controls.Add(this.btnBuscar);
+            this.gbControlCambios.Controls.Add(this.pictureBox1);
+            this.gbControlCambios.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbControlCambios.Location = new System.Drawing.Point(8, 8);
+            this.gbControlCambios.Name = "gbControlCambios";
+            this.gbControlCambios.Size = new System.Drawing.Size(602, 554);
+            this.gbControlCambios.TabIndex = 8;
+            this.gbControlCambios.TabStop = false;
+            this.gbControlCambios.Text = "CONTROL DE CAMBIOS";
             // 
             // ControlCambios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(616, 565);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbControlCambios);
             this.Name = "ControlCambios";
             this.Text = "Control de Cambios";
             this.Load += new System.EventHandler(this.ControlCambios_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridCambios)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.gbFiltrosBusquedaBitacora.ResumeLayout(false);
+            this.gbFiltrosBusquedaBitacora.PerformLayout();
+            this.gbCambios.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridCambios)).EndInit();
+            this.gbControlCambios.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DataGridView dataGridCambios;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cmbUsuario;
-        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.GroupBox gbFiltrosBusquedaBitacora;
+        private System.Windows.Forms.Label lblUsuario;
+        private System.Windows.Forms.ComboBox cmbUsuario;
+        private System.Windows.Forms.GroupBox gbCambios;
+        private System.Windows.Forms.DataGridView dataGridCambios;
         private System.Windows.Forms.Button btnActualizar;
+        private System.Windows.Forms.GroupBox gbControlCambios;
     }
 }

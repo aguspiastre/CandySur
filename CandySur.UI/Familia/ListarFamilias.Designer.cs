@@ -28,38 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.gbListadoFamilia = new System.Windows.Forms.GroupBox();
+            this.lblFamiliasDisponibles = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.dgvFamilias = new System.Windows.Forms.DataGridView();
-            this.groupBox1.SuspendLayout();
+            this.gbListadoFamilia.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFamilias)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // gbListadoFamilia
             // 
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.btnAceptar);
-            this.groupBox1.Controls.Add(this.dgvFamilias);
-            this.groupBox1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(6, 6);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(603, 442);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "LISTADO DE FAMILIAS";
+            this.gbListadoFamilia.Controls.Add(this.lblFamiliasDisponibles);
+            this.gbListadoFamilia.Controls.Add(this.pictureBox1);
+            this.gbListadoFamilia.Controls.Add(this.btnAceptar);
+            this.gbListadoFamilia.Controls.Add(this.dgvFamilias);
+            this.gbListadoFamilia.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbListadoFamilia.Location = new System.Drawing.Point(6, 6);
+            this.gbListadoFamilia.Name = "gbListadoFamilia";
+            this.gbListadoFamilia.Size = new System.Drawing.Size(603, 442);
+            this.gbListadoFamilia.TabIndex = 5;
+            this.gbListadoFamilia.TabStop = false;
+            this.gbListadoFamilia.Text = "LISTADO DE FAMILIAS";
             // 
-            // label1
+            // lblFamiliasDisponibles
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 105);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(152, 18);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "FAMILIAS DISPONIBLES:";
+            this.lblFamiliasDisponibles.AutoSize = true;
+            this.lblFamiliasDisponibles.Location = new System.Drawing.Point(7, 105);
+            this.lblFamiliasDisponibles.Name = "lblFamiliasDisponibles";
+            this.lblFamiliasDisponibles.Size = new System.Drawing.Size(152, 18);
+            this.lblFamiliasDisponibles.TabIndex = 6;
+            this.lblFamiliasDisponibles.Text = "FAMILIAS DISPONIBLES:";
             // 
             // pictureBox1
             // 
@@ -98,12 +98,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(614, 452);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbListadoFamilia);
             this.Name = "ListarFamilias";
             this.Text = "Listar Familias";
             this.Load += new System.EventHandler(this.ListarFamilias_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gbListadoFamilia.ResumeLayout(false);
+            this.gbListadoFamilia.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFamilias)).EndInit();
             this.ResumeLayout(false);
@@ -112,8 +112,8 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox gbListadoFamilia;
+        private System.Windows.Forms.Label lblFamiliasDisponibles;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.DataGridView dgvFamilias;

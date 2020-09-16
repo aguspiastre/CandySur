@@ -28,52 +28,52 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gbGestionarFamilia = new System.Windows.Forms.GroupBox();
+            this.gbDatosFamilia = new System.Windows.Forms.GroupBox();
             this.cmbFamilia = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblFamilia = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lblNombre = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblDescripcion = new System.Windows.Forms.Label();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnAceptar = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.gbGestionarFamilia.SuspendLayout();
+            this.gbDatosFamilia.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // gbGestionarFamilia
             // 
-            this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Controls.Add(this.btnModificar);
-            this.groupBox1.Controls.Add(this.btnEliminar);
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.btnAceptar);
-            this.groupBox1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(7, 7);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(602, 377);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "GESTIONAR";
+            this.gbGestionarFamilia.Controls.Add(this.gbDatosFamilia);
+            this.gbGestionarFamilia.Controls.Add(this.btnModificar);
+            this.gbGestionarFamilia.Controls.Add(this.btnEliminar);
+            this.gbGestionarFamilia.Controls.Add(this.pictureBox1);
+            this.gbGestionarFamilia.Controls.Add(this.btnAceptar);
+            this.gbGestionarFamilia.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbGestionarFamilia.Location = new System.Drawing.Point(7, 7);
+            this.gbGestionarFamilia.Name = "gbGestionarFamilia";
+            this.gbGestionarFamilia.Size = new System.Drawing.Size(602, 377);
+            this.gbGestionarFamilia.TabIndex = 4;
+            this.gbGestionarFamilia.TabStop = false;
+            this.gbGestionarFamilia.Text = "GESTIONAR";
             // 
-            // groupBox2
+            // gbDatosFamilia
             // 
-            this.groupBox2.Controls.Add(this.cmbFamilia);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.txtNombre);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.txtDescripcion);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(10, 99);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(582, 233);
-            this.groupBox2.TabIndex = 19;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "DATOS DE LA FAMILIA";
+            this.gbDatosFamilia.Controls.Add(this.cmbFamilia);
+            this.gbDatosFamilia.Controls.Add(this.lblFamilia);
+            this.gbDatosFamilia.Controls.Add(this.txtNombre);
+            this.gbDatosFamilia.Controls.Add(this.lblNombre);
+            this.gbDatosFamilia.Controls.Add(this.txtDescripcion);
+            this.gbDatosFamilia.Controls.Add(this.lblDescripcion);
+            this.gbDatosFamilia.Location = new System.Drawing.Point(10, 99);
+            this.gbDatosFamilia.Name = "gbDatosFamilia";
+            this.gbDatosFamilia.Size = new System.Drawing.Size(582, 233);
+            this.gbDatosFamilia.TabIndex = 19;
+            this.gbDatosFamilia.TabStop = false;
+            this.gbDatosFamilia.Text = "DATOS DE LA FAMILIA";
             // 
             // cmbFamilia
             // 
@@ -85,15 +85,15 @@
             this.cmbFamilia.TabIndex = 28;
             this.cmbFamilia.SelectedIndexChanged += new System.EventHandler(this.cmbFamilia_SelectedIndexChanged);
             // 
-            // label5
+            // lblFamilia
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(6, 22);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(60, 19);
-            this.label5.TabIndex = 18;
-            this.label5.Text = "Familia:";
+            this.lblFamilia.AutoSize = true;
+            this.lblFamilia.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFamilia.Location = new System.Drawing.Point(6, 22);
+            this.lblFamilia.Name = "lblFamilia";
+            this.lblFamilia.Size = new System.Drawing.Size(60, 19);
+            this.lblFamilia.TabIndex = 18;
+            this.lblFamilia.Text = "Familia:";
             // 
             // txtNombre
             // 
@@ -103,15 +103,15 @@
             this.txtNombre.Size = new System.Drawing.Size(283, 26);
             this.txtNombre.TabIndex = 10;
             // 
-            // label10
+            // lblNombre
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(286, 22);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(64, 19);
-            this.label10.TabIndex = 4;
-            this.label10.Text = "Nombre:";
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.Location = new System.Drawing.Point(286, 22);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(64, 19);
+            this.lblNombre.TabIndex = 4;
+            this.lblNombre.Text = "Nombre:";
             // 
             // txtDescripcion
             // 
@@ -122,15 +122,15 @@
             this.txtDescripcion.Size = new System.Drawing.Size(563, 130);
             this.txtDescripcion.TabIndex = 14;
             // 
-            // label2
+            // lblDescripcion
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 70);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 19);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "Descripcion:";
+            this.lblDescripcion.AutoSize = true;
+            this.lblDescripcion.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescripcion.Location = new System.Drawing.Point(6, 70);
+            this.lblDescripcion.Name = "lblDescripcion";
+            this.lblDescripcion.Size = new System.Drawing.Size(89, 19);
+            this.lblDescripcion.TabIndex = 15;
+            this.lblDescripcion.Text = "Descripcion:";
             // 
             // btnModificar
             // 
@@ -186,13 +186,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(616, 389);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbGestionarFamilia);
             this.Name = "GestionarFamilia";
             this.Text = "Gestionar Familia";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GestionarFamilia_FormClosing);
             this.Load += new System.EventHandler(this.GestionarFamilia_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.gbGestionarFamilia.ResumeLayout(false);
+            this.gbDatosFamilia.ResumeLayout(false);
+            this.gbDatosFamilia.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -200,13 +201,13 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.GroupBox gbGestionarFamilia;
+        private System.Windows.Forms.GroupBox gbDatosFamilia;
+        private System.Windows.Forms.Label lblFamilia;
         private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.TextBox txtDescripcion;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.PictureBox pictureBox1;
