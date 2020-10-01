@@ -8,7 +8,7 @@ using static CandySur.SEG.Util.Enums;
 
 namespace CandySur.SEG.Service
 {
-    public class Familia 
+    public class Familia
     {
         private SEG.Repository.Familia repository;
         private SEG.Service.DigitoVerificador dv;
@@ -56,9 +56,12 @@ namespace CandySur.SEG.Service
                 familia.Nombre = Util.Encrypt.Encriptar(familia.Nombre, (int)TipoEncriptacion.Reversible);
                 familia.Eliminado = true;
 
-                
+                //Validar Eliminacion.
+                if (this.ValidarEliminacionFamilia(familia) == 0)
+                    throw new Exception("No se puede eliminar la familia, porque no hay otros permisos asignados a ningun usuario.");
 
-
+                if (!this.ValidarEliminacionFamiliaPorPatentes(familia.Id))
+                    throw new Exception("Por normas de control interno no puede quedar zona de nadie. Hay patentes en la familia que NO contienen otra asignacion.");
 
                 using (var scope = new TransactionScope(TransactionScopeOption.RequiresNew, new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }))
                 {
@@ -138,6 +141,9 @@ namespace CandySur.SEG.Service
                 if (permiso == null)
                     throw new Exception("No se encontro la familia");
 
+                if (!ValidarEliminacionFamiliaPorPatentes(permiso.Id))
+                    throw new Exception("Por normas de control interno no puede quedar zona de nadie. Hay patentes en la familia que NO contienen otra asignacion.");
+
                 return repository.Desasignar(permiso.Id, usuario.Id);
             }
             catch (Exception ex)
@@ -167,6 +173,9 @@ namespace CandySur.SEG.Service
         {
             try
             {
+                if (!ValidarDesasignacionPatente(familia.Id, patente.Id))
+                    throw new Exception("Por normas de control interno no puede quedar zona de nadie. La patente NO contiene otra asignacion.");
+
                 return repository.DesasignarPatente(familia.Id, patente.Id);
             }
             catch (Exception ex)
@@ -201,5 +210,75 @@ namespace CandySur.SEG.Service
         {
             return familia.Nombre + familia.Compuesto + familia.Eliminado + familia.Descripcion;
         }
-    }
+
+        public int ObtenerUsuariosAsignados(Entity.Familia familia)
+        {
+            return this.repository.ConsultarUsuariosAsignados(familia);
+        }
+
+        public int ValidarEliminacionFamilia(Entity.Familia familia)
+        {
+            return this.repository.ConsultarFamiliasAsignadas(familia);
+        }
+
+        private bool ValidarDesasignacionPatente(int idFamilia, int idPatente)
+        {
+            Service.Familia familiaService = new Service.Familia();
+            Service.Patente patenteService = new Service.Patente();
+
+            foreach (Entity.Familia item in familiaService.Listar().Where(f => f.Id != idFamilia))
+            {
+                if (item.Permisos.Any(p => p.Id == idPatente))
+                {
+                    if (familiaService.ObtenerUsuariosAsignados(item) > 0)
+                        return true;
+                }
+            }
+
+            if (patenteService.ObtenerUsuariosAsignados(idPatente) > 0)
+                return true;
+
+            return false;
+        }
+
+        private bool ValidarDesasignacionFamilia(string nombre)
+        {
+            Service.Familia familiaService = new Service.Familia();
+            Service.Patente patenteService = new Service.Patente();
+
+            foreach (Entity.Familia item in familiaService.Listar().Where(f => f.Nombre != nombre))
+            {
+                if (item.Permisos.Any())
+                {
+                    foreach (Entity.Patente patente in item.Permisos)
+                    {
+                        if (patenteService.ObtenerUsuariosAsignadosPorPatenteYFamilia(patente.Id, item.Id) > 0)
+                            return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        public bool ValidarEliminacionFamiliaPorPatentes(int idFamilia)
+        {
+            Service.Familia familiaService = new Service.Familia();
+            Service.Patente patenteService = new Service.Patente();
+
+            Entity.Familia familia = familiaService.Listar().FirstOrDefault(f => f.Id == idFamilia);
+
+            if (familia.Permisos.Any())
+            {
+                foreach (Entity.Patente patente in familia.Permisos)
+                {
+                    if (patenteService.ObtenerUsuariosAsignadosPorPatenteYFamilia(patente.Id, familia.Id) == 0 && patenteService.ObtenerUsuariosAsignados(patente.Id) == 0)
+                        return false;
+                }
+            }
+
+            return true;
+        }
+
+}
 }

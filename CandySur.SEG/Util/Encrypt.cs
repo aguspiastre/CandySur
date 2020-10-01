@@ -54,31 +54,38 @@ namespace CandySur.SEG.Util
 
         public static string Desencriptar(string texto)
         {
-            if (texto == string.Empty)
-                return texto;
+            try
+            {
+                if (texto == string.Empty)
+                    return texto;
 
-            byte[] keyArray;
-            byte[] Array_a_Descifrar = Convert.FromBase64String(texto);
+                byte[] keyArray;
+                byte[] Array_a_Descifrar = Convert.FromBase64String(texto);
 
-            MD5CryptoServiceProvider hashmd5 = new MD5CryptoServiceProvider();
+                MD5CryptoServiceProvider hashmd5 = new MD5CryptoServiceProvider();
 
-            keyArray = hashmd5.ComputeHash(UTF8Encoding.UTF8.GetBytes(key));
+                keyArray = hashmd5.ComputeHash(UTF8Encoding.UTF8.GetBytes(key));
 
-            hashmd5.Clear();
+                hashmd5.Clear();
 
-            TripleDESCryptoServiceProvider tdes = new TripleDESCryptoServiceProvider();
+                TripleDESCryptoServiceProvider tdes = new TripleDESCryptoServiceProvider();
 
-            tdes.Key = keyArray;
-            tdes.Mode = CipherMode.ECB;
-            tdes.Padding = PaddingMode.PKCS7;
+                tdes.Key = keyArray;
+                tdes.Mode = CipherMode.ECB;
+                tdes.Padding = PaddingMode.PKCS7;
 
-            ICryptoTransform cTransform = tdes.CreateDecryptor();
+                ICryptoTransform cTransform = tdes.CreateDecryptor();
 
-            byte[] resultArray = cTransform.TransformFinalBlock(Array_a_Descifrar, 0, Array_a_Descifrar.Length);
+                byte[] resultArray = cTransform.TransformFinalBlock(Array_a_Descifrar, 0, Array_a_Descifrar.Length);
 
-            tdes.Clear();
+                tdes.Clear();
 
-            return UTF8Encoding.UTF8.GetString(resultArray);
+                return UTF8Encoding.UTF8.GetString(resultArray);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

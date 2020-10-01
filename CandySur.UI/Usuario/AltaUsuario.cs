@@ -66,10 +66,10 @@ namespace CandySur.UI.Usuario
                         DNI = Convert.ToDecimal(txtDni.Text),
                         Mail = txtEmail.Text,
                         Nombre = txtNombre.Text,
-                        FechaNac = dateFechaNacimiento.Value,
+                        FechaNac = dateFechaNacimiento.Value.Date,
                         Bloqueado = false,
                         Eliminado = false,
-                        Reintentos = 0,
+                        Reintentos = 0
                     };
 
                     usuarioService.AltaUsuario(user);

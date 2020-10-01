@@ -22,7 +22,7 @@ namespace CandySur.Test
         [TestMethod]
         public void Encriptar()
         {
-            string nombre = SEG.Util.Encrypt.Encriptar("Eliminar Usuario", (int)TipoEncriptacion.Reversible);
+            string nombre = SEG.Util.Encrypt.Encriptar("Listar Usuarios", (int)TipoEncriptacion.Reversible);
         }
 
 

@@ -58,7 +58,7 @@ namespace CandySur.UI.Login
                     usuario.Permisos = usuarioService.ObtenerPermisos(usuario);
 
                     // Valido si es o no administrador
-                    bool esAdministrador = usuario.Permisos.Any(p => p.Nombre == "Administrador");
+                    bool esAdministrador = usuario.Permisos.Any(p => p.Nombre == "Administrador del Sistema");
 
                     bool contraseñaCorrecta = usuarioService.CompararContraseña(usuario.Contraseña, contraseña);
 

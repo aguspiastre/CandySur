@@ -137,7 +137,7 @@ namespace CandySur.UI.Patente
                 {
                     MessageBox.Show("Debe buscar un usuario previo a desasignar una patente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                else if (listPatenteAsignar.SelectedItems.Count == 0)
+                else if (listPatenteDesasignar.SelectedItems.Count == 0)
                 {
                     MessageBox.Show("Debe seleccionar una patente a desasignar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }

@@ -144,7 +144,7 @@ namespace CandySur.SEG.Repository
             DataTable tabla = db.ExecuteReader(sqlCommand);
 
             if (tabla.Rows.Count == 0)
-                return null;
+                return new List<Entity.Permiso>();
 
             List<Entity.Permiso> permisos = new List<Entity.Permiso>();
 

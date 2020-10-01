@@ -142,5 +142,25 @@ namespace CandySur.SEG.Repository
                 });
             }
         }
+
+        public int ConsultarUsuariosAsignados(Entity.Familia familia)
+        {
+            string sqlCommand = @"SELECT COUNT(u.id) FROM usuario_permiso up
+                                INNER JOIN usuario u ON u.id = up.id_usuario
+                                INNER JOIN permiso p ON p.id = up.id_permiso
+                                WHERE p.Eliminado = 0 AND p.id =" + familia.Id;
+
+            return Convert.ToInt32(db.ExecuteScalar(sqlCommand));
+        }
+
+        public int ConsultarFamiliasAsignadas(Entity.Familia familia)
+        {
+            string sqlCommand = @"SELECT COUNT(u.id) FROM usuario_permiso up
+                                INNER JOIN usuario u ON u.id = up.id_usuario
+                                INNER JOIN permiso p ON p.id = up.id_permiso
+                                WHERE p.Eliminado = 0 AND p.id <>" + familia.Id;
+
+            return Convert.ToInt32(db.ExecuteScalar(sqlCommand));
+        }
     }
 }

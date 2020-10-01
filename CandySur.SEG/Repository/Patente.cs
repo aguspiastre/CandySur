@@ -79,5 +79,37 @@ namespace CandySur.SEG.Repository
 
             return db.ExecuteSqlCommand(sqlCommand);
         }
+
+        public int ConsultarUsuariosAsignados(int idPatente, int idUsuario)
+        {
+            string sqlCommand = @"SELECT COUNT(u.id) FROM usuario_permiso up
+                                INNER JOIN usuario u ON u.id = up.id_usuario
+                                INNER JOIN permiso p ON p.id = up.id_permiso
+                                WHERE p.Eliminado = 0 AND u.Eliminado = 0 AND p.id =" + idPatente + " AND up.id_usuario <> " + idUsuario;
+
+            return Convert.ToInt32(db.ExecuteScalar(sqlCommand));
+        }
+
+        public int ConsultarUsuariosAsignados(int idPatente)
+        {
+            string sqlCommand = @"SELECT COUNT(u.id) FROM usuario_permiso up
+                                INNER JOIN usuario u ON u.id = up.id_usuario
+                                INNER JOIN permiso p ON p.id = up.id_permiso
+                                WHERE p.Eliminado = 0 AND u.Eliminado = 0 AND p.Compuesto = 0 AND p.id =" + idPatente;
+
+            return Convert.ToInt32(db.ExecuteScalar(sqlCommand));
+        }
+
+        public int ConsultarUsuariosAsignadosPorPatenteYFamilia(int idPatente, int idFamilia)
+        {
+            string sqlCommand = @"SELECT COUNT(u.id) FROM usuario_permiso up
+                                INNER JOIN usuario u ON u.id = up.id_usuario
+                                INNER JOIN permiso p ON p.id = up.id_permiso
+                                INNER JOIN permiso_compuesto pc on pc.Id_Permiso = p.Id
+                                WHERE p.Eliminado = 0 AND u.Eliminado = 0 AND pc.Id_Permiso <>" + idFamilia + " AND pc.Id_Compuesto =" + idPatente;
+
+            return Convert.ToInt32(db.ExecuteScalar(sqlCommand));
+        }
+
     }
 }

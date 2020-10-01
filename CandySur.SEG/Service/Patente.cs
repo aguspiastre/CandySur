@@ -55,8 +55,8 @@ namespace CandySur.SEG.Service
                 if (patente == null)
                     throw new Exception("No se encontro la patente.");
 
-                if(!this.ValidarDesasignacion(usuario.Id))
-                    throw new Exception("Por normas de control interno no puede quedar zona de nadie. No se puede desasignar la patente al usuario.");
+                if(!this.ValidarDesasignacion(patente.Id , usuario.Id))
+                    throw new Exception("Por normas de control interno no puede quedar zona de nadie. La patente NO contiene otra asignacion.");
 
                 return repository.Desasignar(patente.Id, usuario.Id);
             }
@@ -67,37 +67,46 @@ namespace CandySur.SEG.Service
         }
         private bool ValidarAsignacion(Entity.Usuario usuario, string nombrePatente)
         {
+            SEG.Service.Usuario usuarioService = new SEG.Service.Usuario();
+
             if (usuario.Permisos == null)
                 return false;
 
-            List<Entity.Permiso> permisos = usuario.Permisos.Where(p => p.Compuesto).ToList();
+            List<Entity.Permiso> permisos = usuarioService.ObtenerPermisos(usuario).Where(p=> !p.Compuesto).ToList();
 
-            foreach (Entity.Permiso item in permisos)
-            {
-                if (item is Entity.Familia)
-                {
-                    Entity.Familia familia = item as Entity.Familia;
-                    if (familia.Permisos.Any(p => p.Nombre == nombrePatente))
-                        return true;
-                }
-                else
-                {
-                    if (item.Nombre == nombrePatente)
-                        return true;
-                }
-            }
-            return false;
+            return usuarioService.ObtenerPermisos(usuario).Any(p => !p.Compuesto && p.Nombre == nombrePatente);
         }
 
-        private bool ValidarDesasignacion(int idUsuarioADesignar)
+        public int ObtenerUsuariosAsignados(int idPatente, int idUsuario)
         {
-            Service.Usuario usuarioSerivice = new Service.Usuario();
+            return this.repository.ConsultarUsuariosAsignados(idPatente, idUsuario);
+        }
 
-            foreach (Entity.Usuario item in usuarioSerivice.Listar().Where(u => u.Id != idUsuarioADesignar))
+        public int ObtenerUsuariosAsignados(int idPatente)
+        {
+            return this.repository.ConsultarUsuariosAsignados(idPatente);
+        }
+
+        public int ObtenerUsuariosAsignadosPorPatenteYFamilia(int idPatente, int idFamilia)
+        {
+            return this.repository.ConsultarUsuariosAsignadosPorPatenteYFamilia(idPatente, idFamilia);
+        }
+        private bool ValidarDesasignacion(int idPatente, int idUsuario)
+        {
+            Service.Familia familiaService = new Service.Familia();
+            Service.Patente patenteService = new Service.Patente();
+
+            foreach (Entity.Familia item in familiaService.Listar())
             {
-                if (item.Permisos.Any())
-                    return true;
+                if(item.Permisos.Any(p => p.Id == idPatente))
+                {
+                    if (familiaService.ObtenerUsuariosAsignados(item) > 0)
+                        return true;
+                }
             }
+
+            if (this.ObtenerUsuariosAsignados(idPatente, idUsuario) > 0)
+                return true;
 
             return false;
         }

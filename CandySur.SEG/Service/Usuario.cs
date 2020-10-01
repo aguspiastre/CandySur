@@ -154,18 +154,11 @@ namespace CandySur.SEG.Service
         {
             try
             {
-                if (VerificarAdministrador(usuario))
-                    throw new Exception("El usuario contiene permisos de administrador, no puede ser eliminado.");
+                //if (VerificarAdministrador(usuario))
+                //    throw new Exception("El usuario contiene permisos de administrador, no puede ser eliminado.");
 
-                List<Entity.Usuario> usuarios = this.Listar();
-
-                foreach (Entity.Usuario user in usuarios)
-                {
-                    ObtenerPermisos(user);
-                }
-
-                if (!this.ValidarPermisos(usuarios, usuario.Id))
-                    throw new Exception("No se puede eliminar al usuario, debido a que no hay otro usuario con permisos asignados.");
+                if (!this.ValidarEliminacion(usuario))
+                    throw new Exception("No se puede eliminar al usuario debido a que contiene patentes que no tienen otra asignacion.");
 
                 usuario.NombreUsuario = Encrypt.Encriptar(usuario.NombreUsuario, (int)TipoEncriptacion.Reversible);
                 usuario.Eliminado = true;
@@ -396,6 +389,7 @@ namespace CandySur.SEG.Service
             {
                 usuario.NombreUsuario = Encrypt.Encriptar(usuario.NombreUsuario, (int)TipoEncriptacion.Reversible);
                 usuario.Bloqueado = false;
+                usuario.Reintentos = 0;
                 usuario.DVH = dv.CalcularDVH(this.ConcatenarRegistro(usuario));
 
                 using (var scope = new TransactionScope(TransactionScopeOption.RequiresNew, new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }))
@@ -450,15 +444,30 @@ namespace CandySur.SEG.Service
             return usuario.Bloqueado;
         }
 
-        private bool ValidarPermisos(List<Entity.Usuario> usuarios, int idAEliminar)
+        private bool ValidarEliminacion(Entity.Usuario usuario)
         {
-            foreach (Entity.Usuario item in usuarios.Where(u => u.Id != idAEliminar))
+            SEG.Service.Patente patenteService = new SEG.Service.Patente();
+
+            foreach (Entity.Permiso permiso in usuario.Permisos)
             {
-                if (item.Permisos.Any())
-                    return true;
+                if (permiso.Compuesto)
+                {
+                    SEG.Entity.Familia fam = familia.Consultar(permiso.Nombre);
+
+                    foreach (SEG.Entity.Patente patente in fam.Permisos)
+                    {
+                        if (patenteService.ObtenerUsuariosAsignados(patente.Id, usuario.Id) == 0)
+                            return false;
+                    }
+                }
+                else
+                {
+                    if (patenteService.ObtenerUsuariosAsignados(permiso.Id, usuario.Id) == 0)
+                        return false;
+                }
             }
 
-            return false;
+            return true;
         }
 
         private string ConcatenarRegistro(Entity.Usuario usuario)

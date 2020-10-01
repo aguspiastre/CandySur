@@ -43,6 +43,9 @@ namespace CandySur.UI.Usuario
                 }
                 else
                 {
+                    if (usuario.NombreUsuario == Session.Usuario.NombreUsuario)
+                        throw new Exception("El usuario a eliminar es el mismo que se encuentra logueado.");
+
                     usuarioService.Eliminar(usuario);
 
                     LimpiarCampos();

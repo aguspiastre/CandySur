@@ -149,7 +149,7 @@ namespace CandySur.UI.Familia
                 }
                 else
                 {
-                    string familia = listFamiliasAsignar.SelectedItems[0].Text;
+                    string familia = listFamiliaDesasignar.SelectedItems[0].Text;
 
                     familiaService.Desasignar(usuario, familia);
 
@@ -164,7 +164,7 @@ namespace CandySur.UI.Familia
                     bitacoraService.Registrar(reg);
 
                     //Elimino a la familia de la lista para desasignar.
-                    this.listFamiliaDesasignar.Items.RemoveAt(listFamiliasAsignar.SelectedIndices[0]);
+                    this.listFamiliaDesasignar.Items.RemoveAt(listFamiliaDesasignar.SelectedIndices[0]);
 
                     MessageBox.Show("Familia desasignada de manera correcta.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

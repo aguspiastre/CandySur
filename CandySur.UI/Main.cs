@@ -59,7 +59,7 @@ namespace CandySur.UI
 
             var idiomaManager = SEG.Service.IdiomaManager.GetInstance();
 
-            if (!idiomaManager.Idioma.Principal)
+            if (idiomaManager.Idioma != null && !idiomaManager.Idioma.Principal)
             {
                 msg = "¿Are you sure that you want to sign off?";
                 tittle = "Sign Off";

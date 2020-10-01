@@ -50,5 +50,13 @@ namespace CandySur.SEG.Service
                 Notificar(idioma);
             }
         }
+
+        public static void AsignarIdioma(Entity.Idioma idioma)
+        {
+            if (idiomaManager != null)
+            {
+                idiomaManager.Idioma = idioma;
+            }
+        }
     }
 }
