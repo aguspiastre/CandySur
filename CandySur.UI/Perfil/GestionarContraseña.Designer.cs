@@ -83,6 +83,7 @@
             this.btnCambiarContraseña.TabIndex = 37;
             this.btnCambiarContraseña.Text = "Cambiar Contraseña";
             this.btnCambiarContraseña.UseVisualStyleBackColor = false;
+            this.btnCambiarContraseña.Visible = false;
             this.btnCambiarContraseña.Click += new System.EventHandler(this.btnCambiarContraseña_Click);
             // 
             // pictureBox2

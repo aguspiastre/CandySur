@@ -160,6 +160,7 @@
             this.btnDesasignar.TabIndex = 17;
             this.btnDesasignar.Text = "<- Desasignar ";
             this.btnDesasignar.UseVisualStyleBackColor = false;
+            this.btnDesasignar.Visible = false;
             this.btnDesasignar.Click += new System.EventHandler(this.btnDesasignar_Click);
             // 
             // btnAsignar
@@ -173,6 +174,7 @@
             this.btnAsignar.TabIndex = 2;
             this.btnAsignar.Text = "Asignar ->";
             this.btnAsignar.UseVisualStyleBackColor = false;
+            this.btnAsignar.Visible = false;
             this.btnAsignar.Click += new System.EventHandler(this.btnAsignar_Click);
             // 
             // btnAceptar

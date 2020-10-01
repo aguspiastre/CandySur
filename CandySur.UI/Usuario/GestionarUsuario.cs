@@ -27,10 +27,20 @@ namespace CandySur.UI.Usuario
         }
         private void GestionarUsuario_Load(object sender, EventArgs e)
         {
-            Session = SEG.Service.SessionManager.GetInstance();
+            try
+            {
+                Session = SEG.Service.SessionManager.GetInstance();
 
-            this.Traducir();
-            SEG.Service.IdiomaManager.Suscribir(this);
+                this.validarPermisos(Session);
+
+                this.Traducir();
+                SEG.Service.IdiomaManager.Suscribir(this);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.BeginInvoke(new MethodInvoker(this.Close));
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -141,7 +151,7 @@ namespace CandySur.UI.Usuario
             {
                 if (usuario == null)
                 {
-                    MessageBox.Show("Realizar la busqueda del usuario previo a presionar modificar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Realizar la busqueda del usuario previo a presionar desbloquear.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
@@ -227,6 +237,52 @@ namespace CandySur.UI.Usuario
         private void GestionarUsuario_FormClosing(object sender, FormClosingEventArgs e)
         {
             SEG.Service.IdiomaManager.Desuscribir(this);
+        }
+
+        private void validarPermisos(SEG.Service.SessionManager Session)
+        {
+            bool contienePermisos = false;
+
+            foreach (var item in Session.Usuario.Permisos)
+            {
+                if (item is SEG.Entity.Familia)
+                {
+                    SEG.Entity.Familia familia = (SEG.Entity.Familia)item;
+
+                    foreach (SEG.Entity.Patente patente in familia.Permisos)
+                    {
+                        this.validarPatente(patente, ref contienePermisos);
+                    }
+                }
+                else
+                {
+                    SEG.Entity.Patente patente = (SEG.Entity.Patente)item;
+
+                    this.validarPatente(patente, ref contienePermisos);
+                }
+            }
+
+            if (!contienePermisos)
+                throw new Exception("No tenes los permisos necesarios para ingresar a esta funcionalidad");
+        }
+
+        private void validarPatente(SEG.Entity.Patente patente, ref bool contienePermisos)
+        {
+            switch (patente.Nombre)
+            {
+                case "Desbloquear Usuario":
+                    this.btnDesbloquear.Visible = true;
+                    contienePermisos = true;
+                    break;
+                case "Modificar Usuario":
+                    this.btnModificar.Visible = true;
+                    contienePermisos = true;
+                    break;
+                case "Eliminar Usuario":
+                    this.btnEliminar.Visible = true;
+                    contienePermisos = true;
+                    break;
+            }
         }
     }
 }

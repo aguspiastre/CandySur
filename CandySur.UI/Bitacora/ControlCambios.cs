@@ -25,21 +25,31 @@ namespace CandySur.UI.Bitacora
 
         private void ControlCambios_Load(object sender, EventArgs e)
         {
-            Session = SEG.Service.SessionManager.GetInstance();
-
-            Dictionary<string, string> comboUser = new Dictionary<string, string>();
-            cmbUsuario.DisplayMember = "Value";
-            cmbUsuario.ValueMember = "Key";
-
-            this.Traducir();
-            SEG.Service.IdiomaManager.Suscribir(this);
-
-            foreach (var item in usuarioService.Listar())
+            try
             {
-                comboUser.Add(item.Id.ToString(), item.NombreUsuario);
-            }
+                Session = SEG.Service.SessionManager.GetInstance();
 
-            cmbUsuario.DataSource = new BindingSource(comboUser, null);
+                validarPermisos(Session);
+
+                Dictionary<string, string> comboUser = new Dictionary<string, string>();
+                cmbUsuario.DisplayMember = "Value";
+                cmbUsuario.ValueMember = "Key";
+
+                this.Traducir();
+                SEG.Service.IdiomaManager.Suscribir(this);
+
+                foreach (var item in usuarioService.Listar())
+                {
+                    comboUser.Add(item.Id.ToString(), item.NombreUsuario);
+                }
+
+                cmbUsuario.DataSource = new BindingSource(comboUser, null);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.BeginInvoke(new MethodInvoker(this.Close));
+            }
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -133,6 +143,51 @@ namespace CandySur.UI.Bitacora
         public void ActualizarIdioma(SEG.Entity.Idioma idioma)
         {
             this.Traducir();
+        }
+
+        private void validarPermisos(SEG.Service.SessionManager Session)
+        {
+            bool contienePermisos = false;
+
+            foreach (var item in Session.Usuario.Permisos)
+            {
+                if (item is SEG.Entity.Familia)
+                {
+                    SEG.Entity.Familia familia = (SEG.Entity.Familia)item;
+
+                    if (familia.Permisos.Any(p => p.Nombre == "Buscar Control Cambios" || p.Nombre == "Actualizar Control Cambios"))
+                        contienePermisos = true;
+
+                    foreach (SEG.Entity.Patente patente in familia.Permisos)
+                    {
+                        this.validarPatente(patente, ref contienePermisos);
+                    }
+                }
+                else
+                {
+                    SEG.Entity.Patente patente = (SEG.Entity.Patente)item;
+
+                    this.validarPatente(patente, ref contienePermisos);
+                }
+            }
+
+            if (!contienePermisos)
+                throw new Exception("No tenes los permisos necesarios para ingresar a esta funcionalidad");
+        }
+
+        private void validarPatente(SEG.Entity.Patente patente, ref bool contienePermisos)
+        {
+            switch (patente.Nombre)
+            {
+                case "Buscar Control Cambios":
+                    this.btnBuscar.Visible = true;
+                    contienePermisos = true;
+                    break;
+                case "Actualizar Control Cambios":
+                    this.btnActualizar.Visible = true;
+                    contienePermisos = true;
+                    break;
+            }
         }
     }
 }

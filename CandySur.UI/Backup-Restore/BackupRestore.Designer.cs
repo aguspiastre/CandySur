@@ -65,6 +65,7 @@
             this.btnNuevoBackup.TabIndex = 18;
             this.btnNuevoBackup.Text = "Nuevo Back-up";
             this.btnNuevoBackup.UseVisualStyleBackColor = false;
+            this.btnNuevoBackup.Visible = false;
             this.btnNuevoBackup.Click += new System.EventHandler(this.btnNuevoBackup_Click);
             // 
             // gbBackupDisponibles
@@ -117,6 +118,7 @@
             this.btnRestore.TabIndex = 2;
             this.btnRestore.Text = "Realizar Restore";
             this.btnRestore.UseVisualStyleBackColor = false;
+            this.btnRestore.Visible = false;
             this.btnRestore.Click += new System.EventHandler(this.btnRestore_Click);
             // 
             // BackupRestore

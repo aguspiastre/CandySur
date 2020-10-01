@@ -31,8 +31,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.gbFiltrosBusquedaBitacora = new System.Windows.Forms.GroupBox();
-            this.cmbUsuario = new System.Windows.Forms.ComboBox();
             this.lblUsuario = new System.Windows.Forms.Label();
+            this.cmbUsuario = new System.Windows.Forms.ComboBox();
             this.gbCambios = new System.Windows.Forms.GroupBox();
             this.dataGridCambios = new System.Windows.Forms.DataGridView();
             this.btnActualizar = new System.Windows.Forms.Button();
@@ -64,6 +64,7 @@
             this.btnBuscar.TabIndex = 19;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Visible = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // gbFiltrosBusquedaBitacora
@@ -77,15 +78,6 @@
             this.gbFiltrosBusquedaBitacora.TabStop = false;
             this.gbFiltrosBusquedaBitacora.Text = "FILTROS DE BUSQUEDA";
             // 
-            // cmbUsuario
-            // 
-            this.cmbUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbUsuario.FormattingEnabled = true;
-            this.cmbUsuario.Location = new System.Drawing.Point(10, 45);
-            this.cmbUsuario.Name = "cmbUsuario";
-            this.cmbUsuario.Size = new System.Drawing.Size(276, 26);
-            this.cmbUsuario.TabIndex = 31;
-            // 
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
@@ -95,6 +87,15 @@
             this.lblUsuario.Size = new System.Drawing.Size(63, 19);
             this.lblUsuario.TabIndex = 32;
             this.lblUsuario.Text = "Usuario:";
+            // 
+            // cmbUsuario
+            // 
+            this.cmbUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbUsuario.FormattingEnabled = true;
+            this.cmbUsuario.Location = new System.Drawing.Point(10, 45);
+            this.cmbUsuario.Name = "cmbUsuario";
+            this.cmbUsuario.Size = new System.Drawing.Size(276, 26);
+            this.cmbUsuario.TabIndex = 31;
             // 
             // gbCambios
             // 
@@ -132,6 +133,7 @@
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseMnemonic = false;
             this.btnActualizar.UseVisualStyleBackColor = false;
+            this.btnActualizar.Visible = false;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // gbControlCambios

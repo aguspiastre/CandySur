@@ -21,7 +21,6 @@ namespace CandySur.UI.Perfil
 
         public GestionarContraseña()
         {
-            Session = SEG.Service.SessionManager.GetInstance();
 
             InitializeComponent();
         }
@@ -130,8 +129,58 @@ namespace CandySur.UI.Perfil
 
         private void GestionarContraseña_Load(object sender, EventArgs e)
         {
-            this.Traducir();
-            SEG.Service.IdiomaManager.Suscribir(this);
+            try
+            {
+                Session = SEG.Service.SessionManager.GetInstance();
+
+                this.validarPermisos(Session);
+
+                this.Traducir();
+                SEG.Service.IdiomaManager.Suscribir(this);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.BeginInvoke(new MethodInvoker(this.Close));
+            }
+        }
+
+        private void validarPermisos(SEG.Service.SessionManager Session)
+        {
+            bool contienePermisos = false;
+
+            foreach (var item in Session.Usuario.Permisos)
+            {
+                if (item is SEG.Entity.Familia)
+                {
+                    SEG.Entity.Familia familia = (SEG.Entity.Familia)item;
+
+                    foreach (SEG.Entity.Patente patente in familia.Permisos)
+                    {
+                        this.validarPatente(patente, ref contienePermisos);
+                    }
+                }
+                else
+                {
+                    SEG.Entity.Patente patente = (SEG.Entity.Patente)item;
+
+                    this.validarPatente(patente, ref contienePermisos);
+                }
+            }
+
+            if (!contienePermisos)
+                throw new Exception("No tenes los permisos necesarios para ingresar a esta funcionalidad");
+        }
+
+        private void validarPatente(SEG.Entity.Patente patente, ref bool contienePermisos)
+        {
+            switch (patente.Nombre)
+            {
+                case "Cambiar contraseña Usuario":
+                    this.btnCambiarContraseña.Visible = true;
+                    contienePermisos = true;
+                    break;
+            }
         }
     }
 }

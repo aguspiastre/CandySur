@@ -29,12 +29,22 @@ namespace CandySur.UI.Backup_Restore
 
         private void BackupRestore_Load(object sender, EventArgs e)
         {
-            Session = SEG.Service.SessionManager.GetInstance();
+            try
+            {
+                Session = SEG.Service.SessionManager.GetInstance();
 
-            this.Traducir();
-            SEG.Service.IdiomaManager.Suscribir(this);
+                validarPermisos(Session);
 
-            this.CargarBackups();
+                this.Traducir();
+                SEG.Service.IdiomaManager.Suscribir(this);
+
+                this.CargarBackups();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.BeginInvoke(new MethodInvoker(this.Close));
+            }
         }
 
         private void btnRestore_Click(object sender, EventArgs e)
@@ -139,6 +149,48 @@ namespace CandySur.UI.Backup_Restore
         private void BackupRestore_FormClosing(object sender, FormClosingEventArgs e)
         {
             SEG.Service.IdiomaManager.Desuscribir(this);
+        }
+
+        private void validarPermisos(SEG.Service.SessionManager Session)
+        {
+            bool contienePermisos = false;
+
+            foreach (var item in Session.Usuario.Permisos)
+            {
+                if (item is SEG.Entity.Familia)
+                {
+                    SEG.Entity.Familia familia = (SEG.Entity.Familia)item;
+
+                    foreach (SEG.Entity.Patente patente in familia.Permisos)
+                    {
+                        this.validarPatente(patente, ref contienePermisos);
+                    }
+                }
+                else
+                {
+                    SEG.Entity.Patente patente = (SEG.Entity.Patente)item;
+
+                    this.validarPatente(patente, ref contienePermisos);
+                }
+            }
+
+            if (!contienePermisos)
+                throw new Exception("No tenes los permisos necesarios para ingresar a esta funcionalidad");
+        }
+
+        private void validarPatente(SEG.Entity.Patente patente, ref bool contienePermisos)
+        {
+            switch (patente.Nombre)
+            {
+                case "Realizar Restore":
+                    this.btnRestore.Visible = true;
+                    contienePermisos = true;
+                    break;
+                case "Nuevo Backup":
+                    this.btnNuevoBackup.Visible = true;
+                    contienePermisos = true;
+                    break;
+            }
         }
     }
 }

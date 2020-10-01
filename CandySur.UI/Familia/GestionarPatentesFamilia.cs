@@ -34,23 +34,33 @@ namespace CandySur.UI.Familia
 
         private void AsignarPatentesFamilia_Load(object sender, EventArgs e)
         {
-            patentes = patenteService.Listar();
-            Session = SEG.Service.SessionManager.GetInstance();
+            try
+            {
+                Session = SEG.Service.SessionManager.GetInstance();
 
-            this.Traducir();
-            SEG.Service.IdiomaManager.Suscribir(this);
+                this.validarPermisos(Session);
 
-            this.cmbFamilia.DataSource = familiaService.Listar();
-            this.cmbFamilia.DisplayMember = "Nombre";
-            this.cmbFamilia.ValueMember = "Id";
+                this.Traducir();
+                SEG.Service.IdiomaManager.Suscribir(this);
 
-            this.listPatentesAsignar.Items.AddRange
-            (
+                patentes = patenteService.Listar();
+                this.cmbFamilia.DataSource = familiaService.Listar();
+                this.cmbFamilia.DisplayMember = "Nombre";
+                this.cmbFamilia.ValueMember = "Id";
+
+                this.listPatentesAsignar.Items.AddRange
                 (
-                    from f in patentes
-                    select new ListViewItem(f.Nombre)
-                ).ToArray()
-            );
+                    (
+                        from f in patentes
+                        select new ListViewItem(f.Nombre)
+                    ).ToArray()
+                );
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.BeginInvoke(new MethodInvoker(this.Close));
+            }
         }
 
         private void cmbFamilia_SelectedIndexChanged(object sender, EventArgs e)
@@ -190,6 +200,48 @@ namespace CandySur.UI.Familia
         private void GestionarPatentesFamilia_FormClosing(object sender, FormClosingEventArgs e)
         {
             SEG.Service.IdiomaManager.Desuscribir(this);
+        }
+
+        private void validarPermisos(SEG.Service.SessionManager Session)
+        {
+            bool contienePermisos = false;
+
+            foreach (var item in Session.Usuario.Permisos)
+            {
+                if (item is SEG.Entity.Familia)
+                {
+                    SEG.Entity.Familia familia = (SEG.Entity.Familia)item;
+
+                    foreach (SEG.Entity.Patente patente in familia.Permisos)
+                    {
+                        this.validarPatente(patente, ref contienePermisos);
+                    }
+                }
+                else
+                {
+                    SEG.Entity.Patente patente = (SEG.Entity.Patente)item;
+
+                    this.validarPatente(patente, ref contienePermisos);
+                }
+            }
+
+            if (!contienePermisos)
+                throw new Exception("No tenes los permisos necesarios para ingresar a esta funcionalidad");
+        }
+
+        private void validarPatente(SEG.Entity.Patente patente, ref bool contienePermisos)
+        {
+            switch (patente.Nombre)
+            {
+                case "Asignar Patente Familia":
+                    this.btnAsignar.Visible = true;
+                    contienePermisos = true;
+                    break;
+                case "Desasignar Patente Familia":
+                    this.btnDesasignar.Visible = true;
+                    contienePermisos = true;
+                    break;
+            }
         }
     }
 }

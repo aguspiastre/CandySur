@@ -1,4 +1,7 @@
-﻿using CandySur.SEG.Request;
+﻿using CandySur.SEG.Entity;
+using CandySur.SEG.Request;
+using CandySur.SEG.Service;
+using CandySur.SEG.Util;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,19 +11,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CandySur.SEG;
-using CandySur.SEG.Util;
-using CandySur.SEG.Entity;
-using CandySur.SEG.Service;
 
-namespace CandySur.UI.Bitacora
+namespace CandySur.UI.Backup_Restore
 {
-    public partial class ConsultarBitacora : Form, IIdiomaObserver
+    public partial class ReiniciarSistema : Form, IIdiomaObserver
     {
         private CandySur.SEG.Service.SessionManager Session;
         CandySur.SEG.Service.Bitacora bitacoraService = new SEG.Service.Bitacora();
-        CandySur.SEG.Service.Usuario usuarioSerivice = new SEG.Service.Usuario();
-        public ConsultarBitacora()
+        CandySur.SEG.Service.DigitoVerificador digitoverificadorService = new SEG.Service.DigitoVerificador();
+        CandySur.SEG.Service.Usuario usuarioService = new SEG.Service.Usuario();
+
+        public ReiniciarSistema()
         {
             InitializeComponent();
         }
@@ -29,21 +30,21 @@ namespace CandySur.UI.Bitacora
         {
             Enums.Criticidad criticidad = (Enums.Criticidad)cmbCriticidad.SelectedItem;
 
-            string value = ((KeyValuePair<string, string>)cmbUsuario.SelectedItem).Key;
+            string value = ((KeyValuePair<string, string>)cmbUsuarios.SelectedItem).Key;
 
             ConsultarBitacoraRequest req = new ConsultarBitacoraRequest
             {
-                FechaDesde = this.dateTimeFechaDesde.Value.Date,
-                FechaHasta = this.dateTimeFechaHasta.Value.Date,
+                FechaDesde = this.dtpFechaDesde.Value.Date,
+                FechaHasta = this.dtpFechaHasta.Value.Date,
                 IdCriticidad = (int)criticidad,
-                IdUsuario = Convert.ToInt32(value)
+                IdUsuario =  Convert.ToInt32(value)
             };
             List<CandySur.SEG.Entity.Bitacora> list = bitacoraService.Consultar(req);
 
-            this.dataGridBitacora.DataSource = list.Select(x => new { Usuario = x.Usuario, Evento = x.Descripcion, Fecha = x.Fecha, Criticidad = x.Criticidad }).ToList();
+            this.dtgBitacora.DataSource = list.Select(x => new { Usuario = x.Usuario, Evento = x.Descripcion, Fecha = x.Fecha, Criticidad = x.Criticidad }).ToList();
         }
 
-        private void Consultar_Load(object sender, EventArgs e)
+        private void ReestablecerSistema_Load(object sender, EventArgs e)
         {
             try
             {
@@ -57,17 +58,17 @@ namespace CandySur.UI.Bitacora
                 cmbCriticidad.DataSource = Enum.GetValues(typeof(CandySur.SEG.Util.Enums.Criticidad));
 
                 Dictionary<string, string> comboUser = new Dictionary<string, string>();
-                cmbUsuario.DisplayMember = "Value";
-                cmbUsuario.ValueMember = "Key";
+                cmbUsuarios.DisplayMember = "Value";
+                cmbUsuarios.ValueMember = "Key";
                 comboUser.Add("0", "");
 
-                foreach (var item in usuarioSerivice.Listar())
+                foreach (var item in usuarioService.Listar())
                 {
                     comboUser.Add(item.Id.ToString(), item.NombreUsuario);
                 }
 
-                cmbUsuario.DataSource = new BindingSource(comboUser, null);
-                cmbUsuario.SelectedIndex = 0;
+                cmbUsuarios.DataSource = new BindingSource(comboUser, null);
+                cmbUsuarios.SelectedIndex = 0;
             }
             catch (Exception ex)
             {
@@ -75,6 +76,63 @@ namespace CandySur.UI.Bitacora
                 this.BeginInvoke(new MethodInvoker(this.Close));
             }
         }
+
+        private void btnRealizarRestore_Click(object sender, EventArgs e)
+        {
+            var formRealizarBackup = new Backup_Restore.BackupRestore();
+            formRealizarBackup.Show();
+        }
+
+        private void btnRecalcularDV_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                bool result = digitoverificadorService.RecalcularDVV();
+
+                if (!result)
+                    throw new Exception("No se pudo recalcular los digitos verificadores.");
+
+                MessageBox.Show("Digitos verificadores recalculados de manera correcta.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void cerrarSesuinToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string msg = "¿Desea cerrar sesión?";
+            string tittle = "Cerrar Sesion";
+
+            var idiomaManager = SEG.Service.IdiomaManager.GetInstance();
+
+            if (idiomaManager.Idioma != null && !idiomaManager.Idioma.Principal)
+            {
+                msg = "¿Are you sure that you want to sign off?";
+                tittle = "Sign Off";
+            }
+
+            DialogResult result = MessageBox.Show(msg, tittle, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                SEG.Entity.Bitacora reg = new SEG.Entity.Bitacora
+                {
+                    IdUsuario = Session.Usuario.Id,
+                    IdCriticidad = (int)Enums.Criticidad.Baja,
+                    Fecha = DateTime.Now,
+                    Descripcion = "Cierre de sesión"
+                };
+
+                bitacoraService.Registrar(reg);
+
+                SEG.Service.SessionManager.LogOut();
+
+                this.Close();
+            }
+        }
+
         private void Traducir()
         {
             SEG.Service.Traductor traductor = new Traductor();
@@ -114,11 +172,6 @@ namespace CandySur.UI.Bitacora
             this.Traducir();
         }
 
-        private void ConsultarBitacora_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            SEG.Service.IdiomaManager.Desuscribir(this);
-        }
-
         private void validarPermisos(SEG.Service.SessionManager Session)
         {
             bool contienePermisos = false;
@@ -129,7 +182,7 @@ namespace CandySur.UI.Bitacora
                 {
                     SEG.Entity.Familia familia = (SEG.Entity.Familia)item;
 
-                    if (familia.Permisos.Any(p => p.Nombre == "Buscar Bitacora"))
+                    if (familia.Permisos.Any(p => p.Nombre == "Realizar Restore" || p.Nombre == "Nuevo Backup"))
                         contienePermisos = true;
 
                     foreach (SEG.Entity.Patente patente in familia.Permisos)
@@ -153,6 +206,16 @@ namespace CandySur.UI.Bitacora
         {
             switch (patente.Nombre)
             {
+                case "Realizar Restore":
+                    this.btnRealizarRestore.Visible = true;
+                    contienePermisos = true;
+                    break;
+
+                case "Recalcular DV":
+                    this.btnRecalcularDV.Visible = true;
+                    contienePermisos = true;
+                    break;
+
                 case "Buscar Bitacora":
                     this.btnBuscar.Visible = true;
                     contienePermisos = true;

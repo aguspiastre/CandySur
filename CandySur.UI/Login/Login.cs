@@ -54,9 +54,6 @@ namespace CandySur.UI.Login
                     SEG.Entity.Usuario usuario = usuarioService.Consultar(txtUsuario.Text);
                     contraseña = SEG.Util.Encrypt.Encriptar(contraseña, (int)TipoEncriptacion.Irreversible);
 
-                    //Busco los permisos del usuario.
-                    usuario.Permisos = usuarioService.ObtenerPermisos(usuario);
-
                     // Valido si es o no administrador
                     bool esAdministrador = usuario.Permisos.Any(p => p.Nombre == "Administrador del Sistema");
 

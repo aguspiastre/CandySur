@@ -91,6 +91,7 @@ namespace CandySur.SEG.Service
         {
             return this.repository.ConsultarUsuariosAsignadosPorPatenteYFamilia(idPatente, idFamilia);
         }
+
         private bool ValidarDesasignacion(int idPatente, int idUsuario)
         {
             Service.Familia familiaService = new Service.Familia();

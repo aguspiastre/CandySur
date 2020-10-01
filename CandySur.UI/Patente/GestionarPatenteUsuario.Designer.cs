@@ -112,6 +112,7 @@
             // listPatenteAsignar
             // 
             this.listPatenteAsignar.Location = new System.Drawing.Point(6, 45);
+            this.listPatenteAsignar.MultiSelect = false;
             this.listPatenteAsignar.Name = "listPatenteAsignar";
             this.listPatenteAsignar.Size = new System.Drawing.Size(222, 191);
             this.listPatenteAsignar.TabIndex = 22;
@@ -138,6 +139,7 @@
             this.btnDesasignar.TabIndex = 17;
             this.btnDesasignar.Text = "<- Desasignar ";
             this.btnDesasignar.UseVisualStyleBackColor = false;
+            this.btnDesasignar.Visible = false;
             this.btnDesasignar.Click += new System.EventHandler(this.btnDesasignar_Click);
             // 
             // btnAsignar
@@ -151,6 +153,7 @@
             this.btnAsignar.TabIndex = 2;
             this.btnAsignar.Text = "Asignar ->";
             this.btnAsignar.UseVisualStyleBackColor = false;
+            this.btnAsignar.Visible = false;
             this.btnAsignar.Click += new System.EventHandler(this.btnAsignar_Click);
             // 
             // gbFiltrosBusquedaBitacora

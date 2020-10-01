@@ -56,10 +56,6 @@ namespace CandySur.SEG.Service
                 familia.Nombre = Util.Encrypt.Encriptar(familia.Nombre, (int)TipoEncriptacion.Reversible);
                 familia.Eliminado = true;
 
-                //Validar Eliminacion.
-                if (this.ValidarEliminacionFamilia(familia) == 0)
-                    throw new Exception("No se puede eliminar la familia, porque no hay otros permisos asignados a ningun usuario.");
-
                 if (!this.ValidarEliminacionFamiliaPorPatentes(familia.Id))
                     throw new Exception("Por normas de control interno no puede quedar zona de nadie. Hay patentes en la familia que NO contienen otra asignacion.");
 
@@ -205,7 +201,6 @@ namespace CandySur.SEG.Service
             return familia.Permisos.Any(p => p.Nombre == nombrePatente);
         }
 
-
         private string ConcatenarRegistro(Entity.Familia familia)
         {
             return familia.Nombre + familia.Compuesto + familia.Eliminado + familia.Descripcion;
@@ -214,11 +209,6 @@ namespace CandySur.SEG.Service
         public int ObtenerUsuariosAsignados(Entity.Familia familia)
         {
             return this.repository.ConsultarUsuariosAsignados(familia);
-        }
-
-        public int ValidarEliminacionFamilia(Entity.Familia familia)
-        {
-            return this.repository.ConsultarFamiliasAsignadas(familia);
         }
 
         private bool ValidarDesasignacionPatente(int idFamilia, int idPatente)
@@ -241,27 +231,7 @@ namespace CandySur.SEG.Service
             return false;
         }
 
-        private bool ValidarDesasignacionFamilia(string nombre)
-        {
-            Service.Familia familiaService = new Service.Familia();
-            Service.Patente patenteService = new Service.Patente();
-
-            foreach (Entity.Familia item in familiaService.Listar().Where(f => f.Nombre != nombre))
-            {
-                if (item.Permisos.Any())
-                {
-                    foreach (Entity.Patente patente in item.Permisos)
-                    {
-                        if (patenteService.ObtenerUsuariosAsignadosPorPatenteYFamilia(patente.Id, item.Id) > 0)
-                            return true;
-                    }
-                }
-            }
-
-            return false;
-        }
-
-        public bool ValidarEliminacionFamiliaPorPatentes(int idFamilia)
+        private bool ValidarEliminacionFamiliaPorPatentes(int idFamilia)
         {
             Service.Familia familiaService = new Service.Familia();
             Service.Patente patenteService = new Service.Patente();
