@@ -21,7 +21,7 @@ namespace CandySur.SEG.Repository
             List<Entity.Idioma> idiomas = new List<Entity.Idioma>();
             string sqlCommand = @"SELECT * FROM Idioma";
 
-            DataTable tabla = db.ExecuteReader(sqlCommand);
+            DataTable tabla = db.ExecuteNonQuery(sqlCommand);
 
             foreach (DataRow row in tabla.Rows)
             {

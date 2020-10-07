@@ -19,7 +19,7 @@ namespace CandySur.SEG.Repository
         public string ConsultarDVV(string tabla)
         {
             string sqlCommand = "SELECT DVV FROM DVV WHERE Nombre_Tabla = '" + tabla + "'";
-            return db.ExecuteReader(sqlCommand).Rows[0].ToString();
+            return db.ExecuteNonQuery(sqlCommand).Rows[0].ToString();
         }
 
         public int ActualizarDVV(string cadena, string tabla)
@@ -37,19 +37,19 @@ namespace CandySur.SEG.Repository
         public DataTable ConsultarDVH(string tabla)
         {
             string sqlCommand = "SELECT DVH FROM " + tabla;
-            return db.ExecuteReader(sqlCommand);
+            return db.ExecuteNonQuery(sqlCommand);
         }
 
         public DataTable ListarDVV()
         {
             string sqlCommand = "SELECT * FROM DVV";
-            return db.ExecuteReader(sqlCommand);
+            return db.ExecuteNonQuery(sqlCommand);
         }
 
         public DataTable ConsultarTabla(string tabla)
         {
             string sqlCommand = "SELECT * FROM " + tabla;
-            return db.ExecuteReader(sqlCommand);
+            return db.ExecuteNonQuery(sqlCommand);
         }
     }
 }

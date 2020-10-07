@@ -109,7 +109,7 @@ namespace CandySur.SEG.Repository
         {
             string sqlCommand = @"SELECT * FROM USUARIO WHERE Nombre_Usuario = " + "'" + username + "'" + " AND Eliminado = 0";
 
-            DataTable tabla = db.ExecuteReader(sqlCommand);
+            DataTable tabla = db.ExecuteNonQuery(sqlCommand);
 
             if (tabla.Rows.Count == 0)
                 return null;
@@ -141,7 +141,7 @@ namespace CandySur.SEG.Repository
                                 INNER JOIN permiso p ON p.id = up.id_permiso
                                 WHERE p.Eliminado = 0 AND u.id =" + id;
 
-            DataTable tabla = db.ExecuteReader(sqlCommand);
+            DataTable tabla = db.ExecuteNonQuery(sqlCommand);
 
             if (tabla.Rows.Count == 0)
                 return new List<Entity.Permiso>();
@@ -173,7 +173,7 @@ namespace CandySur.SEG.Repository
             if (!String.IsNullOrEmpty(sqlWhere))
                 sqlCommand += sqlWhere;
 
-            DataTable tabla = db.ExecuteReader(sqlCommand);
+            DataTable tabla = db.ExecuteNonQuery(sqlCommand);
 
             if (tabla.Rows.Count == 0)
                 return null;

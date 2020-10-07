@@ -10,17 +10,22 @@ using static CandySur.SEG.Util.Enums;
 
 namespace CandySur.SEG.Service
 {
-    public class Traductor
+    public class Idioma
     {
-        private Repository.Traductor repository;
+        private Repository.Idioma repository;
 
-        public Traductor()
+        public Idioma()
         {
-            repository = new Repository.Traductor();
+            repository = new Repository.Idioma();
         }
-        public List<Entity.Traduccion> ObtenerTraducciones(Entity.Idioma idioma)
+        public List<Entity.Idioma> ListarIdiomas()
         {
-            return repository.ObtenerTraducciones(idioma);
+            return repository.ListarIdiomas();
         }
+        public Entity.Idioma ObtenerIdiomaPrincipal()
+        {
+            return repository.ListarIdiomas().FirstOrDefault(i => i.Principal);
+        }
+        
     }
 }

@@ -179,6 +179,10 @@ namespace CandySur.SEG.Service
                 throw ex;
             }
         }
+        public int ObtenerUsuariosAsignados(Entity.Familia familia)
+        {
+            return this.repository.ConsultarUsuariosAsignados(familia);
+        }
 
         private bool ValidarFamilia(string nombre)
         {
@@ -204,11 +208,6 @@ namespace CandySur.SEG.Service
         private string ConcatenarRegistro(Entity.Familia familia)
         {
             return familia.Nombre + familia.Compuesto + familia.Eliminado + familia.Descripcion;
-        }
-
-        public int ObtenerUsuariosAsignados(Entity.Familia familia)
-        {
-            return this.repository.ConsultarUsuariosAsignados(familia);
         }
 
         private bool ValidarDesasignacionPatente(int idFamilia, int idPatente)
@@ -237,6 +236,9 @@ namespace CandySur.SEG.Service
             Service.Patente patenteService = new Service.Patente();
 
             Entity.Familia familia = familiaService.Listar().FirstOrDefault(f => f.Id == idFamilia);
+
+            if (familiaService.ObtenerUsuariosAsignados(new Entity.Familia { Id = idFamilia }) == 0)
+                return true;
 
             if (familia.Permisos.Any())
             {

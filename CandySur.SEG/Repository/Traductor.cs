@@ -28,7 +28,7 @@ namespace CandySur.SEG.Repository
             List<Entity.Traduccion> traducciones = new List<Entity.Traduccion>();
             string sqlCommand = @"SELECT t.Traduccion, e.Nombre as Nombre_Etiqueta from Traduccion t INNER JOIN Etiqueta e on t.id_etiqueta=e.id WHERE t.id_idioma =" + idioma.Id;
 
-            DataTable tabla = db.ExecuteReader(sqlCommand);
+            DataTable tabla = db.ExecuteNonQuery(sqlCommand);
 
             foreach (DataRow row in tabla.Rows)
             {

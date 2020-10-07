@@ -50,9 +50,9 @@
     <Compile Include="Entity\IPermisoOperaciones.cs" />
     <Compile Include="Entity\Patente.cs" />
     <Compile Include="Entity\Permiso.cs" />
-    <Compile Include="Service\Idioma.cs" />
-    <Compile Include="Service\IdiomaManager.cs" />
     <Compile Include="Service\Traductor.cs" />
+    <Compile Include="Service\IdiomaManager.cs" />
+    <Compile Include="Service\Idioma.cs" />
     <Compile Include="Service\SessionManager.cs" />
     <Compile Include="Entity\Traduccion.cs" />
     <Compile Include="Entity\Usuario.cs" />

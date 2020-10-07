@@ -23,7 +23,7 @@ namespace CandySur.SEG.Repository
             List<Entity.Patente> patentes = new List<Entity.Patente>();
             string sqlCommand = @"SELECT * FROM permiso p WHERE p.Compuesto = 0";
 
-            DataTable tabla = db.ExecuteReader(sqlCommand);
+            DataTable tabla = db.ExecuteNonQuery(sqlCommand);
 
             foreach (DataRow row in tabla.Rows)
             {
@@ -47,7 +47,7 @@ namespace CandySur.SEG.Repository
         {
             string sqlCommand = @"SELECT * FROM permiso p WHERE p.Compuesto = 0 AND p.Eliminado = 0 AND p.Nombre = " + "'" + nombre + "'";
 
-            DataTable tabla = db.ExecuteReader(sqlCommand);
+            DataTable tabla = db.ExecuteNonQuery(sqlCommand);
 
             if (tabla.Rows.Count == 0)
                 return null;

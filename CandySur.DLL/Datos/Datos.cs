@@ -48,7 +48,7 @@ namespace CandySur.DLL
             }
         }
 
-        public DataTable ExecuteReader(string sqlString)
+        public DataTable ExecuteNonQuery(string sqlString)
         {
             SqlCommand command = new SqlCommand(sqlString, this.Conexion);
 

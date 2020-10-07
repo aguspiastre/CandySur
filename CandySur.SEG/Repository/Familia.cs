@@ -16,7 +16,6 @@ namespace CandySur.SEG.Repository
         {
             db = CandySur.DLL.Datos.GetInstance();
         }
-
         public int Alta(Entity.Familia familia)
         {
             string sqlCommand = @"INSERT INTO permiso (NOMBRE, DVH, COMPUESTO, ELIMINADO, DESCRIPCION)
@@ -74,7 +73,7 @@ namespace CandySur.SEG.Repository
             List<Entity.Familia> familias = new List<Entity.Familia>();
             string sqlCommand = @"SELECT * FROM permiso p WHERE p.Compuesto = 1 AND p.Eliminado = 0";
 
-            DataTable tabla = db.ExecuteReader(sqlCommand);
+            DataTable tabla = db.ExecuteNonQuery(sqlCommand);
 
             foreach (DataRow row in tabla.Rows)
             {
@@ -100,7 +99,7 @@ namespace CandySur.SEG.Repository
         {
             string sqlCommand = @"SELECT * FROM permiso p WHERE p.Compuesto = 1 AND p.Eliminado = 0 AND p.Nombre = " + "'" + nombre + "'";
 
-            DataTable tabla = db.ExecuteReader(sqlCommand);
+            DataTable tabla = db.ExecuteNonQuery(sqlCommand);
 
             if (tabla.Rows.Count == 0)
                 return null;
@@ -127,11 +126,11 @@ namespace CandySur.SEG.Repository
                                  INNER JOIN permiso c on c.Id = pc.Id_Compuesto
                                  WHERE c.Eliminado = 0 AND p.id = " + familia.Id;
 
-            DataTable tablaPatentes = db.ExecuteReader(sqlCommand);
+            DataTable tablaPatentes = db.ExecuteNonQuery(sqlCommand);
 
             foreach (DataRow row in tablaPatentes.Rows)
             {
-                familia.Permisos.Add(new Entity.Patente
+                familia.Agregar(new Entity.Patente
                 {
                     Id = int.Parse(row["Id"].ToString()),
                     Nombre = Util.Encrypt.Desencriptar(row["Nombre"].ToString()),
@@ -149,16 +148,6 @@ namespace CandySur.SEG.Repository
                                 INNER JOIN usuario u ON u.id = up.id_usuario
                                 INNER JOIN permiso p ON p.id = up.id_permiso
                                 WHERE p.Eliminado = 0 AND p.id =" + familia.Id;
-
-            return Convert.ToInt32(db.ExecuteScalar(sqlCommand));
-        }
-
-        public int ConsultarFamiliasAsignadas(Entity.Familia familia)
-        {
-            string sqlCommand = @"SELECT COUNT(u.id) FROM usuario_permiso up
-                                INNER JOIN usuario u ON u.id = up.id_usuario
-                                INNER JOIN permiso p ON p.id = up.id_permiso
-                                WHERE p.Eliminado = 0 AND p.id <>" + familia.Id;
 
             return Convert.ToInt32(db.ExecuteScalar(sqlCommand));
         }

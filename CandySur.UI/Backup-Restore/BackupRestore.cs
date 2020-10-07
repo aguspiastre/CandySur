@@ -38,7 +38,7 @@ namespace CandySur.UI.Backup_Restore
                 this.Traducir();
                 SEG.Service.IdiomaManager.Suscribir(this);
 
-                this.CargarBackups();
+                this.ListarBackups();
             }
             catch (Exception ex)
             {
@@ -78,7 +78,7 @@ namespace CandySur.UI.Backup_Restore
                 string fullUri = RUTA_DESTINO + "\\CandySur" + "_" + DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
                 databaseService.NuevoBackup("CandySur", fullUri);
 
-                this.CargarBackups();
+                this.ListarBackups();
 
                 SEG.Entity.Bitacora reg = new SEG.Entity.Bitacora
                 {
@@ -98,7 +98,7 @@ namespace CandySur.UI.Backup_Restore
             }
         }
 
-        private void CargarBackups()
+        private void ListarBackups()
         {
             DirectoryInfo d = new DirectoryInfo(@"C:\\Program Files (x86)\\Microsoft SQL Server\\MSSQL.1\\MSSQL\\Backup");
             FileInfo[] Files = d.GetFiles("*CandySur*");

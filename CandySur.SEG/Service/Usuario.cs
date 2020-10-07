@@ -216,15 +216,6 @@ namespace CandySur.SEG.Service
             return repository.Listar(filtrarBloqueados);
         }
 
-        private bool VerificarAdministrador(Entity.Usuario usuario)
-        {
-            if (usuario.Permisos != null)
-                return usuario.Permisos.Any(p => p.Nombre == "Administrador");
-
-            return false;
-        }
-
-
         public bool ValidarNombre(string username)
         {
             if (repository.ValidarNombre(Util.Encrypt.Encriptar(username, (int)TipoEncriptacion.Reversible)) != 0)
@@ -420,7 +411,7 @@ namespace CandySur.SEG.Service
 
                 foreach (Entity.Permiso p in permisos)
                 {
-                    if (p.Compuesto)
+                    if (p is SEG.Entity.Familia)
                         usuario.Permisos.Add(familia.Consultar(p.Nombre));
                     else
                         usuario.Permisos.Add(patente.Consultar(p.Nombre));

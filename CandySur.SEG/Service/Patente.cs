@@ -65,17 +65,6 @@ namespace CandySur.SEG.Service
                 throw ex;
             }
         }
-        private bool ValidarAsignacion(Entity.Usuario usuario, string nombrePatente)
-        {
-            SEG.Service.Usuario usuarioService = new SEG.Service.Usuario();
-
-            if (usuario.Permisos == null)
-                return false;
-
-            List<Entity.Permiso> permisos = usuarioService.ObtenerPermisos(usuario).Where(p=> !p.Compuesto).ToList();
-
-            return usuarioService.ObtenerPermisos(usuario).Any(p => !p.Compuesto && p.Nombre == nombrePatente);
-        }
 
         public int ObtenerUsuariosAsignados(int idPatente, int idUsuario)
         {
@@ -91,7 +80,6 @@ namespace CandySur.SEG.Service
         {
             return this.repository.ConsultarUsuariosAsignadosPorPatenteYFamilia(idPatente, idFamilia);
         }
-
         private bool ValidarDesasignacion(int idPatente, int idUsuario)
         {
             Service.Familia familiaService = new Service.Familia();
@@ -110,6 +98,15 @@ namespace CandySur.SEG.Service
                 return true;
 
             return false;
+        }
+        private bool ValidarAsignacion(Entity.Usuario usuario, string nombrePatente)
+        {
+            SEG.Service.Usuario usuarioService = new SEG.Service.Usuario();
+
+            if (usuario.Permisos == null)
+                return false;
+
+            return usuarioService.ObtenerPermisos(usuario).Any(p => !p.Compuesto && p.Nombre == nombrePatente);
         }
     }
 }
