@@ -54,23 +54,58 @@ namespace CandySur.UI.Usuario
                 else
                 {
                     if (usuario.NombreUsuario == Session.Usuario.NombreUsuario)
-                        throw new Exception("El usuario a eliminar es el mismo que se encuentra logueado.");
-
-                    usuarioService.Eliminar(usuario);
-
-                    LimpiarCampos();
-
-                    SEG.Entity.Bitacora reg = new SEG.Entity.Bitacora
                     {
-                        IdUsuario = Session.Usuario.Id,
-                        IdCriticidad = (int)Enums.Criticidad.Baja,
-                        Fecha = DateTime.Now,
-                        Descripcion = "Usuario eliminado. " + txtUsername.Text
-                    };
+                        string msg = "El usuario a eliminar es el mismo que se encuentra logueado, en caso de confirmar, se cerrara la sesion de manera inmediata.";
 
-                    bitacoraService.Registrar(reg);
+                        DialogResult result = MessageBox.Show(msg, "Atencion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                    MessageBox.Show("Usuario eliminado con exito.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (result == DialogResult.Yes)
+                        {
+                            usuarioService.Eliminar(usuario);
+
+                            SEG.Entity.Bitacora eliminacion = new SEG.Entity.Bitacora
+                            {
+                                IdUsuario = Session.Usuario.Id,
+                                IdCriticidad = (int)Enums.Criticidad.Baja,
+                                Fecha = DateTime.Now,
+                                Descripcion = "Usuario eliminado. " + txtUsername.Text
+                            };
+
+                            bitacoraService.Registrar(eliminacion);
+
+                            SEG.Entity.Bitacora sesion = new SEG.Entity.Bitacora
+                            {
+                                IdUsuario = Session.Usuario.Id,
+                                IdCriticidad = (int)Enums.Criticidad.Baja,
+                                Fecha = DateTime.Now,
+                                Descripcion = "Cierre de sesión"
+                            };
+
+                            bitacoraService.Registrar(sesion);
+
+                            SEG.Service.SessionManager.LogOut();
+
+                            Environment.Exit(1);
+                        }
+                    }
+                    else
+                    {
+                        usuarioService.Eliminar(usuario);
+
+                        LimpiarCampos();
+
+                        SEG.Entity.Bitacora reg = new SEG.Entity.Bitacora
+                        {
+                            IdUsuario = Session.Usuario.Id,
+                            IdCriticidad = (int)Enums.Criticidad.Baja,
+                            Fecha = DateTime.Now,
+                            Descripcion = "Usuario eliminado. " + txtUsername.Text
+                        };
+
+                        bitacoraService.Registrar(reg);
+
+                        MessageBox.Show("Usuario eliminado con exito.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
             }
             catch (Exception ex)

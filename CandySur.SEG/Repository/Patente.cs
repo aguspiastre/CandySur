@@ -111,5 +111,17 @@ namespace CandySur.SEG.Repository
             return Convert.ToInt32(db.ExecuteScalar(sqlCommand));
         }
 
+
+        public int ConsultarUsuariosAsignadosPorPatenteYFamilia(int idPatente, Entity.Usuario usuario)
+        {
+            string sqlCommand = @"SELECT COUNT(u.id) FROM usuario_permiso up
+                                INNER JOIN usuario u ON u.id = up.id_usuario
+                                INNER JOIN permiso p ON p.id = up.id_permiso
+                                INNER JOIN permiso_compuesto pc on pc.Id_Permiso = p.Id
+                                WHERE p.Eliminado = 0 AND u.Eliminado = 0 AND pc.Id_Compuesto =" + idPatente + " AND u.Id <>" + usuario.Id;
+
+            return Convert.ToInt32(db.ExecuteScalar(sqlCommand));
+        }
+
     }
 }

@@ -184,6 +184,11 @@ namespace CandySur.SEG.Service
             return this.repository.ConsultarUsuariosAsignados(familia);
         }
 
+        public int ObtenerUsuariosAsignados(Entity.Familia familia, int idUsuario)
+        {
+            return this.repository.ConsultarUsuariosAsignados(familia, idUsuario);
+        }
+
         private bool ValidarFamilia(string nombre)
         {
             return this.Listar().Any(f => f.Nombre.ToUpper() == nombre.ToUpper());

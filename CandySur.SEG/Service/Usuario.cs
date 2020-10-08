@@ -154,9 +154,6 @@ namespace CandySur.SEG.Service
         {
             try
             {
-                //if (VerificarAdministrador(usuario))
-                //    throw new Exception("El usuario contiene permisos de administrador, no puede ser eliminado.");
-
                 if (!this.ValidarEliminacion(usuario))
                     throw new Exception("No se puede eliminar al usuario debido a que contiene patentes que no tienen otra asignacion.");
 
@@ -438,6 +435,7 @@ namespace CandySur.SEG.Service
         private bool ValidarEliminacion(Entity.Usuario usuario)
         {
             SEG.Service.Patente patenteService = new SEG.Service.Patente();
+            SEG.Service.Familia familiaService = new SEG.Service.Familia();
 
             foreach (Entity.Permiso permiso in usuario.Permisos)
             {
@@ -447,19 +445,21 @@ namespace CandySur.SEG.Service
 
                     foreach (SEG.Entity.Patente patente in fam.Permisos)
                     {
-                        if (patenteService.ObtenerUsuariosAsignados(patente.Id, usuario.Id) == 0)
+                        if (patenteService.ObtenerUsuariosAsignadosPorPatenteYFamilia(patente.Id, usuario) == 0 && patenteService.ObtenerUsuariosAsignados(patente.Id, usuario.Id) == 0)
                             return false;
                     }
                 }
                 else
                 {
-                    if (patenteService.ObtenerUsuariosAsignados(permiso.Id, usuario.Id) == 0)
+                    if (patenteService.ObtenerUsuariosAsignadosPorPatenteYFamilia(permiso.Id, usuario) == 0 && patenteService.ObtenerUsuariosAsignados(permiso.Id, usuario.Id) == 0)
                         return false;
                 }
             }
 
             return true;
         }
+
+
 
         private string ConcatenarRegistro(Entity.Usuario usuario)
         {
