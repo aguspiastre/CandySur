@@ -40,7 +40,7 @@
             this.btnAsignar = new System.Windows.Forms.Button();
             this.gbFiltrosBusquedaBitacora = new System.Windows.Forms.GroupBox();
             this.txtNombreUsuario = new System.Windows.Forms.TextBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnBuscarUsuario = new System.Windows.Forms.Button();
             this.lblNombreDelUsuario = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.gbAsignarPatenteUsuario.SuspendLayout();
@@ -159,7 +159,7 @@
             // gbFiltrosBusquedaBitacora
             // 
             this.gbFiltrosBusquedaBitacora.Controls.Add(this.txtNombreUsuario);
-            this.gbFiltrosBusquedaBitacora.Controls.Add(this.btnBuscar);
+            this.gbFiltrosBusquedaBitacora.Controls.Add(this.btnBuscarUsuario);
             this.gbFiltrosBusquedaBitacora.Controls.Add(this.lblNombreDelUsuario);
             this.gbFiltrosBusquedaBitacora.Location = new System.Drawing.Point(10, 99);
             this.gbFiltrosBusquedaBitacora.Name = "gbFiltrosBusquedaBitacora";
@@ -175,15 +175,15 @@
             this.txtNombreUsuario.Size = new System.Drawing.Size(211, 26);
             this.txtNombreUsuario.TabIndex = 35;
             // 
-            // btnBuscar
+            // btnBuscarUsuario
             // 
-            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
-            this.btnBuscar.Location = new System.Drawing.Point(227, 41);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(43, 29);
-            this.btnBuscar.TabIndex = 34;
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.btnBuscarUsuario.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarUsuario.Image")));
+            this.btnBuscarUsuario.Location = new System.Drawing.Point(227, 41);
+            this.btnBuscarUsuario.Name = "btnBuscarUsuario";
+            this.btnBuscarUsuario.Size = new System.Drawing.Size(43, 29);
+            this.btnBuscarUsuario.TabIndex = 34;
+            this.btnBuscarUsuario.UseVisualStyleBackColor = true;
+            this.btnBuscarUsuario.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // lblNombreDelUsuario
             // 
@@ -237,7 +237,7 @@
         private System.Windows.Forms.Button btnAsignar;
         private System.Windows.Forms.GroupBox gbFiltrosBusquedaBitacora;
         private System.Windows.Forms.TextBox txtNombreUsuario;
-        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Button btnBuscarUsuario;
         private System.Windows.Forms.Label lblNombreDelUsuario;
         private System.Windows.Forms.PictureBox pictureBox1;
     }

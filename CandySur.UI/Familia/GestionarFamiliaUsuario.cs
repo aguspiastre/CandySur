@@ -51,6 +51,7 @@ namespace CandySur.UI.Familia
                         if (usuario.Permisos != null && usuario.Permisos.Any())
                         {
                             this.listFamiliaDesasignar.Items.Clear();
+
                             this.listFamiliasAsignar.Items.Clear();
 
                             this.listFamiliaDesasignar.Items.AddRange
@@ -89,14 +90,6 @@ namespace CandySur.UI.Familia
 
                 this.Traducir();
                 SEG.Service.IdiomaManager.Suscribir(this);
-
-                this.listFamiliasAsignar.Items.AddRange
-                (
-                    (
-                        from f in familiaService.Listar()
-                        select new ListViewItem(f.Nombre)
-                    ).ToArray()
-                );
             }
             catch (Exception ex)
             {

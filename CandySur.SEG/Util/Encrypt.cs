@@ -84,7 +84,7 @@ namespace CandySur.SEG.Util
             }
             catch (Exception ex)
             {
-                throw ex;
+                return string.Empty;
             }
         }
     }

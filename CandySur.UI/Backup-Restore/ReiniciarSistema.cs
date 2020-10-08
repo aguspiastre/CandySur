@@ -28,20 +28,27 @@ namespace CandySur.UI.Backup_Restore
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            Enums.Criticidad criticidad = (Enums.Criticidad)cmbCriticidad.SelectedItem;
-
-            string value = ((KeyValuePair<string, string>)cmbUsuarios.SelectedItem).Key;
-
-            ConsultarBitacoraRequest req = new ConsultarBitacoraRequest
+            try
             {
-                FechaDesde = this.dtpFechaDesde.Value.Date,
-                FechaHasta = this.dtpFechaHasta.Value.Date,
-                IdCriticidad = (int)criticidad,
-                IdUsuario =  Convert.ToInt32(value)
-            };
-            List<CandySur.SEG.Entity.Bitacora> list = bitacoraService.Consultar(req);
+                Enums.Criticidad criticidad = (Enums.Criticidad)cmbCriticidad.SelectedItem;
 
-            this.dtgBitacora.DataSource = list.Select(x => new { Usuario = x.Usuario, Evento = x.Descripcion, Fecha = x.Fecha, Criticidad = x.Criticidad }).ToList();
+                string value = ((KeyValuePair<string, string>)cmbUsuarios.SelectedItem).Key;
+
+                ConsultarBitacoraRequest req = new ConsultarBitacoraRequest
+                {
+                    FechaDesde = this.dtpFechaDesde.Value.Date,
+                    FechaHasta = this.dtpFechaHasta.Value.Date,
+                    IdCriticidad = (int)criticidad,
+                    IdUsuario = Convert.ToInt32(value)
+                };
+                List<CandySur.SEG.Entity.Bitacora> list = bitacoraService.Consultar(req);
+
+                this.dtgBitacora.DataSource = list.Select(x => new { Usuario = x.Usuario, Evento = x.Descripcion, Fecha = x.Fecha, Criticidad = x.Criticidad }).ToList();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void ReestablecerSistema_Load(object sender, EventArgs e)

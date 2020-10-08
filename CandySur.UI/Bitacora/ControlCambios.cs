@@ -54,9 +54,16 @@ namespace CandySur.UI.Bitacora
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            string value = ((KeyValuePair<string, string>)cmbUsuario.SelectedItem).Key;
+            try
+            {
+                string value = ((KeyValuePair<string, string>)cmbUsuario.SelectedItem).Key;
 
-            this.dataGridCambios.DataSource = controlService.Consultar(Convert.ToInt32(value));
+                this.dataGridCambios.DataSource = controlService.Consultar(Convert.ToInt32(value));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)

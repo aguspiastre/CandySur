@@ -196,8 +196,12 @@ namespace CandySur.SEG.Service
 
         private bool ValidarAsignacion(Entity.Usuario usuario, string nombreFamilia)
         {
-            if (usuario.Permisos != null)
-                return usuario.Permisos.Any(p => p.Compuesto && p.Nombre == nombreFamilia);
+            Service.Usuario usuarioService = new Service.Usuario();
+
+            var permisos = usuarioService.ObtenerPermisos(usuario);
+
+            if (permisos != null)
+                return permisos.Any(p => p.Compuesto && p.Nombre == nombreFamilia);
 
             return false;
         }
