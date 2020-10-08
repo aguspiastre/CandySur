@@ -215,6 +215,9 @@ namespace CandySur.SEG.Service
             Service.Familia familiaService = new Service.Familia();
             Service.Patente patenteService = new Service.Patente();
 
+            if (familiaService.ObtenerUsuariosAsignados(new Entity.Familia { Id = idFamilia }) == 0)
+                return true;
+
             foreach (Entity.Familia item in familiaService.Listar().Where(f => f.Id != idFamilia))
             {
                 if (item.Permisos.Any(p => p.Id == idPatente))
@@ -236,9 +239,6 @@ namespace CandySur.SEG.Service
             Service.Patente patenteService = new Service.Patente();
 
             Entity.Familia familia = familiaService.Listar().FirstOrDefault(f => f.Id == idFamilia);
-
-            if (familiaService.ObtenerUsuariosAsignados(new Entity.Familia { Id = idFamilia }) == 0)
-                return true;
 
             if (familia.Permisos.Any())
             {

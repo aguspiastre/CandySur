@@ -411,7 +411,7 @@ namespace CandySur.SEG.Service
 
                 foreach (Entity.Permiso p in permisos)
                 {
-                    if (p is SEG.Entity.Familia)
+                    if (p.Compuesto)
                         usuario.Permisos.Add(familia.Consultar(p.Nombre));
                     else
                         usuario.Permisos.Add(patente.Consultar(p.Nombre));
