@@ -43,9 +43,22 @@
   <ItemGroup>
     <Compile Include="Datos\Datos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\Descuento.cs" />
+    <Compile Include="Repository\Golosina.cs" />
+    <Compile Include="Repository\Proveedor.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Repository\" />
+    <None Include="data\Proveedores.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CandySur.BE\CandySur.BE.csproj">
+      <Project>{4d27ee77-e21e-463f-878f-a19ea2ad3740}</Project>
+      <Name>CandySur.BE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CandySur.UTIL\CandySur.UTIL.csproj">
+      <Project>{70B7BAEF-300A-4802-92DA-33AC91885C82}</Project>
+      <Name>CandySur.UTIL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

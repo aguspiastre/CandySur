@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace CandySur.BE
 {
-    public class Class1
+    public class Paquete : Producto
     {
+        public List<Producto> Golosinas { get; set; }
+
     }
 }

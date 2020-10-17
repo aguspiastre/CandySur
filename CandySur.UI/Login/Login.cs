@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static CandySur.SEG.Util.Enums;
 using CandySur.SEG.Entity;
+using CandySur.UTIL;
 
 namespace CandySur.UI.Login
 {
@@ -52,7 +53,7 @@ namespace CandySur.UI.Login
                     bool verificarIntegridad = digitoverificadorService.VerificarIntegridad();
 
                     SEG.Entity.Usuario usuario = usuarioService.Consultar(txtUsuario.Text);
-                    contraseña = SEG.Util.Encrypt.Encriptar(contraseña, (int)TipoEncriptacion.Irreversible);
+                    contraseña = Encrypt.Encriptar(contraseña, (int)TipoEncriptacion.Irreversible);
 
                     // Valido si es o no administrador
                     bool esAdministrador = usuario.Permisos.Any(p => p.Nombre == "Administrador del Sistema");

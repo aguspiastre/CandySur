@@ -76,7 +76,6 @@
     <Compile Include="Service\Bitacora.cs" />
     <Compile Include="Service\DataBase.cs" />
     <Compile Include="Service\DigitoVerificador.cs" />
-    <Compile Include="Util\Encrypt.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

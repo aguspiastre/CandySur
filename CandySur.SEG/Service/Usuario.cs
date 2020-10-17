@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Transactions;
 using CandySur.SEG.Util;
 using static CandySur.SEG.Util.Enums;
+using CandySur.UTIL;
 
 namespace CandySur.SEG.Service
 {
@@ -41,8 +42,8 @@ namespace CandySur.SEG.Service
                 string password = this.GenerarContraseña();
 
                 //Encriptacion de nombre y contraseña
-                usuario.Contraseña = Util.Encrypt.Encriptar(password, (int)TipoEncriptacion.Irreversible);
-                usuario.NombreUsuario = Util.Encrypt.Encriptar(usuario.NombreUsuario, (int)TipoEncriptacion.Reversible);
+                usuario.Contraseña = Encrypt.Encriptar(password, (int)TipoEncriptacion.Irreversible);
+                usuario.NombreUsuario = Encrypt.Encriptar(usuario.NombreUsuario, (int)TipoEncriptacion.Reversible);
 
                 //Generacion DVH
                 usuario.DVH = dv.CalcularDVH(this.ConcatenarRegistro(usuario));
@@ -83,7 +84,7 @@ namespace CandySur.SEG.Service
 
                 string password = this.GenerarContraseña();
 
-                usuario.Contraseña = Util.Encrypt.Encriptar(password, (int)TipoEncriptacion.Irreversible);
+                usuario.Contraseña = Encrypt.Encriptar(password, (int)TipoEncriptacion.Irreversible);
 
                 usuario.DVH = dv.CalcularDVH(this.ConcatenarRegistro(usuario));
 
@@ -113,10 +114,10 @@ namespace CandySur.SEG.Service
             {
                 Entity.Usuario usuario = this.Consultar(nombre);
 
-                if (!usuario.Contraseña.Equals(Util.Encrypt.Encriptar(passwordVieja, (int)TipoEncriptacion.Irreversible)))
+                if (!usuario.Contraseña.Equals(Encrypt.Encriptar(passwordVieja, (int)TipoEncriptacion.Irreversible)))
                     throw new Exception("Contraseña incorrecta.");
 
-                usuario.Contraseña = Util.Encrypt.Encriptar(passwordNueva, (int)TipoEncriptacion.Irreversible);
+                usuario.Contraseña = Encrypt.Encriptar(passwordNueva, (int)TipoEncriptacion.Irreversible);
 
                 usuario.DVH = dv.CalcularDVH(this.ConcatenarRegistro(usuario));
 
@@ -140,7 +141,7 @@ namespace CandySur.SEG.Service
 
         public Entity.Usuario Consultar(string nombre)
         {
-            Entity.Usuario usuario = repository.Consultar(Util.Encrypt.Encriptar(nombre, (int)TipoEncriptacion.Reversible));
+            Entity.Usuario usuario = repository.Consultar(Encrypt.Encriptar(nombre, (int)TipoEncriptacion.Reversible));
 
             if (usuario == null)
                 throw new Exception("No se encontro al usuario.");
@@ -215,7 +216,7 @@ namespace CandySur.SEG.Service
 
         public bool ValidarNombre(string username)
         {
-            if (repository.ValidarNombre(Util.Encrypt.Encriptar(username, (int)TipoEncriptacion.Reversible)) != 0)
+            if (repository.ValidarNombre(Encrypt.Encriptar(username, (int)TipoEncriptacion.Reversible)) != 0)
                 return false;
 
             return true;

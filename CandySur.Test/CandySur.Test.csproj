@@ -62,6 +62,10 @@
       <Project>{78bb57ec-de85-4411-8fa9-dfab57451b66}</Project>
       <Name>CandySur.SEG</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CandySur.UTIL\CandySur.UTIL.csproj">
+      <Project>{70B7BAEF-300A-4802-92DA-33AC91885C82}</Project>
+      <Name>CandySur.UTIL</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

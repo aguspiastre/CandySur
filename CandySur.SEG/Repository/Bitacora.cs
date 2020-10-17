@@ -1,4 +1,5 @@
 ﻿using CandySur.SEG.Request;
+using CandySur.UTIL;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -48,9 +49,9 @@ namespace CandySur.SEG.Repository
                 Entity.Bitacora r = new Entity.Bitacora
                 {
                     Id = int.Parse(row["Id"].ToString()),
-                    Usuario = row["Usuario"].ToString() == "" ? row["Usuario"].ToString() : Util.Encrypt.Desencriptar(row["Usuario"].ToString()),
+                    Usuario = row["Usuario"].ToString() == "" ? row["Usuario"].ToString() : Encrypt.Desencriptar(row["Usuario"].ToString()),
                     Criticidad = row["Criticidad"].ToString(),
-                    Descripcion = Util.Encrypt.Desencriptar(row["Descripcion"].ToString()),
+                    Descripcion = Encrypt.Desencriptar(row["Descripcion"].ToString()),
                     Fecha = row.Field<DateTime>("Fecha"),
                     DVH = row["DVH"].ToString()
                 };

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Transactions;
 using CandySur.SEG.Entity;
 using static CandySur.SEG.Util.Enums;
+using CandySur.UTIL;
 
 namespace CandySur.SEG.Service
 {
@@ -25,7 +26,7 @@ namespace CandySur.SEG.Service
 
         public  Entity.Patente Consultar(string nombre)
         {
-            return repository.Consultar(Util.Encrypt.Encriptar(nombre, (int)TipoEncriptacion.Reversible));
+            return repository.Consultar(Encrypt.Encriptar(nombre, (int)TipoEncriptacion.Reversible));
         }
 
         public int Asignar(Entity.Usuario usuario, string nombre)

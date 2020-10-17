@@ -12,14 +12,17 @@ namespace CandySur.UI.Resto
 {
     public partial class Resto : Form
     {
+        private CandySur.BLL.Cobro cobroService;
         public Resto()
         {
             InitializeComponent();
         }
 
-        private void lblTipoProducto_Click(object sender, EventArgs e)
+        private void btnCalcular_Click(object sender, EventArgs e)
         {
+            cobroService = new CandySur.BLL.Cobro();
 
+            this.txtResto.Text = (cobroService.Calcular(Convert.ToDecimal(this.txtImporteTotal.Text), Convert.ToDecimal(this.txtMontoAbonado.Text))).ToString();
         }
     }
 }

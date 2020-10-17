@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using static CandySur.SEG.Util.Enums;
+using CandySur.UTIL;
 
 namespace CandySur.Test
 {
@@ -22,7 +23,7 @@ namespace CandySur.Test
         [TestMethod]
         public void Encriptar()
         {
-            string nombre = SEG.Util.Encrypt.Encriptar("Listar Usuarios", (int)TipoEncriptacion.Reversible);
+            string nombre = Encrypt.Encriptar("Listar Usuarios", (int)TipoEncriptacion.Reversible);
         }
 
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CandySur.UTIL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,7 +29,7 @@ namespace CandySur.SEG.Service
                 if (exiteFamilia)
                     throw new Exception("La familia ya se encuentra dado de alta.");
 
-                familia.Nombre = Util.Encrypt.Encriptar(familia.Nombre, (int)TipoEncriptacion.Reversible);
+                familia.Nombre = Encrypt.Encriptar(familia.Nombre, (int)TipoEncriptacion.Reversible);
                 //Generacion DVH
                 familia.DVH = dv.CalcularDVH(this.ConcatenarRegistro(familia));
 
@@ -53,7 +54,7 @@ namespace CandySur.SEG.Service
         {
             try
             {
-                familia.Nombre = Util.Encrypt.Encriptar(familia.Nombre, (int)TipoEncriptacion.Reversible);
+                familia.Nombre = Encrypt.Encriptar(familia.Nombre, (int)TipoEncriptacion.Reversible);
                 familia.Eliminado = true;
 
                 if (!this.ValidarEliminacionFamiliaPorPatentes(familia.Id))
@@ -80,7 +81,7 @@ namespace CandySur.SEG.Service
         {
             try
             {
-                familia.Nombre = Util.Encrypt.Encriptar(familia.Nombre, (int)TipoEncriptacion.Reversible);
+                familia.Nombre = Encrypt.Encriptar(familia.Nombre, (int)TipoEncriptacion.Reversible);
 
                 using (var scope = new TransactionScope(TransactionScopeOption.RequiresNew, new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }))
                 {
@@ -106,7 +107,7 @@ namespace CandySur.SEG.Service
 
         public Entity.Familia Consultar(string nombre)
         {
-            return repository.Consultar(Util.Encrypt.Encriptar(nombre, (int)TipoEncriptacion.Reversible));
+            return repository.Consultar(Encrypt.Encriptar(nombre, (int)TipoEncriptacion.Reversible));
         }
 
         public int Asignar(Entity.Usuario usuario, string nombre)

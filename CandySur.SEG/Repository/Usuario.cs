@@ -1,5 +1,6 @@
 ﻿using CandySur.SEG.Request;
 using CandySur.SEG.Util;
+using CandySur.UTIL;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -153,7 +154,7 @@ namespace CandySur.SEG.Repository
                 permisos.Add(new Entity.Patente
                 {
                     Id = int.Parse(row["Id"].ToString()),
-                    Nombre = Util.Encrypt.Desencriptar(row["Nombre"].ToString()),
+                    Nombre = Encrypt.Desencriptar(row["Nombre"].ToString()),
                     Compuesto = (bool)row["Compuesto"],
                     Descripcion = row["Descripcion"].ToString()
                 });

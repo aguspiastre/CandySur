@@ -1,4 +1,5 @@
 ﻿using CandySur.SEG.Request;
+using CandySur.UTIL;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -30,7 +31,7 @@ namespace CandySur.SEG.Repository
                 Entity.Patente r = new Entity.Patente
                 {
                     Id = int.Parse(row["Id"].ToString()),
-                    Nombre = Util.Encrypt.Desencriptar(row["Nombre"].ToString()),
+                    Nombre = Encrypt.Desencriptar(row["Nombre"].ToString()),
                     Compuesto = (bool)row["Compuesto"],
                     Eliminado = (bool)row["Eliminado"],
                     Descripcion = row["Descripcion"].ToString(),
@@ -55,7 +56,7 @@ namespace CandySur.SEG.Repository
             Entity.Patente patente = new Entity.Patente
             {
                 Id = int.Parse(tabla.Rows[0]["Id"].ToString()),
-                Nombre = Util.Encrypt.Desencriptar(tabla.Rows[0]["Nombre"].ToString()),
+                Nombre = Encrypt.Desencriptar(tabla.Rows[0]["Nombre"].ToString()),
                 Compuesto = (bool)tabla.Rows[0]["Compuesto"],
                 Eliminado = (bool)tabla.Rows[0]["Eliminado"],
                 Descripcion = tabla.Rows[0]["Descripcion"].ToString(),

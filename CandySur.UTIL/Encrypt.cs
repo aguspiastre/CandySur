@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CandySur.SEG.Util
+namespace CandySur.UTIL
 {
     public class Encrypt
     {

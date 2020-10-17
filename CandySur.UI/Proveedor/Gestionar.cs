@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CandySur.SEG.Util;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,10 @@ namespace CandySur.UI.Proveedor
 {
     public partial class Gestionar : Form
     {
+        private SEG.Service.SessionManager Session;
+        CandySur.BLL.Proveedor proveedorService = new CandySur.BLL.Proveedor();
+        SEG.Service.Bitacora bitacoraService = new SEG.Service.Bitacora();
+        CandySur.BE.Proveedor proveedor;
         public Gestionar()
         {
             InitializeComponent();
@@ -20,6 +25,120 @@ namespace CandySur.UI.Proveedor
         private void button4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (proveedor == null)
+                {
+                    MessageBox.Show("Realizar la busqueda del proveedor previo a presionar modificar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    proveedor.Direccion = txtDireccion.Text;
+                    proveedor.Telefono = txtTelefono.Text;
+                    proveedor.Mail = txtEmail.Text;
+                    proveedor.CodPostal = txtCodPostal.Text;
+
+                    proveedorService.Modificar(proveedor);
+
+                    SEG.Entity.Bitacora reg = new SEG.Entity.Bitacora
+                    {
+                        IdUsuario = Session.Usuario.Id,
+                        IdCriticidad = (int)Enums.Criticidad.Baja,
+                        Fecha = DateTime.Now,
+                        Descripcion = "Proveedor modificado. " + txtRazonSocial.Text
+                    };
+
+                    bitacoraService.Registrar(reg);
+
+                    MessageBox.Show("Proveedor modificado con exito.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (proveedor == null)
+                {
+                    MessageBox.Show("Realizar la busqueda del proveedor previo a presionar eliminar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    proveedorService.Eliminar(proveedor.Cuit);
+
+                    LimpiarCampos();
+
+                    SEG.Entity.Bitacora reg = new SEG.Entity.Bitacora
+                    {
+                        IdUsuario = Session.Usuario.Id,
+                        IdCriticidad = (int)Enums.Criticidad.Baja,
+                        Fecha = DateTime.Now,
+                        Descripcion = "Proveedor eliminado. " + proveedor.RazonSocial
+                    };
+
+                    bitacoraService.Registrar(reg);
+
+                    MessageBox.Show("Proveedor eliminado con exito.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnBuscarProducto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (String.IsNullOrEmpty(txtCuit.Text))
+                {
+                    MessageBox.Show("El campo cuit es requerido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    proveedor = proveedorService.ObtenerDetalle(txtCuit.Text);
+
+                    txtCodPostal.Text = proveedor.CodPostal;
+                    txtCuit.Text = proveedor.Cuit;
+                    txtDireccion.Text = proveedor.Direccion;
+                    txtEmail.Text = proveedor.Mail;
+                    txtRazonSocial.Text = proveedor.RazonSocial;
+                    txtTelefono.Text = proveedor.Telefono;
+
+                    this.dgvProductosSuministrados.DataSource = proveedor.Golosinas;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void LimpiarCampos()
+        {
+            proveedor = null;
+
+            txtCodPostal.Text = string.Empty;
+            txtEmail.Text = string.Empty;
+            txtCuit.Text = string.Empty;
+            txtDireccion.Text = string.Empty;
+            txtRazonSocial.Text = string.Empty;
+            txtTelefono.Text = string.Empty;
         }
     }
 }
