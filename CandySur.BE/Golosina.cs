@@ -10,6 +10,7 @@ namespace CandySur.BE
     {
         public int AlertaStock { get; set; }
         public CandySur.BE.Proveedor Proveedor { get; set; }
+        public int Cantidad { get; set; }
     }
 
 }

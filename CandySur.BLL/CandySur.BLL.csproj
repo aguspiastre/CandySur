@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Cobro.cs" />
     <Compile Include="Descuento.cs" />
+    <Compile Include="Paquete.cs" />
     <Compile Include="Golosina.cs" />
     <Compile Include="JsonHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

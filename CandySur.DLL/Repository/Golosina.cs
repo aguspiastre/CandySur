@@ -39,21 +39,21 @@ namespace CandySur.DLL.Repository
 
         public int Eliminar(CandySur.BE.Golosina golosina)
         {
-            string sqlCommand = @"UPDATE Golosina Eliminado=" + Convert.ToInt16(golosina.Eliminado) + " WHERE Id=" + golosina.Id;
+            string sqlCommand = @"UPDATE Golosina SET Eliminado=" + Convert.ToInt16(golosina.Eliminado) + " WHERE Id=" + golosina.Id;
 
             return db.ExecuteSqlCommand(sqlCommand);
         }
 
         public int Modificar(CandySur.BE.Golosina golosina)
         {
-            string sqlCommand = @"UPDATE Golosina Importe="  + golosina.Importe  + "," + "Stock=" + golosina.Stock + "," + "AlertaStock=" + golosina.AlertaStock + " WHERE Id=" + golosina.Id;
+            string sqlCommand = @"UPDATE Golosina SET Importe="  + golosina.Importe  + "," + "Stock=" + golosina.Stock + "," + "AlertaStock=" + golosina.AlertaStock + " WHERE Id=" + golosina.Id;
 
             return db.ExecuteSqlCommand(sqlCommand);
         }
 
         public int AumentarStock(CandySur.BE.Golosina golosina)
         {
-            string sqlCommand = @"UPDATE Golosina Stock=" + golosina.Stock + " WHERE Id=" + golosina.Id;
+            string sqlCommand = @"UPDATE Golosina SET Stock=" + golosina.Stock + " WHERE Id=" + golosina.Id;
 
             return db.ExecuteSqlCommand(sqlCommand);
         }

@@ -28,8 +28,6 @@ namespace CandySur.BLL
 
                     int result = repository.AltaGolosinaProveedor(golosina);
 
-                    dv.ActualizarDVV("Golosina");
-
                     scope.Complete();
                 }
             }
