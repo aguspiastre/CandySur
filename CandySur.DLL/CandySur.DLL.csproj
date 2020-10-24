@@ -44,6 +44,8 @@
     <Compile Include="Datos\Datos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\Descuento.cs" />
+    <Compile Include="Repository\Detalle_Venta.cs" />
+    <Compile Include="Repository\Venta.cs" />
     <Compile Include="Repository\Golosina.cs" />
     <Compile Include="Repository\Paquete.cs" />
     <Compile Include="Repository\Proveedor.cs" />

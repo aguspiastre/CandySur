@@ -32,23 +32,23 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtCuit = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
+            this.txtRazonSocial = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.txtDescripcionProd = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.txtCantidadAReponer = new System.Windows.Forms.TextBox();
+            this.txtCodProducto = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtStockActual = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnEnviar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -60,8 +60,8 @@
             // 
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btnCancelar);
+            this.groupBox1.Controls.Add(this.btnEnviar);
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(-4, 1);
@@ -75,11 +75,11 @@
             // 
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Controls.Add(this.textBox7);
-            this.groupBox3.Controls.Add(this.textBox3);
+            this.groupBox3.Controls.Add(this.txtEmail);
+            this.groupBox3.Controls.Add(this.txtCuit);
             this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.textBox1);
-            this.groupBox3.Controls.Add(this.textBox5);
+            this.groupBox3.Controls.Add(this.txtTelefono);
+            this.groupBox3.Controls.Add(this.txtRazonSocial);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Location = new System.Drawing.Point(10, 98);
             this.groupBox3.Name = "groupBox3";
@@ -108,21 +108,21 @@
             this.label5.TabIndex = 18;
             this.label5.Text = "Cuit:";
             // 
-            // textBox7
+            // txtEmail
             // 
-            this.textBox7.Enabled = false;
-            this.textBox7.Location = new System.Drawing.Point(290, 83);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(279, 26);
-            this.textBox7.TabIndex = 37;
+            this.txtEmail.Enabled = false;
+            this.txtEmail.Location = new System.Drawing.Point(290, 83);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(279, 26);
+            this.txtEmail.TabIndex = 37;
             // 
-            // textBox3
+            // txtCuit
             // 
-            this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(10, 35);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(265, 26);
-            this.textBox3.TabIndex = 19;
+            this.txtCuit.Enabled = false;
+            this.txtCuit.Location = new System.Drawing.Point(10, 35);
+            this.txtCuit.Name = "txtCuit";
+            this.txtCuit.Size = new System.Drawing.Size(265, 26);
+            this.txtCuit.TabIndex = 19;
             // 
             // label8
             // 
@@ -134,21 +134,21 @@
             this.label8.TabIndex = 34;
             this.label8.Text = "Razon Social:";
             // 
-            // textBox1
+            // txtTelefono
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(10, 83);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(265, 26);
-            this.textBox1.TabIndex = 33;
+            this.txtTelefono.Enabled = false;
+            this.txtTelefono.Location = new System.Drawing.Point(10, 83);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(265, 26);
+            this.txtTelefono.TabIndex = 33;
             // 
-            // textBox5
+            // txtRazonSocial
             // 
-            this.textBox5.Enabled = false;
-            this.textBox5.Location = new System.Drawing.Point(290, 35);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(279, 26);
-            this.textBox5.TabIndex = 35;
+            this.txtRazonSocial.Enabled = false;
+            this.txtRazonSocial.Location = new System.Drawing.Point(290, 35);
+            this.txtRazonSocial.Name = "txtRazonSocial";
+            this.txtRazonSocial.Size = new System.Drawing.Size(279, 26);
+            this.txtRazonSocial.TabIndex = 35;
             // 
             // label7
             // 
@@ -162,13 +162,13 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox10);
+            this.groupBox2.Controls.Add(this.txtDescripcionProd);
             this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.textBox9);
-            this.groupBox2.Controls.Add(this.textBox8);
+            this.groupBox2.Controls.Add(this.txtCantidadAReponer);
+            this.groupBox2.Controls.Add(this.txtCodProducto);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.textBox6);
+            this.groupBox2.Controls.Add(this.txtStockActual);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Location = new System.Drawing.Point(10, 229);
             this.groupBox2.Name = "groupBox2";
@@ -177,13 +177,13 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "DATOS DEL PRODUCTO";
             // 
-            // textBox10
+            // txtDescripcionProd
             // 
-            this.textBox10.Enabled = false;
-            this.textBox10.Location = new System.Drawing.Point(289, 35);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(283, 26);
-            this.textBox10.TabIndex = 36;
+            this.txtDescripcionProd.Enabled = false;
+            this.txtDescripcionProd.Location = new System.Drawing.Point(289, 35);
+            this.txtDescripcionProd.Name = "txtDescripcionProd";
+            this.txtDescripcionProd.Size = new System.Drawing.Size(283, 26);
+            this.txtDescripcionProd.TabIndex = 36;
             // 
             // label11
             // 
@@ -195,20 +195,20 @@
             this.label11.TabIndex = 32;
             this.label11.Text = "Cod. Producto:";
             // 
-            // textBox9
+            // txtCantidadAReponer
             // 
-            this.textBox9.Location = new System.Drawing.Point(291, 86);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(278, 26);
-            this.textBox9.TabIndex = 35;
+            this.txtCantidadAReponer.Location = new System.Drawing.Point(291, 86);
+            this.txtCantidadAReponer.Name = "txtCantidadAReponer";
+            this.txtCantidadAReponer.Size = new System.Drawing.Size(278, 26);
+            this.txtCantidadAReponer.TabIndex = 35;
             // 
-            // textBox8
+            // txtCodProducto
             // 
-            this.textBox8.Enabled = false;
-            this.textBox8.Location = new System.Drawing.Point(9, 35);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(263, 26);
-            this.textBox8.TabIndex = 33;
+            this.txtCodProducto.Enabled = false;
+            this.txtCodProducto.Location = new System.Drawing.Point(9, 35);
+            this.txtCodProducto.Name = "txtCodProducto";
+            this.txtCodProducto.Size = new System.Drawing.Size(263, 26);
+            this.txtCodProducto.TabIndex = 33;
             // 
             // label1
             // 
@@ -230,13 +230,13 @@
             this.label2.TabIndex = 15;
             this.label2.Text = "Descripcion:";
             // 
-            // textBox6
+            // txtStockActual
             // 
-            this.textBox6.Enabled = false;
-            this.textBox6.Location = new System.Drawing.Point(9, 86);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(266, 26);
-            this.textBox6.TabIndex = 22;
+            this.txtStockActual.Enabled = false;
+            this.txtStockActual.Location = new System.Drawing.Point(9, 86);
+            this.txtStockActual.Name = "txtStockActual";
+            this.txtStockActual.Size = new System.Drawing.Size(266, 26);
+            this.txtStockActual.TabIndex = 22;
             // 
             // label3
             // 
@@ -248,29 +248,31 @@
             this.label3.TabIndex = 16;
             this.label3.Text = "Cantidad a Reponer:";
             // 
-            // button2
+            // btnCancelar
             // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button2.Location = new System.Drawing.Point(521, 364);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 31);
-            this.button2.TabIndex = 20;
-            this.button2.Text = "Cancelar";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnCancelar.BackColor = System.Drawing.Color.Transparent;
+            this.btnCancelar.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCancelar.Location = new System.Drawing.Point(521, 364);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 31);
+            this.btnCancelar.TabIndex = 20;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // button1
+            // btnEnviar
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Green;
-            this.button1.Location = new System.Drawing.Point(440, 364);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 31);
-            this.button1.TabIndex = 19;
-            this.button1.Text = "Enviar";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnEnviar.BackColor = System.Drawing.Color.Transparent;
+            this.btnEnviar.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEnviar.ForeColor = System.Drawing.Color.Green;
+            this.btnEnviar.Location = new System.Drawing.Point(440, 364);
+            this.btnEnviar.Name = "btnEnviar";
+            this.btnEnviar.Size = new System.Drawing.Size(75, 31);
+            this.btnEnviar.TabIndex = 19;
+            this.btnEnviar.Text = "Enviar";
+            this.btnEnviar.UseVisualStyleBackColor = false;
+            this.btnEnviar.Click += new System.EventHandler(this.btnEnviar_Click);
             // 
             // pictureBox1
             // 
@@ -290,6 +292,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "EnviarMail";
             this.Text = "EnviarMail";
+            this.Load += new System.EventHandler(this.EnviarMail_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
@@ -306,23 +309,23 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtCuit;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtTelefono;
+        private System.Windows.Forms.TextBox txtRazonSocial;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox txtDescripcionProd;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txtCantidadAReponer;
+        private System.Windows.Forms.TextBox txtCodProducto;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtStockActual;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnEnviar;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -22,7 +22,6 @@ namespace CandySur.UI.Proveedor
 
         private void Listado_Proveedores_Load(object sender, EventArgs e)
         {
-
             try
             {
                 //Session = SEG.Service.SessionManager.GetInstance();

@@ -196,6 +196,7 @@
             this.btnRegresar.TabIndex = 17;
             this.btnRegresar.Text = "Regresar";
             this.btnRegresar.UseVisualStyleBackColor = false;
+            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
             // pictureBox1
             // 
@@ -217,6 +218,7 @@
             this.btnFinalizar.TabIndex = 2;
             this.btnFinalizar.Text = "Finalizar";
             this.btnFinalizar.UseVisualStyleBackColor = false;
+            this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
             // 
             // Resto
             // 
@@ -227,6 +229,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "Resto";
             this.Text = "Resto";
+            this.Load += new System.EventHandler(this.Resto_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);

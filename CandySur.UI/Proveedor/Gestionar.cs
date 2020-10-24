@@ -17,14 +17,10 @@ namespace CandySur.UI.Proveedor
         CandySur.BLL.Proveedor proveedorService = new CandySur.BLL.Proveedor();
         SEG.Service.Bitacora bitacoraService = new SEG.Service.Bitacora();
         CandySur.BE.Proveedor proveedor;
+        CandySur.BE.Golosina golosinaMail;
         public Gestionar()
         {
             InitializeComponent();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -139,6 +135,32 @@ namespace CandySur.UI.Proveedor
             txtDireccion.Text = string.Empty;
             txtRazonSocial.Text = string.Empty;
             txtTelefono.Text = string.Empty;
+        }
+
+        private void dgvProductosSuministrados_SelectionChanged(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dgvProductosSuministrados.SelectedRows)
+            {
+                golosinaMail = (BE.Golosina)row.DataBoundItem;
+            }
+        }
+
+        private void btnEnviarMailReposicion_Click(object sender, EventArgs e)
+        {
+            if(golosinaMail == null)
+            {
+                MessageBox.Show("Se debe seleccionar un producto de la grilla previo a enviar el mail.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                EnviarMail mail = new EnviarMail(this.proveedor, this.golosinaMail);
+                mail.Show();
+            }
+        }
+
+        private void Gestionar_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

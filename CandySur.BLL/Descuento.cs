@@ -80,6 +80,18 @@ namespace CandySur.BLL
             }
         }
 
+        public BE.Descuento CalcularDescuentos(List<BE.Descuento> descuentos, decimal importe)
+        {
+            foreach (var item in descuentos.OrderByDescending(x=> x.Importe))
+            {
+                if (importe > item.Importe)
+                    return item;
+            }
+
+            return null;
+        }
+
+
         public bool ValidarExistencia(CandySur.BE.Descuento descuento)
         {
             return repository.Listar().Any(d => d.Importe == descuento.Importe && d.Porcentaje == descuento.Porcentaje);

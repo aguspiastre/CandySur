@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Venta));
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvDetalles = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -38,43 +38,43 @@
             this.txtCodProducto = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.rdbPaquete = new System.Windows.Forms.RadioButton();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtCantidad = new System.Windows.Forms.TextBox();
             this.cboPaquetes = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.rdbProducto = new System.Windows.Forms.RadioButton();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtPrecio = new System.Windows.Forms.TextBox();
             this.btnBuscarProducto = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnSacarProducto = new System.Windows.Forms.Button();
+            this.btnAgregarProducto = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.lblImporteTotal = new System.Windows.Forms.Label();
+            this.btnAvanzar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalles)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvDetalles
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(10, 260);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(582, 188);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvDetalles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDetalles.Location = new System.Drawing.Point(10, 260);
+            this.dgvDetalles.Name = "dgvDetalles";
+            this.dgvDetalles.Size = new System.Drawing.Size(582, 188);
+            this.dgvDetalles.TabIndex = 0;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Controls.Add(this.button6);
+            this.groupBox1.Controls.Add(this.btnCancelar);
             this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.lblImporteTotal);
+            this.groupBox1.Controls.Add(this.btnAvanzar);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Controls.Add(this.dgvDetalles);
             this.groupBox1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(6, 3);
             this.groupBox1.Name = "groupBox1";
@@ -99,21 +99,20 @@
             this.groupBox2.Controls.Add(this.txtCodProducto);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.rdbPaquete);
-            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.txtCantidad);
             this.groupBox2.Controls.Add(this.cboPaquetes);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.rdbProducto);
-            this.groupBox2.Controls.Add(this.textBox3);
+            this.groupBox2.Controls.Add(this.txtPrecio);
             this.groupBox2.Controls.Add(this.btnBuscarProducto);
-            this.groupBox2.Controls.Add(this.button5);
-            this.groupBox2.Controls.Add(this.button4);
+            this.groupBox2.Controls.Add(this.btnSacarProducto);
+            this.groupBox2.Controls.Add(this.btnAgregarProducto);
             this.groupBox2.Location = new System.Drawing.Point(10, 98);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(582, 138);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "DATOS DE LA VENTA";
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // lblTipoProducto
             // 
@@ -163,12 +162,12 @@
             this.rdbPaquete.Text = "Paquete";
             this.rdbPaquete.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // txtCantidad
             // 
-            this.textBox2.Location = new System.Drawing.Point(305, 48);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(185, 26);
-            this.textBox2.TabIndex = 10;
+            this.txtCantidad.Location = new System.Drawing.Point(305, 48);
+            this.txtCantidad.Name = "txtCantidad";
+            this.txtCantidad.Size = new System.Drawing.Size(185, 26);
+            this.txtCantidad.TabIndex = 10;
             // 
             // cboPaquetes
             // 
@@ -201,13 +200,13 @@
             this.rdbProducto.UseVisualStyleBackColor = true;
             this.rdbProducto.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
-            // textBox3
+            // txtPrecio
             // 
-            this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(305, 96);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(185, 26);
-            this.textBox3.TabIndex = 12;
+            this.txtPrecio.Enabled = false;
+            this.txtPrecio.Location = new System.Drawing.Point(305, 96);
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.Size = new System.Drawing.Size(185, 26);
+            this.txtPrecio.TabIndex = 12;
             // 
             // btnBuscarProducto
             // 
@@ -217,36 +216,39 @@
             this.btnBuscarProducto.Size = new System.Drawing.Size(43, 29);
             this.btnBuscarProducto.TabIndex = 8;
             this.btnBuscarProducto.UseVisualStyleBackColor = true;
+            this.btnBuscarProducto.Click += new System.EventHandler(this.btnBuscarProducto_Click);
             // 
-            // button5
+            // btnSacarProducto
             // 
-            this.button5.Image = global::CandySur.UI.Properties.Resources.minus_2_icon_14_256;
-            this.button5.Location = new System.Drawing.Point(496, 94);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 28);
-            this.button5.TabIndex = 14;
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnSacarProducto.Image = global::CandySur.UI.Properties.Resources.minus_2_icon_14_256;
+            this.btnSacarProducto.Location = new System.Drawing.Point(496, 94);
+            this.btnSacarProducto.Name = "btnSacarProducto";
+            this.btnSacarProducto.Size = new System.Drawing.Size(75, 28);
+            this.btnSacarProducto.TabIndex = 14;
+            this.btnSacarProducto.UseVisualStyleBackColor = true;
+            this.btnSacarProducto.Click += new System.EventHandler(this.btnSacarProducto_Click);
             // 
-            // button4
+            // btnAgregarProducto
             // 
-            this.button4.Image = global::CandySur.UI.Properties.Resources.FIRST_SET_ICON_part_4_25_512;
-            this.button4.Location = new System.Drawing.Point(496, 46);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 28);
-            this.button4.TabIndex = 13;
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnAgregarProducto.Image = global::CandySur.UI.Properties.Resources.FIRST_SET_ICON_part_4_25_512;
+            this.btnAgregarProducto.Location = new System.Drawing.Point(496, 46);
+            this.btnAgregarProducto.Name = "btnAgregarProducto";
+            this.btnAgregarProducto.Size = new System.Drawing.Size(75, 28);
+            this.btnAgregarProducto.TabIndex = 13;
+            this.btnAgregarProducto.UseVisualStyleBackColor = true;
+            this.btnAgregarProducto.Click += new System.EventHandler(this.btnAgregarProducto_Click);
             // 
-            // button6
+            // btnCancelar
             // 
-            this.button6.BackColor = System.Drawing.Color.Transparent;
-            this.button6.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button6.Location = new System.Drawing.Point(517, 454);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 31);
-            this.button6.TabIndex = 3;
-            this.button6.Text = "Cancelar";
-            this.button6.UseVisualStyleBackColor = false;
+            this.btnCancelar.BackColor = System.Drawing.Color.Transparent;
+            this.btnCancelar.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCancelar.Location = new System.Drawing.Point(517, 454);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 31);
+            this.btnCancelar.TabIndex = 3;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
             // 
             // pictureBox1
             // 
@@ -257,27 +259,28 @@
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
-            // label6
+            // lblImporteTotal
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(102, 459);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(29, 19);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "$ 0";
+            this.lblImporteTotal.AutoSize = true;
+            this.lblImporteTotal.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblImporteTotal.Location = new System.Drawing.Point(102, 459);
+            this.lblImporteTotal.Name = "lblImporteTotal";
+            this.lblImporteTotal.Size = new System.Drawing.Size(29, 19);
+            this.lblImporteTotal.TabIndex = 4;
+            this.lblImporteTotal.Text = "$ 0";
             // 
-            // button1
+            // btnAvanzar
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Green;
-            this.button1.Location = new System.Drawing.Point(436, 454);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 31);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Avanzar";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnAvanzar.BackColor = System.Drawing.Color.Transparent;
+            this.btnAvanzar.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAvanzar.ForeColor = System.Drawing.Color.Green;
+            this.btnAvanzar.Location = new System.Drawing.Point(436, 454);
+            this.btnAvanzar.Name = "btnAvanzar";
+            this.btnAvanzar.Size = new System.Drawing.Size(75, 31);
+            this.btnAvanzar.TabIndex = 2;
+            this.btnAvanzar.Text = "Avanzar";
+            this.btnAvanzar.UseVisualStyleBackColor = false;
+            this.btnAvanzar.Click += new System.EventHandler(this.btnAvanzar_Click);
             // 
             // label1
             // 
@@ -298,7 +301,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "Venta";
             this.Text = "Venta";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalles)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -310,22 +313,22 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvDetalles;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label lblImporteTotal;
+        private System.Windows.Forms.Button btnSacarProducto;
+        private System.Windows.Forms.Button btnAgregarProducto;
+        private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtCantidad;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnBuscarProducto;
         private System.Windows.Forms.TextBox txtCodProducto;
         private System.Windows.Forms.Label lblTipoProducto;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAvanzar;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.RadioButton rdbPaquete;
         private System.Windows.Forms.RadioButton rdbProducto;
         private System.Windows.Forms.Label label10;

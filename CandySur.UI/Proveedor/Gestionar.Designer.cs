@@ -86,7 +86,7 @@
             this.btnEnviarMailReposicion.TabIndex = 20;
             this.btnEnviarMailReposicion.Text = "Enviar Mail Reposicion";
             this.btnEnviarMailReposicion.UseVisualStyleBackColor = false;
-            this.btnEnviarMailReposicion.Click += new System.EventHandler(this.button4_Click);
+            this.btnEnviarMailReposicion.Click += new System.EventHandler(this.btnEnviarMailReposicion_Click);
             // 
             // groupBox2
             // 
@@ -266,6 +266,7 @@
             this.dgvProductosSuministrados.Name = "dgvProductosSuministrados";
             this.dgvProductosSuministrados.Size = new System.Drawing.Size(582, 148);
             this.dgvProductosSuministrados.TabIndex = 6;
+            this.dgvProductosSuministrados.SelectionChanged += new System.EventHandler(this.dgvProductosSuministrados_SelectionChanged);
             // 
             // pictureBox1
             // 
@@ -298,6 +299,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "Gestionar";
             this.Text = "Gestionar Proveedor";
+            this.Load += new System.EventHandler(this.Gestionar_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
