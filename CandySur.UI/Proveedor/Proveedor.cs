@@ -42,7 +42,7 @@ namespace CandySur.UI.Proveedor
                         Eliminado = 0,
                         CodPostal = txtCodPostal.Text,
                         Cuit = txtCuit.Text,
-                        RazonSocial = txtCuit.Text 
+                        RazonSocial = txtRazonSocial.Text 
                     };
 
                     proveedorService.Alta(prov);

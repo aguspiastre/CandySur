@@ -85,9 +85,13 @@
             // 
             // dgvListadoGolosinas
             // 
+            this.dgvListadoGolosinas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListadoGolosinas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListadoGolosinas.Location = new System.Drawing.Point(10, 116);
+            this.dgvListadoGolosinas.MultiSelect = false;
             this.dgvListadoGolosinas.Name = "dgvListadoGolosinas";
+            this.dgvListadoGolosinas.ReadOnly = true;
+            this.dgvListadoGolosinas.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvListadoGolosinas.Size = new System.Drawing.Size(582, 209);
             this.dgvListadoGolosinas.TabIndex = 0;
             // 

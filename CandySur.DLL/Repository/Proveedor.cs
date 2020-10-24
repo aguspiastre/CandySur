@@ -19,8 +19,7 @@ namespace CandySur.DLL.Repository
             List<CandySur.BE.Producto> productos = new List<CandySur.BE.Producto>();
             string sqlCommand = @"SELECT g.Id, g.Descripcion, g.Importe, g.Stock FROM Golosina g 
                                 INNER JOIN proveedor_golosina pg on pg.Id_Golosina = g.Id
-								INNER JOIN proveedor prov on prov.Id = pg.Id_Proveedor
-								WHERE p.Eliminado = 0 AND prov.Id =" + cuit;
+								WHERE pg.Id_Proveedor =" + cuit;
 
             DataTable tabla = db.ExecuteNonQuery(sqlCommand);
 

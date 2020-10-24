@@ -16,8 +16,8 @@ namespace CandySur.DLL.Repository
         }
         public int Alta(CandySur.BE.Golosina golosina)
         {
-            string sqlCommand = @"INSERT INTO Golosina (Descripcion, Importe, Stock, Eliminado, AlertaStock)
-                                VALUES (" + "'" + golosina.Descripcion + "'" + "," + golosina.Importe + "," + golosina.Stock + "," + golosina.Eliminado + "," + golosina.AlertaStock + ")";
+            string sqlCommand = @"INSERT INTO Golosina (Descripcion, Importe, Stock, Eliminado, StockAlerta)
+                                VALUES (" + "'" + golosina.Descripcion + "'" + "," + golosina.Importe.ToString().Replace(",", ".") + "," + golosina.Stock + "," + Convert.ToInt32(golosina.Eliminado) + "," + golosina.AlertaStock + ")";
 
             return db.ExecuteSqlCommand(sqlCommand);
         }
@@ -46,7 +46,7 @@ namespace CandySur.DLL.Repository
 
         public int Modificar(CandySur.BE.Golosina golosina)
         {
-            string sqlCommand = @"UPDATE Golosina SET Importe="  + golosina.Importe  + "," + "Stock=" + golosina.Stock + "," + "AlertaStock=" + golosina.AlertaStock + " WHERE Id=" + golosina.Id;
+            string sqlCommand = @"UPDATE Golosina SET Importe="  + golosina.Importe.ToString().Replace(",", ".") + "," + "Stock=" + golosina.Stock + "," + "StockAlerta=" + golosina.AlertaStock + " WHERE Id=" + golosina.Id;
 
             return db.ExecuteSqlCommand(sqlCommand);
         }
@@ -67,7 +67,7 @@ namespace CandySur.DLL.Repository
 
         public CandySur.BE.Golosina ObtenerDetalle(int id)
         {
-            string sqlCommand = @"SELECT Id, AlertaStock, Eliminado, Descripcion, DVH, Importe, pg.Id_Proveedor FROM Golosina g
+            string sqlCommand = @"SELECT Id, StockAlerta, Stock, Eliminado, Descripcion, Importe, pg.Id_Proveedor FROM Golosina g
 							      INNER JOIN proveedor_golosina pg on pg.Id_Golosina = g.Id WHERE g.Eliminado = 0 AND g.Id = " + id;
 
             DataTable tabla = db.ExecuteNonQuery(sqlCommand);
@@ -78,11 +78,15 @@ namespace CandySur.DLL.Repository
             CandySur.BE.Golosina golosina = new CandySur.BE.Golosina
             {
                 Id = int.Parse(tabla.Rows[0]["Id"].ToString()),
-                AlertaStock = int.Parse(tabla.Rows[0]["AlertaStock"].ToString()),
+                AlertaStock = int.Parse(tabla.Rows[0]["StockAlerta"].ToString()),
                 Stock = int.Parse(tabla.Rows[0]["Stock"].ToString()),
                 Eliminado = (bool)tabla.Rows[0]["Eliminado"],
                 Descripcion = tabla.Rows[0]["Descripcion"].ToString(),
                 Importe = Decimal.Parse(tabla.Rows[0]["Importe"].ToString()),
+                Proveedor = new BE.Proveedor
+                {
+                    Cuit = tabla.Rows[0]["Id_Proveedor"].ToString(),
+                }
             };
 
             return golosina;
@@ -91,7 +95,7 @@ namespace CandySur.DLL.Repository
         public List<CandySur.BE.Golosina> Listar()
         {
             List<CandySur.BE.Golosina> golosinas = new List<CandySur.BE.Golosina>();
-            string sqlCommand = @"SELECT Id, AlertaStock, Eliminado, Descripcion, DVH, Importe, Stock FROM Golosina g
+            string sqlCommand = @"SELECT Id, StockAlerta, Eliminado, Descripcion, Importe, Stock FROM Golosina g
 							      WHERE g.Eliminado = 0";
 
             DataTable tabla = db.ExecuteNonQuery(sqlCommand);
@@ -102,7 +106,7 @@ namespace CandySur.DLL.Repository
                 {
                     Id = int.Parse(row["Id"].ToString()),
                     Descripcion = row["Descripcion"].ToString(),
-                    AlertaStock = int.Parse(row["AlertaStock"].ToString()),
+                    AlertaStock = int.Parse(row["StockAlerta"].ToString()),
                     Eliminado = (bool)row["Eliminado"],
                     Importe = Decimal.Parse(row["Importe"].ToString()),
                     Stock = int.Parse(row["Stock"].ToString()),

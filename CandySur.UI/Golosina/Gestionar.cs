@@ -14,7 +14,7 @@ namespace CandySur.UI.Golosina
     public partial class Gestionar : Form
     {
         BLL.Golosina golosinaService = new BLL.Golosina();
-        BE.Golosina golosina = new BE.Golosina();
+        BE.Golosina golosina;
         SEG.Service.Bitacora bitacoraService = new SEG.Service.Bitacora();
         private SEG.Service.SessionManager Session;
 
@@ -77,7 +77,7 @@ namespace CandySur.UI.Golosina
 
                     LimpiarCampos();
 
-                    golosina = null;
+                    MessageBox.Show("Golosina modificada con exito.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
@@ -92,6 +92,7 @@ namespace CandySur.UI.Golosina
             txtPrecio.Text = string.Empty;
             txtStock.Text = string.Empty;
             txtStockAlerta.Text = string.Empty;
+            golosina = null;
 
             //Datos del proveedor
             txtEmail.Text = string.Empty;
@@ -120,7 +121,7 @@ namespace CandySur.UI.Golosina
                     {
                         golosina.AlertaStock = int.Parse(txtStockAlerta.Text);
                         golosina.Stock = int.Parse(txtStock.Text);
-                        golosina.Importe = int.Parse(txtPrecio.Text);
+                        golosina.Importe = Decimal.Parse(txtPrecio.Text.Replace(".",","));
 
                         golosinaService.Modificar(golosina);
 
@@ -133,6 +134,8 @@ namespace CandySur.UI.Golosina
                         };
 
                         bitacoraService.Registrar(reg);
+
+                        MessageBox.Show("Golosina modificada con exito.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }

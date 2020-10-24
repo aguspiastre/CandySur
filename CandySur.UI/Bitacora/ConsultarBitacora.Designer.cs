@@ -77,7 +77,9 @@
             // 
             this.dataGridBitacora.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridBitacora.Location = new System.Drawing.Point(10, 25);
+            this.dataGridBitacora.MultiSelect = false;
             this.dataGridBitacora.Name = "dataGridBitacora";
+            this.dataGridBitacora.ReadOnly = true;
             this.dataGridBitacora.Size = new System.Drawing.Size(573, 248);
             this.dataGridBitacora.TabIndex = 0;
             // 

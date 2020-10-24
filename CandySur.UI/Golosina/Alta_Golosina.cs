@@ -71,7 +71,7 @@ namespace CandySur.UI.Golosina
                         Stock = int.Parse(txtStock.Text),
                         AlertaStock = int.Parse(txtStockAlerta.Text),
                         Eliminado = false,
-                        Importe = int.Parse(txtPrecio.Text),
+                        Importe = Decimal.Parse(txtPrecio.Text.Replace(".",",")),
                         Proveedor = proveedor,
                     };
 
@@ -89,7 +89,7 @@ namespace CandySur.UI.Golosina
 
                     this.LimpiarCampos();
 
-                    MessageBox.Show("Familia dada de alta correctamente", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Golosina dada de alta correctamente", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)

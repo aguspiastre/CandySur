@@ -85,6 +85,7 @@
             // 
             // dgvListadoProveedores
             // 
+            this.dgvListadoProveedores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListadoProveedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListadoProveedores.Location = new System.Drawing.Point(10, 126);
             this.dgvListadoProveedores.Name = "dgvListadoProveedores";

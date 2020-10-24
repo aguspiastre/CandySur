@@ -100,6 +100,7 @@
             // 
             // cmbProveedores
             // 
+            this.cmbProveedores.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbProveedores.FormattingEnabled = true;
             this.cmbProveedores.Location = new System.Drawing.Point(10, 92);
             this.cmbProveedores.Name = "cmbProveedores";

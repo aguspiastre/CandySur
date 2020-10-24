@@ -44,7 +44,7 @@ namespace CandySur.BLL
                 CandySur.BE.Proveedor prov = proveedores.FirstOrDefault(x => x.Cuit == proveedor.Cuit);
 
                 int index = proveedores.FindIndex(x => x.Cuit == proveedor.Cuit);
-                proveedores[index] = prov;
+                proveedores[index] = proveedor;
 
                 string jSONString = JsonConvert.SerializeObject(proveedores);
                 JsonHelper.Write("Proveedores.json", "data", jSONString);

@@ -157,10 +157,5 @@ namespace CandySur.UI.Proveedor
                 mail.Show();
             }
         }
-
-        private void Gestionar_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
