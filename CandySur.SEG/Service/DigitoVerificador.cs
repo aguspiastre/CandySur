@@ -134,6 +134,7 @@ namespace CandySur.SEG.Service
                     foreach (DataRow r in tabla.Rows)
                     {
                         string dvh = r["DVH"].ToString();
+
                         string id = r["Id"].ToString();
 
                         // Dejo vacio el dvh y el id para no tenerlo en cuenta en la generacion y comparacion.

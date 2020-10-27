@@ -58,6 +58,10 @@
       <Project>{4d27ee77-e21e-463f-878f-a19ea2ad3740}</Project>
       <Name>CandySur.BE</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CandySur.BLL\CandySur.BLL.csproj">
+      <Project>{0bf5fccd-5a9a-4092-9da6-1c6ab667318b}</Project>
+      <Name>CandySur.BLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CandySur.SEG\CandySur.SEG.csproj">
       <Project>{78bb57ec-de85-4411-8fa9-dfab57451b66}</Project>
       <Name>CandySur.SEG</Name>

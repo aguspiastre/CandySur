@@ -17,7 +17,7 @@ namespace CandySur.DLL.Repository
         public int Alta(CandySur.BE.Venta venta)
         {
             string sqlCommand = @"INSERT INTO Venta (Importe, Fecha, DVH, Eliminado)
-                                VALUES (" + venta.Importe + "," + "'" + venta.Fecha.ToString() + "'" + "," + "'" + venta.DVH + "'" + "," + Convert.ToInt16(venta.Eliminado) + ")";
+                                VALUES (" + venta.Importe.ToString("0.00").Replace(",",".") + "," + "'" + venta.Fecha.ToString() + "'" + "," + "'" + venta.DVH + "'" + "," + Convert.ToInt16(venta.Eliminado) + ")";
 
             return db.ExecuteSqlCommand(sqlCommand);
         }
@@ -31,7 +31,7 @@ namespace CandySur.DLL.Repository
 
         public int Eliminar(CandySur.BE.Venta venta)
         {
-            string sqlCommand = @"UPDATE Venta SET Eliminado=" + Convert.ToInt16(venta.Eliminado) +  " DVH=" + "'" + venta.DVH + "'" + " WHERE Id=" + venta.Id;
+            string sqlCommand = @"UPDATE Venta SET Eliminado=" + Convert.ToInt16(venta.Eliminado) + "," + " DVH=" + "'" + venta.DVH + "'" + " WHERE Id=" + venta.Id;
 
             return db.ExecuteSqlCommand(sqlCommand);
         }
@@ -61,8 +61,10 @@ namespace CandySur.DLL.Repository
         public List<CandySur.BE.Venta> ListarDiarias()
         {
             List<CandySur.BE.Venta> ventas = new List<CandySur.BE.Venta>();
-            string sqlCommand = @"SELECT Id, Importe, Fecha, DVH FROM Venta v
-							      WHERE v.Eliminado = 0 AND CAST(v.Fecha, as DATE) =" + "'" + DateTime.Now.ToShortDateString() + "'";
+            string sqlCommand = @"SELECT Id, Importe, Fecha FROM Venta v
+							      WHERE v.Eliminado = 0";
+
+            sqlCommand += " AND v.Fecha BETWEEN " + "'" + DateTime.Now.ToShortDateString() + "'" + " AND " + "'" + DateTime.Now.ToShortDateString() + " 23:59:59.999" + "'";
 
             DataTable tabla = db.ExecuteNonQuery(sqlCommand);
 
@@ -71,9 +73,7 @@ namespace CandySur.DLL.Repository
                 CandySur.BE.Venta v = new CandySur.BE.Venta
                 {
                     Id = int.Parse(row["Id"].ToString()),
-                    Eliminado = (bool)row["Eliminado"],
-                    Importe = int.Parse(row["Importe"].ToString()),
-                    DVH = row["DVH"].ToString(),
+                    Importe = Decimal.Parse(row["Importe"].ToString()),
                     Fecha = DateTime.Parse(row["Fecha"].ToString())
                 };
 

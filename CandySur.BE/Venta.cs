@@ -26,14 +26,17 @@ namespace CandySur.BE
             CalcularImporte();
         }
 
-        public void EliminarProducto(BE.Detalle_Venta detalle)
+        public void EliminarProducto(int codigo, string tipo)
         {
-            this.Detalles.Remove(detalle);
+            this.Detalles.Remove(this.Detalles.FirstOrDefault(d => d.Producto.Id == codigo && d.Producto.Descripcion == tipo));
+
             CalcularImporte();
         }
 
         private void CalcularImporte()
         {
+            this.Importe = 0;
+
             foreach (var item in this.Detalles)
             {
                 this.Importe += item.Importe * item.Cantidad;

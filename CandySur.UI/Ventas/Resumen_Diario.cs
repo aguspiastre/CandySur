@@ -36,6 +36,8 @@ namespace CandySur.UI
                 //this.Traducir();
                 //SEG.Service.IdiomaManager.Suscribir(this);
 
+                this.lblFecha.Text = DateTime.Now.ToShortDateString();
+
                 List<CandySur.BE.Venta> ventas = ventaService.ListarDiarias();
 
                 if (ventas != null && ventas.Count > 0)

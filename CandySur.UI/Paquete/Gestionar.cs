@@ -16,7 +16,7 @@ namespace CandySur.UI.Paquete
         private SEG.Service.SessionManager Session;
         SEG.Service.Bitacora bitacoraService = new SEG.Service.Bitacora();
         BLL.Paquete paqueteService = new BLL.Paquete();
-        BE.Paquete paqueteSeleccionado;
+        BE.Paquete paquete;
 
         public Gestionar()
         {
@@ -38,10 +38,6 @@ namespace CandySur.UI.Paquete
 
                 //this.Traducir();
                 //SEG.Service.IdiomaManager.Suscribir(this);
-
-                cmbPaquetes.DataSource = paqueteService.Listar();
-                cmbPaquetes.DisplayMember = "Descripcion";
-                cmbPaquetes.ValueMember = "Id";
             }
             catch (Exception ex)
             {
@@ -50,49 +46,27 @@ namespace CandySur.UI.Paquete
             }
         }
 
-        private void cmbPaquetes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                int idPaquete = Convert.ToInt32(cmbPaquetes.SelectedValue);
-
-                BE.Paquete paqueteSeleccionado = paqueteService.ObtenerDetalle(idPaquete);
-
-                this.txtDescripcion.Text = paqueteSeleccionado.Descripcion;
-                this.txtPrecio.Text = paqueteSeleccionado.Importe.ToString();
-                this.txtStock.Text = paqueteSeleccionado.Stock.ToString();
-
-                this.dgvGolosinas.DataSource = paqueteSeleccionado.Golosinas.Select(x => new { Codigo = x.Id, Descripcion = x.Descripcion, Importe = x.Importe, Stock = x.Stock }).ToList();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             try
             {
-                if (paqueteSeleccionado == null)
+                if (paquete == null)
                 {
-                    MessageBox.Show("Se debe seleccionar un paquete previo a presionar eliminar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Se debe buscar un paquete previo a presionar eliminar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    paqueteService.Eliminar(paqueteSeleccionado);
+                    paqueteService.Eliminar(paquete);
 
                     SEG.Entity.Bitacora reg = new SEG.Entity.Bitacora
                     {
                         IdUsuario = this.Session.Usuario.Id,
                         IdCriticidad = (int)Enums.Criticidad.Baja,
                         Fecha = DateTime.Now,
-                        Descripcion = "Paquete eliminado. " + this.paqueteSeleccionado.Descripcion
+                        Descripcion = "Paquete eliminado. " + this.paquete.Descripcion
                     };
 
                     bitacoraService.Registrar(reg);
-
-                    cmbPaquetes.DataSource = paqueteService.Listar();
 
                     LimpiarCampos();
 
@@ -111,8 +85,35 @@ namespace CandySur.UI.Paquete
             this.txtDescripcion.Text = string.Empty;
             this.txtPrecio.Text = string.Empty;
             this.txtStock.Text = string.Empty;
+            this.txtCodProducto.Text = string.Empty;
 
+            this.paquete = null;
             this.dgvGolosinas.DataSource = null;
+        }
+
+        private void btnBuscarProducto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (String.IsNullOrEmpty(txtCodProducto.Text))
+                {
+                    MessageBox.Show("El campo codigo producto es requerido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    paquete = paqueteService.ObtenerDetalle(int.Parse(txtCodProducto.Text));
+
+                    txtDescripcion.Text = paquete.Descripcion;
+                    txtPrecio.Text = paquete.Importe.ToString();
+                    txtStock.Text = paquete.Stock.ToString();
+
+                    this.dgvGolosinas.DataSource = paquete.Golosinas.Select(x => new { Codigo = x.Id, Descripcion = x.Descripcion, Importe = x.Importe, Cantidad = x.Cantidad }).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

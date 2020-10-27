@@ -159,12 +159,15 @@
             // 
             // dgvGolosinasIncluidas
             // 
+            this.dgvGolosinasIncluidas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvGolosinasIncluidas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvGolosinasIncluidas.Location = new System.Drawing.Point(9, 368);
+            this.dgvGolosinasIncluidas.MultiSelect = false;
             this.dgvGolosinasIncluidas.Name = "dgvGolosinasIncluidas";
+            this.dgvGolosinasIncluidas.ReadOnly = true;
+            this.dgvGolosinasIncluidas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvGolosinasIncluidas.Size = new System.Drawing.Size(582, 148);
             this.dgvGolosinasIncluidas.TabIndex = 20;
-            this.dgvGolosinasIncluidas.SelectionChanged += new System.EventHandler(this.dgvGolosinasIncluidas_SelectionChanged);
             // 
             // groupBox2
             // 

@@ -17,7 +17,7 @@ namespace CandySur.UI
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new Golosina.Listado_Golosinas());
+            Application.Run(new Resumen_Diario());
 
             //Login.Login formLogin = new Login.Login();
             //formLogin.DialogResult = formLogin.ShowDialog();

@@ -163,5 +163,10 @@ namespace CandySur.UI.Golosina
 
             return string.Empty;
         }
+
+        private void txtCodProducto_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

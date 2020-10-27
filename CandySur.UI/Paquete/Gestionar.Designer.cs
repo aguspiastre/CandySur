@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Gestionar));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.cmbPaquetes = new System.Windows.Forms.ComboBox();
+            this.btnBuscarProducto = new System.Windows.Forms.Button();
+            this.txtCodProducto = new System.Windows.Forms.TextBox();
             this.lblTipoProducto = new System.Windows.Forms.Label();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -67,7 +69,8 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.cmbPaquetes);
+            this.groupBox3.Controls.Add(this.btnBuscarProducto);
+            this.groupBox3.Controls.Add(this.txtCodProducto);
             this.groupBox3.Controls.Add(this.lblTipoProducto);
             this.groupBox3.Controls.Add(this.txtPrecio);
             this.groupBox3.Controls.Add(this.label2);
@@ -82,14 +85,22 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "DATOS DEL PAQUETE:";
             // 
-            // cmbPaquetes
+            // btnBuscarProducto
             // 
-            this.cmbPaquetes.FormattingEnabled = true;
-            this.cmbPaquetes.Location = new System.Drawing.Point(10, 41);
-            this.cmbPaquetes.Name = "cmbPaquetes";
-            this.cmbPaquetes.Size = new System.Drawing.Size(263, 26);
-            this.cmbPaquetes.TabIndex = 27;
-            this.cmbPaquetes.SelectedIndexChanged += new System.EventHandler(this.cmbPaquetes_SelectedIndexChanged);
+            this.btnBuscarProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarProducto.Image")));
+            this.btnBuscarProducto.Location = new System.Drawing.Point(230, 42);
+            this.btnBuscarProducto.Name = "btnBuscarProducto";
+            this.btnBuscarProducto.Size = new System.Drawing.Size(43, 29);
+            this.btnBuscarProducto.TabIndex = 36;
+            this.btnBuscarProducto.UseVisualStyleBackColor = true;
+            this.btnBuscarProducto.Click += new System.EventHandler(this.btnBuscarProducto_Click);
+            // 
+            // txtCodProducto
+            // 
+            this.txtCodProducto.Location = new System.Drawing.Point(10, 44);
+            this.txtCodProducto.Name = "txtCodProducto";
+            this.txtCodProducto.Size = new System.Drawing.Size(214, 26);
+            this.txtCodProducto.TabIndex = 35;
             // 
             // lblTipoProducto
             // 
@@ -97,9 +108,9 @@
             this.lblTipoProducto.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTipoProducto.Location = new System.Drawing.Point(6, 22);
             this.lblTipoProducto.Name = "lblTipoProducto";
-            this.lblTipoProducto.Size = new System.Drawing.Size(66, 19);
+            this.lblTipoProducto.Size = new System.Drawing.Size(99, 19);
             this.lblTipoProducto.TabIndex = 24;
-            this.lblTipoProducto.Text = "Paquete:";
+            this.lblTipoProducto.Text = "Cod. Paquete:";
             // 
             // txtPrecio
             // 
@@ -180,9 +191,13 @@
             // 
             // dgvGolosinas
             // 
+            this.dgvGolosinas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvGolosinas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvGolosinas.Location = new System.Drawing.Point(10, 263);
+            this.dgvGolosinas.MultiSelect = false;
             this.dgvGolosinas.Name = "dgvGolosinas";
+            this.dgvGolosinas.ReadOnly = true;
+            this.dgvGolosinas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvGolosinas.Size = new System.Drawing.Size(582, 148);
             this.dgvGolosinas.TabIndex = 6;
             // 
@@ -244,6 +259,7 @@
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblTipoProducto;
-        private System.Windows.Forms.ComboBox cmbPaquetes;
+        private System.Windows.Forms.Button btnBuscarProducto;
+        private System.Windows.Forms.TextBox txtCodProducto;
     }
 }

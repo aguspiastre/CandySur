@@ -15,9 +15,8 @@ namespace CandySur.UI.Paquete
     {
         private SEG.Service.SessionManager Session;
         SEG.Service.Bitacora bitacoraService = new SEG.Service.Bitacora();
-        List<BE.Producto> golosinasIncluidas = new List<BE.Producto>();
+        List<BE.Golosina> golosinasIncluidas = new List<BE.Golosina>();
         BE.Golosina golosinaBuscada;
-        BE.Golosina golosinaAEliminar;
         BLL.Golosina golosinaService = new BLL.Golosina();
         BLL.Paquete paqueteService = new BLL.Paquete();
         public Alta_Paquete()
@@ -40,10 +39,10 @@ namespace CandySur.UI.Paquete
                 }
                 else
                 {
-                    BE.Golosina golosina = golosinaService.ObtenerDetalle(int.Parse(txtCodProducto.Text));
+                    this.golosinaBuscada = golosinaService.ObtenerDetalle(int.Parse(txtCodProducto.Text));
 
-                    txtDescripcion.Text = golosina.Descripcion;
-                    txtStock.Text = golosina.Stock.ToString();
+                    txtDescripcionGolosina.Text = this.golosinaBuscada.Descripcion;
+                    txtStockGolosina.Text = this.golosinaBuscada.Stock.ToString();
                 }
             }
             catch (Exception ex)
@@ -60,17 +59,23 @@ namespace CandySur.UI.Paquete
                 {
                     MessageBox.Show("La cantidad a ingresar supera el stock disponible de la golosina.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                else if (Convert.ToInt32(txtCantidadGolosina.Text) <= 0)
+                {
+                    MessageBox.Show("La cantidad a ingresar debe ser mayor a 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 else if(golosinasIncluidas.Any(g=> g.Id == golosinaBuscada.Id))
                 {
                     MessageBox.Show("La golosina seleccionada ya se encuentra agregada en el paquete.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
+                    golosinaBuscada.Cantidad = Convert.ToInt32(txtCantidadGolosina.Text);
+
                     golosinasIncluidas.Add(golosinaBuscada);
 
                     CalcularPrecio();
 
-                    this.dgvGolosinasIncluidas.DataSource = golosinasIncluidas.Select(x => new { Codigo = x.Id, Descripcion = x.Descripcion, Importe = x.Importe, Stock = x.Stock }).ToList();
+                    this.dgvGolosinasIncluidas.DataSource = golosinasIncluidas.Select(x => new { Id = x.Id, Descripcion = x.Descripcion, Importe = x.Importe, Cantidad = x.Cantidad }).ToList();
 
                     LimpiarCamposGolosina();
                 }
@@ -83,29 +88,19 @@ namespace CandySur.UI.Paquete
 
         private void btnSacar_Click(object sender, EventArgs e)
         {
-            if (golosinaAEliminar != null)
+            if (this.dgvGolosinasIncluidas.SelectedRows.Count > 0)
             {
-                BE.Golosina golosina = (BE.Golosina)golosinasIncluidas.FirstOrDefault(g => g.Id == golosinaAEliminar.Id);
-
-                golosinasIncluidas.Remove(golosina);
-
-                golosinaAEliminar = null;
+                int id = int.Parse(dgvGolosinasIncluidas.SelectedRows[0].Cells["Id"].Value.ToString());
+            
+                golosinasIncluidas.Remove(golosinasIncluidas.FirstOrDefault(x=> x.Id == id));
 
                 CalcularPrecio();
 
-                this.dgvGolosinasIncluidas.DataSource = golosinasIncluidas.Select(x => new { Codigo = x.Id, Descripcion = x.Descripcion, Importe = x.Importe, Stock = x.Stock }).ToList();
+                this.dgvGolosinasIncluidas.DataSource = golosinasIncluidas.Select(x => new { Id = x.Id, Descripcion = x.Descripcion, Importe = x.Importe, Cantidad = x.Cantidad }).ToList();
             }
             else
             {
                 MessageBox.Show("Se debe seleccionar una golosina de la grilla previo presionar el boton (-).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void dgvGolosinasIncluidas_SelectionChanged(object sender, EventArgs e)
-        {
-            foreach (DataGridViewRow row in dgvGolosinasIncluidas.SelectedRows)
-            {
-                golosinaAEliminar = (BE.Golosina)row.DataBoundItem;
             }
         }
 
@@ -126,7 +121,7 @@ namespace CandySur.UI.Paquete
                         Descripcion = txtDescripcion.Text,
                         Stock = int.Parse(txtStock.Text),
                         Eliminado = false,
-                        Importe = int.Parse(lblPrecioTotal.Text),
+                        Importe = Decimal.Parse(lblPrecioTotal.Text.Replace(".", ",")),
                         Golosinas = this.golosinasIncluidas
                     };
 
@@ -144,7 +139,7 @@ namespace CandySur.UI.Paquete
 
                     this.LimpiarCampos();
 
-                    MessageBox.Show("Familia dada de alta correctamente", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Paquete dado de alta correctamente", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
@@ -162,7 +157,7 @@ namespace CandySur.UI.Paquete
                 precio += item.Importe;
             }
 
-            this.lblPrecioTotal.Text = "$ " + precio.ToString();
+            this.lblPrecioTotal.Text = precio.ToString().Replace(".", ",");
         }
 
         private string ValidarCampos()
@@ -179,6 +174,10 @@ namespace CandySur.UI.Paquete
             {
                 return "Se debe agregar golosinas al paquete previo a finalizar";
             }
+            if (golosinasIncluidas.Count == 1)
+            {
+                return "Se deben agregar al menos 2 productos.";
+            }
 
             return string.Empty;
         }
@@ -190,9 +189,9 @@ namespace CandySur.UI.Paquete
             this.lblPrecioTotal.Text = "$ 0";
             LimpiarCamposGolosina();
 
-            golosinaBuscada = null;
-            golosinaAEliminar = null;
-            golosinasIncluidas.Clear();
+            this.golosinaBuscada = null;
+            this.golosinasIncluidas.Clear();
+            this.dgvGolosinasIncluidas.DataSource = null;
         }
 
         private void LimpiarCamposGolosina()

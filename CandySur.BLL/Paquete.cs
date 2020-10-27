@@ -60,7 +60,7 @@ namespace CandySur.BLL
 
                     foreach (BE.Golosina item in paquete.Golosinas)
                     {
-                        golosinaService.AumentarStock(item, item.Cantidad);
+                        golosinaService.AumentarStock(item, (item.Cantidad * paquete.Stock));
                     }
 
                     scope.Complete();

@@ -237,6 +237,7 @@
             this.txtCodProducto.Name = "txtCodProducto";
             this.txtCodProducto.Size = new System.Drawing.Size(214, 26);
             this.txtCodProducto.TabIndex = 33;
+            this.txtCodProducto.TextChanged += new System.EventHandler(this.txtCodProducto_TextChanged);
             // 
             // label1
             // 

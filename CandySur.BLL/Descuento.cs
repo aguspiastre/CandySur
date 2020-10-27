@@ -82,7 +82,7 @@ namespace CandySur.BLL
 
         public BE.Descuento CalcularDescuentos(List<BE.Descuento> descuentos, decimal importe)
         {
-            foreach (var item in descuentos.OrderByDescending(x=> x.Importe))
+            foreach (var item in descuentos.Where(x=> x.Activo).OrderByDescending(x=> x.Importe))
             {
                 if (importe > item.Importe)
                     return item;

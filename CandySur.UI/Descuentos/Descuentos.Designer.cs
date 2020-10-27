@@ -87,6 +87,7 @@
             // 
             // dgvDescuentos
             // 
+            this.dgvDescuentos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDescuentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDescuentos.Location = new System.Drawing.Point(6, 26);
             this.dgvDescuentos.Name = "dgvDescuentos";
@@ -158,6 +159,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "Descuentos";
             this.Text = "Descuentos";
+            this.Load += new System.EventHandler(this.Descuentos_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();

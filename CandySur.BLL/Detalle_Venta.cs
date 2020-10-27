@@ -10,16 +10,22 @@ namespace CandySur.BLL
 {
     public class Detalle_Venta
     {
+        public Detalle_Venta()
+        {
+            this.repository = new DLL.Repository.Detalle_Venta();
+            this.dv = new SEG.Service.DigitoVerificador();
+        }
+
         private CandySur.DLL.Repository.Detalle_Venta repository { get; set; }
         private CandySur.SEG.Service.DigitoVerificador dv { get; set; }
 
-        public void Eliminar(CandySur.BE.Detalle_Venta detalle, int tipoProducto)
+        public void Eliminar(CandySur.BE.Detalle_Venta detalle)
         {
             try
             {
                 using (var scope = new TransactionScope(TransactionScopeOption.RequiresNew, new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }))
                 {
-                    repository.Eliminar(detalle, dv.CalcularDVH(this.ConcatenarRegistro(detalle)), tipoProducto);
+                    repository.Eliminar(detalle, dv.CalcularDVH(this.ConcatenarRegistro(detalle)));
 
                     dv.ActualizarDVV("Detalle_Venta");
 
@@ -78,7 +84,7 @@ namespace CandySur.BLL
                 tipoProducto = (int)Enums.TipoProducto.Paquete;
             }
 
-            return detalle.IdVenta + detalle.Producto.Id + tipoProducto + detalle.Cantidad + detalle.Importe.ToString();
+            return detalle.IdVenta.ToString() + detalle.Producto.Id + tipoProducto + detalle.Cantidad + detalle.Importe.ToString("0.00") + detalle.Eliminado;
         }
     }
 }

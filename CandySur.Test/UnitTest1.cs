@@ -79,8 +79,6 @@ namespace CandySur.Test
         {
             SEG.Service.DigitoVerificador dvService = new SEG.Service.DigitoVerificador();
 
-            dvService.ActualizarDVV("Usuario");
-
             bool integridad = dvService.VerificarIntegridad();
 
         }
@@ -101,5 +99,18 @@ namespace CandySur.Test
 
             familiaService.Consultar("PruebaAgus");
         }
+
+
+        [TestMethod]
+        public void ListarVenas()
+        {
+            CandySur.BLL.Venta ventaService = new CandySur.BLL.Venta();
+
+            foreach (var item in ventaService.ListarDiarias())
+            {
+                ventaService.ConcatenarRegistro(item);
+            } 
+        }
     }
+
 }

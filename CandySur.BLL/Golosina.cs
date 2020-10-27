@@ -94,7 +94,7 @@ namespace CandySur.BLL
         {
             try
             {
-                golosina.Stock = golosina.Stock + disminucion;
+                golosina.Stock = golosina.Stock - disminucion;
 
                 using (var scope = new TransactionScope(TransactionScopeOption.RequiresNew, new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }))
                 {

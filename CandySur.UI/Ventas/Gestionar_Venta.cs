@@ -71,7 +71,6 @@ namespace CandySur.UI
                     bitacoraService.Registrar(reg);
 
                     MessageBox.Show("Venta eliminada con exito.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 }
             }
             catch (Exception ex)
@@ -85,6 +84,11 @@ namespace CandySur.UI
             this.txtNumeroVenta.Text = string.Empty;
             this.venta = null;
             this.dvgProductosIncluidos.DataSource = null;
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

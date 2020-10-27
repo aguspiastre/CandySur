@@ -227,6 +227,7 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(610, 350);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Resto";
             this.Text = "Resto";
             this.Load += new System.EventHandler(this.Resto_Load);

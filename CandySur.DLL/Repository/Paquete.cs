@@ -17,7 +17,7 @@ namespace CandySur.DLL.Repository
         public int Alta(CandySur.BE.Paquete paquete)
         {
             string sqlCommand = @"INSERT INTO Paquete (Descripcion, Importe, Stock, Eliminado)
-                                VALUES (" + "'" + paquete.Descripcion + "'" + "," + "'" + UTIL.Encrypt.Encriptar(paquete.Importe.ToString(),1) + "'" + "," + "'" + UTIL.Encrypt.Encriptar(paquete.Stock.ToString(), 1) + "'" + "," + paquete.Eliminado +  ")";
+                                VALUES (" + "'" + paquete.Descripcion + "'" + "," + "'" + UTIL.Encrypt.Encriptar(paquete.Importe.ToString().Replace("," , "."),1) + "'" + "," + "'" + UTIL.Encrypt.Encriptar(paquete.Stock.ToString(), 1) + "'" + "," + Convert.ToInt16(paquete.Eliminado) +  ")";
 
             return db.ExecuteSqlCommand(sqlCommand);
         }
@@ -74,7 +74,7 @@ namespace CandySur.DLL.Repository
                 Stock = int.Parse(UTIL.Encrypt.Desencriptar(tabla.Rows[0]["Stock"].ToString())),
                 Eliminado = (bool)tabla.Rows[0]["Eliminado"],
                 Descripcion = tabla.Rows[0]["Descripcion"].ToString(),
-                Importe = Decimal.Parse(UTIL.Encrypt.Desencriptar(tabla.Rows[0]["Importe"].ToString())),
+                Importe = Decimal.Parse(UTIL.Encrypt.Desencriptar(tabla.Rows[0]["Importe"].ToString()).Replace(".", ",")),
             };
 
             return paquete;
@@ -94,7 +94,7 @@ namespace CandySur.DLL.Repository
                 {
                     Id = int.Parse(row["Id"].ToString()),
                     Descripcion = row["Descripcion"].ToString(),
-                    Importe = Decimal.Parse(UTIL.Encrypt.Desencriptar(row["Importe"].ToString())),
+                    Importe = Decimal.Parse(UTIL.Encrypt.Desencriptar(row["Importe"].ToString()).Replace(".",",")),
                     Stock = int.Parse(UTIL.Encrypt.Desencriptar(row["Stock"].ToString()))
                 };
 

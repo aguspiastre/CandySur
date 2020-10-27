@@ -120,9 +120,13 @@
             // 
             // dvgVentasDiarias
             // 
+            this.dvgVentasDiarias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dvgVentasDiarias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dvgVentasDiarias.Location = new System.Drawing.Point(10, 126);
+            this.dvgVentasDiarias.MultiSelect = false;
             this.dvgVentasDiarias.Name = "dvgVentasDiarias";
+            this.dvgVentasDiarias.ReadOnly = true;
+            this.dvgVentasDiarias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dvgVentasDiarias.Size = new System.Drawing.Size(582, 272);
             this.dvgVentasDiarias.TabIndex = 0;
             // 

@@ -16,8 +16,6 @@ namespace CandySur.UI.Descuentos
         private SEG.Service.SessionManager Session;
         SEG.Service.Bitacora bitacoraService = new SEG.Service.Bitacora();
         CandySur.BLL.Descuento descuentoService = new CandySur.BLL.Descuento();
-        private CandySur.BE.Descuento descuentoActivar;
-        private CandySur.BE.Descuento descuentoDesactivar;
 
         public Gestionar()
         {
@@ -40,9 +38,7 @@ namespace CandySur.UI.Descuentos
                 //this.Traducir();
                 //SEG.Service.IdiomaManager.Suscribir(this);
 
-                this.dgvDesactivadas.DataSource = descuentoService.Listar().Where(d => d.Activo);
-
-                this.dvgActivas.DataSource = descuentoService.Listar().Where(d => !d.Activo);
+                CargarDescuentos();
             }
             catch (Exception ex)
             {
@@ -55,25 +51,27 @@ namespace CandySur.UI.Descuentos
         {
             try
             {
-                if (this.descuentoActivar == null)
+                if (this.dvgPromocionesDesactivadas.SelectedRows.Count == 0)
                 {
                     MessageBox.Show("Debe seleccionar un descuento a activar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    descuentoService.Activar(this.descuentoActivar);
+                    BE.Descuento descuento = dvgPromocionesDesactivadas.SelectedRows[0]?.DataBoundItem as BE.Descuento;
+
+                    descuentoService.Activar(descuento);
 
                     SEG.Entity.Bitacora reg = new SEG.Entity.Bitacora
                     {
                         IdUsuario = Session.Usuario.Id,
                         IdCriticidad = (int)Enums.Criticidad.Baja,
                         Fecha = DateTime.Now,
-                        Descripcion = "Se activo el descuento " + descuentoActivar.Id
+                        Descripcion = "Se activo el descuento " + descuento.Id
                     };
 
                     bitacoraService.Registrar(reg);
 
-                    this.dvgActivas.DataSource = descuentoService.Listar().Where(d => d.Activo);
+                    this.CargarDescuentos();
 
                     MessageBox.Show("Descuento activado de manera correcta.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -84,37 +82,31 @@ namespace CandySur.UI.Descuentos
             }
         }
 
-        private void dgvDesactivadas_SelectionChanged(object sender, EventArgs e)
-        {
-            foreach (DataGridViewRow row in dvgActivas.SelectedRows)
-            {
-                descuentoActivar = (CandySur.BE.Descuento)row.DataBoundItem;
-            }
-        }
-
         private void btnDesactivar_Click(object sender, EventArgs e)
         {
             try
             {
-                if (this.descuentoDesactivar == null)
+                if (this.dvgPromocionesActivas.SelectedRows.Count == 0)
                 {
                     MessageBox.Show("Debe seleccionar un descuento a desactivar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    descuentoService.Activar(this.descuentoDesactivar);
+                    BE.Descuento descuento = dvgPromocionesActivas.SelectedRows[0]?.DataBoundItem as BE.Descuento;
+
+                    descuentoService.Desactivar(descuento);
 
                     SEG.Entity.Bitacora reg = new SEG.Entity.Bitacora
                     {
                         IdUsuario = Session.Usuario.Id,
                         IdCriticidad = (int)Enums.Criticidad.Baja,
                         Fecha = DateTime.Now,
-                        Descripcion = "Se desactivo el descuento " + descuentoDesactivar.Id
+                        Descripcion = "Se desactivo el descuento " + descuento.Id
                     };
 
                     bitacoraService.Registrar(reg);
 
-                    this.dgvDesactivadas.DataSource = descuentoService.Listar().Where(d => !d.Activo);
+                    CargarDescuentos();
 
                     MessageBox.Show("Descuento desactivado de manera correcta.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -125,12 +117,13 @@ namespace CandySur.UI.Descuentos
             }
         }
 
-        private void dvgActivas_SelectionChanged(object sender, EventArgs e)
+        private void CargarDescuentos()
         {
-            foreach (DataGridViewRow row in dvgActivas.SelectedRows)
-            {
-                this.descuentoDesactivar = (CandySur.BE.Descuento)row.DataBoundItem;
-            }
+            List<BE.Descuento> descuentos = descuentoService.Listar();
+
+            this.dvgPromocionesDesactivadas.DataSource = descuentos.Where(x => x.Activo == false).ToList();
+
+            this.dvgPromocionesActivas.DataSource = descuentos.Where(x => x.Activo == true).ToList();
         }
     }
 }

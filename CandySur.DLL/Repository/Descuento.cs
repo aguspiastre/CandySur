@@ -19,7 +19,7 @@ namespace CandySur.DLL.Repository
         public int Configurar(CandySur.BE.Descuento descuento)
         {
             string sqlCommand = @"INSERT INTO Descuento (Importe, Porcentaje, Activo)
-                                VALUES (" + Encrypt.Encriptar(descuento.Importe.ToString(), 1) + "," + Encrypt.Encriptar(descuento.Porcentaje.ToString(), 1) + "," + 0 + ")";
+                                VALUES (" + "'" + Encrypt.Encriptar(descuento.Importe.ToString().Replace(",", "."), 1) + "'" + "," + "'" + Encrypt.Encriptar(descuento.Porcentaje.ToString().Replace(",", "."), 1) + "'" + "," + 0 + ")";
 
             return db.ExecuteSqlCommand(sqlCommand);
         }

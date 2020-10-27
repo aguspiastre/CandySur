@@ -10,7 +10,7 @@ namespace CandySur.BLL
     {
         public decimal Calcular(decimal importeVenta, decimal importeAbonado)
         {
-            return importeVenta - importeAbonado;
+            return importeAbonado - importeVenta;
         }
     }
 }

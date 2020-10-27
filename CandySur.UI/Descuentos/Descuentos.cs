@@ -14,8 +14,9 @@ namespace CandySur.UI.Descuentos
     public partial class Descuentos : Form
     {
         private SEG.Service.SessionManager Session;
-        CandySur.BLL.Descuento descuentoService = new CandySur.BLL.Descuento();
-        SEG.Service.Bitacora bitacoraService = new SEG.Service.Bitacora();
+        private CandySur.BLL.Descuento descuentoService = new CandySur.BLL.Descuento();
+        private SEG.Service.Bitacora bitacoraService = new SEG.Service.Bitacora();
+        private List<CandySur.BE.Descuento> descuentos;
 
         public Descuentos()
         {
@@ -42,7 +43,7 @@ namespace CandySur.UI.Descuentos
                     CandySur.BE.Descuento d = new CandySur.BE.Descuento
                     {
                         Importe = Convert.ToDecimal(txtImporte.Text),
-                        Porcentaje = Convert.ToDecimal(txtPorcentaje.Text),
+                        Porcentaje = Convert.ToDecimal(txtPorcentaje.Text.Replace(".", ",")),
                     };
 
                     descuentoService.Configurar(d);
@@ -56,6 +57,12 @@ namespace CandySur.UI.Descuentos
                     };
 
                     bitacoraService.Registrar(reg);
+
+                    this.descuentos = descuentoService.Listar();
+
+                    this.dgvDescuentos.DataSource = this.descuentos.Select(x => new { Importe = x.Importe, Descuento = x.Porcentaje + "%", Activa = x.Activo }).ToList();
+
+                    this.LimpiarCampos();
 
                     MessageBox.Show("Descuento dado de alta correctamente", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -83,6 +90,34 @@ namespace CandySur.UI.Descuentos
             }
 
             return string.Empty;
+        }
+
+        private void Descuentos_Load(object sender, EventArgs e)
+        {
+            Session = SEG.Service.SessionManager.GetInstance();
+            try
+            {
+                //Session = SEG.Service.SessionManager.GetInstance();
+
+                //this.validarPermisos(Session);
+
+                //this.Traducir();
+                //SEG.Service.IdiomaManager.Suscribir(this);
+                this.descuentos = descuentoService.Listar();
+
+                this.dgvDescuentos.DataSource = this.descuentos.Select(x => new { Importe = x.Importe, Descuento = x.Porcentaje + "%", Activa = x.Activo }).ToList();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.BeginInvoke(new MethodInvoker(this.Close));
+            }
+        }
+
+        private void LimpiarCampos()
+        {
+            txtImporte.Text = string.Empty;
+            txtPorcentaje.Text = string.Empty;
         }
     }
 }

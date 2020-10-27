@@ -11,8 +11,6 @@ namespace CandySur.DLL.Repository
     public class Detalle_Venta
     {
         private CandySur.DLL.Datos db;
-        private CandySur.DLL.Repository.Paquete paqueteRepository;
-        private CandySur.DLL.Repository.Golosina golosinaRepository;
 
         public Detalle_Venta()
         {
@@ -23,23 +21,26 @@ namespace CandySur.DLL.Repository
         {
             string sqlCommand = @"INSERT INTO Detalle_Venta (Id_Venta, Id_Producto, Id_Tipo_Producto, Cantidad, Importe, DVH, Eliminado)
                                 VALUES ("  + detalle.IdVenta + "," + detalle.Producto.Id + "," + tipoProducto + "," + detalle.Cantidad + "," 
-                                + detalle.Importe + "," + "'" + detalle.DVH + "'" + "," + Convert.ToInt16(detalle.Eliminado) + ")";
+                                + detalle.Importe.ToString("0.00").Replace(",",".") + "," + "'" + DVH + "'" + "," + Convert.ToInt16(detalle.Eliminado) + ")";
 
             return db.ExecuteSqlCommand(sqlCommand);
         }
 
-        public int Eliminar(BE.Detalle_Venta detalle, string DVH, int tipoProducto)
+        public int Eliminar(BE.Detalle_Venta detalle, string DVH)
         {
             string sqlCommand = @"UPDATE Detalle_Venta SET DVH=" + "'" + DVH + "'" + "," + "Eliminado=" + Convert.ToInt16(detalle.Eliminado) + 
-                " WHERE Id_Venta=" + detalle.IdVenta + " AND Id_Producto=" + detalle.Producto.Id + " AND Id_Tipo_Producto=" + tipoProducto;
+                " WHERE Id=" + detalle.Id;
 
             return db.ExecuteSqlCommand(sqlCommand);
         }
 
         public List<CandySur.BE.Detalle_Venta> Listar(int IdVenta)
         {
+            CandySur.DLL.Repository.Paquete paqueteRepository = new CandySur.DLL.Repository.Paquete();
+            CandySur.DLL.Repository.Golosina golosinaRepository = new CandySur.DLL.Repository.Golosina();
+
             List<CandySur.BE.Detalle_Venta> detalles = new List<CandySur.BE.Detalle_Venta>();
-            string sqlCommand = @"SELECT Id_Producto, Id_Tipo_Producto, Cantidad, Importe, DVH FROM Detalle_Venta
+            string sqlCommand = @"SELECT Id, Id_Producto, Id_Tipo_Producto, Cantidad, Importe, DVH FROM Detalle_Venta
 							      WHERE Id_Venta =" + IdVenta;
 
             DataTable tabla = db.ExecuteNonQuery(sqlCommand);
@@ -48,6 +49,7 @@ namespace CandySur.DLL.Repository
             {
                 CandySur.BE.Detalle_Venta d = new CandySur.BE.Detalle_Venta
                 {
+                    Id = int.Parse(row["Id"].ToString()),
                     Cantidad = int.Parse(row["Cantidad"].ToString()),
                     Importe = Decimal.Parse(row["Importe"].ToString()),
                     DVH = row["DVH"].ToString(),

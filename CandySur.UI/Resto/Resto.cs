@@ -30,15 +30,15 @@ namespace CandySur.UI.Resto
         {
             try
             {
-                if (!String.IsNullOrEmpty(this.txtMontoAbonado.Text))
+                if (!String.IsNullOrEmpty(this.txtMontoAbonado.Text) && Convert.ToDecimal(this.txtMontoAbonado.Text.Replace(".",",")) >= this.venta.Importe && Convert.ToDecimal(this.txtMontoAbonado.Text.Replace(".", ",")) != 0)
                 {
                     CandySur.BLL.Cobro cobroService = new CandySur.BLL.Cobro();
 
-                    this.txtResto.Text = (cobroService.Calcular(Convert.ToDecimal(this.txtImporteTotal.Text), Convert.ToDecimal(this.txtMontoAbonado.Text))).ToString();
+                    this.txtResto.Text = (cobroService.Calcular(Convert.ToDecimal(this.txtSubTotal.Text.Replace(".", ",")), Convert.ToDecimal(this.txtMontoAbonado.Text.Replace(".", ",")))).ToString();
                 }
                 else
                 {
-                    throw new Exception("Se debe ingresar el monto abonado por el cliente previo a calcular.");
+                    throw new Exception("Se debe ingresar el monto abonado valido previo a calcular.");
                 }
             }
             catch (Exception ex)

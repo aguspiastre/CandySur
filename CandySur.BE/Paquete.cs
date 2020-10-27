@@ -10,9 +10,9 @@ namespace CandySur.BE
     {
         public Paquete()
         {
-            this.Golosinas = new List<Producto>();
+            this.Golosinas = new List<Golosina>();
         }
-        public List<Producto> Golosinas { get; set; }
+        public List<Golosina> Golosinas { get; set; }
 
         public void Agregar(Golosina golosina)
         {

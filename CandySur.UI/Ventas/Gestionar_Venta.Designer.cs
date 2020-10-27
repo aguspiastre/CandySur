@@ -144,6 +144,7 @@
             this.btnAceptar.TabIndex = 7;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = false;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // pictureBox1
             // 
@@ -169,9 +170,13 @@
             // 
             // dvgProductosIncluidos
             // 
+            this.dvgProductosIncluidos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dvgProductosIncluidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dvgProductosIncluidos.Location = new System.Drawing.Point(9, 205);
+            this.dvgProductosIncluidos.MultiSelect = false;
             this.dvgProductosIncluidos.Name = "dvgProductosIncluidos";
+            this.dvgProductosIncluidos.ReadOnly = true;
+            this.dvgProductosIncluidos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dvgProductosIncluidos.Size = new System.Drawing.Size(582, 198);
             this.dvgProductosIncluidos.TabIndex = 0;
             // 

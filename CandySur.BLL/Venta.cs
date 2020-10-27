@@ -69,6 +69,9 @@ namespace CandySur.BLL
             BLL.Golosina golosinaService = new BLL.Golosina();
             BLL.Paquete paqueteService = new BLL.Paquete();
 
+            if (venta.Fecha.Date != DateTime.Now.Date)
+                throw new Exception("No se puede eliminar una venta que no es del dia.");
+
             try
             {
                 //Calculo DVH
@@ -80,16 +83,14 @@ namespace CandySur.BLL
 
                     foreach (var item in venta.Detalles)
                     {
-                        if(item.Producto is BE.Golosina)
-                        {
-                            detalleService.Eliminar(item, (int)Enums.TipoProducto.Golosina);
+                        detalleService.Eliminar(item);
 
+                        if (item.Producto is BE.Golosina)
+                        {
                             golosinaService.AumentarStock(item.Producto as BE.Golosina, item.Cantidad);
                         }
                         else
                         {
-                            detalleService.Eliminar(item, (int)Enums.TipoProducto.Paquete);
-
                             paqueteService.AumentarStock(item.Producto as BE.Paquete, item.Cantidad);
                         }
                     }
@@ -138,9 +139,9 @@ namespace CandySur.BLL
             }
         }
 
-        private string ConcatenarRegistro(BE.Venta venta)
+        public string ConcatenarRegistro(BE.Venta venta)
         {
-            return venta.Id + venta.Importe + venta.Fecha.ToString() + venta.Eliminado;
+            return venta.Importe.ToString("0.00") + venta.Fecha.ToString() + venta.Eliminado;
         }
     }
 }

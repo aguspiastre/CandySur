@@ -15,9 +15,7 @@ namespace CandySur.UI
         BLL.Paquete paqueteService = new BLL.Paquete();
         BLL.Golosina golosinaService = new BLL.Golosina();
         BE.Producto productoBuscado;
-        List<BE.Producto> productosIncluidos;
         BE.Venta venta = new BE.Venta();
-
 
         public Venta()
         {
@@ -70,6 +68,9 @@ namespace CandySur.UI
                     }
 
                     txtPrecio.Text = productoBuscado.Importe.ToString();
+                    txtDescripcion.Text = productoBuscado.Descripcion;
+                    txtPrecio.Text = productoBuscado.Importe.ToString();
+                    txtStock.Text = productoBuscado.Stock.ToString();
                 }
             }
             catch (Exception ex)
@@ -83,19 +84,25 @@ namespace CandySur.UI
         {
             try
             {
+                if(txtCantidad.Text == string.Empty)
+                    throw new Exception("El campo cantidad es requerido.");
+
+                if (int.Parse(txtCantidad.Text) == 0)
+                    throw new Exception("La cantidad a ingresar no puede ser 0");
+
                 if (int.Parse(txtCantidad.Text) <= productoBuscado.Stock)
                 {
                     venta.AgregarProducto(new BE.Detalle_Venta
                     {
                         Cantidad = int.Parse(txtCantidad.Text),
-                        Importe = int.Parse(txtPrecio.Text),
+                        Importe = Decimal.Parse(txtPrecio.Text.Replace(".", ",")),
                         Producto = productoBuscado,
                         Eliminado = false
                     });
 
                     this.lblImporteTotal.Text = "$ " + this.venta.Importe;
 
-                    this.dgvDetalles.DataSource = this.venta.Detalles.Select(x => new { Producto = x.Producto.Descripcion, Cantidad = x.Cantidad, Importe = x.Importe }).ToList();
+                    this.dgvDetalles.DataSource = this.venta.Detalles.Select(x => new { Codigo = x.Producto.Id, Tipo = productoBuscado is BE.Golosina ? "Golosina" : "Paquete", Producto = x.Producto.Descripcion, Cantidad = x.Cantidad, Importe = x.Importe }).ToList();
                 }
                 else
                 {
@@ -112,13 +119,16 @@ namespace CandySur.UI
         {
             try
             {
-                BE.Detalle_Venta detalleSeleccionado = dgvDetalles.SelectedRows[0].DataBoundItem as BE.Detalle_Venta;
-
-                if (detalleSeleccionado != null)
+                if (this.dgvDetalles.SelectedRows.Count > 0)
                 {
-                    venta.EliminarProducto(detalleSeleccionado);
+                    int codigo = Convert.ToInt32(dgvDetalles.SelectedRows[0].Cells["Codigo"].Value.ToString());
+                    string tipoProducto = dgvDetalles.SelectedRows[0].Cells["Producto"].Value.ToString();
+
+                    venta.EliminarProducto(codigo, tipoProducto);
 
                     this.lblImporteTotal.Text = "$ " + this.venta.Importe;
+
+                    this.dgvDetalles.DataSource = this.venta.Detalles.Select(x => new { Codigo = x.Producto.Id, Tipo = productoBuscado is BE.Golosina ? "Golosina" : "Paquete", Producto = x.Producto.Descripcion, Cantidad = x.Cantidad, Importe = x.Importe }).ToList();
                 }
                 else
                 {
@@ -152,7 +162,8 @@ namespace CandySur.UI
 
         private void VisualizarPantallaCobro()
         {
-
+            UI.Resto.Resto resto = new Resto.Resto(this.venta, this);
+            resto.ShowDialog();
         }
     }
 }
