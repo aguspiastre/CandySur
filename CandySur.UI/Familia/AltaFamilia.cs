@@ -25,7 +25,6 @@ namespace CandySur.UI.Familia
 
         private void AltaFamilia_Load(object sender, EventArgs e)
         {
-            Session = SEG.Service.SessionManager.GetInstance();
             try
             {
                 Session = SEG.Service.SessionManager.GetInstance();

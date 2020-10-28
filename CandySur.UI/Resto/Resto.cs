@@ -34,7 +34,7 @@ namespace CandySur.UI.Resto
                 {
                     CandySur.BLL.Cobro cobroService = new CandySur.BLL.Cobro();
 
-                    this.txtResto.Text = (cobroService.Calcular(Convert.ToDecimal(this.txtSubTotal.Text.Replace(".", ",")), Convert.ToDecimal(this.txtMontoAbonado.Text.Replace(".", ",")))).ToString();
+                    this.txtResto.Text = (cobroService.Calcular(Convert.ToDecimal(this.txtImporteTotal.Text.Replace(".", ",")), Convert.ToDecimal(this.txtMontoAbonado.Text.Replace(".", ",")))).ToString();
                 }
                 else
                 {
@@ -84,6 +84,8 @@ namespace CandySur.UI.Resto
         {
             try
             {
+                Session = SEG.Service.SessionManager.GetInstance();
+
                 this.txtSubTotal.Text = this.venta.Importe.ToString();
 
                 BLL.Descuento descuentosService = new BLL.Descuento();
@@ -96,6 +98,11 @@ namespace CandySur.UI.Resto
                 {
                     this.txtDescuentoAplicado.Text = ((descuento.Porcentaje * this.venta.Importe) / 100).ToString();
                     this.venta.Importe -= Convert.ToDecimal(this.txtDescuentoAplicado.Text);
+                    this.txtImporteTotal.Text = this.venta.Importe.ToString();
+
+                } else
+                {
+                    this.txtDescuentoAplicado.Text = "0";
                     this.txtImporteTotal.Text = this.venta.Importe.ToString();
                 }
 
@@ -113,5 +120,6 @@ namespace CandySur.UI.Resto
         {
             this.Close();
         }
+
     }
 }

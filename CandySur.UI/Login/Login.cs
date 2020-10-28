@@ -52,8 +52,8 @@ namespace CandySur.UI.Login
                 {
                     bool verificarIntegridad = digitoverificadorService.VerificarIntegridad();
 
-                    SEG.Entity.Usuario usuario = usuarioService.Consultar(txtUsuario.Text);
-                    contraseña = Encrypt.Encriptar(contraseña, (int)TipoEncriptacion.Irreversible);
+                    SEG.Entity.Usuario usuario = usuarioService.Consultar(txtUsuario.Text.Trim());
+                    contraseña = Encrypt.Encriptar(contraseña.Trim(), (int)TipoEncriptacion.Irreversible);
 
                     // Valido si es o no administrador
                     bool esAdministrador = usuario.Permisos.Any(p => p.Nombre == "Administrador del Sistema");

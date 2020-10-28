@@ -201,5 +201,24 @@ namespace CandySur.UI.Paquete
             this.txtDescripcionGolosina.Text = string.Empty;
             this.txtStockGolosina.Text = string.Empty;
         }
+
+        private void Alta_Paquete_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                Session = SEG.Service.SessionManager.GetInstance();
+
+                //this.validarPermisos(Session);
+
+                //this.Traducir();
+                //SEG.Service.IdiomaManager.Suscribir(this);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.BeginInvoke(new MethodInvoker(this.Close));
+            }
+        }
     }
 }

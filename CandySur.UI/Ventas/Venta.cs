@@ -12,6 +12,7 @@ namespace CandySur.UI
 {
     public partial class Venta : Form
     {
+        private SEG.Service.SessionManager Session;
         BLL.Paquete paqueteService = new BLL.Paquete();
         BLL.Golosina golosinaService = new BLL.Golosina();
         BE.Producto productoBuscado;
@@ -27,25 +28,6 @@ namespace CandySur.UI
             this.lblTipoProducto.Text = "Codigo Producto:";
             this.btnBuscarProducto.Visible = true;
             this.txtCodProducto.Visible = true;
-        }
-
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (this.rdbProducto.Checked == false)
-            {
-                this.lblTipoProducto.Text = "Paquete:";
-                this.btnBuscarProducto.Visible = false;
-                this.txtCodProducto.Visible = false;
-                this.cboPaquetes.Visible = true;
-            }
-            else
-            {
-                this.lblTipoProducto.Text = "Codigo Producto:";
-                this.btnBuscarProducto.Visible = true;
-                this.txtCodProducto.Visible = true;
-                this.cboPaquetes.Visible = false;
-            }
-
         }
 
         private void btnBuscarProducto_Click(object sender, EventArgs e)
@@ -164,6 +146,25 @@ namespace CandySur.UI
         {
             UI.Resto.Resto resto = new Resto.Resto(this.venta, this);
             resto.ShowDialog();
+        }
+
+        private void Venta_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                Session = SEG.Service.SessionManager.GetInstance();
+
+                //this.validarPermisos(Session);
+
+                //this.Traducir();
+                //SEG.Service.IdiomaManager.Suscribir(this);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.BeginInvoke(new MethodInvoker(this.Close));
+            }
         }
     }
 }

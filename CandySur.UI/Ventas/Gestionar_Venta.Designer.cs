@@ -189,6 +189,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "Gestionar_Venta";
             this.Text = "Gestionar";
+            this.Load += new System.EventHandler(this.Gestionar_Venta_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

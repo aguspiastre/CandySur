@@ -40,6 +40,23 @@ namespace CandySur.UI.Golosina
                     txtStock.Text = golosina.Stock.ToString();
                     txtStockAlerta.Text = golosina.AlertaStock.ToString();
 
+                    //Alerta stock
+                    if(golosina.Stock == 0)
+                    {
+                        this.lblStockActual.Text = "Sin stock.";
+                        this.lblStockActual.ForeColor = Color.Red;
+                    }
+                    else if(golosina.Stock <= golosina.AlertaStock)
+                    {
+                        this.lblStockActual.Text = "Stock reducido.";
+                        this.lblStockActual.ForeColor = Color.Yellow;
+                    }
+                    else
+                    {
+                        this.lblStockActual.Text = "En stock.";
+                        this.lblStockActual.ForeColor = Color.Green;
+                    }
+
                     //Datos del proveedor
                     txtEmail.Text = golosina.Proveedor.Mail;
                     txtTelefono.Text = golosina.Proveedor.Telefono.ToString();
@@ -167,6 +184,25 @@ namespace CandySur.UI.Golosina
         private void txtCodProducto_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void Gestionar_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                Session = SEG.Service.SessionManager.GetInstance();
+
+                //this.validarPermisos(Session);
+
+                //this.Traducir();
+                //SEG.Service.IdiomaManager.Suscribir(this);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.BeginInvoke(new MethodInvoker(this.Close));
+            }
         }
     }
 }

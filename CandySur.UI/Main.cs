@@ -261,5 +261,103 @@ namespace CandySur.UI
 
             SEG.Service.IdiomaManager.CambiarIdioma(idioma);
         }
+
+        private void generarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var generarVenta = new Venta();
+            generarVenta.MdiParent = this;
+            generarVenta.Show();
+        }
+
+        private void gestionarToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            var gestionarVenta = new Gestionar_Venta();
+            gestionarVenta.MdiParent = this;
+            gestionarVenta.Show();
+        }
+
+        private void resumenDiarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var resumenDiario = new Resumen_Diario();
+            resumenDiario.MdiParent = this;
+            resumenDiario.Show();
+        }
+
+        private void altaToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            var alta = new Golosina.Alta_Golosina();
+            alta.MdiParent = this;
+            alta.Show();
+        }
+
+        private void gestionarToolStripMenuItem1_Click_1(object sender, EventArgs e)
+        {
+            var form = new Golosina.Gestionar();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void listarToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            var form = new Golosina.Listado_Golosinas();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void altaToolStripMenuItem1_Click_1(object sender, EventArgs e)
+        {
+            var form = new Paquete.Alta_Paquete();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void gestionarToolStripMenuItem2_Click_1(object sender, EventArgs e)
+        {
+            var form = new Paquete.Gestionar();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void listadoDeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new Paquete.Listado_Paquetes();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void altaToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            var form = new Proveedor.Proveedor();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void gestionarToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            var form = new Proveedor.Gestionar();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void listadoDeProveedoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new Proveedor.Listado_Proveedores();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void configurarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new Descuentos.Descuentos();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void gestionarToolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            var form = new Descuentos.Gestionar();
+            form.MdiParent = this;
+            form.Show();
+        }
     }
 }

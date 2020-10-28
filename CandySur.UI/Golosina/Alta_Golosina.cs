@@ -32,7 +32,7 @@ namespace CandySur.UI.Golosina
         {
             try
             {
-                //Session = SEG.Service.SessionManager.GetInstance();
+                Session = SEG.Service.SessionManager.GetInstance();
 
                 //this.validarPermisos(Session);
 

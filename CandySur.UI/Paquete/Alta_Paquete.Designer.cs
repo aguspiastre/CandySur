@@ -333,6 +333,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "Alta_Paquete";
             this.Text = "Paquete";
+            this.Load += new System.EventHandler(this.Alta_Paquete_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);

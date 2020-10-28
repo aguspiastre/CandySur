@@ -14,6 +14,7 @@ namespace CandySur.UI.Proveedor
     {
         private BE.Proveedor proveedor;
         private BE.Golosina golosina;
+        private SEG.Service.SessionManager Session;
 
         public EnviarMail(BE.Proveedor proveedor, BE.Golosina golosina)
         {
@@ -34,8 +35,21 @@ namespace CandySur.UI.Proveedor
 
         private void EnviarMail_Load(object sender, EventArgs e)
         {
+            try
+            {
+                Session = SEG.Service.SessionManager.GetInstance();
 
+                //this.validarPermisos(Session);
 
+                //this.Traducir();
+                //SEG.Service.IdiomaManager.Suscribir(this);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.BeginInvoke(new MethodInvoker(this.Close));
+            }
         }
 
         private void btnEnviar_Click(object sender, EventArgs e)

@@ -45,7 +45,6 @@
             this.rdbPaquete = new System.Windows.Forms.RadioButton();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.txtCantidad = new System.Windows.Forms.TextBox();
-            this.cboPaquetes = new System.Windows.Forms.ComboBox();
             this.rdbProducto = new System.Windows.Forms.RadioButton();
             this.btnBuscarProducto = new System.Windows.Forms.Button();
             this.btnSacarProducto = new System.Windows.Forms.Button();
@@ -114,7 +113,6 @@
             this.groupBox2.Controls.Add(this.rdbPaquete);
             this.groupBox2.Controls.Add(this.txtPrecio);
             this.groupBox2.Controls.Add(this.txtCantidad);
-            this.groupBox2.Controls.Add(this.cboPaquetes);
             this.groupBox2.Controls.Add(this.rdbProducto);
             this.groupBox2.Controls.Add(this.btnBuscarProducto);
             this.groupBox2.Controls.Add(this.btnSacarProducto);
@@ -184,9 +182,9 @@
             // 
             // txtCodProducto
             // 
-            this.txtCodProducto.Location = new System.Drawing.Point(9, 97);
+            this.txtCodProducto.Location = new System.Drawing.Point(9, 98);
             this.txtCodProducto.Name = "txtCodProducto";
-            this.txtCodProducto.Size = new System.Drawing.Size(224, 26);
+            this.txtCodProducto.Size = new System.Drawing.Size(227, 26);
             this.txtCodProducto.TabIndex = 6;
             // 
             // label5
@@ -235,15 +233,6 @@
             this.txtCantidad.Size = new System.Drawing.Size(273, 26);
             this.txtCantidad.TabIndex = 10;
             // 
-            // cboPaquetes
-            // 
-            this.cboPaquetes.FormattingEnabled = true;
-            this.cboPaquetes.Location = new System.Drawing.Point(9, 97);
-            this.cboPaquetes.Name = "cboPaquetes";
-            this.cboPaquetes.Size = new System.Drawing.Size(224, 26);
-            this.cboPaquetes.TabIndex = 17;
-            this.cboPaquetes.Visible = false;
-            // 
             // rdbProducto
             // 
             this.rdbProducto.AutoSize = true;
@@ -254,12 +243,11 @@
             this.rdbProducto.TabStop = true;
             this.rdbProducto.Text = "Golosina";
             this.rdbProducto.UseVisualStyleBackColor = true;
-            this.rdbProducto.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // btnBuscarProducto
             // 
             this.btnBuscarProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarProducto.Image")));
-            this.btnBuscarProducto.Location = new System.Drawing.Point(239, 95);
+            this.btnBuscarProducto.Location = new System.Drawing.Point(239, 96);
             this.btnBuscarProducto.Name = "btnBuscarProducto";
             this.btnBuscarProducto.Size = new System.Drawing.Size(43, 29);
             this.btnBuscarProducto.TabIndex = 8;
@@ -349,6 +337,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "Venta";
             this.Text = "Venta";
+            this.Load += new System.EventHandler(this.Venta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalles)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -380,7 +369,6 @@
         private System.Windows.Forms.RadioButton rdbPaquete;
         private System.Windows.Forms.RadioButton rdbProducto;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox cboPaquetes;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label3;

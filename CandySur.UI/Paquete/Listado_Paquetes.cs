@@ -29,7 +29,7 @@ namespace CandySur.UI.Paquete
         {
             try
             {
-                //Session = SEG.Service.SessionManager.GetInstance();
+                Session = SEG.Service.SessionManager.GetInstance();
 
                 //this.validarPermisos(Session);
 
