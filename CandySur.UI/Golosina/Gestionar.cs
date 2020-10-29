@@ -181,11 +181,6 @@ namespace CandySur.UI.Golosina
             return string.Empty;
         }
 
-        private void txtCodProducto_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void Gestionar_Load(object sender, EventArgs e)
         {
             try
@@ -203,6 +198,11 @@ namespace CandySur.UI.Golosina
                 MessageBox.Show(ex.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.BeginInvoke(new MethodInvoker(this.Close));
             }
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

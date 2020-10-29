@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Gestionar));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblStockActual = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -55,7 +56,6 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblStockActual = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -78,6 +78,15 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "GESTIONAR GOLOSINA";
+            // 
+            // lblStockActual
+            // 
+            this.lblStockActual.AutoSize = true;
+            this.lblStockActual.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStockActual.Location = new System.Drawing.Point(7, 376);
+            this.lblStockActual.Name = "lblStockActual";
+            this.lblStockActual.Size = new System.Drawing.Size(0, 18);
+            this.lblStockActual.TabIndex = 38;
             // 
             // groupBox3
             // 
@@ -239,7 +248,6 @@
             this.txtCodProducto.Name = "txtCodProducto";
             this.txtCodProducto.Size = new System.Drawing.Size(214, 26);
             this.txtCodProducto.TabIndex = 33;
-            this.txtCodProducto.TextChanged += new System.EventHandler(this.txtCodProducto_TextChanged);
             // 
             // label1
             // 
@@ -322,6 +330,7 @@
             this.btnAceptar.TabIndex = 19;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = false;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // pictureBox1
             // 
@@ -331,15 +340,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(582, 72);
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
-            // 
-            // lblStockActual
-            // 
-            this.lblStockActual.AutoSize = true;
-            this.lblStockActual.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStockActual.Location = new System.Drawing.Point(7, 376);
-            this.lblStockActual.Name = "lblStockActual";
-            this.lblStockActual.Size = new System.Drawing.Size(0, 18);
-            this.lblStockActual.TabIndex = 38;
             // 
             // Gestionar
             // 

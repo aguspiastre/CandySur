@@ -261,9 +261,12 @@
             // 
             // dgvProductosSuministrados
             // 
+            this.dgvProductosSuministrados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvProductosSuministrados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProductosSuministrados.Enabled = false;
             this.dgvProductosSuministrados.Location = new System.Drawing.Point(12, 318);
             this.dgvProductosSuministrados.Name = "dgvProductosSuministrados";
+            this.dgvProductosSuministrados.ReadOnly = true;
             this.dgvProductosSuministrados.Size = new System.Drawing.Size(582, 148);
             this.dgvProductosSuministrados.TabIndex = 6;
             this.dgvProductosSuministrados.SelectionChanged += new System.EventHandler(this.dgvProductosSuministrados_SelectionChanged);
