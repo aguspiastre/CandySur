@@ -75,6 +75,7 @@ namespace CandySur.BLL
             try
             {
                 //Calculo DVH
+                venta.Eliminado = true;
                 venta.DVH = dv.CalcularDVH(this.ConcatenarRegistro(venta));
 
                 using (var scope = new TransactionScope(TransactionScopeOption.RequiresNew, new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }))
@@ -83,6 +84,9 @@ namespace CandySur.BLL
 
                     foreach (var item in venta.Detalles)
                     {
+                        item.IdVenta = venta.Id;
+                        item.Eliminado = true;
+
                         detalleService.Eliminar(item);
 
                         if (item.Producto is BE.Golosina)

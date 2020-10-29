@@ -144,8 +144,8 @@ namespace CandySur.BLL
         {
             foreach (BE.Golosina golosina in paquete.Golosinas)
             {
-                if (golosina.Cantidad > (golosina.Stock * paquete.Stock))
-                    throw new Exception("No hay suficiente stock para la golosina " + golosina.Descripcion + ", Stock disponible: " + golosina.Stock + ", Stock requerido: " + golosina.Cantidad);
+                if (golosina.Stock < (golosina.Cantidad * paquete.Stock))
+                    throw new Exception("No hay suficiente stock para la golosina " + golosina.Descripcion + ", Stock disponible: " + golosina.Stock + ", Stock requerido: " + golosina.Cantidad * paquete.Stock);
             }
         }
     }

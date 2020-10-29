@@ -154,7 +154,7 @@ namespace CandySur.UI.Paquete
 
             foreach (BE.Golosina item in golosinasIncluidas)
             {
-                precio += item.Importe;
+                precio += item.Importe * item.Cantidad;
             }
 
             this.lblPrecioTotal.Text = precio.ToString().Replace(".", ",");

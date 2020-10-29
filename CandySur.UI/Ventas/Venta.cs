@@ -66,7 +66,10 @@ namespace CandySur.UI
         {
             try
             {
-                if(txtCantidad.Text == string.Empty)
+                if (venta.Detalles.Any(d=> d.Producto.Id == productoBuscado.Id && d.Producto.Descripcion == productoBuscado.Descripcion))
+                    throw new Exception("El producto ya se encuentra ingresado.");
+
+                if (txtCantidad.Text == string.Empty)
                     throw new Exception("El campo cantidad es requerido.");
 
                 if (int.Parse(txtCantidad.Text) == 0)
