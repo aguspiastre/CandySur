@@ -28,85 +28,85 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.gbEnviarMail = new System.Windows.Forms.GroupBox();
+            this.gbDatosDelProveedor = new System.Windows.Forms.GroupBox();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.lblCuit = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtCuit = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lblRazonSocial = new System.Windows.Forms.Label();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtRazonSocial = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblTelefono = new System.Windows.Forms.Label();
+            this.gbDatosDelProducto = new System.Windows.Forms.GroupBox();
             this.txtDescripcionProd = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lblCodProducto = new System.Windows.Forms.Label();
             this.txtCantidadAReponer = new System.Windows.Forms.TextBox();
             this.txtCodProducto = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblStock = new System.Windows.Forms.Label();
+            this.lblDescripcion = new System.Windows.Forms.Label();
             this.txtStockActual = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblCantidReponer = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnEnviar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.groupBox1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.gbEnviarMail.SuspendLayout();
+            this.gbDatosDelProveedor.SuspendLayout();
+            this.gbDatosDelProducto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // gbEnviarMail
             // 
-            this.groupBox1.Controls.Add(this.groupBox3);
-            this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Controls.Add(this.btnCancelar);
-            this.groupBox1.Controls.Add(this.btnEnviar);
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(-4, 1);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(602, 404);
-            this.groupBox1.TabIndex = 6;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "ENVIAR MAIL";
+            this.gbEnviarMail.Controls.Add(this.gbDatosDelProveedor);
+            this.gbEnviarMail.Controls.Add(this.gbDatosDelProducto);
+            this.gbEnviarMail.Controls.Add(this.btnCancelar);
+            this.gbEnviarMail.Controls.Add(this.btnEnviar);
+            this.gbEnviarMail.Controls.Add(this.pictureBox1);
+            this.gbEnviarMail.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbEnviarMail.Location = new System.Drawing.Point(-4, 1);
+            this.gbEnviarMail.Name = "gbEnviarMail";
+            this.gbEnviarMail.Size = new System.Drawing.Size(602, 404);
+            this.gbEnviarMail.TabIndex = 6;
+            this.gbEnviarMail.TabStop = false;
+            this.gbEnviarMail.Text = "ENVIAR MAIL";
             // 
-            // groupBox3
+            // gbDatosDelProveedor
             // 
-            this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Controls.Add(this.txtEmail);
-            this.groupBox3.Controls.Add(this.txtCuit);
-            this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.txtTelefono);
-            this.groupBox3.Controls.Add(this.txtRazonSocial);
-            this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Location = new System.Drawing.Point(10, 98);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(585, 125);
-            this.groupBox3.TabIndex = 6;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "DATOS DEL PROVEEDOR";
+            this.gbDatosDelProveedor.Controls.Add(this.lblEmail);
+            this.gbDatosDelProveedor.Controls.Add(this.lblCuit);
+            this.gbDatosDelProveedor.Controls.Add(this.txtEmail);
+            this.gbDatosDelProveedor.Controls.Add(this.txtCuit);
+            this.gbDatosDelProveedor.Controls.Add(this.lblRazonSocial);
+            this.gbDatosDelProveedor.Controls.Add(this.txtTelefono);
+            this.gbDatosDelProveedor.Controls.Add(this.txtRazonSocial);
+            this.gbDatosDelProveedor.Controls.Add(this.lblTelefono);
+            this.gbDatosDelProveedor.Location = new System.Drawing.Point(10, 98);
+            this.gbDatosDelProveedor.Name = "gbDatosDelProveedor";
+            this.gbDatosDelProveedor.Size = new System.Drawing.Size(585, 125);
+            this.gbDatosDelProveedor.TabIndex = 6;
+            this.gbDatosDelProveedor.TabStop = false;
+            this.gbDatosDelProveedor.Text = "DATOS DEL PROVEEDOR";
             // 
-            // label9
+            // lblEmail
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(287, 64);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(55, 19);
-            this.label9.TabIndex = 36;
-            this.label9.Text = "E-Mail:";
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmail.Location = new System.Drawing.Point(287, 64);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(55, 19);
+            this.lblEmail.TabIndex = 36;
+            this.lblEmail.Text = "E-Mail:";
             // 
-            // label5
+            // lblCuit
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(6, 16);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(39, 19);
-            this.label5.TabIndex = 18;
-            this.label5.Text = "Cuit:";
+            this.lblCuit.AutoSize = true;
+            this.lblCuit.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCuit.Location = new System.Drawing.Point(6, 16);
+            this.lblCuit.Name = "lblCuit";
+            this.lblCuit.Size = new System.Drawing.Size(39, 19);
+            this.lblCuit.TabIndex = 18;
+            this.lblCuit.Text = "Cuit:";
             // 
             // txtEmail
             // 
@@ -124,15 +124,15 @@
             this.txtCuit.Size = new System.Drawing.Size(265, 26);
             this.txtCuit.TabIndex = 19;
             // 
-            // label8
+            // lblRazonSocial
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(286, 16);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(94, 19);
-            this.label8.TabIndex = 34;
-            this.label8.Text = "Razon Social:";
+            this.lblRazonSocial.AutoSize = true;
+            this.lblRazonSocial.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRazonSocial.Location = new System.Drawing.Point(286, 16);
+            this.lblRazonSocial.Name = "lblRazonSocial";
+            this.lblRazonSocial.Size = new System.Drawing.Size(94, 19);
+            this.lblRazonSocial.TabIndex = 34;
+            this.lblRazonSocial.Text = "Razon Social:";
             // 
             // txtTelefono
             // 
@@ -150,32 +150,32 @@
             this.txtRazonSocial.Size = new System.Drawing.Size(279, 26);
             this.txtRazonSocial.TabIndex = 35;
             // 
-            // label7
+            // lblTelefono
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(6, 64);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(69, 19);
-            this.label7.TabIndex = 32;
-            this.label7.Text = "Telefono:";
+            this.lblTelefono.AutoSize = true;
+            this.lblTelefono.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTelefono.Location = new System.Drawing.Point(6, 64);
+            this.lblTelefono.Name = "lblTelefono";
+            this.lblTelefono.Size = new System.Drawing.Size(69, 19);
+            this.lblTelefono.TabIndex = 32;
+            this.lblTelefono.Text = "Telefono:";
             // 
-            // groupBox2
+            // gbDatosDelProducto
             // 
-            this.groupBox2.Controls.Add(this.txtDescripcionProd);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.txtCantidadAReponer);
-            this.groupBox2.Controls.Add(this.txtCodProducto);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.txtStockActual);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Location = new System.Drawing.Point(10, 229);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(585, 129);
-            this.groupBox2.TabIndex = 37;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "DATOS DEL PRODUCTO";
+            this.gbDatosDelProducto.Controls.Add(this.txtDescripcionProd);
+            this.gbDatosDelProducto.Controls.Add(this.lblCodProducto);
+            this.gbDatosDelProducto.Controls.Add(this.txtCantidadAReponer);
+            this.gbDatosDelProducto.Controls.Add(this.txtCodProducto);
+            this.gbDatosDelProducto.Controls.Add(this.lblStock);
+            this.gbDatosDelProducto.Controls.Add(this.lblDescripcion);
+            this.gbDatosDelProducto.Controls.Add(this.txtStockActual);
+            this.gbDatosDelProducto.Controls.Add(this.lblCantidReponer);
+            this.gbDatosDelProducto.Location = new System.Drawing.Point(10, 229);
+            this.gbDatosDelProducto.Name = "gbDatosDelProducto";
+            this.gbDatosDelProducto.Size = new System.Drawing.Size(585, 129);
+            this.gbDatosDelProducto.TabIndex = 37;
+            this.gbDatosDelProducto.TabStop = false;
+            this.gbDatosDelProducto.Text = "DATOS DEL PRODUCTO";
             // 
             // txtDescripcionProd
             // 
@@ -185,15 +185,15 @@
             this.txtDescripcionProd.Size = new System.Drawing.Size(283, 26);
             this.txtDescripcionProd.TabIndex = 36;
             // 
-            // label11
+            // lblCodProducto
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(6, 16);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(103, 19);
-            this.label11.TabIndex = 32;
-            this.label11.Text = "Cod. Producto:";
+            this.lblCodProducto.AutoSize = true;
+            this.lblCodProducto.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodProducto.Location = new System.Drawing.Point(6, 16);
+            this.lblCodProducto.Name = "lblCodProducto";
+            this.lblCodProducto.Size = new System.Drawing.Size(103, 19);
+            this.lblCodProducto.TabIndex = 32;
+            this.lblCodProducto.Text = "Cod. Producto:";
             // 
             // txtCantidadAReponer
             // 
@@ -210,25 +210,25 @@
             this.txtCodProducto.Size = new System.Drawing.Size(263, 26);
             this.txtCodProducto.TabIndex = 33;
             // 
-            // label1
+            // lblStock
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(5, 64);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 19);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Stock Actual:";
+            this.lblStock.AutoSize = true;
+            this.lblStock.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStock.Location = new System.Drawing.Point(5, 64);
+            this.lblStock.Name = "lblStock";
+            this.lblStock.Size = new System.Drawing.Size(47, 19);
+            this.lblStock.TabIndex = 13;
+            this.lblStock.Text = "Stock:";
             // 
-            // label2
+            // lblDescripcion
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(287, 13);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 19);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "Descripcion:";
+            this.lblDescripcion.AutoSize = true;
+            this.lblDescripcion.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescripcion.Location = new System.Drawing.Point(287, 13);
+            this.lblDescripcion.Name = "lblDescripcion";
+            this.lblDescripcion.Size = new System.Drawing.Size(89, 19);
+            this.lblDescripcion.TabIndex = 15;
+            this.lblDescripcion.Text = "Descripcion:";
             // 
             // txtStockActual
             // 
@@ -238,15 +238,15 @@
             this.txtStockActual.Size = new System.Drawing.Size(266, 26);
             this.txtStockActual.TabIndex = 22;
             // 
-            // label3
+            // lblCantidReponer
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(287, 64);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(141, 19);
-            this.label3.TabIndex = 16;
-            this.label3.Text = "Cantidad a Reponer:";
+            this.lblCantidReponer.AutoSize = true;
+            this.lblCantidReponer.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantidReponer.Location = new System.Drawing.Point(287, 64);
+            this.lblCantidReponer.Name = "lblCantidReponer";
+            this.lblCantidReponer.Size = new System.Drawing.Size(141, 19);
+            this.lblCantidReponer.TabIndex = 16;
+            this.lblCantidReponer.Text = "Cantidad a Reponer:";
             // 
             // btnCancelar
             // 
@@ -272,6 +272,7 @@
             this.btnEnviar.TabIndex = 19;
             this.btnEnviar.Text = "Enviar";
             this.btnEnviar.UseVisualStyleBackColor = false;
+            this.btnEnviar.Visible = false;
             this.btnEnviar.Click += new System.EventHandler(this.btnEnviar_Click);
             // 
             // pictureBox1
@@ -289,15 +290,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(602, 410);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbEnviarMail);
             this.Name = "EnviarMail";
             this.Text = "EnviarMail";
             this.Load += new System.EventHandler(this.EnviarMail_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.gbEnviarMail.ResumeLayout(false);
+            this.gbDatosDelProveedor.ResumeLayout(false);
+            this.gbDatosDelProveedor.PerformLayout();
+            this.gbDatosDelProducto.ResumeLayout(false);
+            this.gbDatosDelProducto.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -305,25 +306,25 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.GroupBox gbEnviarMail;
+        private System.Windows.Forms.GroupBox gbDatosDelProveedor;
+        private System.Windows.Forms.Label lblEmail;
+        private System.Windows.Forms.Label lblCuit;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtCuit;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblRazonSocial;
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.TextBox txtRazonSocial;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label lblTelefono;
+        private System.Windows.Forms.GroupBox gbDatosDelProducto;
         private System.Windows.Forms.TextBox txtDescripcionProd;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblCodProducto;
         private System.Windows.Forms.TextBox txtCantidadAReponer;
         private System.Windows.Forms.TextBox txtCodProducto;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblStock;
+        private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.TextBox txtStockActual;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblCantidReponer;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnEnviar;
         private System.Windows.Forms.PictureBox pictureBox1;

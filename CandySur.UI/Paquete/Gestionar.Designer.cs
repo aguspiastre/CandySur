@@ -29,61 +29,61 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Gestionar));
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.gbGestionar = new System.Windows.Forms.GroupBox();
+            this.gbDatosDelPaquete = new System.Windows.Forms.GroupBox();
             this.btnBuscarProducto = new System.Windows.Forms.Button();
             this.txtCodProducto = new System.Windows.Forms.TextBox();
-            this.lblTipoProducto = new System.Windows.Forms.Label();
+            this.lblCodPaquete = new System.Windows.Forms.Label();
             this.txtPrecio = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblPrecio = new System.Windows.Forms.Label();
             this.txtStock = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblStock = new System.Windows.Forms.Label();
+            this.lblDescripcion = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblGolosinasIncluidas = new System.Windows.Forms.Label();
             this.dgvGolosinas = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnAceptar = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.gbGestionar.SuspendLayout();
+            this.gbDatosDelPaquete.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGolosinas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // gbGestionar
             // 
-            this.groupBox1.Controls.Add(this.groupBox3);
-            this.groupBox1.Controls.Add(this.btnEliminar);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.dgvGolosinas);
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.btnAceptar);
-            this.groupBox1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(2, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(602, 460);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "GESTIONAR";
+            this.gbGestionar.Controls.Add(this.gbDatosDelPaquete);
+            this.gbGestionar.Controls.Add(this.btnEliminar);
+            this.gbGestionar.Controls.Add(this.lblGolosinasIncluidas);
+            this.gbGestionar.Controls.Add(this.dgvGolosinas);
+            this.gbGestionar.Controls.Add(this.pictureBox1);
+            this.gbGestionar.Controls.Add(this.btnAceptar);
+            this.gbGestionar.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbGestionar.Location = new System.Drawing.Point(2, 3);
+            this.gbGestionar.Name = "gbGestionar";
+            this.gbGestionar.Size = new System.Drawing.Size(602, 460);
+            this.gbGestionar.TabIndex = 4;
+            this.gbGestionar.TabStop = false;
+            this.gbGestionar.Text = "GESTIONAR";
             // 
-            // groupBox3
+            // gbDatosDelPaquete
             // 
-            this.groupBox3.Controls.Add(this.btnBuscarProducto);
-            this.groupBox3.Controls.Add(this.txtCodProducto);
-            this.groupBox3.Controls.Add(this.lblTipoProducto);
-            this.groupBox3.Controls.Add(this.txtPrecio);
-            this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Controls.Add(this.txtStock);
-            this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Controls.Add(this.txtDescripcion);
-            this.groupBox3.Location = new System.Drawing.Point(10, 98);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(582, 140);
-            this.groupBox3.TabIndex = 23;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "DATOS DEL PAQUETE:";
+            this.gbDatosDelPaquete.Controls.Add(this.btnBuscarProducto);
+            this.gbDatosDelPaquete.Controls.Add(this.txtCodProducto);
+            this.gbDatosDelPaquete.Controls.Add(this.lblCodPaquete);
+            this.gbDatosDelPaquete.Controls.Add(this.txtPrecio);
+            this.gbDatosDelPaquete.Controls.Add(this.lblPrecio);
+            this.gbDatosDelPaquete.Controls.Add(this.txtStock);
+            this.gbDatosDelPaquete.Controls.Add(this.lblStock);
+            this.gbDatosDelPaquete.Controls.Add(this.lblDescripcion);
+            this.gbDatosDelPaquete.Controls.Add(this.txtDescripcion);
+            this.gbDatosDelPaquete.Location = new System.Drawing.Point(10, 98);
+            this.gbDatosDelPaquete.Name = "gbDatosDelPaquete";
+            this.gbDatosDelPaquete.Size = new System.Drawing.Size(582, 140);
+            this.gbDatosDelPaquete.TabIndex = 23;
+            this.gbDatosDelPaquete.TabStop = false;
+            this.gbDatosDelPaquete.Text = "DATOS DEL PAQUETE:";
             // 
             // btnBuscarProducto
             // 
@@ -102,15 +102,15 @@
             this.txtCodProducto.Size = new System.Drawing.Size(214, 26);
             this.txtCodProducto.TabIndex = 35;
             // 
-            // lblTipoProducto
+            // lblCodPaquete
             // 
-            this.lblTipoProducto.AutoSize = true;
-            this.lblTipoProducto.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipoProducto.Location = new System.Drawing.Point(6, 22);
-            this.lblTipoProducto.Name = "lblTipoProducto";
-            this.lblTipoProducto.Size = new System.Drawing.Size(99, 19);
-            this.lblTipoProducto.TabIndex = 24;
-            this.lblTipoProducto.Text = "Cod. Paquete:";
+            this.lblCodPaquete.AutoSize = true;
+            this.lblCodPaquete.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodPaquete.Location = new System.Drawing.Point(6, 22);
+            this.lblCodPaquete.Name = "lblCodPaquete";
+            this.lblCodPaquete.Size = new System.Drawing.Size(99, 19);
+            this.lblCodPaquete.TabIndex = 24;
+            this.lblCodPaquete.Text = "Cod. Paquete:";
             // 
             // txtPrecio
             // 
@@ -120,15 +120,15 @@
             this.txtPrecio.Size = new System.Drawing.Size(263, 26);
             this.txtPrecio.TabIndex = 22;
             // 
-            // label2
+            // lblPrecio
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 70);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 19);
-            this.label2.TabIndex = 23;
-            this.label2.Text = "Precio:";
+            this.lblPrecio.AutoSize = true;
+            this.lblPrecio.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecio.Location = new System.Drawing.Point(6, 70);
+            this.lblPrecio.Name = "lblPrecio";
+            this.lblPrecio.Size = new System.Drawing.Size(53, 19);
+            this.lblPrecio.TabIndex = 23;
+            this.lblPrecio.Text = "Precio:";
             // 
             // txtStock
             // 
@@ -138,25 +138,25 @@
             this.txtStock.Size = new System.Drawing.Size(287, 26);
             this.txtStock.TabIndex = 20;
             // 
-            // label3
+            // lblStock
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(279, 70);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 19);
-            this.label3.TabIndex = 21;
-            this.label3.Text = "Stock:";
+            this.lblStock.AutoSize = true;
+            this.lblStock.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStock.Location = new System.Drawing.Point(279, 70);
+            this.lblStock.Name = "lblStock";
+            this.lblStock.Size = new System.Drawing.Size(47, 19);
+            this.lblStock.TabIndex = 21;
+            this.lblStock.Text = "Stock:";
             // 
-            // label1
+            // lblDescripcion
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(279, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 19);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "Descripcion:";
+            this.lblDescripcion.AutoSize = true;
+            this.lblDescripcion.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescripcion.Location = new System.Drawing.Point(279, 22);
+            this.lblDescripcion.Name = "lblDescripcion";
+            this.lblDescripcion.Size = new System.Drawing.Size(89, 19);
+            this.lblDescripcion.TabIndex = 18;
+            this.lblDescripcion.Text = "Descripcion:";
             // 
             // txtDescripcion
             // 
@@ -177,17 +177,18 @@
             this.btnEliminar.TabIndex = 17;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Visible = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // label4
+            // lblGolosinasIncluidas
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(6, 241);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(163, 19);
-            this.label4.TabIndex = 16;
-            this.label4.Text = "GOLOSINAS INCLUIDAS:";
+            this.lblGolosinasIncluidas.AutoSize = true;
+            this.lblGolosinasIncluidas.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGolosinasIncluidas.Location = new System.Drawing.Point(6, 241);
+            this.lblGolosinasIncluidas.Name = "lblGolosinasIncluidas";
+            this.lblGolosinasIncluidas.Size = new System.Drawing.Size(163, 19);
+            this.lblGolosinasIncluidas.TabIndex = 16;
+            this.lblGolosinasIncluidas.Text = "GOLOSINAS INCLUIDAS:";
             // 
             // dgvGolosinas
             // 
@@ -229,14 +230,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(610, 468);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbGestionar);
             this.Name = "Gestionar";
             this.Text = "Gestionar Paquete";
             this.Load += new System.EventHandler(this.Gestionar_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.gbGestionar.ResumeLayout(false);
+            this.gbGestionar.PerformLayout();
+            this.gbDatosDelPaquete.ResumeLayout(false);
+            this.gbDatosDelPaquete.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGolosinas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -245,20 +246,20 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbGestionar;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblGolosinasIncluidas;
         private System.Windows.Forms.DataGridView dgvGolosinas;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnAceptar;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox gbDatosDelPaquete;
         private System.Windows.Forms.TextBox txtStock;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblStock;
+        private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.TextBox txtPrecio;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lblTipoProducto;
+        private System.Windows.Forms.Label lblPrecio;
+        private System.Windows.Forms.Label lblCodPaquete;
         private System.Windows.Forms.Button btnBuscarProducto;
         private System.Windows.Forms.TextBox txtCodProducto;
     }

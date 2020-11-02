@@ -30,18 +30,18 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Venta));
             this.dgvDetalles = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.gbGestionarVenta = new System.Windows.Forms.GroupBox();
+            this.lblProductosIncluidos = new System.Windows.Forms.Label();
+            this.gbDatosDeLaVenta = new System.Windows.Forms.GroupBox();
+            this.lblStock = new System.Windows.Forms.Label();
+            this.lblDescripcion = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.lblTipoProducto = new System.Windows.Forms.Label();
+            this.lblCodProducto = new System.Windows.Forms.Label();
             this.txtStock = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lblTipoProd = new System.Windows.Forms.Label();
             this.txtCodProducto = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblPrecio = new System.Windows.Forms.Label();
+            this.lblCantidad = new System.Windows.Forms.Label();
             this.rdbPaquete = new System.Windows.Forms.RadioButton();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.txtCantidad = new System.Windows.Forms.TextBox();
@@ -51,12 +51,12 @@
             this.btnAgregarProducto = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblImporteTotal = new System.Windows.Forms.Label();
+            this.lblImporteTotalGenerarVenta = new System.Windows.Forms.Label();
             this.btnAvanzar = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblImportaTotalLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalles)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.gbGestionarVenta.SuspendLayout();
+            this.gbDatosDeLaVenta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,77 +72,77 @@
             this.dgvDetalles.Size = new System.Drawing.Size(582, 188);
             this.dgvDetalles.TabIndex = 0;
             // 
-            // groupBox1
+            // gbGestionarVenta
             // 
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Controls.Add(this.btnCancelar);
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.lblImporteTotal);
-            this.groupBox1.Controls.Add(this.btnAvanzar);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.dgvDetalles);
-            this.groupBox1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(6, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(602, 548);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "GENERAR VENTA";
+            this.gbGestionarVenta.Controls.Add(this.lblProductosIncluidos);
+            this.gbGestionarVenta.Controls.Add(this.gbDatosDeLaVenta);
+            this.gbGestionarVenta.Controls.Add(this.btnCancelar);
+            this.gbGestionarVenta.Controls.Add(this.pictureBox1);
+            this.gbGestionarVenta.Controls.Add(this.lblImporteTotalGenerarVenta);
+            this.gbGestionarVenta.Controls.Add(this.btnAvanzar);
+            this.gbGestionarVenta.Controls.Add(this.lblImportaTotalLbl);
+            this.gbGestionarVenta.Controls.Add(this.dgvDetalles);
+            this.gbGestionarVenta.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbGestionarVenta.Location = new System.Drawing.Point(6, 3);
+            this.gbGestionarVenta.Name = "gbGestionarVenta";
+            this.gbGestionarVenta.Size = new System.Drawing.Size(602, 548);
+            this.gbGestionarVenta.TabIndex = 1;
+            this.gbGestionarVenta.TabStop = false;
+            this.gbGestionarVenta.Text = "GENERAR VENTA";
             // 
-            // label2
+            // lblProductosIncluidos
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 291);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(158, 18);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "PRODUCTOS INCLUIDOS:";
+            this.lblProductosIncluidos.AutoSize = true;
+            this.lblProductosIncluidos.Location = new System.Drawing.Point(7, 291);
+            this.lblProductosIncluidos.Name = "lblProductosIncluidos";
+            this.lblProductosIncluidos.Size = new System.Drawing.Size(158, 18);
+            this.lblProductosIncluidos.TabIndex = 6;
+            this.lblProductosIncluidos.Text = "PRODUCTOS INCLUIDOS:";
             // 
-            // groupBox2
+            // gbDatosDeLaVenta
             // 
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.txtDescripcion);
-            this.groupBox2.Controls.Add(this.lblTipoProducto);
-            this.groupBox2.Controls.Add(this.txtStock);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.txtCodProducto);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.rdbPaquete);
-            this.groupBox2.Controls.Add(this.txtPrecio);
-            this.groupBox2.Controls.Add(this.txtCantidad);
-            this.groupBox2.Controls.Add(this.rdbProducto);
-            this.groupBox2.Controls.Add(this.btnBuscarProducto);
-            this.groupBox2.Controls.Add(this.btnSacarProducto);
-            this.groupBox2.Controls.Add(this.btnAgregarProducto);
-            this.groupBox2.Location = new System.Drawing.Point(10, 98);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(582, 190);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "DATOS DE LA VENTA";
+            this.gbDatosDeLaVenta.Controls.Add(this.lblStock);
+            this.gbDatosDeLaVenta.Controls.Add(this.lblDescripcion);
+            this.gbDatosDeLaVenta.Controls.Add(this.txtDescripcion);
+            this.gbDatosDeLaVenta.Controls.Add(this.lblCodProducto);
+            this.gbDatosDeLaVenta.Controls.Add(this.txtStock);
+            this.gbDatosDeLaVenta.Controls.Add(this.lblTipoProd);
+            this.gbDatosDeLaVenta.Controls.Add(this.txtCodProducto);
+            this.gbDatosDeLaVenta.Controls.Add(this.lblPrecio);
+            this.gbDatosDeLaVenta.Controls.Add(this.lblCantidad);
+            this.gbDatosDeLaVenta.Controls.Add(this.rdbPaquete);
+            this.gbDatosDeLaVenta.Controls.Add(this.txtPrecio);
+            this.gbDatosDeLaVenta.Controls.Add(this.txtCantidad);
+            this.gbDatosDeLaVenta.Controls.Add(this.rdbProducto);
+            this.gbDatosDeLaVenta.Controls.Add(this.btnBuscarProducto);
+            this.gbDatosDeLaVenta.Controls.Add(this.btnSacarProducto);
+            this.gbDatosDeLaVenta.Controls.Add(this.btnAgregarProducto);
+            this.gbDatosDeLaVenta.Location = new System.Drawing.Point(10, 98);
+            this.gbDatosDeLaVenta.Name = "gbDatosDeLaVenta";
+            this.gbDatosDeLaVenta.Size = new System.Drawing.Size(582, 190);
+            this.gbDatosDeLaVenta.TabIndex = 2;
+            this.gbDatosDeLaVenta.TabStop = false;
+            this.gbDatosDeLaVenta.Text = "DATOS DE LA VENTA";
             // 
-            // label6
+            // lblStock
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(436, 73);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(47, 19);
-            this.label6.TabIndex = 20;
-            this.label6.Text = "Stock:";
+            this.lblStock.AutoSize = true;
+            this.lblStock.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStock.Location = new System.Drawing.Point(436, 73);
+            this.lblStock.Name = "lblStock";
+            this.lblStock.Size = new System.Drawing.Size(47, 19);
+            this.lblStock.TabIndex = 20;
+            this.lblStock.Text = "Stock:";
             // 
-            // label3
+            // lblDescripcion
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(299, 22);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 19);
-            this.label3.TabIndex = 19;
-            this.label3.Text = "Descripcion:";
+            this.lblDescripcion.AutoSize = true;
+            this.lblDescripcion.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescripcion.Location = new System.Drawing.Point(299, 22);
+            this.lblDescripcion.Name = "lblDescripcion";
+            this.lblDescripcion.Size = new System.Drawing.Size(89, 19);
+            this.lblDescripcion.TabIndex = 19;
+            this.lblDescripcion.Text = "Descripcion:";
             // 
             // txtDescripcion
             // 
@@ -152,15 +152,15 @@
             this.txtDescripcion.Size = new System.Drawing.Size(271, 26);
             this.txtDescripcion.TabIndex = 18;
             // 
-            // lblTipoProducto
+            // lblCodProducto
             // 
-            this.lblTipoProducto.AutoSize = true;
-            this.lblTipoProducto.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipoProducto.Location = new System.Drawing.Point(5, 74);
-            this.lblTipoProducto.Name = "lblTipoProducto";
-            this.lblTipoProducto.Size = new System.Drawing.Size(119, 19);
-            this.lblTipoProducto.TabIndex = 4;
-            this.lblTipoProducto.Text = "Codigo producto:";
+            this.lblCodProducto.AutoSize = true;
+            this.lblCodProducto.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodProducto.Location = new System.Drawing.Point(5, 74);
+            this.lblCodProducto.Name = "lblCodProducto";
+            this.lblCodProducto.Size = new System.Drawing.Size(99, 19);
+            this.lblCodProducto.TabIndex = 4;
+            this.lblCodProducto.Text = "Cod producto:";
             // 
             // txtStock
             // 
@@ -170,15 +170,15 @@
             this.txtStock.Size = new System.Drawing.Size(134, 26);
             this.txtStock.TabIndex = 21;
             // 
-            // label10
+            // lblTipoProd
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(5, 26);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(102, 19);
-            this.label10.TabIndex = 4;
-            this.label10.Text = "Tipo Producto:";
+            this.lblTipoProd.AutoSize = true;
+            this.lblTipoProd.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipoProd.Location = new System.Drawing.Point(5, 26);
+            this.lblTipoProd.Name = "lblTipoProd";
+            this.lblTipoProd.Size = new System.Drawing.Size(102, 19);
+            this.lblTipoProd.TabIndex = 4;
+            this.lblTipoProd.Text = "Tipo Producto:";
             // 
             // txtCodProducto
             // 
@@ -187,25 +187,25 @@
             this.txtCodProducto.Size = new System.Drawing.Size(227, 26);
             this.txtCodProducto.TabIndex = 6;
             // 
-            // label5
+            // lblPrecio
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(299, 74);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 19);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Precio:";
+            this.lblPrecio.AutoSize = true;
+            this.lblPrecio.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecio.Location = new System.Drawing.Point(299, 74);
+            this.lblPrecio.Name = "lblPrecio";
+            this.lblPrecio.Size = new System.Drawing.Size(53, 19);
+            this.lblPrecio.TabIndex = 11;
+            this.lblPrecio.Text = "Precio:";
             // 
-            // label4
+            // lblCantidad
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(5, 126);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 19);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Cantidad:";
+            this.lblCantidad.AutoSize = true;
+            this.lblCantidad.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantidad.Location = new System.Drawing.Point(5, 126);
+            this.lblCantidad.Name = "lblCantidad";
+            this.lblCantidad.Size = new System.Drawing.Size(71, 19);
+            this.lblCantidad.TabIndex = 9;
+            this.lblCantidad.Text = "Cantidad:";
             // 
             // rdbPaquete
             // 
@@ -295,15 +295,15 @@
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
-            // lblImporteTotal
+            // lblImporteTotalGenerarVenta
             // 
-            this.lblImporteTotal.AutoSize = true;
-            this.lblImporteTotal.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblImporteTotal.Location = new System.Drawing.Point(102, 511);
-            this.lblImporteTotal.Name = "lblImporteTotal";
-            this.lblImporteTotal.Size = new System.Drawing.Size(29, 19);
-            this.lblImporteTotal.TabIndex = 4;
-            this.lblImporteTotal.Text = "$ 0";
+            this.lblImporteTotalGenerarVenta.AutoSize = true;
+            this.lblImporteTotalGenerarVenta.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblImporteTotalGenerarVenta.Location = new System.Drawing.Point(102, 511);
+            this.lblImporteTotalGenerarVenta.Name = "lblImporteTotalGenerarVenta";
+            this.lblImporteTotalGenerarVenta.Size = new System.Drawing.Size(29, 19);
+            this.lblImporteTotalGenerarVenta.TabIndex = 4;
+            this.lblImporteTotalGenerarVenta.Text = "$ 0";
             // 
             // btnAvanzar
             // 
@@ -316,17 +316,18 @@
             this.btnAvanzar.TabIndex = 2;
             this.btnAvanzar.Text = "Avanzar";
             this.btnAvanzar.UseVisualStyleBackColor = false;
+            this.btnAvanzar.Visible = false;
             this.btnAvanzar.Click += new System.EventHandler(this.btnAvanzar_Click);
             // 
-            // label1
+            // lblImportaTotalLbl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 511);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 19);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Importe Total:";
+            this.lblImportaTotalLbl.AutoSize = true;
+            this.lblImportaTotalLbl.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblImportaTotalLbl.Location = new System.Drawing.Point(6, 511);
+            this.lblImportaTotalLbl.Name = "lblImportaTotalLbl";
+            this.lblImportaTotalLbl.Size = new System.Drawing.Size(99, 19);
+            this.lblImportaTotalLbl.TabIndex = 1;
+            this.lblImportaTotalLbl.Text = "Importe Total:";
             // 
             // Venta
             // 
@@ -334,15 +335,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(614, 556);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbGestionarVenta);
             this.Name = "Venta";
             this.Text = "Venta";
             this.Load += new System.EventHandler(this.Venta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalles)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.gbGestionarVenta.ResumeLayout(false);
+            this.gbGestionarVenta.PerformLayout();
+            this.gbDatosDeLaVenta.ResumeLayout(false);
+            this.gbDatosDeLaVenta.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -351,29 +352,29 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvDetalles;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbGestionarVenta;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label lblImporteTotal;
+        private System.Windows.Forms.Label lblImporteTotalGenerarVenta;
         private System.Windows.Forms.Button btnSacarProducto;
         private System.Windows.Forms.Button btnAgregarProducto;
         private System.Windows.Forms.TextBox txtPrecio;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblPrecio;
         private System.Windows.Forms.TextBox txtCantidad;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblCantidad;
         private System.Windows.Forms.Button btnBuscarProducto;
         private System.Windows.Forms.TextBox txtCodProducto;
-        private System.Windows.Forms.Label lblTipoProducto;
+        private System.Windows.Forms.Label lblCodProducto;
         private System.Windows.Forms.Button btnAvanzar;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblImportaTotalLbl;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.RadioButton rdbPaquete;
         private System.Windows.Forms.RadioButton rdbProducto;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblTipoProd;
+        private System.Windows.Forms.Label lblProductosIncluidos;
+        private System.Windows.Forms.GroupBox gbDatosDeLaVenta;
+        private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.TextBox txtDescripcion;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblStock;
         private System.Windows.Forms.TextBox txtStock;
     }
 }

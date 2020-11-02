@@ -31,11 +31,11 @@
             this.dgvPaquetes = new System.Windows.Forms.DataGridView();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblListadoPaquete = new System.Windows.Forms.Label();
+            this.gbListadoPaquete = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPaquetes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.gbListadoPaquete.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvPaquetes
@@ -72,28 +72,28 @@
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
-            // label1
+            // lblListadoPaquete
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 105);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(148, 18);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "LISTADO DE PAQUETES:";
+            this.lblListadoPaquete.AutoSize = true;
+            this.lblListadoPaquete.Location = new System.Drawing.Point(7, 105);
+            this.lblListadoPaquete.Name = "lblListadoPaquete";
+            this.lblListadoPaquete.Size = new System.Drawing.Size(148, 18);
+            this.lblListadoPaquete.TabIndex = 6;
+            this.lblListadoPaquete.Text = "LISTADO DE PAQUETES:";
             // 
-            // groupBox1
+            // gbListadoPaquete
             // 
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.btnAceptar);
-            this.groupBox1.Controls.Add(this.dgvPaquetes);
-            this.groupBox1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(3, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(603, 442);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "LISTADO";
+            this.gbListadoPaquete.Controls.Add(this.lblListadoPaquete);
+            this.gbListadoPaquete.Controls.Add(this.pictureBox1);
+            this.gbListadoPaquete.Controls.Add(this.btnAceptar);
+            this.gbListadoPaquete.Controls.Add(this.dgvPaquetes);
+            this.gbListadoPaquete.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbListadoPaquete.Location = new System.Drawing.Point(3, 3);
+            this.gbListadoPaquete.Name = "gbListadoPaquete";
+            this.gbListadoPaquete.Size = new System.Drawing.Size(603, 442);
+            this.gbListadoPaquete.TabIndex = 5;
+            this.gbListadoPaquete.TabStop = false;
+            this.gbListadoPaquete.Text = "LISTADO";
             // 
             // Listado_Paquetes
             // 
@@ -101,14 +101,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(611, 453);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbListadoPaquete);
             this.Name = "Listado_Paquetes";
             this.Text = "Listado de Paquetes";
             this.Load += new System.EventHandler(this.Listado_Paquetes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPaquetes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gbListadoPaquete.ResumeLayout(false);
+            this.gbListadoPaquete.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -118,7 +118,7 @@
         private System.Windows.Forms.DataGridView dgvPaquetes;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lblListadoPaquete;
+        private System.Windows.Forms.GroupBox gbListadoPaquete;
     }
 }

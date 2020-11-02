@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CandySur.SEG.Entity;
+using CandySur.SEG.Service;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,7 +12,7 @@ using System.Windows.Forms;
 
 namespace CandySur.UI
 {
-    public partial class Venta : Form
+    public partial class Venta : Form, IIdiomaObserver
     {
         private SEG.Service.SessionManager Session;
         BLL.Paquete paqueteService = new BLL.Paquete();
@@ -25,7 +27,7 @@ namespace CandySur.UI
             this.rdbProducto.Checked = true;
             this.rdbPaquete.Checked = false;
 
-            this.lblTipoProducto.Text = "Codigo Producto:";
+            this.lblCodProducto.Text = "Codigo Producto:";
             this.btnBuscarProducto.Visible = true;
             this.txtCodProducto.Visible = true;
         }
@@ -85,7 +87,7 @@ namespace CandySur.UI
                         Eliminado = false
                     });
 
-                    this.lblImporteTotal.Text = "$ " + this.venta.Importe;
+                    this.lblImporteTotalGenerarVenta.Text = "$ " + this.venta.Importe;
 
                     this.dgvDetalles.DataSource = this.venta.Detalles.Select(x => new { Codigo = x.Producto.Id, Tipo = productoBuscado is BE.Golosina ? "Golosina" : "Paquete", Producto = x.Producto.Descripcion, Cantidad = x.Cantidad, Importe = x.Importe }).ToList();
                 }
@@ -111,7 +113,7 @@ namespace CandySur.UI
 
                     venta.EliminarProducto(codigo, tipoProducto);
 
-                    this.lblImporteTotal.Text = "$ " + this.venta.Importe;
+                    this.lblImporteTotalGenerarVenta.Text = "$ " + this.venta.Importe;
 
                     this.dgvDetalles.DataSource = this.venta.Detalles.Select(x => new { Codigo = x.Producto.Id, Tipo = productoBuscado is BE.Golosina ? "Golosina" : "Paquete", Producto = x.Producto.Descripcion, Cantidad = x.Cantidad, Importe = x.Importe }).ToList();
                 }
@@ -157,16 +159,93 @@ namespace CandySur.UI
             {
                 Session = SEG.Service.SessionManager.GetInstance();
 
-                //this.validarPermisos(Session);
+                this.validarPermisos(Session);
 
-                //this.Traducir();
-                //SEG.Service.IdiomaManager.Suscribir(this);
+                this.Traducir();
+                SEG.Service.IdiomaManager.Suscribir(this);
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.BeginInvoke(new MethodInvoker(this.Close));
+            }
+        }
+
+        private void Traducir()
+        {
+            SEG.Service.Traductor traductor = new Traductor();
+            var idiomaManager = SEG.Service.IdiomaManager.GetInstance();
+
+            var traducciones = traductor.ObtenerTraducciones(idiomaManager.Idioma);
+
+            foreach (Control item in this.Controls)
+            {
+                if (traducciones.Any(t => t.Etiqueta == item.Name))
+                {
+                    item.Text = traducciones.FirstOrDefault(t => t.Etiqueta == item.Name).Descripcion;
+                }
+
+                TraducirControlesInternos(item, traducciones);
+            }
+        }
+
+        private void TraducirControlesInternos(Control item, List<Traduccion> traducciones)
+        {
+            if (item is GroupBox)
+            {
+                foreach (Control subItem in item.Controls)
+                {
+                    if (traducciones.Any(t => t.Etiqueta == subItem.Name))
+                    {
+                        subItem.Text = traducciones.FirstOrDefault(t => t.Etiqueta == subItem.Name).Descripcion;
+                    }
+
+                    TraducirControlesInternos(subItem, traducciones);
+                }
+            }
+        }
+
+        public void ActualizarIdioma(SEG.Entity.Idioma idioma)
+        {
+            this.Traducir();
+        }
+
+        private void validarPermisos(SEG.Service.SessionManager Session)
+        {
+            bool contienePermisos = false;
+
+            foreach (var item in Session.Usuario.Permisos)
+            {
+                if (item is SEG.Entity.Familia)
+                {
+                    SEG.Entity.Familia familia = (SEG.Entity.Familia)item;
+
+                    foreach (SEG.Entity.Patente patente in familia.Permisos)
+                    {
+                        this.validarPatente(patente, ref contienePermisos);
+                    }
+                }
+                else
+                {
+                    SEG.Entity.Patente patente = (SEG.Entity.Patente)item;
+
+                    this.validarPatente(patente, ref contienePermisos);
+                }
+            }
+
+            if (!contienePermisos)
+                throw new Exception("No tenes los permisos necesarios para ingresar a esta funcionalidad");
+        }
+
+        private void validarPatente(SEG.Entity.Patente patente, ref bool contienePermisos)
+        {
+            switch (patente.Nombre)
+            {
+                case "Generar Venta":
+                    this.btnAvanzar.Visible = true;
+                    contienePermisos = true;
+                    break;
             }
         }
     }

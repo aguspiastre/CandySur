@@ -185,6 +185,18 @@ namespace CandySur.UI
 
             this.menuMiPerfil.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.menuMiPerfil.Name).Descripcion;
 
+            this.menuDescuentos.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.menuDescuentos.Name).Descripcion;
+
+            this.menuVentas.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.menuVentas.Name).Descripcion;
+
+            this.menuGolosinas.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.menuGolosinas.Name).Descripcion;
+
+            this.menuProveedores.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.menuProveedores.Name).Descripcion;
+
+            this.menuPaquetes.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.menuPaquetes.Name).Descripcion;
+
+            this.menuReportes.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.menuReportes.Name).Descripcion;
+
             //Sub-Menues.
             this.SubMenuBackupRestoreBackup.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.SubMenuBackupRestoreBackup.Name).Descripcion;
 
@@ -209,6 +221,40 @@ namespace CandySur.UI
             this.SubMenuUsuarioGestionar.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.SubMenuUsuarioGestionar.Name).Descripcion;
 
             this.SubMenuUsuarioListar.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.SubMenuUsuarioListar.Name).Descripcion;
+
+            this.SubMenuVentasGenerar.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.SubMenuVentasGenerar.Name).Descripcion;
+
+            this.SubMenuVentasGestionar.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.SubMenuVentasGestionar.Name).Descripcion;
+
+            this.SubMenuVentasResumenDiario.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.SubMenuVentasResumenDiario.Name).Descripcion;
+
+            this.SubMenuGolosinasAlta.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.SubMenuGolosinasAlta.Name).Descripcion;
+
+            this.SubMenuGolosinasGestionar.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.SubMenuGolosinasGestionar.Name).Descripcion;
+
+            this.SubMenuGolosinasListar.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.SubMenuGolosinasListar.Name).Descripcion;
+
+            this.SubMenuPaquetesAlta.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.SubMenuPaquetesAlta.Name).Descripcion;
+
+            this.SubMenuPaquetesGestionar.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.SubMenuPaquetesGestionar.Name).Descripcion;
+
+            this.SubMenuPaquetesListado.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.SubMenuPaquetesListado.Name).Descripcion;
+
+            this.SubMenuProveedoresAlta.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.SubMenuProveedoresAlta.Name).Descripcion;
+
+            this.SubMenuProveedoresGestionar.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.SubMenuProveedoresGestionar.Name).Descripcion;
+        
+            this.SubMenuProveedoresListado.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.SubMenuProveedoresListado.Name).Descripcion;
+
+            this.SubMenuDescuentosConfigurar.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.SubMenuDescuentosConfigurar.Name).Descripcion;
+
+            this.SubMenuDescuentosGestionar.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.SubMenuDescuentosGestionar.Name).Descripcion;
+
+            this.SubMenuReportesGolosinasMasVendidas.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.SubMenuReportesGolosinasMasVendidas.Name).Descripcion;
+
+            this.SubMenuReportesPaquetesMasVendidos.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.SubMenuReportesPaquetesMasVendidos.Name).Descripcion;
+
+            this.SubMenuReportesVentasPorPeriodo.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.SubMenuReportesVentasPorPeriodo.Name).Descripcion;
 
             //Sub items.
             this.SubItemAltaFamilia.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.SubItemAltaFamilia.Name).Descripcion;
@@ -358,6 +404,18 @@ namespace CandySur.UI
             var form = new Descuentos.Gestionar();
             form.MdiParent = this;
             form.Show();
+        }
+
+        private void reiniciarSistemaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new Backup_Restore.ReiniciarSistema();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void reportesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -28,38 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.gbListadoGolosina = new System.Windows.Forms.GroupBox();
+            this.lblListadoGolosinas = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.dgvListadoGolosinas = new System.Windows.Forms.DataGridView();
-            this.groupBox1.SuspendLayout();
+            this.gbListadoGolosina.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListadoGolosinas)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // gbListadoGolosina
             // 
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.btnAceptar);
-            this.groupBox1.Controls.Add(this.dgvListadoGolosinas);
-            this.groupBox1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(2, 2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(598, 370);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "LISTADO";
+            this.gbListadoGolosina.Controls.Add(this.lblListadoGolosinas);
+            this.gbListadoGolosina.Controls.Add(this.pictureBox1);
+            this.gbListadoGolosina.Controls.Add(this.btnAceptar);
+            this.gbListadoGolosina.Controls.Add(this.dgvListadoGolosinas);
+            this.gbListadoGolosina.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbListadoGolosina.Location = new System.Drawing.Point(2, 2);
+            this.gbListadoGolosina.Name = "gbListadoGolosina";
+            this.gbListadoGolosina.Size = new System.Drawing.Size(598, 370);
+            this.gbListadoGolosina.TabIndex = 5;
+            this.gbListadoGolosina.TabStop = false;
+            this.gbListadoGolosina.Text = "LISTADO";
             // 
-            // label1
+            // lblListadoGolosinas
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 95);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(157, 18);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "LISTADO DE GOLOSINAS:";
+            this.lblListadoGolosinas.AutoSize = true;
+            this.lblListadoGolosinas.Location = new System.Drawing.Point(7, 95);
+            this.lblListadoGolosinas.Name = "lblListadoGolosinas";
+            this.lblListadoGolosinas.Size = new System.Drawing.Size(157, 18);
+            this.lblListadoGolosinas.TabIndex = 6;
+            this.lblListadoGolosinas.Text = "LISTADO DE GOLOSINAS:";
             // 
             // pictureBox1
             // 
@@ -101,12 +101,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(605, 378);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbListadoGolosina);
             this.Name = "Listado_Golosinas";
             this.Text = "Listado de Golosinas";
             this.Load += new System.EventHandler(this.Listado_Golosinas_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gbListadoGolosina.ResumeLayout(false);
+            this.gbListadoGolosina.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListadoGolosinas)).EndInit();
             this.ResumeLayout(false);
@@ -115,8 +115,8 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox gbListadoGolosina;
+        private System.Windows.Forms.Label lblListadoGolosinas;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.DataGridView dgvListadoGolosinas;

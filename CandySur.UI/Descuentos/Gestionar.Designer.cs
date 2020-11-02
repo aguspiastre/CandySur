@@ -28,50 +28,50 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.gbGestionarDescuentos = new System.Windows.Forms.GroupBox();
+            this.gbPromocionesVigentes = new System.Windows.Forms.GroupBox();
             this.dvgPromocionesActivas = new System.Windows.Forms.DataGridView();
             this.dvgPromocionesDesactivadas = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblPromocionesActivas = new System.Windows.Forms.Label();
+            this.lblPromocionesDesactivadas = new System.Windows.Forms.Label();
             this.btnDesactivar = new System.Windows.Forms.Button();
             this.btnActivar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.groupBox1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.gbGestionarDescuentos.SuspendLayout();
+            this.gbPromocionesVigentes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dvgPromocionesActivas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvgPromocionesDesactivadas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // gbGestionarDescuentos
             // 
-            this.groupBox1.Controls.Add(this.groupBox3);
-            this.groupBox1.Controls.Add(this.btnAceptar);
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(5, 6);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(602, 564);
-            this.groupBox1.TabIndex = 24;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "ACTIVAR/DESACTIVAR DESCUENTOS";
+            this.gbGestionarDescuentos.Controls.Add(this.gbPromocionesVigentes);
+            this.gbGestionarDescuentos.Controls.Add(this.btnAceptar);
+            this.gbGestionarDescuentos.Controls.Add(this.pictureBox1);
+            this.gbGestionarDescuentos.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbGestionarDescuentos.Location = new System.Drawing.Point(5, 6);
+            this.gbGestionarDescuentos.Name = "gbGestionarDescuentos";
+            this.gbGestionarDescuentos.Size = new System.Drawing.Size(602, 564);
+            this.gbGestionarDescuentos.TabIndex = 24;
+            this.gbGestionarDescuentos.TabStop = false;
+            this.gbGestionarDescuentos.Text = "ACTIVAR/DESACTIVAR DESCUENTOS";
             // 
-            // groupBox3
+            // gbPromocionesVigentes
             // 
-            this.groupBox3.Controls.Add(this.dvgPromocionesActivas);
-            this.groupBox3.Controls.Add(this.dvgPromocionesDesactivadas);
-            this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Controls.Add(this.btnDesactivar);
-            this.groupBox3.Controls.Add(this.btnActivar);
-            this.groupBox3.Location = new System.Drawing.Point(9, 98);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(582, 423);
-            this.groupBox3.TabIndex = 23;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "PROMOCIONES VIGENTES";
+            this.gbPromocionesVigentes.Controls.Add(this.dvgPromocionesActivas);
+            this.gbPromocionesVigentes.Controls.Add(this.dvgPromocionesDesactivadas);
+            this.gbPromocionesVigentes.Controls.Add(this.lblPromocionesActivas);
+            this.gbPromocionesVigentes.Controls.Add(this.lblPromocionesDesactivadas);
+            this.gbPromocionesVigentes.Controls.Add(this.btnDesactivar);
+            this.gbPromocionesVigentes.Controls.Add(this.btnActivar);
+            this.gbPromocionesVigentes.Location = new System.Drawing.Point(9, 98);
+            this.gbPromocionesVigentes.Name = "gbPromocionesVigentes";
+            this.gbPromocionesVigentes.Size = new System.Drawing.Size(582, 423);
+            this.gbPromocionesVigentes.TabIndex = 23;
+            this.gbPromocionesVigentes.TabStop = false;
+            this.gbPromocionesVigentes.Text = "PROMOCIONES VIGENTES";
             // 
             // dvgPromocionesActivas
             // 
@@ -97,25 +97,25 @@
             this.dvgPromocionesDesactivadas.Size = new System.Drawing.Size(569, 150);
             this.dvgPromocionesDesactivadas.TabIndex = 25;
             // 
-            // label2
+            // lblPromocionesActivas
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 242);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(136, 18);
-            this.label2.TabIndex = 24;
-            this.label2.Text = "Promociones Activas";
+            this.lblPromocionesActivas.AutoSize = true;
+            this.lblPromocionesActivas.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPromocionesActivas.Location = new System.Drawing.Point(6, 242);
+            this.lblPromocionesActivas.Name = "lblPromocionesActivas";
+            this.lblPromocionesActivas.Size = new System.Drawing.Size(136, 18);
+            this.lblPromocionesActivas.TabIndex = 24;
+            this.lblPromocionesActivas.Text = "Promociones Activas";
             // 
-            // label1
+            // lblPromocionesDesactivadas
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(175, 18);
-            this.label1.TabIndex = 23;
-            this.label1.Text = "Promociones  Desactivadas";
+            this.lblPromocionesDesactivadas.AutoSize = true;
+            this.lblPromocionesDesactivadas.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPromocionesDesactivadas.Location = new System.Drawing.Point(6, 22);
+            this.lblPromocionesDesactivadas.Name = "lblPromocionesDesactivadas";
+            this.lblPromocionesDesactivadas.Size = new System.Drawing.Size(175, 18);
+            this.lblPromocionesDesactivadas.TabIndex = 23;
+            this.lblPromocionesDesactivadas.Text = "Promociones  Desactivadas";
             // 
             // btnDesactivar
             // 
@@ -128,6 +128,7 @@
             this.btnDesactivar.TabIndex = 17;
             this.btnDesactivar.Text = "Desactivar ↑";
             this.btnDesactivar.UseVisualStyleBackColor = false;
+            this.btnDesactivar.Visible = false;
             this.btnDesactivar.Click += new System.EventHandler(this.btnDesactivar_Click);
             // 
             // btnActivar
@@ -141,6 +142,7 @@
             this.btnActivar.TabIndex = 2;
             this.btnActivar.Text = "Activar ↓";
             this.btnActivar.UseVisualStyleBackColor = false;
+            this.btnActivar.Visible = false;
             this.btnActivar.Click += new System.EventHandler(this.btnActivar_Click);
             // 
             // btnAceptar
@@ -171,13 +173,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(613, 574);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbGestionarDescuentos);
             this.Name = "Gestionar";
             this.Text = "Gestionar Descuentos";
             this.Load += new System.EventHandler(this.Gestionar_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.gbGestionarDescuentos.ResumeLayout(false);
+            this.gbPromocionesVigentes.ResumeLayout(false);
+            this.gbPromocionesVigentes.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dvgPromocionesActivas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvgPromocionesDesactivadas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -186,12 +188,12 @@
         }
 
         #endregion
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbGestionarDescuentos;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox gbPromocionesVigentes;
+        private System.Windows.Forms.Label lblPromocionesActivas;
+        private System.Windows.Forms.Label lblPromocionesDesactivadas;
         private System.Windows.Forms.Button btnDesactivar;
         private System.Windows.Forms.Button btnActivar;
         private System.Windows.Forms.DataGridView dvgPromocionesActivas;

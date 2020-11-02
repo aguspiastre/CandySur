@@ -28,55 +28,55 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.gbImportesTotales = new System.Windows.Forms.GroupBox();
+            this.lblResto = new System.Windows.Forms.Label();
             this.txtResto = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblMontoAbonado = new System.Windows.Forms.Label();
             this.txtMontoAbonado = new System.Windows.Forms.TextBox();
-            this.lblTipoProducto = new System.Windows.Forms.Label();
+            this.lblImporteSubTotal = new System.Windows.Forms.Label();
             this.txtSubTotal = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblDescuentoAplicado = new System.Windows.Forms.Label();
             this.txtDescuentoAplicado = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblImporteTotal = new System.Windows.Forms.Label();
             this.txtImporteTotal = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbCalcularResto = new System.Windows.Forms.GroupBox();
             this.btnCalcular = new System.Windows.Forms.Button();
             this.btnRegresar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnFinalizar = new System.Windows.Forms.Button();
-            this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.gbImportesTotales.SuspendLayout();
+            this.gbCalcularResto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox2
+            // gbImportesTotales
             // 
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.txtResto);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.txtMontoAbonado);
-            this.groupBox2.Controls.Add(this.lblTipoProducto);
-            this.groupBox2.Controls.Add(this.txtSubTotal);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.txtDescuentoAplicado);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.txtImporteTotal);
-            this.groupBox2.Location = new System.Drawing.Point(10, 98);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(581, 197);
-            this.groupBox2.TabIndex = 3;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "IMPORTES TOTALES";
+            this.gbImportesTotales.Controls.Add(this.lblResto);
+            this.gbImportesTotales.Controls.Add(this.txtResto);
+            this.gbImportesTotales.Controls.Add(this.lblMontoAbonado);
+            this.gbImportesTotales.Controls.Add(this.txtMontoAbonado);
+            this.gbImportesTotales.Controls.Add(this.lblImporteSubTotal);
+            this.gbImportesTotales.Controls.Add(this.txtSubTotal);
+            this.gbImportesTotales.Controls.Add(this.lblDescuentoAplicado);
+            this.gbImportesTotales.Controls.Add(this.txtDescuentoAplicado);
+            this.gbImportesTotales.Controls.Add(this.lblImporteTotal);
+            this.gbImportesTotales.Controls.Add(this.txtImporteTotal);
+            this.gbImportesTotales.Location = new System.Drawing.Point(10, 98);
+            this.gbImportesTotales.Name = "gbImportesTotales";
+            this.gbImportesTotales.Size = new System.Drawing.Size(581, 197);
+            this.gbImportesTotales.TabIndex = 3;
+            this.gbImportesTotales.TabStop = false;
+            this.gbImportesTotales.Text = "IMPORTES TOTALES";
             // 
-            // label2
+            // lblResto
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(279, 77);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 19);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "Resto:";
+            this.lblResto.AutoSize = true;
+            this.lblResto.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblResto.Location = new System.Drawing.Point(279, 77);
+            this.lblResto.Name = "lblResto";
+            this.lblResto.Size = new System.Drawing.Size(50, 19);
+            this.lblResto.TabIndex = 17;
+            this.lblResto.Text = "Resto:";
             // 
             // txtResto
             // 
@@ -86,15 +86,15 @@
             this.txtResto.Size = new System.Drawing.Size(292, 26);
             this.txtResto.TabIndex = 18;
             // 
-            // label1
+            // lblMontoAbonado
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(279, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(115, 19);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Monto abonado:";
+            this.lblMontoAbonado.AutoSize = true;
+            this.lblMontoAbonado.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMontoAbonado.Location = new System.Drawing.Point(279, 26);
+            this.lblMontoAbonado.Name = "lblMontoAbonado";
+            this.lblMontoAbonado.Size = new System.Drawing.Size(115, 19);
+            this.lblMontoAbonado.TabIndex = 15;
+            this.lblMontoAbonado.Text = "Monto abonado:";
             // 
             // txtMontoAbonado
             // 
@@ -103,15 +103,15 @@
             this.txtMontoAbonado.Size = new System.Drawing.Size(292, 26);
             this.txtMontoAbonado.TabIndex = 16;
             // 
-            // lblTipoProducto
+            // lblImporteSubTotal
             // 
-            this.lblTipoProducto.AutoSize = true;
-            this.lblTipoProducto.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipoProducto.Location = new System.Drawing.Point(6, 26);
-            this.lblTipoProducto.Name = "lblTipoProducto";
-            this.lblTipoProducto.Size = new System.Drawing.Size(120, 19);
-            this.lblTipoProducto.TabIndex = 4;
-            this.lblTipoProducto.Text = "Importe Subtotal:";
+            this.lblImporteSubTotal.AutoSize = true;
+            this.lblImporteSubTotal.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblImporteSubTotal.Location = new System.Drawing.Point(6, 26);
+            this.lblImporteSubTotal.Name = "lblImporteSubTotal";
+            this.lblImporteSubTotal.Size = new System.Drawing.Size(120, 19);
+            this.lblImporteSubTotal.TabIndex = 4;
+            this.lblImporteSubTotal.Text = "Importe Subtotal:";
             // 
             // txtSubTotal
             // 
@@ -121,15 +121,15 @@
             this.txtSubTotal.Size = new System.Drawing.Size(268, 26);
             this.txtSubTotal.TabIndex = 6;
             // 
-            // label4
+            // lblDescuentoAplicado
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(5, 77);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(141, 19);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Descuento aplicado:";
+            this.lblDescuentoAplicado.AutoSize = true;
+            this.lblDescuentoAplicado.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescuentoAplicado.Location = new System.Drawing.Point(5, 77);
+            this.lblDescuentoAplicado.Name = "lblDescuentoAplicado";
+            this.lblDescuentoAplicado.Size = new System.Drawing.Size(141, 19);
+            this.lblDescuentoAplicado.TabIndex = 9;
+            this.lblDescuentoAplicado.Text = "Descuento aplicado:";
             // 
             // txtDescuentoAplicado
             // 
@@ -139,15 +139,15 @@
             this.txtDescuentoAplicado.Size = new System.Drawing.Size(268, 26);
             this.txtDescuentoAplicado.TabIndex = 10;
             // 
-            // label5
+            // lblImporteTotal
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(5, 128);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(99, 19);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Importe Total:";
+            this.lblImporteTotal.AutoSize = true;
+            this.lblImporteTotal.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblImporteTotal.Location = new System.Drawing.Point(5, 128);
+            this.lblImporteTotal.Name = "lblImporteTotal";
+            this.lblImporteTotal.Size = new System.Drawing.Size(99, 19);
+            this.lblImporteTotal.TabIndex = 11;
+            this.lblImporteTotal.Text = "Importe Total:";
             // 
             // txtImporteTotal
             // 
@@ -157,20 +157,20 @@
             this.txtImporteTotal.Size = new System.Drawing.Size(268, 26);
             this.txtImporteTotal.TabIndex = 12;
             // 
-            // groupBox1
+            // gbCalcularResto
             // 
-            this.groupBox1.Controls.Add(this.btnCalcular);
-            this.groupBox1.Controls.Add(this.btnRegresar);
-            this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.btnFinalizar);
-            this.groupBox1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(3, 4);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(602, 340);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "CALCULO DE RESTO";
+            this.gbCalcularResto.Controls.Add(this.btnCalcular);
+            this.gbCalcularResto.Controls.Add(this.btnRegresar);
+            this.gbCalcularResto.Controls.Add(this.gbImportesTotales);
+            this.gbCalcularResto.Controls.Add(this.pictureBox1);
+            this.gbCalcularResto.Controls.Add(this.btnFinalizar);
+            this.gbCalcularResto.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbCalcularResto.Location = new System.Drawing.Point(3, 4);
+            this.gbCalcularResto.Name = "gbCalcularResto";
+            this.gbCalcularResto.Size = new System.Drawing.Size(602, 340);
+            this.gbCalcularResto.TabIndex = 5;
+            this.gbCalcularResto.TabStop = false;
+            this.gbCalcularResto.Text = "CALCULO DE RESTO";
             // 
             // btnCalcular
             // 
@@ -226,14 +226,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(610, 350);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbCalcularResto);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Resto";
             this.Text = "Resto";
             this.Load += new System.EventHandler(this.Resto_Load);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
+            this.gbImportesTotales.ResumeLayout(false);
+            this.gbImportesTotales.PerformLayout();
+            this.gbCalcularResto.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -241,18 +241,18 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label lblTipoProducto;
+        private System.Windows.Forms.GroupBox gbImportesTotales;
+        private System.Windows.Forms.Label lblImporteSubTotal;
         private System.Windows.Forms.TextBox txtSubTotal;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblDescuentoAplicado;
         private System.Windows.Forms.TextBox txtDescuentoAplicado;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblImporteTotal;
         private System.Windows.Forms.TextBox txtImporteTotal;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblResto;
         private System.Windows.Forms.TextBox txtResto;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblMontoAbonado;
         private System.Windows.Forms.TextBox txtMontoAbonado;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbCalcularResto;
         private System.Windows.Forms.Button btnCalcular;
         private System.Windows.Forms.Button btnRegresar;
         private System.Windows.Forms.PictureBox pictureBox1;

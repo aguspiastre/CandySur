@@ -28,54 +28,53 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblTotalComercializado = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.gbResumenDiario = new System.Windows.Forms.GroupBox();
+            this.lblTotalResumenDiario = new System.Windows.Forms.Label();
+            this.lblTotalComer = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblResumenDiarioVentas = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.dvgVentasDiarias = new System.Windows.Forms.DataGridView();
-            this.groupBox1.SuspendLayout();
+            this.gbResumenDiario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvgVentasDiarias)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // gbResumenDiario
             // 
-            this.groupBox1.Controls.Add(this.lblTotalComercializado);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.lblFecha);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.btnAceptar);
-            this.groupBox1.Controls.Add(this.dvgVentasDiarias);
-            this.groupBox1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(8, 6);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(603, 442);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Resumen diario";
+            this.gbResumenDiario.Controls.Add(this.lblTotalResumenDiario);
+            this.gbResumenDiario.Controls.Add(this.lblTotalComer);
+            this.gbResumenDiario.Controls.Add(this.lblFecha);
+            this.gbResumenDiario.Controls.Add(this.lblResumenDiarioVentas);
+            this.gbResumenDiario.Controls.Add(this.pictureBox1);
+            this.gbResumenDiario.Controls.Add(this.btnAceptar);
+            this.gbResumenDiario.Controls.Add(this.dvgVentasDiarias);
+            this.gbResumenDiario.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbResumenDiario.Location = new System.Drawing.Point(8, 6);
+            this.gbResumenDiario.Name = "gbResumenDiario";
+            this.gbResumenDiario.Size = new System.Drawing.Size(603, 442);
+            this.gbResumenDiario.TabIndex = 3;
+            this.gbResumenDiario.TabStop = false;
+            this.gbResumenDiario.Text = "Resumen diario";
             // 
-            // lblTotalComercializado
+            // lblTotalResumenDiario
             // 
-            this.lblTotalComercializado.AutoSize = true;
-            this.lblTotalComercializado.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalComercializado.Location = new System.Drawing.Point(147, 405);
-            this.lblTotalComercializado.Name = "lblTotalComercializado";
-            this.lblTotalComercializado.Size = new System.Drawing.Size(43, 18);
-            this.lblTotalComercializado.TabIndex = 9;
-            this.lblTotalComercializado.Text = "$3600";
+            this.lblTotalResumenDiario.AutoSize = true;
+            this.lblTotalResumenDiario.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalResumenDiario.Location = new System.Drawing.Point(147, 405);
+            this.lblTotalResumenDiario.Name = "lblTotalResumenDiario";
+            this.lblTotalResumenDiario.Size = new System.Drawing.Size(0, 18);
+            this.lblTotalResumenDiario.TabIndex = 9;
             // 
-            // label3
+            // lblTotalComer
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 405);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(140, 18);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Total Comercializado:";
+            this.lblTotalComer.AutoSize = true;
+            this.lblTotalComer.Location = new System.Drawing.Point(10, 405);
+            this.lblTotalComer.Name = "lblTotalComer";
+            this.lblTotalComer.Size = new System.Drawing.Size(140, 18);
+            this.lblTotalComer.TabIndex = 8;
+            this.lblTotalComer.Text = "Total Comercializado:";
             // 
             // lblFecha
             // 
@@ -87,14 +86,14 @@
             this.lblFecha.TabIndex = 7;
             this.lblFecha.Text = "18/05/2020";
             // 
-            // label1
+            // lblResumenDiarioVentas
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 105);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(232, 18);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "RESUMEN DIARIO DE VENTAS FECHA:";
+            this.lblResumenDiarioVentas.AutoSize = true;
+            this.lblResumenDiarioVentas.Location = new System.Drawing.Point(7, 105);
+            this.lblResumenDiarioVentas.Name = "lblResumenDiarioVentas";
+            this.lblResumenDiarioVentas.Size = new System.Drawing.Size(232, 18);
+            this.lblResumenDiarioVentas.TabIndex = 6;
+            this.lblResumenDiarioVentas.Text = "RESUMEN DIARIO DE VENTAS FECHA:";
             // 
             // pictureBox1
             // 
@@ -136,12 +135,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(623, 453);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbResumenDiario);
             this.Name = "Resumen_Diario";
             this.Text = "Resumen_Diario";
             this.Load += new System.EventHandler(this.Resumen_Diario_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gbResumenDiario.ResumeLayout(false);
+            this.gbResumenDiario.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvgVentasDiarias)).EndInit();
             this.ResumeLayout(false);
@@ -150,13 +149,13 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbResumenDiario;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.DataGridView dvgVentasDiarias;
-        private System.Windows.Forms.Label lblTotalComercializado;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblTotalResumenDiario;
+        private System.Windows.Forms.Label lblTotalComer;
         private System.Windows.Forms.Label lblFecha;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblResumenDiarioVentas;
     }
 }

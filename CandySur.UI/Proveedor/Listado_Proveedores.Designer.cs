@@ -28,38 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.gbListadoProveedores = new System.Windows.Forms.GroupBox();
+            this.lblListadoProveedores = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.dgvListadoProveedores = new System.Windows.Forms.DataGridView();
-            this.groupBox1.SuspendLayout();
+            this.gbListadoProveedores.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListadoProveedores)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // gbListadoProveedores
             // 
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.btnAceptar);
-            this.groupBox1.Controls.Add(this.dgvListadoProveedores);
-            this.groupBox1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(7, 6);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(603, 442);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "LISTADO";
+            this.gbListadoProveedores.Controls.Add(this.lblListadoProveedores);
+            this.gbListadoProveedores.Controls.Add(this.pictureBox1);
+            this.gbListadoProveedores.Controls.Add(this.btnAceptar);
+            this.gbListadoProveedores.Controls.Add(this.dgvListadoProveedores);
+            this.gbListadoProveedores.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbListadoProveedores.Location = new System.Drawing.Point(7, 6);
+            this.gbListadoProveedores.Name = "gbListadoProveedores";
+            this.gbListadoProveedores.Size = new System.Drawing.Size(603, 442);
+            this.gbListadoProveedores.TabIndex = 4;
+            this.gbListadoProveedores.TabStop = false;
+            this.gbListadoProveedores.Text = "LISTADO";
             // 
-            // label1
+            // lblListadoProveedores
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 105);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(175, 18);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "LISTADO DE PROVEEDORES:";
+            this.lblListadoProveedores.AutoSize = true;
+            this.lblListadoProveedores.Location = new System.Drawing.Point(7, 105);
+            this.lblListadoProveedores.Name = "lblListadoProveedores";
+            this.lblListadoProveedores.Size = new System.Drawing.Size(175, 18);
+            this.lblListadoProveedores.TabIndex = 6;
+            this.lblListadoProveedores.Text = "LISTADO DE PROVEEDORES:";
             // 
             // pictureBox1
             // 
@@ -98,12 +98,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(616, 456);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbListadoProveedores);
             this.Name = "Listado_Proveedores";
             this.Text = "Listado de Proveedores";
             this.Load += new System.EventHandler(this.Listado_Proveedores_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gbListadoProveedores.ResumeLayout(false);
+            this.gbListadoProveedores.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListadoProveedores)).EndInit();
             this.ResumeLayout(false);
@@ -112,8 +112,8 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox gbListadoProveedores;
+        private System.Windows.Forms.Label lblListadoProveedores;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.DataGridView dgvListadoProveedores;

@@ -23,7 +23,7 @@ namespace CandySur.Test
         [TestMethod]
         public void Encriptar()
         {
-            string nombre = Encrypt.Encriptar("Listar Usuarios", (int)TipoEncriptacion.Reversible);
+            string nombre = Encrypt.Encriptar("Enviar Mail Reposicion", (int)TipoEncriptacion.Reversible);
         }
 
 
