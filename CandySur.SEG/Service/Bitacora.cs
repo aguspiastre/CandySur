@@ -21,7 +21,7 @@ namespace CandySur.SEG.Service
             repository = new Repository.Bitacora();
             dv = new Service.DigitoVerificador();
         }
-        public int Registrar(Entity.Bitacora reg)
+        public int Registrar(Entity.Bitacora reg, bool controlIntegridad = false)
         {
             using (var scope = new TransactionScope(TransactionScopeOption.RequiresNew, new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }))
             {
@@ -30,7 +30,8 @@ namespace CandySur.SEG.Service
 
                 int result = repository.Registrar(reg);
 
-                dv.ActualizarDVV("Bitacora");
+                if (!controlIntegridad)
+                    dv.ActualizarDVV("Bitacora");
 
                 scope.Complete();
 

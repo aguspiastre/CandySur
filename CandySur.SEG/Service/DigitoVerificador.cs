@@ -106,6 +106,7 @@ namespace CandySur.SEG.Service
             {
                 Service.Bitacora bitacoraService = new Service.Bitacora();
                 bool resultado = true;
+                bool integridadBitacora = false;
                 DataTable dvvs = repository.ListarDVV();
 
                 foreach (DataRow row in dvvs.Rows)
@@ -114,12 +115,15 @@ namespace CandySur.SEG.Service
 
                     if (!this.CompararDVV(row["Nombre_Tabla"].ToString(), (row["DVV"].ToString())))
                     {
+                        if (row["Nombre_Tabla"].ToString() == "Bitacora")
+                            integridadBitacora = true;
+
                         bitacoraService.Registrar(new Entity.Bitacora
                         {
                             IdCriticidad = (int)Criticidad.Alta,
                             Descripcion = "La tabla " + row["Nombre_Tabla"].ToString() + " no se encuentra en un estado valido.",
                             Fecha = DateTime.Now
-                        });
+                        }, integridadBitacora);
 
                         resultado = false;
                     }
