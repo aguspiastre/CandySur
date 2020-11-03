@@ -111,6 +111,7 @@
             // 
             this.dataGridCambios.AllowUserToAddRows = false;
             this.dataGridCambios.AllowUserToDeleteRows = false;
+            this.dataGridCambios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridCambios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridCambios.Location = new System.Drawing.Point(10, 25);
             this.dataGridCambios.MultiSelect = false;

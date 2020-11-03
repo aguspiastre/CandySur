@@ -37,9 +37,14 @@ namespace CandySur.UI.Bitacora
                 {
                     FechaDesde = this.dateTimeFechaDesde.Value.Date,
                     FechaHasta = this.dateTimeFechaHasta.Value.Date,
-                    IdCriticidad = (int)criticidad,
                     IdUsuario = Convert.ToInt32(value)
                 };
+
+                if((int)criticidad != 0)
+                {
+                    req.IdCriticidad = (int)criticidad;
+                }
+
                 List<CandySur.SEG.Entity.Bitacora> list = bitacoraService.Consultar(req);
 
                 this.dataGridBitacora.DataSource = list.Select(x => new { Usuario = x.Usuario, Evento = x.Descripcion, Fecha = x.Fecha, Criticidad = x.Criticidad }).ToList();

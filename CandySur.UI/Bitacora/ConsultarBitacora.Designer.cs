@@ -75,6 +75,7 @@
             // 
             // dataGridBitacora
             // 
+            this.dataGridBitacora.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridBitacora.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridBitacora.Location = new System.Drawing.Point(10, 25);
             this.dataGridBitacora.MultiSelect = false;

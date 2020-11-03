@@ -8,7 +8,7 @@ namespace CandySur.SEG.Util
 {
     public class Enums
     {
-        public enum Criticidad { Alta = 1, Media = 2, Baja = 3 };
+        public enum Criticidad { Todo = 0, Alta = 1, Media = 2, Baja = 3 };
 
         public enum TipoEncriptacion { Reversible = 1, Irreversible = 0 };
     }
