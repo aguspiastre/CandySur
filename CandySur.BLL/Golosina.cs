@@ -39,6 +39,10 @@ namespace CandySur.BLL
 
         public void Eliminar(CandySur.BE.Golosina golosina)
         {
+            //Validar si forma un paquete.
+            if (!this.ValidarEliminacion(golosina))
+                throw new Exception("No se puede eliminar la golosina, debido a que conforma un paquete en stock.");
+
             try
             {
                 using (var scope = new TransactionScope(TransactionScopeOption.RequiresNew, new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }))
@@ -143,6 +147,26 @@ namespace CandySur.BLL
             {
                 throw ex;
             }
+        }
+
+        private bool ValidarEliminacion(BE.Golosina golosina)
+        {
+            BLL.Paquete paqueteService = new BLL.Paquete();
+
+            List<BE.Paquete> paquetes = paqueteService.Listar();
+
+            foreach (BE.Paquete paq in paquetes)
+            {
+                if (paq.Stock > 0)
+                {
+                    var paquete = paqueteService.ObtenerDetalle(paq.Id);
+
+                    if (paquete.Golosinas.Any(g => g.Id == golosina.Id))
+                        return false;
+                }
+            }
+
+            return true;
         }
     }
 }
