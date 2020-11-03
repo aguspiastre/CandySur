@@ -1,10 +1,13 @@
 ﻿using CandySur.SEG.Entity;
 using CandySur.SEG.Service;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +18,10 @@ namespace CandySur.UI.Reportes
     public partial class Reportes : Form, IIdiomaObserver
     {
         private SEG.Service.SessionManager Session;
-    
+        private string fileName;
+        private string titulo;
+        private string paragraph;
+
         public Reportes()
         {
             InitializeComponent();
@@ -25,13 +31,14 @@ namespace CandySur.UI.Reportes
         {
             try
             {
-                Session = SEG.Service.SessionManager.GetInstance();
+                //Session = SEG.Service.SessionManager.GetInstance();
 
-                this.validarPermisos(Session);
+                //this.validarPermisos(Session);
 
-                this.Traducir();
-                SEG.Service.IdiomaManager.Suscribir(this);
+                //this.Traducir();
+                //SEG.Service.IdiomaManager.Suscribir(this);
 
+                this.rdbVentas.Checked = true;
             }
             catch (Exception ex)
             {
@@ -128,14 +135,104 @@ namespace CandySur.UI.Reportes
                 if (rdbVentas.Checked)
                 {
                     this.dgReporte.DataSource = reportesService.GenerarReportesVentas(this.dtpFechaDsd.Value, this.dtpFechaHst.Value).Select(x => new { Codigo = x.Id, Importe = x.Importe, Fecha = x.Fecha }).ToList();
+                    this.fileName = $"ReporteVentas_{DateTime.Now.ToString("yyyy-MM-dd")}.pdf";
+                    this.titulo = "Reporte de Ventas.";
+                    this.paragraph = $"Reporte de ventas entre las fechas {this.dtpFechaDsd.Value.ToString("yyyy-MM-dd")} y {this.dtpFechaHst.Value.ToString("yyyy-MM-dd")}.";
                 }
-                else if(rbdPaquetes.Checked)
+                else if (rbdPaquetes.Checked)
                 {
                     this.dgReporte.DataSource = reportesService.GenerarReportesPaquetes(this.dtpFechaDsd.Value, this.dtpFechaHst.Value).Select(x => new { Codigo = x.Id, Descripcion = x.Descripcion, Importe = x.Importe, Cantidad = x.Stock }).ToList();
+                    this.fileName = $"ReportePaquetes_{DateTime.Now.ToString("yyyy-MM-dd")}.pdf";
+                    this.titulo = "Reporte de Paquetes.";
+                    this.paragraph = $"Reporte de paquetes mas comercializados entre las fechas {this.dtpFechaDsd.Value.ToString("yyyy-MM-dd")} y {this.dtpFechaHst.Value.ToString("yyyy-MM-dd")}.";
                 }
-                else if(rbdGolosinas.Checked)
+                else if (rbdGolosinas.Checked)
                 {
                     this.dgReporte.DataSource = reportesService.GenerarReportesGolosinas(this.dtpFechaDsd.Value, this.dtpFechaHst.Value).Select(x => new { Codigo = x.Id, Descripcion = x.Descripcion, Importe = x.Importe, Cantidad = x.Stock }).ToList();
+                    this.fileName = $"ReporteGolosinas_{DateTime.Now.ToString("yyyy-MM-dd")}.pdf";
+                    this.titulo = "Reporte de Golosinas.";
+                    this.paragraph = $"Reporte de golosinas mas comercializadas entre las fechas {this.dtpFechaDsd.Value.ToString("yyyy-MM-dd")} y {this.dtpFechaHst.Value.ToString("yyyy-MM-dd")}.";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnExportarPDF_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgReporte.Rows.Count > 0)
+                {
+                    SaveFileDialog sfd = new SaveFileDialog();
+                    sfd.Filter = "PDF (*.pdf)|*.pdf";
+                    sfd.FileName = this.fileName;
+                    bool fileError = false;
+                    if (sfd.ShowDialog() == DialogResult.OK)
+                    {
+                        if (File.Exists(sfd.FileName))
+                        {
+                            File.Delete(sfd.FileName);
+                        }
+                        if (!fileError)
+                        {
+                            PdfPTable pdfTable = new PdfPTable(dgReporte.Columns.Count);
+                            pdfTable.DefaultCell.Padding = 3;
+                            pdfTable.WidthPercentage = 100;
+                            pdfTable.HorizontalAlignment = Element.ALIGN_LEFT;
+
+                            foreach (DataGridViewColumn column in dgReporte.Columns)
+                            {
+                                PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText));
+                                pdfTable.AddCell(cell);
+                            }
+
+                            foreach (DataGridViewRow row in dgReporte.Rows)
+                            {
+                                foreach (DataGridViewCell cell in row.Cells)
+                                {
+                                    pdfTable.AddCell(cell.Value.ToString());
+                                }
+                            }
+
+                            using (FileStream stream = new FileStream(sfd.FileName, FileMode.Create))
+                            {
+                                Document pdfDoc = new Document(PageSize.A4, 10f, 20f, 20f, 10f);
+                                PdfWriter.GetInstance(pdfDoc, stream);
+
+                                pdfDoc.Open();
+
+                                //Titulo y parrafo.
+                                iTextSharp.text.Font titleFont = FontFactory.GetFont("Arial", 26);
+                                titleFont.IsUnderlined();
+
+                                iTextSharp.text.Font regularFont = FontFactory.GetFont("Arial", 15);
+
+                                Paragraph title = new Paragraph(this.titulo, titleFont);
+                                title.Alignment = Element.ALIGN_CENTER;
+                                pdfDoc.Add(title);
+
+                                pdfDoc.Add(new Chunk("\n"));
+
+                                Paragraph text = new Paragraph(this.paragraph, regularFont);
+                                pdfDoc.Add(text);
+
+                                pdfDoc.Add(new Chunk("\n"));
+
+                                pdfDoc.Add(pdfTable);
+                                pdfDoc.Close();
+                                stream.Close();
+                            }
+
+                            MessageBox.Show("Exportacion realizada con exito.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+                else
+                {
+                    throw new Exception("No hay registros para exportar.");
                 }
             }
             catch (Exception ex)

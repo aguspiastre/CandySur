@@ -79,9 +79,12 @@
             // 
             // dgReporte
             // 
+            this.dgReporte.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgReporte.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgReporte.Location = new System.Drawing.Point(6, 25);
+            this.dgReporte.MultiSelect = false;
             this.dgReporte.Name = "dgReporte";
+            this.dgReporte.ReadOnly = true;
             this.dgReporte.Size = new System.Drawing.Size(573, 248);
             this.dgReporte.TabIndex = 0;
             // 
@@ -190,6 +193,7 @@
             this.btnExportarPDF.TabIndex = 21;
             this.btnExportarPDF.Text = "Exportar PDF";
             this.btnExportarPDF.UseVisualStyleBackColor = false;
+            this.btnExportarPDF.Click += new System.EventHandler(this.btnExportarPDF_Click);
             // 
             // btnCancelar
             // 
