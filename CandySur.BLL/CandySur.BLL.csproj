@@ -48,6 +48,7 @@
     <Compile Include="Cobro.cs" />
     <Compile Include="Descuento.cs" />
     <Compile Include="Detalle_Venta.cs" />
+    <Compile Include="Reportes.cs" />
     <Compile Include="Venta.cs" />
     <Compile Include="Paquete.cs" />
     <Compile Include="Golosina.cs" />
