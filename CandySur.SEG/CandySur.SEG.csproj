@@ -77,7 +77,6 @@
     <Compile Include="Service\DataBase.cs" />
     <Compile Include="Service\DigitoVerificador.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\CandySur.DLL\CandySur.DLL.csproj">
       <Project>{3ed96596-13e7-449e-a274-ea77fc268313}</Project>

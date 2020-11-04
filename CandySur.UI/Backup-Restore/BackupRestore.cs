@@ -12,13 +12,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static CandySur.SEG.Util.Enums;
 using CandySur.SEG.Entity;
+using System.Reflection;
 
 namespace CandySur.UI.Backup_Restore
 {
     public partial class BackupRestore : Form, IIdiomaObserver
     {
         private CandySur.SEG.Service.SessionManager Session;
-        private const string RUTA_DESTINO = "C:\\Program Files (x86)\\Microsoft SQL Server\\MSSQL.1\\MSSQL\\Backup";
+        private const string RUTA_DESTINO = @"C:\CandySur\Backups";
         SEG.Service.DataBase databaseService = new SEG.Service.DataBase();
         SEG.Service.Bitacora bitacoraService = new SEG.Service.Bitacora();
 
@@ -37,6 +38,12 @@ namespace CandySur.UI.Backup_Restore
 
                 this.Traducir();
                 SEG.Service.IdiomaManager.Suscribir(this);
+
+                //Generacion de carpeta en caso de que no exista.
+                if (!Directory.Exists(RUTA_DESTINO))
+                {
+                    Directory.CreateDirectory(RUTA_DESTINO);
+                }
 
                 this.ListarBackups();
             }
@@ -76,6 +83,7 @@ namespace CandySur.UI.Backup_Restore
             try
             {
                 string fullUri = RUTA_DESTINO + "\\CandySur" + "_" + DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
+
                 databaseService.NuevoBackup("CandySur", fullUri);
 
                 this.ListarBackups();
@@ -100,7 +108,7 @@ namespace CandySur.UI.Backup_Restore
 
         private void ListarBackups()
         {
-            DirectoryInfo d = new DirectoryInfo(@"C:\\Program Files (x86)\\Microsoft SQL Server\\MSSQL.1\\MSSQL\\Backup");
+            DirectoryInfo d = new DirectoryInfo(RUTA_DESTINO);
             FileInfo[] Files = d.GetFiles("*CandySur*");
 
             cmbBackup.Items.Clear();
