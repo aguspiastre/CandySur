@@ -33,6 +33,9 @@
             this.SubMenuUsuarioAlta = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuUsuarioGestionar = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuUsuarioListar = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuBitacora = new System.Windows.Forms.ToolStripMenuItem();
+            this.SubMenuBitacoraConsultar = new System.Windows.Forms.ToolStripMenuItem();
+            this.SubMenuBitacoraControlCambios = new System.Windows.Forms.ToolStripMenuItem();
             this.menuGestionPermisos = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuFamilia = new System.Windows.Forms.ToolStripMenuItem();
             this.SubItemAltaFamilia = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,9 +46,6 @@
             this.SubItemListarPatentes = new System.Windows.Forms.ToolStripMenuItem();
             this.SubItemAsignacionPatFamilia = new System.Windows.Forms.ToolStripMenuItem();
             this.SubItemAsignacionPatUsuario = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuBitacora = new System.Windows.Forms.ToolStripMenuItem();
-            this.SubMenuBitacoraConsultar = new System.Windows.Forms.ToolStripMenuItem();
-            this.SubMenuBitacoraControlCambios = new System.Windows.Forms.ToolStripMenuItem();
             this.menuBackupRestore = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuBackupRestoreBackup = new System.Windows.Forms.ToolStripMenuItem();
             this.reiniciarSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -79,6 +79,7 @@
             this.SubMenuIngles = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuMiPerfilAyuda = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuMiPerfilCerrarSession = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpProvider = new System.Windows.Forms.HelpProvider();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -133,6 +134,29 @@
             this.SubMenuUsuarioListar.Text = "Listar";
             this.SubMenuUsuarioListar.Click += new System.EventHandler(this.listarToolStripMenuItem_Click);
             // 
+            // menuBitacora
+            // 
+            this.menuBitacora.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SubMenuBitacoraConsultar,
+            this.SubMenuBitacoraControlCambios});
+            this.menuBitacora.Name = "menuBitacora";
+            this.menuBitacora.Size = new System.Drawing.Size(62, 20);
+            this.menuBitacora.Text = "Bitacora";
+            // 
+            // SubMenuBitacoraConsultar
+            // 
+            this.SubMenuBitacoraConsultar.Name = "SubMenuBitacoraConsultar";
+            this.SubMenuBitacoraConsultar.Size = new System.Drawing.Size(180, 22);
+            this.SubMenuBitacoraConsultar.Text = "Consultar";
+            this.SubMenuBitacoraConsultar.Click += new System.EventHandler(this.consultarToolStripMenuItem_Click);
+            // 
+            // SubMenuBitacoraControlCambios
+            // 
+            this.SubMenuBitacoraControlCambios.Name = "SubMenuBitacoraControlCambios";
+            this.SubMenuBitacoraControlCambios.Size = new System.Drawing.Size(180, 22);
+            this.SubMenuBitacoraControlCambios.Text = "Control de Cambios";
+            this.SubMenuBitacoraControlCambios.Click += new System.EventHandler(this.controlDeCambiosToolStripMenuItem_Click);
+            // 
             // menuGestionPermisos
             // 
             this.menuGestionPermisos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -150,7 +174,7 @@
             this.SubItemListarFamilias,
             this.SubItemAsignacionFamUsuario});
             this.SubMenuFamilia.Name = "SubMenuFamilia";
-            this.SubMenuFamilia.Size = new System.Drawing.Size(152, 22);
+            this.SubMenuFamilia.Size = new System.Drawing.Size(114, 22);
             this.SubMenuFamilia.Text = "Familia";
             // 
             // SubItemAltaFamilia
@@ -188,7 +212,7 @@
             this.SubItemAsignacionPatFamilia,
             this.SubItemAsignacionPatUsuario});
             this.SubMenuPatente.Name = "SubMenuPatente";
-            this.SubMenuPatente.Size = new System.Drawing.Size(152, 22);
+            this.SubMenuPatente.Size = new System.Drawing.Size(114, 22);
             this.SubMenuPatente.Text = "Patente";
             // 
             // SubItemListarPatentes
@@ -211,29 +235,6 @@
             this.SubItemAsignacionPatUsuario.Size = new System.Drawing.Size(185, 22);
             this.SubItemAsignacionPatUsuario.Text = "Asignacion a Usuario";
             this.SubItemAsignacionPatUsuario.Click += new System.EventHandler(this.asignacionAUsuarioToolStripMenuItem1_Click);
-            // 
-            // menuBitacora
-            // 
-            this.menuBitacora.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.SubMenuBitacoraConsultar,
-            this.SubMenuBitacoraControlCambios});
-            this.menuBitacora.Name = "menuBitacora";
-            this.menuBitacora.Size = new System.Drawing.Size(62, 20);
-            this.menuBitacora.Text = "Bitacora";
-            // 
-            // SubMenuBitacoraConsultar
-            // 
-            this.SubMenuBitacoraConsultar.Name = "SubMenuBitacoraConsultar";
-            this.SubMenuBitacoraConsultar.Size = new System.Drawing.Size(180, 22);
-            this.SubMenuBitacoraConsultar.Text = "Consultar";
-            this.SubMenuBitacoraConsultar.Click += new System.EventHandler(this.consultarToolStripMenuItem_Click);
-            // 
-            // SubMenuBitacoraControlCambios
-            // 
-            this.SubMenuBitacoraControlCambios.Name = "SubMenuBitacoraControlCambios";
-            this.SubMenuBitacoraControlCambios.Size = new System.Drawing.Size(180, 22);
-            this.SubMenuBitacoraControlCambios.Text = "Control de Cambios";
-            this.SubMenuBitacoraControlCambios.Click += new System.EventHandler(this.controlDeCambiosToolStripMenuItem_Click);
             // 
             // menuBackupRestore
             // 
@@ -302,21 +303,21 @@
             // SubMenuGolosinasAlta
             // 
             this.SubMenuGolosinasAlta.Name = "SubMenuGolosinasAlta";
-            this.SubMenuGolosinasAlta.Size = new System.Drawing.Size(152, 22);
+            this.SubMenuGolosinasAlta.Size = new System.Drawing.Size(124, 22);
             this.SubMenuGolosinasAlta.Text = "Alta";
             this.SubMenuGolosinasAlta.Click += new System.EventHandler(this.altaToolStripMenuItem_Click_1);
             // 
             // SubMenuGolosinasGestionar
             // 
             this.SubMenuGolosinasGestionar.Name = "SubMenuGolosinasGestionar";
-            this.SubMenuGolosinasGestionar.Size = new System.Drawing.Size(152, 22);
+            this.SubMenuGolosinasGestionar.Size = new System.Drawing.Size(124, 22);
             this.SubMenuGolosinasGestionar.Text = "Gestionar";
             this.SubMenuGolosinasGestionar.Click += new System.EventHandler(this.gestionarToolStripMenuItem1_Click_1);
             // 
             // SubMenuGolosinasListar
             // 
             this.SubMenuGolosinasListar.Name = "SubMenuGolosinasListar";
-            this.SubMenuGolosinasListar.Size = new System.Drawing.Size(152, 22);
+            this.SubMenuGolosinasListar.Size = new System.Drawing.Size(124, 22);
             this.SubMenuGolosinasListar.Text = "Listar";
             this.SubMenuGolosinasListar.Click += new System.EventHandler(this.listarToolStripMenuItem_Click_1);
             // 
@@ -464,14 +465,14 @@
             // SubMenuEspañol
             // 
             this.SubMenuEspañol.Name = "SubMenuEspañol";
-            this.SubMenuEspañol.Size = new System.Drawing.Size(152, 22);
+            this.SubMenuEspañol.Size = new System.Drawing.Size(115, 22);
             this.SubMenuEspañol.Text = "Español";
             this.SubMenuEspañol.Click += new System.EventHandler(this.SubMenuEspañol_Click);
             // 
             // SubMenuIngles
             // 
             this.SubMenuIngles.Name = "SubMenuIngles";
-            this.SubMenuIngles.Size = new System.Drawing.Size(152, 22);
+            this.SubMenuIngles.Size = new System.Drawing.Size(115, 22);
             this.SubMenuIngles.Text = "Ingles";
             this.SubMenuIngles.Click += new System.EventHandler(this.SubMenuIngles_Click);
             // 
@@ -480,6 +481,7 @@
             this.SubMenuMiPerfilAyuda.Name = "SubMenuMiPerfilAyuda";
             this.SubMenuMiPerfilAyuda.Size = new System.Drawing.Size(182, 22);
             this.SubMenuMiPerfilAyuda.Text = "Ayuda";
+            this.SubMenuMiPerfilAyuda.Click += new System.EventHandler(this.SubMenuMiPerfilAyuda_Click);
             // 
             // SubMenuMiPerfilCerrarSession
             // 
@@ -560,5 +562,6 @@
         private System.Windows.Forms.ToolStripMenuItem SubMenuReportesPaquetesMasVendidos;
         private System.Windows.Forms.ToolStripMenuItem SubMenuReportesVentasPorPeriodo;
         private System.Windows.Forms.ToolStripMenuItem reiniciarSistemaToolStripMenuItem;
+        private System.Windows.Forms.HelpProvider helpProvider;
     }
 }

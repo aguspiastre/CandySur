@@ -29,6 +29,8 @@ namespace CandySur.UI
 
             this.Traducir();
             SEG.Service.IdiomaManager.Suscribir(this);
+
+            helpProvider.HelpNamespace = System.IO.Path.Combine(Application.StartupPath, "CandySur - Ayuda en linea.chm");
         }
 
         private void consultarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -415,7 +417,14 @@ namespace CandySur.UI
 
         private void reportesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            var form = new Reportes.Reportes();
+            form.MdiParent = this;
+            form.Show();
+        }
 
+        private void SubMenuMiPerfilAyuda_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Help.ShowHelp(this, helpProvider.HelpNamespace, HelpNavigator.TableOfContents);
         }
     }
 }
