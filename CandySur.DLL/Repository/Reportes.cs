@@ -32,7 +32,7 @@ namespace CandySur.DLL.Repository
                 {
                     Id = int.Parse(row["Id"].ToString()),
                     Descripcion = row["Descripcion"].ToString(),
-                    Importe = Decimal.Parse(UTIL.Encrypt.Desencriptar(row["Importe"].ToString()).Replace(".", ",")),
+                    Importe = Decimal.Parse((row["Importe"].ToString()).Replace(".", ",")),
                     Stock = int.Parse(row["Cantidad"].ToString())
                 };
 

@@ -32,7 +32,7 @@
             this.gbReporte = new System.Windows.Forms.GroupBox();
             this.dgReporte = new System.Windows.Forms.DataGridView();
             this.gbFiltrosBusqueda = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTipoReporte = new System.Windows.Forms.Label();
             this.rbdPaquetes = new System.Windows.Forms.RadioButton();
             this.rbdGolosinas = new System.Windows.Forms.RadioButton();
             this.rdbVentas = new System.Windows.Forms.RadioButton();
@@ -90,7 +90,7 @@
             // 
             // gbFiltrosBusqueda
             // 
-            this.gbFiltrosBusqueda.Controls.Add(this.label1);
+            this.gbFiltrosBusqueda.Controls.Add(this.lblTipoReporte);
             this.gbFiltrosBusqueda.Controls.Add(this.rbdPaquetes);
             this.gbFiltrosBusqueda.Controls.Add(this.rbdGolosinas);
             this.gbFiltrosBusqueda.Controls.Add(this.rdbVentas);
@@ -105,15 +105,15 @@
             this.gbFiltrosBusqueda.TabStop = false;
             this.gbFiltrosBusqueda.Text = "FILTROS DE BUSQUEDA";
             // 
-            // label1
+            // lblTipoReporte
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(112, 19);
-            this.label1.TabIndex = 30;
-            this.label1.Text = "Tipo de reporte:";
+            this.lblTipoReporte.AutoSize = true;
+            this.lblTipoReporte.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipoReporte.Location = new System.Drawing.Point(6, 22);
+            this.lblTipoReporte.Name = "lblTipoReporte";
+            this.lblTipoReporte.Size = new System.Drawing.Size(112, 19);
+            this.lblTipoReporte.TabIndex = 30;
+            this.lblTipoReporte.Text = "Tipo de reporte:";
             // 
             // rbdPaquetes
             // 
@@ -261,7 +261,7 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridView dgReporte;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTipoReporte;
         private System.Windows.Forms.RadioButton rbdPaquetes;
         private System.Windows.Forms.RadioButton rbdGolosinas;
         private System.Windows.Forms.RadioButton rdbVentas;

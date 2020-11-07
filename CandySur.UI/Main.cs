@@ -30,6 +30,9 @@ namespace CandySur.UI
             this.Traducir();
             SEG.Service.IdiomaManager.Suscribir(this);
 
+            this.KeyDown += Form11_KeyDown;
+            this.KeyPreview = true;
+
             helpProvider.HelpNamespace = System.IO.Path.Combine(Application.StartupPath, "CandySur - Ayuda en linea.chm");
         }
 
@@ -254,9 +257,6 @@ namespace CandySur.UI
 
             this.SubMenuReportesGolosinasMasVendidas.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.SubMenuReportesGolosinasMasVendidas.Name).Descripcion;
 
-            this.SubMenuReportesPaquetesMasVendidos.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.SubMenuReportesPaquetesMasVendidos.Name).Descripcion;
-
-            this.SubMenuReportesVentasPorPeriodo.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.SubMenuReportesVentasPorPeriodo.Name).Descripcion;
 
             //Sub items.
             this.SubItemAltaFamilia.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.SubItemAltaFamilia.Name).Descripcion;
@@ -415,16 +415,22 @@ namespace CandySur.UI
             form.Show();
         }
 
-        private void reportesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SubMenuMiPerfilAyuda_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Help.ShowHelp(this, helpProvider.HelpNamespace, HelpNavigator.TableOfContents);
+        }
+
+        private void SubMenuReportesGolosinasMasVendidas_Click(object sender, EventArgs e)
         {
             var form = new Reportes.Reportes();
             form.MdiParent = this;
             form.Show();
         }
 
-        private void SubMenuMiPerfilAyuda_Click(object sender, EventArgs e)
+        void Form11_KeyDown(object sender, KeyEventArgs e)
         {
-            System.Windows.Forms.Help.ShowHelp(this, helpProvider.HelpNamespace, HelpNavigator.TableOfContents);
+            if (e.KeyCode == Keys.F11)
+                System.Windows.Forms.Help.ShowHelp(this, helpProvider.HelpNamespace, HelpNavigator.TableOfContents);
         }
     }
 }

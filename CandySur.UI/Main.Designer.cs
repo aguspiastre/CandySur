@@ -70,8 +70,6 @@
             this.SubMenuDescuentosGestionar = new System.Windows.Forms.ToolStripMenuItem();
             this.menuReportes = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuReportesGolosinasMasVendidas = new System.Windows.Forms.ToolStripMenuItem();
-            this.SubMenuReportesPaquetesMasVendidos = new System.Windows.Forms.ToolStripMenuItem();
-            this.SubMenuReportesVentasPorPeriodo = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMiPerfil = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuMiPerfilCambiarContraseña = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuMiPerfilGestionaIdioma = new System.Windows.Forms.ToolStripMenuItem();
@@ -395,45 +393,31 @@
             // SubMenuDescuentosConfigurar
             // 
             this.SubMenuDescuentosConfigurar.Name = "SubMenuDescuentosConfigurar";
-            this.SubMenuDescuentosConfigurar.Size = new System.Drawing.Size(152, 22);
+            this.SubMenuDescuentosConfigurar.Size = new System.Drawing.Size(131, 22);
             this.SubMenuDescuentosConfigurar.Text = "Configurar";
             this.SubMenuDescuentosConfigurar.Click += new System.EventHandler(this.configurarToolStripMenuItem_Click);
             // 
             // SubMenuDescuentosGestionar
             // 
             this.SubMenuDescuentosGestionar.Name = "SubMenuDescuentosGestionar";
-            this.SubMenuDescuentosGestionar.Size = new System.Drawing.Size(152, 22);
+            this.SubMenuDescuentosGestionar.Size = new System.Drawing.Size(131, 22);
             this.SubMenuDescuentosGestionar.Text = "Gestionar";
             this.SubMenuDescuentosGestionar.Click += new System.EventHandler(this.gestionarToolStripMenuItem4_Click);
             // 
             // menuReportes
             // 
             this.menuReportes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.SubMenuReportesGolosinasMasVendidas,
-            this.SubMenuReportesPaquetesMasVendidos,
-            this.SubMenuReportesVentasPorPeriodo});
+            this.SubMenuReportesGolosinasMasVendidas});
             this.menuReportes.Name = "menuReportes";
             this.menuReportes.Size = new System.Drawing.Size(65, 20);
             this.menuReportes.Text = "Reportes";
-            this.menuReportes.Click += new System.EventHandler(this.reportesToolStripMenuItem_Click);
             // 
             // SubMenuReportesGolosinasMasVendidas
             // 
             this.SubMenuReportesGolosinasMasVendidas.Name = "SubMenuReportesGolosinasMasVendidas";
-            this.SubMenuReportesGolosinasMasVendidas.Size = new System.Drawing.Size(200, 22);
-            this.SubMenuReportesGolosinasMasVendidas.Text = "Golosinas mas vendidas";
-            // 
-            // SubMenuReportesPaquetesMasVendidos
-            // 
-            this.SubMenuReportesPaquetesMasVendidos.Name = "SubMenuReportesPaquetesMasVendidos";
-            this.SubMenuReportesPaquetesMasVendidos.Size = new System.Drawing.Size(200, 22);
-            this.SubMenuReportesPaquetesMasVendidos.Text = "Paquetes mas vendidos";
-            // 
-            // SubMenuReportesVentasPorPeriodo
-            // 
-            this.SubMenuReportesVentasPorPeriodo.Name = "SubMenuReportesVentasPorPeriodo";
-            this.SubMenuReportesVentasPorPeriodo.Size = new System.Drawing.Size(200, 22);
-            this.SubMenuReportesVentasPorPeriodo.Text = "Ventas por periodo";
+            this.SubMenuReportesGolosinasMasVendidas.Size = new System.Drawing.Size(123, 22);
+            this.SubMenuReportesGolosinasMasVendidas.Text = "Visualizar";
+            this.SubMenuReportesGolosinasMasVendidas.Click += new System.EventHandler(this.SubMenuReportesGolosinasMasVendidas_Click);
             // 
             // menuMiPerfil
             // 
@@ -480,7 +464,7 @@
             // 
             this.SubMenuMiPerfilAyuda.Name = "SubMenuMiPerfilAyuda";
             this.SubMenuMiPerfilAyuda.Size = new System.Drawing.Size(182, 22);
-            this.SubMenuMiPerfilAyuda.Text = "Ayuda";
+            this.SubMenuMiPerfilAyuda.Text = "Ayuda (F11)";
             this.SubMenuMiPerfilAyuda.Click += new System.EventHandler(this.SubMenuMiPerfilAyuda_Click);
             // 
             // SubMenuMiPerfilCerrarSession
@@ -497,6 +481,7 @@
             this.ClientSize = new System.Drawing.Size(873, 478);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
+            this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Main";
             this.Text = "Candy Sur";
@@ -559,8 +544,6 @@
         private System.Windows.Forms.ToolStripMenuItem SubMenuDescuentosGestionar;
         private System.Windows.Forms.ToolStripMenuItem menuReportes;
         private System.Windows.Forms.ToolStripMenuItem SubMenuReportesGolosinasMasVendidas;
-        private System.Windows.Forms.ToolStripMenuItem SubMenuReportesPaquetesMasVendidos;
-        private System.Windows.Forms.ToolStripMenuItem SubMenuReportesVentasPorPeriodo;
         private System.Windows.Forms.ToolStripMenuItem reiniciarSistemaToolStripMenuItem;
         private System.Windows.Forms.HelpProvider helpProvider;
     }
