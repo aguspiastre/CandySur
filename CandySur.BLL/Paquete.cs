@@ -7,7 +7,7 @@ using System.Transactions;
 
 namespace CandySur.BLL
 {
-    public class Paquete
+    public class Paquete : Producto
     {
         private CandySur.DLL.Repository.Paquete repository { get; set; }
         private CandySur.SEG.Service.DigitoVerificador dv { get; set; }
@@ -18,7 +18,7 @@ namespace CandySur.BLL
         }
         public void Alta(CandySur.BE.Paquete paquete)
         {
-            BLL.Golosina golosinaService = new BLL.Golosina();
+            BLL.Producto productoService = new BLL.Golosina();
 
             //Verificaicon de armado.
             this.VerificarArmadoPaquete(paquete);
@@ -36,7 +36,7 @@ namespace CandySur.BLL
                         repository.AltaPaqueteGolosina(paquete, golosina);
 
                         //Reduccion stock de la golosina.
-                        golosinaService.ReducirStock(golosina, golosina.Cantidad * paquete.Stock);
+                        productoService.ReducirStock(golosina, golosina.Cantidad * paquete.Stock);
                     }
 
                     scope.Complete();
@@ -72,7 +72,7 @@ namespace CandySur.BLL
             }
         }
 
-        public void AumentarStock(CandySur.BE.Paquete paquete, int aumento)
+        public override void AumentarStock(CandySur.BE.Producto paquete, int aumento)
         {
             try
             {
@@ -80,7 +80,7 @@ namespace CandySur.BLL
 
                 using (var scope = new TransactionScope(TransactionScopeOption.RequiresNew, new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }))
                 {
-                    repository.AumentarStock(paquete);
+                    repository.AumentarStock((BE.Paquete)paquete);
 
                     scope.Complete();
                 }
@@ -91,7 +91,7 @@ namespace CandySur.BLL
             }
         }
 
-        public void ReducirStock(CandySur.BE.Paquete paquete, int disminucion)
+        public override void ReducirStock(CandySur.BE.Producto paquete, int disminucion)
         {
             try
             {
@@ -99,7 +99,7 @@ namespace CandySur.BLL
 
                 using (var scope = new TransactionScope(TransactionScopeOption.RequiresNew, new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }))
                 {
-                    repository.ReducirStock(paquete);
+                    repository.ReducirStock((BE.Paquete)paquete);
 
                     scope.Complete();
                 }

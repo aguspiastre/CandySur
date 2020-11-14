@@ -58,8 +58,7 @@ namespace CandySur.DLL
 
                 command.CommandType = System.Data.CommandType.Text;
 
-                if (command.Connection.State == System.Data.ConnectionState.Closed)
-                    command.Connection.Open();
+                this.Conectar(command);
 
                 table.Load(command.ExecuteReader());
 
@@ -89,6 +88,18 @@ namespace CandySur.DLL
             {
                 throw ex;
             }
+        }
+
+        private void Conectar(SqlCommand sqlcommand)
+        {
+            if (sqlcommand.Connection.State == System.Data.ConnectionState.Closed)
+                sqlcommand.Connection.Open();
+        }
+
+        private void Desconectar(SqlCommand sqlcommand)
+        {
+            if (sqlcommand.Connection.State == System.Data.ConnectionState.Open)
+                sqlcommand.Connection.Close();
         }
 
         private SqlConnection ObtenerConexion()

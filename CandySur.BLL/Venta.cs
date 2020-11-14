@@ -20,8 +20,7 @@ namespace CandySur.BLL
         public void Alta(CandySur.BE.Venta venta)
         {
             BLL.Detalle_Venta detalleService = new Detalle_Venta();
-            BLL.Golosina golosinaService = new BLL.Golosina();
-            BLL.Paquete paqueteService = new BLL.Paquete();
+            BLL.Producto productoSerive;;
 
             try
             {
@@ -32,7 +31,6 @@ namespace CandySur.BLL
 
                 using (var scope = new TransactionScope(TransactionScopeOption.RequiresNew, new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }))
                 {
-
                     repository.Alta(venta);
 
                     venta.Id = repository.ObtenerUltimoId();
@@ -41,15 +39,19 @@ namespace CandySur.BLL
                     {
                         if(item.Producto is BE.Golosina)
                         {
+                            productoSerive = new BLL.Golosina();
+
                             detalleService.Alta(item, (int)Enums.TipoProducto.Golosina, venta.Id);
 
-                            golosinaService.ReducirStock(item.Producto as BE.Golosina, item.Cantidad);
+                            productoSerive.ReducirStock(item.Producto as BE.Golosina, item.Cantidad);
                         }
                         else
                         {
+                            productoSerive = new BLL.Paquete();
+
                             detalleService.Alta(item, (int)Enums.TipoProducto.Paquete, venta.Id);
 
-                            paqueteService.ReducirStock(item.Producto as BE.Paquete, item.Cantidad);
+                            productoSerive.ReducirStock(item.Producto as BE.Paquete, item.Cantidad);
                         }
                     }
 

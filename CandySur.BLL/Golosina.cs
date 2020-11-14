@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
+using CandySur.BE;
 
 namespace CandySur.BLL
 {
-    public class Golosina
+    public class Golosina : Producto
     {
         private CandySur.DLL.Repository.Golosina repository { get; set; }
         private CandySur.SEG.Service.DigitoVerificador dv { get; set; }
@@ -75,7 +76,7 @@ namespace CandySur.BLL
             }
         }
 
-        public void AumentarStock(CandySur.BE.Golosina golosina, int aumento)
+        public override void AumentarStock(CandySur.BE.Producto golosina, int aumento)
         {
             try
             {
@@ -83,7 +84,7 @@ namespace CandySur.BLL
 
                 using (var scope = new TransactionScope(TransactionScopeOption.RequiresNew, new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }))
                 {
-                    repository.AumentarStock(golosina);
+                    repository.AumentarStock((BE.Golosina)golosina);
 
                     scope.Complete();
                 }
@@ -94,7 +95,7 @@ namespace CandySur.BLL
             }
         }
 
-        public void ReducirStock(CandySur.BE.Golosina golosina, int disminucion)
+        public override void ReducirStock(CandySur.BE.Producto golosina, int disminucion)
         {
             try
             {
@@ -102,7 +103,7 @@ namespace CandySur.BLL
 
                 using (var scope = new TransactionScope(TransactionScopeOption.RequiresNew, new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }))
                 {
-                    repository.ReducirStock(golosina);
+                    repository.ReducirStock((BE.Golosina)golosina);
 
                     scope.Complete();
                 }

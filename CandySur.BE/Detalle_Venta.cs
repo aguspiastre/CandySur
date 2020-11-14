@@ -8,6 +8,11 @@ namespace CandySur.BE
 {
     public class Detalle_Venta
     {
+        public Detalle_Venta()
+        {
+            this.Producto = new BE.Producto();
+        }
+
         public int Id { get; set; }
         public BE.Producto Producto { get; set; }
         public int Cantidad { get; set; }
