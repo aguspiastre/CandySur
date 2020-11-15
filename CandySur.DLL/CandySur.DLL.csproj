@@ -52,9 +52,6 @@
     <Compile Include="Repository\Proveedor.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="data\Proveedores.json" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\CandySur.BE\CandySur.BE.csproj">
       <Project>{4d27ee77-e21e-463f-878f-a19ea2ad3740}</Project>
       <Name>CandySur.BE</Name>

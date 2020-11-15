@@ -17,7 +17,7 @@ namespace CandySur.BLL
         {
             try
             {
-                List<CandySur.BE.Proveedor> proveedores = JsonConvert.DeserializeObject<List<CandySur.BE.Proveedor>>(JsonHelper.Read("Proveedores.json", "data"));
+                List<CandySur.BE.Proveedor> proveedores = JsonConvert.DeserializeObject<List<CandySur.BE.Proveedor>>(JsonHelper.Read("Proveedores.json"));
                 CandySur.BE.Proveedor prov = proveedores.FirstOrDefault(x => x.Cuit == proveedor.Cuit);
 
                 if (!proveedores.Any(x => x.Cuit == proveedor.Cuit))
@@ -28,7 +28,7 @@ namespace CandySur.BLL
                     throw new Exception("No se puede ingresar, el proveedor ya se encuentra dado de alta.");
 
                 string jSONString = JsonConvert.SerializeObject(proveedores);
-                JsonHelper.Write("Proveedores.json", "data", jSONString);
+                JsonHelper.Write("Proveedores.json", jSONString);
             }
             catch (Exception ex)
             {
@@ -40,14 +40,14 @@ namespace CandySur.BLL
         {
             try
             {
-                List<CandySur.BE.Proveedor> proveedores = JsonConvert.DeserializeObject<List<CandySur.BE.Proveedor>>(JsonHelper.Read("Proveedores.json", "data"));
+                List<CandySur.BE.Proveedor> proveedores = JsonConvert.DeserializeObject<List<CandySur.BE.Proveedor>>(JsonHelper.Read("Proveedores.json"));
                 CandySur.BE.Proveedor prov = proveedores.FirstOrDefault(x => x.Cuit == proveedor.Cuit);
 
                 int index = proveedores.FindIndex(x => x.Cuit == proveedor.Cuit);
                 proveedores[index] = proveedor;
 
                 string jSONString = JsonConvert.SerializeObject(proveedores);
-                JsonHelper.Write("Proveedores.json", "data", jSONString);
+                JsonHelper.Write("Proveedores.json", jSONString);
             }
             catch (Exception ex)
             {
@@ -59,12 +59,12 @@ namespace CandySur.BLL
         {
             try
             {
-                List<CandySur.BE.Proveedor> proveedores = JsonConvert.DeserializeObject<List<CandySur.BE.Proveedor>>(JsonHelper.Read("Proveedores.json", "data"));
+                List<CandySur.BE.Proveedor> proveedores = JsonConvert.DeserializeObject<List<CandySur.BE.Proveedor>>(JsonHelper.Read("Proveedores.json"));
 
                 proveedores.RemoveAt(proveedores.FindIndex(x => x.Cuit == cuit));
 
                 string jSONString = JsonConvert.SerializeObject(proveedores);
-                JsonHelper.Write("Proveedores.json", "data", jSONString);
+                JsonHelper.Write("Proveedores.json", jSONString);
             }
             catch (Exception ex)
             {
@@ -78,7 +78,7 @@ namespace CandySur.BLL
             {
                 DLL.Repository.Proveedor repository = new DLL.Repository.Proveedor();
 
-                List<CandySur.BE.Proveedor> proveedores = JsonConvert.DeserializeObject<List<CandySur.BE.Proveedor>>(JsonHelper.Read("Proveedores.json", "data"));
+                List<CandySur.BE.Proveedor> proveedores = JsonConvert.DeserializeObject<List<CandySur.BE.Proveedor>>(JsonHelper.Read("Proveedores.json"));
                 CandySur.BE.Proveedor prov = proveedores.FirstOrDefault(x => x.Cuit == cuit && x.Eliminado == 0);
 
                 if (prov == null)
@@ -98,7 +98,7 @@ namespace CandySur.BLL
         {
             try
             {
-                List<CandySur.BE.Proveedor> proveedores = JsonConvert.DeserializeObject<List<CandySur.BE.Proveedor>>(JsonHelper.Read("Proveedores.json", "data"));
+                List<CandySur.BE.Proveedor> proveedores = JsonConvert.DeserializeObject<List<CandySur.BE.Proveedor>>(JsonHelper.Read("Proveedores.json"));
 
                 return proveedores.Where(p => p.Eliminado == 0).ToList();
             }

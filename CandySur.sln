@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CandySur.UI", "CandySur.UI\CandySur.UI.csproj", "{9CA9D823-9978-4ED4-BCA0-C7A57C4560B8}"
 EndProject
@@ -16,6 +16,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CandySur.UTIL", "CandySur.UTIL\CandySur.UTIL.csproj", "{70B7BAEF-300A-4802-92DA-33AC91885C82}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CandySur.Test", "CandySur.Test\CandySur.Test.csproj", "{52020CE2-274F-4546-9996-A35C9093DF68}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "CandySur.Setup", "CandySur.Setup\CandySur.Setup.vdproj", "{D5D2924A-AF54-449F-A904-96B5FE9D4F41}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,8 +53,13 @@ Global
 		{52020CE2-274F-4546-9996-A35C9093DF68}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52020CE2-274F-4546-9996-A35C9093DF68}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52020CE2-274F-4546-9996-A35C9093DF68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5D2924A-AF54-449F-A904-96B5FE9D4F41}.Debug|Any CPU.ActiveCfg = Debug
+		{D5D2924A-AF54-449F-A904-96B5FE9D4F41}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ADC088B1-1F80-4C4B-915D-8445509DDB43}
 	EndGlobalSection
 EndGlobal
