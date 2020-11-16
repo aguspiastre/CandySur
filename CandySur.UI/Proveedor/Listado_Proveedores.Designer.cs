@@ -99,7 +99,9 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(616, 456);
             this.Controls.Add(this.gbListadoProveedores);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Listado_Proveedores";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Listado de Proveedores";
             this.Load += new System.EventHandler(this.Listado_Proveedores_Load);
             this.gbListadoProveedores.ResumeLayout(false);

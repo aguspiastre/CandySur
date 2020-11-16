@@ -139,7 +139,9 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(611, 527);
             this.Controls.Add(this.gbListado);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ListarUsuarios";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Listar Usuarios";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ListarUsuarios_FormClosing);
             this.Load += new System.EventHandler(this.ListarUsuarios_Load);

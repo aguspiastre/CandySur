@@ -31,12 +31,12 @@ namespace CandySur.UI.Reportes
         {
             try
             {
-                //Session = SEG.Service.SessionManager.GetInstance();
+                Session = SEG.Service.SessionManager.GetInstance();
 
-                //this.validarPermisos(Session);
+                this.validarPermisos(Session);
 
-                //this.Traducir();
-                //SEG.Service.IdiomaManager.Suscribir(this);
+                this.Traducir();
+                SEG.Service.IdiomaManager.Suscribir(this);
 
                 this.rdbVentas.Checked = true;
             }
@@ -239,6 +239,11 @@ namespace CandySur.UI.Reportes
             {
                 MessageBox.Show(ex.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

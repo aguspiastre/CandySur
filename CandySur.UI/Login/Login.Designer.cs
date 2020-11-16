@@ -107,6 +107,7 @@
             this.linkGenerarContraseña.TabIndex = 26;
             this.linkGenerarContraseña.TabStop = true;
             this.linkGenerarContraseña.Text = "Generar Contraseña";
+            this.linkGenerarContraseña.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkGenerarContraseña_LinkClicked);
             // 
             // txtContraseña
             // 
@@ -149,14 +150,14 @@
             // SubMenuEspañol
             // 
             this.SubMenuEspañol.Name = "SubMenuEspañol";
-            this.SubMenuEspañol.Size = new System.Drawing.Size(152, 22);
+            this.SubMenuEspañol.Size = new System.Drawing.Size(115, 22);
             this.SubMenuEspañol.Text = "Español";
             this.SubMenuEspañol.Click += new System.EventHandler(this.SubMenuEspañol_Click);
             // 
             // SubMenuIngles
             // 
             this.SubMenuIngles.Name = "SubMenuIngles";
-            this.SubMenuIngles.Size = new System.Drawing.Size(152, 22);
+            this.SubMenuIngles.Size = new System.Drawing.Size(115, 22);
             this.SubMenuIngles.Text = "Ingles";
             this.SubMenuIngles.Click += new System.EventHandler(this.SubMenuIngles_Click);
             // 

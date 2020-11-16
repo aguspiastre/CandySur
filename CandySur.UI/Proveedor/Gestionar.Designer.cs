@@ -303,7 +303,9 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(610, 522);
             this.Controls.Add(this.gbGestionarProveedor);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Gestionar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestionar Proveedor";
             this.Load += new System.EventHandler(this.Gestionar_Load);
             this.gbGestionarProveedor.ResumeLayout(false);

@@ -149,7 +149,9 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(349, 382);
             this.Controls.Add(this.gbAltaFamilia);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AltaFamilia";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Familia";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AltaFamilia_FormClosing);
             this.Load += new System.EventHandler(this.AltaFamilia_Load);

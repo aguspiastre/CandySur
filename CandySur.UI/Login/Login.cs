@@ -196,5 +196,11 @@ namespace CandySur.UI.Login
 
             SEG.Service.IdiomaManager.CambiarIdioma(Idioma);
         }
+
+        private void linkGenerarContraseña_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            var form = new GenerarContraseña();
+            form.Show();
+        }
     }
 }

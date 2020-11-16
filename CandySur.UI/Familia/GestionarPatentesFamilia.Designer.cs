@@ -200,7 +200,9 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(613, 504);
             this.Controls.Add(this.gbAsignarPatenteFamilia);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "GestionarPatentesFamilia";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestion de Patentes/Familia";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GestionarPatentesFamilia_FormClosing);
             this.Load += new System.EventHandler(this.AsignarPatentesFamilia_Load);

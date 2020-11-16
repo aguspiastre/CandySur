@@ -36,8 +36,8 @@
             this.lblPromocionesDesactivadas = new System.Windows.Forms.Label();
             this.btnDesactivar = new System.Windows.Forms.Button();
             this.btnActivar = new System.Windows.Forms.Button();
-            this.btnAceptar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnAceptar = new System.Windows.Forms.Button();
             this.gbGestionarDescuentos.SuspendLayout();
             this.gbPromocionesVigentes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dvgPromocionesActivas)).BeginInit();
@@ -145,6 +145,15 @@
             this.btnActivar.Visible = false;
             this.btnActivar.Click += new System.EventHandler(this.btnActivar_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::CandySur.UI.Properties.Resources.FINAL;
+            this.pictureBox1.Location = new System.Drawing.Point(10, 20);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(582, 72);
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            // 
             // btnAceptar
             // 
             this.btnAceptar.BackColor = System.Drawing.Color.Transparent;
@@ -158,15 +167,6 @@
             this.btnAceptar.UseVisualStyleBackColor = false;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::CandySur.UI.Properties.Resources.FINAL;
-            this.pictureBox1.Location = new System.Drawing.Point(10, 20);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(582, 72);
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
-            // 
             // Gestionar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -174,7 +174,9 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(613, 574);
             this.Controls.Add(this.gbGestionarDescuentos);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Gestionar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestionar Descuentos";
             this.Load += new System.EventHandler(this.Gestionar_Load);
             this.gbGestionarDescuentos.ResumeLayout(false);
@@ -189,7 +191,6 @@
 
         #endregion
         private System.Windows.Forms.GroupBox gbGestionarDescuentos;
-        private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.GroupBox gbPromocionesVigentes;
         private System.Windows.Forms.Label lblPromocionesActivas;
@@ -198,5 +199,6 @@
         private System.Windows.Forms.Button btnActivar;
         private System.Windows.Forms.DataGridView dvgPromocionesActivas;
         private System.Windows.Forms.DataGridView dvgPromocionesDesactivadas;
+        private System.Windows.Forms.Button btnAceptar;
     }
 }

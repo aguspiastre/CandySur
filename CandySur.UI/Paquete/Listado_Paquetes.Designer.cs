@@ -102,7 +102,9 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(611, 453);
             this.Controls.Add(this.gbListadoPaquete);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Listado_Paquetes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Listado de Paquetes";
             this.Load += new System.EventHandler(this.Listado_Paquetes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPaquetes)).EndInit();

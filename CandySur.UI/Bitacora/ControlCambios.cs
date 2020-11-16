@@ -196,5 +196,10 @@ namespace CandySur.UI.Bitacora
                     break;
             }
         }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

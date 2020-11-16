@@ -308,7 +308,9 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(608, 350);
             this.Controls.Add(this.gbGestionarUsuario);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "GestionarUsuario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestionar";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GestionarUsuario_FormClosing);
             this.Load += new System.EventHandler(this.GestionarUsuario_Load);

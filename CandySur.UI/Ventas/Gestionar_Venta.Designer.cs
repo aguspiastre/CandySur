@@ -188,7 +188,9 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(613, 456);
             this.Controls.Add(this.gbGestionarVenta);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Gestionar_Venta";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestionar";
             this.Load += new System.EventHandler(this.Gestionar_Venta_Load);
             this.gbGestionarVenta.ResumeLayout(false);

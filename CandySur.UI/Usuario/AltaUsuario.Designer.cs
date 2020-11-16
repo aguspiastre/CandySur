@@ -275,7 +275,9 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(618, 385);
             this.Controls.Add(this.gbAltaUsuario);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AltaUsuario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Alta";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AltaUsuario_FormClosing);
             this.Load += new System.EventHandler(this.Alta_Load);

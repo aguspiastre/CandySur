@@ -211,7 +211,9 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(609, 298);
             this.Controls.Add(this.gbAltaGolosina);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Alta_Golosina";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Alta Golosina";
             this.Load += new System.EventHandler(this.Alta_Golosina_Load);
             this.gbAltaGolosina.ResumeLayout(false);

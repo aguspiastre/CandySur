@@ -35,6 +35,7 @@
             this.cmbBackup = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnRestore = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.gbBackupRestore.SuspendLayout();
             this.gbBackupDisponibles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -42,6 +43,7 @@
             // 
             // gbBackupRestore
             // 
+            this.gbBackupRestore.Controls.Add(this.btnCancelar);
             this.gbBackupRestore.Controls.Add(this.btnNuevoBackup);
             this.gbBackupRestore.Controls.Add(this.gbBackupDisponibles);
             this.gbBackupRestore.Controls.Add(this.pictureBox1);
@@ -59,7 +61,7 @@
             this.btnNuevoBackup.BackColor = System.Drawing.Color.Transparent;
             this.btnNuevoBackup.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevoBackup.ForeColor = System.Drawing.Color.Blue;
-            this.btnNuevoBackup.Location = new System.Drawing.Point(350, 199);
+            this.btnNuevoBackup.Location = new System.Drawing.Point(250, 199);
             this.btnNuevoBackup.Name = "btnNuevoBackup";
             this.btnNuevoBackup.Size = new System.Drawing.Size(118, 31);
             this.btnNuevoBackup.TabIndex = 18;
@@ -112,7 +114,7 @@
             this.btnRestore.BackColor = System.Drawing.Color.Transparent;
             this.btnRestore.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRestore.ForeColor = System.Drawing.Color.Green;
-            this.btnRestore.Location = new System.Drawing.Point(474, 199);
+            this.btnRestore.Location = new System.Drawing.Point(374, 199);
             this.btnRestore.Name = "btnRestore";
             this.btnRestore.Size = new System.Drawing.Size(118, 31);
             this.btnRestore.TabIndex = 2;
@@ -121,6 +123,19 @@
             this.btnRestore.Visible = false;
             this.btnRestore.Click += new System.EventHandler(this.btnRestore_Click);
             // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.Transparent;
+            this.btnCancelar.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCancelar.Location = new System.Drawing.Point(498, 199);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(94, 31);
+            this.btnCancelar.TabIndex = 39;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnAceptar_Click);
+            // 
             // BackupRestore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -128,7 +143,9 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(611, 251);
             this.Controls.Add(this.gbBackupRestore);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "BackupRestore";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Backup y Restore";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BackupRestore_FormClosing);
             this.Load += new System.EventHandler(this.BackupRestore_Load);
@@ -149,5 +166,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnRestore;
         private System.Windows.Forms.Button btnNuevoBackup;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }

@@ -37,6 +37,7 @@
             this.dataGridCambios = new System.Windows.Forms.DataGridView();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.gbControlCambios = new System.Windows.Forms.GroupBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gbFiltrosBusquedaBitacora.SuspendLayout();
             this.gbCambios.SuspendLayout();
@@ -58,7 +59,7 @@
             this.btnBuscar.BackColor = System.Drawing.Color.Transparent;
             this.btnBuscar.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.ForeColor = System.Drawing.Color.Green;
-            this.btnBuscar.Location = new System.Drawing.Point(429, 514);
+            this.btnBuscar.Location = new System.Drawing.Point(348, 514);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(78, 31);
             this.btnBuscar.TabIndex = 19;
@@ -127,7 +128,7 @@
             this.btnActualizar.BackColor = System.Drawing.Color.Transparent;
             this.btnActualizar.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActualizar.ForeColor = System.Drawing.Color.Blue;
-            this.btnActualizar.Location = new System.Drawing.Point(513, 514);
+            this.btnActualizar.Location = new System.Drawing.Point(432, 514);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(79, 31);
             this.btnActualizar.TabIndex = 20;
@@ -139,6 +140,7 @@
             // 
             // gbControlCambios
             // 
+            this.gbControlCambios.Controls.Add(this.btnCancelar);
             this.gbControlCambios.Controls.Add(this.btnActualizar);
             this.gbControlCambios.Controls.Add(this.gbCambios);
             this.gbControlCambios.Controls.Add(this.gbFiltrosBusquedaBitacora);
@@ -152,13 +154,28 @@
             this.gbControlCambios.TabStop = false;
             this.gbControlCambios.Text = "CONTROL DE CAMBIOS";
             // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.Transparent;
+            this.btnCancelar.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCancelar.Location = new System.Drawing.Point(517, 514);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 31);
+            this.btnCancelar.TabIndex = 41;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnAceptar_Click);
+            // 
             // ControlCambios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(616, 565);
             this.Controls.Add(this.gbControlCambios);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ControlCambios";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Control de Cambios";
             this.Load += new System.EventHandler(this.ControlCambios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -182,5 +199,6 @@
         private System.Windows.Forms.DataGridView dataGridCambios;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.GroupBox gbControlCambios;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }

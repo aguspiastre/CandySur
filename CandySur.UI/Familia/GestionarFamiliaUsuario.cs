@@ -62,15 +62,16 @@ namespace CandySur.UI.Familia
                                     select new ListViewItem(f.Nombre)
                                 ).ToArray()
                             );
-
-                            this.listFamiliasAsignar.Items.AddRange
-                            (
-                                (
-                                    from f in familiaService.Listar()
-                                    select new ListViewItem(f.Nombre)
-                                ).ToArray()
-                            );
                         }
+                        this.listFamiliasAsignar.Items.Clear();
+
+                        this.listFamiliasAsignar.Items.AddRange
+                        (
+                            (
+                                from f in familiaService.Listar()
+                                select new ListViewItem(f.Nombre)
+                            ).ToArray()
+                        );
                     }
                 }
             }

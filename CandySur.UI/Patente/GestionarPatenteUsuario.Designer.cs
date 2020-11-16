@@ -211,7 +211,9 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(611, 503);
             this.Controls.Add(this.gbAsignarPatenteUsuario);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "GestionarPatenteUsuario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestion de Patentes";
             this.Load += new System.EventHandler(this.AsignarPatenteUsuario_Load);
             this.gbAsignarPatenteUsuario.ResumeLayout(false);

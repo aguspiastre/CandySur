@@ -174,7 +174,9 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(343, 358);
             this.Controls.Add(this.gbCambiarContraseña);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "GestionarContraseña";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestionar Contraseña";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GestionarContraseña_FormClosing);
             this.Load += new System.EventHandler(this.GestionarContraseña_Load);

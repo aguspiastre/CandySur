@@ -89,7 +89,7 @@ namespace CandySur.UI.Login
             }
             if (txtEmail.Text == "")
             {
-                return "El campo usuario es requerido";
+                return "El campo email es requerido";
             }
 
             return string.Empty;

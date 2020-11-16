@@ -42,6 +42,7 @@
             this.lblFechaHst = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.gbMovimientosBitacora.SuspendLayout();
             this.gbBitacora.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridBitacora)).BeginInit();
@@ -51,6 +52,7 @@
             // 
             // gbMovimientosBitacora
             // 
+            this.gbMovimientosBitacora.Controls.Add(this.btnCancelar);
             this.gbMovimientosBitacora.Controls.Add(this.gbBitacora);
             this.gbMovimientosBitacora.Controls.Add(this.gbFiltrosBusquedaBitacora);
             this.gbMovimientosBitacora.Controls.Add(this.btnBuscar);
@@ -178,7 +180,7 @@
             this.btnBuscar.BackColor = System.Drawing.Color.Transparent;
             this.btnBuscar.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.ForeColor = System.Drawing.Color.Green;
-            this.btnBuscar.Location = new System.Drawing.Point(517, 538);
+            this.btnBuscar.Location = new System.Drawing.Point(440, 538);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 31);
             this.btnBuscar.TabIndex = 19;
@@ -196,6 +198,19 @@
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.Transparent;
+            this.btnCancelar.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCancelar.Location = new System.Drawing.Point(521, 538);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 31);
+            this.btnCancelar.TabIndex = 40;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnAceptar_Click);
+            // 
             // ConsultarBitacora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -203,7 +218,9 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(613, 586);
             this.Controls.Add(this.gbMovimientosBitacora);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ConsultarBitacora";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consultar Bitacora";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ConsultarBitacora_FormClosing);
             this.Load += new System.EventHandler(this.Consultar_Load);
@@ -233,5 +250,6 @@
         private System.Windows.Forms.Label lblFechaHst;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }

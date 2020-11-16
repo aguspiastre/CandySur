@@ -189,7 +189,9 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(616, 389);
             this.Controls.Add(this.gbGestionarFamilia);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "GestionarFamilia";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestionar Familia";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GestionarFamilia_FormClosing);
             this.Load += new System.EventHandler(this.GestionarFamilia_Load);

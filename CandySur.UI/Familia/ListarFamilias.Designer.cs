@@ -99,7 +99,9 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(614, 452);
             this.Controls.Add(this.gbListadoFamilia);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ListarFamilias";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Listar Familias";
             this.Load += new System.EventHandler(this.ListarFamilias_Load);
             this.gbListadoFamilia.ResumeLayout(false);

@@ -211,7 +211,9 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(615, 506);
             this.Controls.Add(this.gbAsignarFamiliaUsuario);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "GestionarFamiliaUsuario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestion de Familias";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GestionarFamiliaUsuario_FormClosing);
             this.Load += new System.EventHandler(this.AsignarFamiliaUsuario_Load);

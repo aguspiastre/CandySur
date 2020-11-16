@@ -291,6 +291,7 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(602, 410);
             this.Controls.Add(this.gbEnviarMail);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EnviarMail";
             this.Text = "EnviarMail";
             this.Load += new System.EventHandler(this.EnviarMail_Load);

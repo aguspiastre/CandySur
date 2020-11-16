@@ -332,7 +332,9 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(609, 566);
             this.Controls.Add(this.gbAltaPaquete);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Alta_Paquete";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Paquete";
             this.Load += new System.EventHandler(this.Alta_Paquete_Load);
             this.gbAltaPaquete.ResumeLayout(false);

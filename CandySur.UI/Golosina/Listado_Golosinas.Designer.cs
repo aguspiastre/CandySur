@@ -102,7 +102,9 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(605, 378);
             this.Controls.Add(this.gbListadoGolosina);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Listado_Golosinas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Listado de Golosinas";
             this.Load += new System.EventHandler(this.Listado_Golosinas_Load);
             this.gbListadoGolosina.ResumeLayout(false);

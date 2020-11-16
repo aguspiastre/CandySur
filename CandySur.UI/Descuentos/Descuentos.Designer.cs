@@ -158,7 +158,9 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(610, 522);
             this.Controls.Add(this.gbConfigurarDescuentos);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Descuentos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Descuentos";
             this.Load += new System.EventHandler(this.Descuentos_Load);
             this.gbConfigurarDescuentos.ResumeLayout(false);
