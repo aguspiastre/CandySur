@@ -257,6 +257,7 @@ namespace CandySur.UI
 
             this.SubMenuReportesGolosinasMasVendidas.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.SubMenuReportesGolosinasMasVendidas.Name).Descripcion;
 
+            this.SubMenuReiniciarSistema.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.SubMenuReiniciarSistema.Name).Descripcion;
 
             //Sub items.
             this.SubItemAltaFamilia.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.SubItemAltaFamilia.Name).Descripcion;

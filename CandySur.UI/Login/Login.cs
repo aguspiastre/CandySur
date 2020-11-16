@@ -100,15 +100,6 @@ namespace CandySur.UI.Login
                     // Reinicio el contador
                     usuarioService.ReiniciarContador(usuario);
 
-                    //Registro en bitacora 
-                    bitacoraService.Registrar(new SEG.Entity.Bitacora
-                    {
-                        IdCriticidad = (int)Criticidad.Baja,
-                        Descripcion = "Usuario logueado con exito. " + usuario.NombreUsuario,
-                        IdUsuario = usuario.Id,
-                        Fecha = DateTime.Now
-                    });
-
                     this.DialogResult = DialogResult.OK;
 
                     if (!verificarIntegridad && esAdministrador)
@@ -116,6 +107,17 @@ namespace CandySur.UI.Login
                         MessageBox.Show("La base de datos no se encuentra en un estado correcto, sera redirigido para resolver los errores.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                         this.DialogResult = DialogResult.Abort;
+                    }
+                    else
+                    {
+                        //Registro en bitacora 
+                        bitacoraService.Registrar(new SEG.Entity.Bitacora
+                        {
+                            IdCriticidad = (int)Criticidad.Baja,
+                            Descripcion = "Usuario logueado con exito. " + usuario.NombreUsuario,
+                            IdUsuario = usuario.Id,
+                            Fecha = DateTime.Now
+                        });
                     }
                 }
             }

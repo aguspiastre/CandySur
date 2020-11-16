@@ -48,7 +48,7 @@
             this.SubItemAsignacionPatUsuario = new System.Windows.Forms.ToolStripMenuItem();
             this.menuBackupRestore = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuBackupRestoreBackup = new System.Windows.Forms.ToolStripMenuItem();
-            this.reiniciarSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SubMenuReiniciarSistema = new System.Windows.Forms.ToolStripMenuItem();
             this.menuVentas = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuVentasGenerar = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuVentasGestionar = new System.Windows.Forms.ToolStripMenuItem();
@@ -238,7 +238,7 @@
             // 
             this.menuBackupRestore.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.SubMenuBackupRestoreBackup,
-            this.reiniciarSistemaToolStripMenuItem});
+            this.SubMenuReiniciarSistema});
             this.menuBackupRestore.Name = "menuBackupRestore";
             this.menuBackupRestore.Size = new System.Drawing.Size(102, 20);
             this.menuBackupRestore.Text = "Backup/Restore";
@@ -250,12 +250,12 @@
             this.SubMenuBackupRestoreBackup.Text = "Backup";
             this.SubMenuBackupRestoreBackup.Click += new System.EventHandler(this.backupToolStripMenuItem_Click);
             // 
-            // reiniciarSistemaToolStripMenuItem
+            // SubMenuReiniciarSistema
             // 
-            this.reiniciarSistemaToolStripMenuItem.Name = "reiniciarSistemaToolStripMenuItem";
-            this.reiniciarSistemaToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
-            this.reiniciarSistemaToolStripMenuItem.Text = "Reiniciar Sistema";
-            this.reiniciarSistemaToolStripMenuItem.Click += new System.EventHandler(this.reiniciarSistemaToolStripMenuItem_Click);
+            this.SubMenuReiniciarSistema.Name = "SubMenuReiniciarSistema";
+            this.SubMenuReiniciarSistema.Size = new System.Drawing.Size(163, 22);
+            this.SubMenuReiniciarSistema.Text = "Reiniciar Sistema";
+            this.SubMenuReiniciarSistema.Click += new System.EventHandler(this.reiniciarSistemaToolStripMenuItem_Click);
             // 
             // menuVentas
             // 
@@ -544,7 +544,7 @@
         private System.Windows.Forms.ToolStripMenuItem SubMenuDescuentosGestionar;
         private System.Windows.Forms.ToolStripMenuItem menuReportes;
         private System.Windows.Forms.ToolStripMenuItem SubMenuReportesGolosinasMasVendidas;
-        private System.Windows.Forms.ToolStripMenuItem reiniciarSistemaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SubMenuReiniciarSistema;
         private System.Windows.Forms.HelpProvider helpProvider;
     }
 }

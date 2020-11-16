@@ -58,7 +58,9 @@ namespace CandySur.UI.Backup_Restore
         {
             try
             {
-                databaseService.RealizarRestore("CandySur", cmbBackup.SelectedItem.ToString());
+                string fullUri = RUTA_DESTINO + @"\" + cmbBackup.SelectedItem.ToString();
+
+                databaseService.RealizarRestore("CandySur", fullUri);
 
                 SEG.Entity.Bitacora reg = new SEG.Entity.Bitacora
                 {

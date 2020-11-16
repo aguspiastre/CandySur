@@ -129,16 +129,6 @@ namespace CandySur.UI.Backup_Restore
 
             if (result == DialogResult.Yes)
             {
-                SEG.Entity.Bitacora reg = new SEG.Entity.Bitacora
-                {
-                    IdUsuario = Session.Usuario.Id,
-                    IdCriticidad = (int)Enums.Criticidad.Baja,
-                    Fecha = DateTime.Now,
-                    Descripcion = "Cierre de sesión"
-                };
-
-                bitacoraService.Registrar(reg);
-
                 SEG.Service.SessionManager.LogOut();
 
                 this.Close();
