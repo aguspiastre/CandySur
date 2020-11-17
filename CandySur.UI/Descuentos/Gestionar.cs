@@ -61,6 +61,9 @@ namespace CandySur.UI.Descuentos
                 {
                     BE.Descuento descuento = dvgPromocionesDesactivadas.SelectedRows[0]?.DataBoundItem as BE.Descuento;
 
+                    if (this.descuentoService.Listar().FirstOrDefault(d => d.Activo == true && d.Importe == descuento.Importe) != null)
+                        throw new Exception("Ya hay activo un descuento para ese importe.");
+
                     descuentoService.Activar(descuento);
 
                     SEG.Entity.Bitacora reg = new SEG.Entity.Bitacora
@@ -94,6 +97,7 @@ namespace CandySur.UI.Descuentos
                 }
                 else
                 {
+
                     BE.Descuento descuento = dvgPromocionesActivas.SelectedRows[0]?.DataBoundItem as BE.Descuento;
 
                     descuentoService.Desactivar(descuento);

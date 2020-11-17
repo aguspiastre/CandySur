@@ -89,8 +89,9 @@ namespace CandySur.UI.Proveedor
 
                     bitacoraService.Registrar(reg);
 
-                    MessageBox.Show("Proveedor eliminado con exito.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    proveedor = null;
 
+                    MessageBox.Show("Proveedor eliminado con exito.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
@@ -128,9 +129,7 @@ namespace CandySur.UI.Proveedor
         }
 
         private void LimpiarCampos()
-        {
-            proveedor = null;
-
+        {          
             txtCodPostal.Text = string.Empty;
             txtEmail.Text = string.Empty;
             txtCuit.Text = string.Empty;

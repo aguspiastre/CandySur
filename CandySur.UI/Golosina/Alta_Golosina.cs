@@ -202,6 +202,7 @@ namespace CandySur.UI.Golosina
             switch (patente.Nombre)
             {
                 case "Alta Golosina":
+                    this.btnFinalizar.Visible = true;
                     this.btnCancelar.Visible = true;
                     contienePermisos = true;
                     break;

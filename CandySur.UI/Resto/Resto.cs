@@ -19,6 +19,7 @@ namespace CandySur.UI.Resto
         private UI.Venta formVenta;
         private SEG.Service.SessionManager Session;
         SEG.Service.Bitacora bitacoraService = new SEG.Service.Bitacora();
+        decimal importeVenta = 0;
         public Resto(BE.Venta venta, UI.Venta formVenta)
         {
             InitializeComponent();
@@ -54,6 +55,8 @@ namespace CandySur.UI.Resto
             try
             {
                 BLL.Venta ventaService = new BLL.Venta();
+
+                this.venta.Importe = this.importeVenta;
 
                 ventaService.Alta(venta);
 
@@ -102,11 +105,12 @@ namespace CandySur.UI.Resto
                 if (descuento != null)
                 {
                     this.txtDescuentoAplicado.Text = ((descuento.Porcentaje * this.venta.Importe) / 100).ToString();
-                    this.venta.Importe -= Convert.ToDecimal(this.txtDescuentoAplicado.Text);
-                    this.txtImporteTotal.Text = this.venta.Importe.ToString();
+                    this.importeVenta = this.venta.Importe - Convert.ToDecimal(this.txtDescuentoAplicado.Text);
+                    this.txtImporteTotal.Text = this.importeVenta.ToString();
 
                 } else
                 {
+                    this.importeVenta = this.venta.Importe;
                     this.txtDescuentoAplicado.Text = "0";
                     this.txtImporteTotal.Text = this.venta.Importe.ToString();
                 }

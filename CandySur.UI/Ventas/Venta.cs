@@ -89,7 +89,7 @@ namespace CandySur.UI
 
                     this.lblImporteTotalGenerarVenta.Text = "$ " + this.venta.Importe;
 
-                    this.dgvDetalles.DataSource = this.venta.Detalles.Select(x => new { Codigo = x.Producto.Id, Tipo = productoBuscado is BE.Golosina ? "Golosina" : "Paquete", Producto = x.Producto.Descripcion, Cantidad = x.Cantidad, Importe = x.Importe }).ToList();
+                    this.dgvDetalles.DataSource = this.venta.Detalles.Select(x => new { Codigo = x.Producto.Id, Tipo = x.Producto is BE.Golosina ? "Golosina" : "Paquete", Producto = x.Producto.Descripcion, Cantidad = x.Cantidad, Importe = x.Importe }).ToList();
                 }
                 else
                 {
@@ -115,7 +115,7 @@ namespace CandySur.UI
 
                     this.lblImporteTotalGenerarVenta.Text = "$ " + this.venta.Importe;
 
-                    this.dgvDetalles.DataSource = this.venta.Detalles.Select(x => new { Codigo = x.Producto.Id, Tipo = productoBuscado is BE.Golosina ? "Golosina" : "Paquete", Producto = x.Producto.Descripcion, Cantidad = x.Cantidad, Importe = x.Importe }).ToList();
+                    this.dgvDetalles.DataSource = this.venta.Detalles.Select(x => new { Codigo = x.Producto.Id, Tipo = x.Producto is BE.Golosina ? "Golosina" : "Paquete", Producto = x.Producto.Descripcion, Cantidad = x.Cantidad, Importe = x.Importe }).ToList();
                 }
                 else
                 {

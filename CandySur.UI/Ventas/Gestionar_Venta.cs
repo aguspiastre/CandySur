@@ -72,6 +72,8 @@ namespace CandySur.UI
 
                     bitacoraService.Registrar(reg);
 
+                    this.lblImporteTotal.Text = "$ ";
+
                     MessageBox.Show("Venta eliminada con exito.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
@@ -183,6 +185,7 @@ namespace CandySur.UI
             switch (patente.Nombre)
             {
                 case "Eliminar Venta":
+                    this.btnEliminar.Visible = true;
                     this.btnAceptar.Visible = true;
                     contienePermisos = true;
                     break;
