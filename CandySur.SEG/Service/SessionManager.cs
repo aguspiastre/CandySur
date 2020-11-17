@@ -9,7 +9,6 @@ namespace CandySur.SEG.Service
 {
     public class SessionManager
     {
-        static List<IIdiomaObserver> observers = new List<IIdiomaObserver>();
         private SessionManager() { }
 
         private static SessionManager session;
