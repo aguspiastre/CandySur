@@ -11,26 +11,23 @@ namespace CandySur.BLL
 {
     public class JsonHelper
     {
-        private const string RUTA_DESTINO = @"C:\CandySur\JSON\";
+        public JsonHelper()
+        {
 
-        public JsonHelper() { }
+        }
 
         public static string Read(string fileName)
         {
+            string RUTA_DESTINO = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
+
             var path = Path.Combine(
             RUTA_DESTINO,
             fileName);
-        
+
             string jsonResult = string.Empty;
 
-            //Generacion de carpeta en caso de que no exista.
-            if (!Directory.Exists(RUTA_DESTINO))
-            {
-                Directory.CreateDirectory(RUTA_DESTINO);
-
-                if (!File.Exists(path))
-                    Write(fileName, JsonDefault());
-            }
+            if (!File.Exists(path))
+                Write(fileName, JsonDefault());
 
             using (StreamReader streamReader = new StreamReader(path))
             {
@@ -41,18 +38,11 @@ namespace CandySur.BLL
 
         public static void Write(string fileName, string jSONString)
         {
+            string RUTA_DESTINO = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
+
             var path = Path.Combine(
-            @"C:\CandySur\JSON\",
+            RUTA_DESTINO,
             fileName);
-
-            //Generacion de carpeta en caso de que no exista.
-            if (!Directory.Exists(RUTA_DESTINO))
-            {
-                Directory.CreateDirectory(RUTA_DESTINO);
-
-                if (!File.Exists(path))
-                    Write(fileName, JsonDefault());
-            }
 
             using (var streamWriter = File.CreateText(path))
             {

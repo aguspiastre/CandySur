@@ -15,6 +15,12 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_00C63E7C763B405D86FF4DCE2D21D708"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_0D0035DDBB0542A3A46E1A219985DAFA"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -131,6 +137,12 @@
         {
         "MsmKey" = "8:_E1EDA1EE60CED497AA3F0036C4F44A19"
         "OwnerKey" = "8:_C94BB6F4A77CD1792D68EA68730521DA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F47E8075B4F14752BC247E2D35176C4F"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -318,6 +330,26 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_00C63E7C763B405D86FF4DCE2D21D708"
+            {
+            "SourcePath" = "8:C:\\Users\\a308587\\Desktop\\Proveedores.json"
+            "TargetName" = "8:Proveedores.json"
+            "Tag" = "8:"
+            "Folder" = "8:_7BF38D48E67E4B6BABBE4A02D3DB0E51"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0D0035DDBB0542A3A46E1A219985DAFA"
             {
             "SourcePath" = "8:C:\\Users\\a308587\\Downloads\\png-transparent-lollipop-computer-icons-candy-sweetness-lollipop-food-logo-sweetness.ico"
@@ -617,6 +649,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F47E8075B4F14752BC247E2D35176C4F"
+            {
+            "SourcePath" = "8:C:\\Users\\a308587\\Desktop\\CandySur - Ayuda en linea.chm"
+            "TargetName" = "8:CandySur - Ayuda en linea.chm"
+            "Tag" = "8:"
+            "Folder" = "8:_7BF38D48E67E4B6BABBE4A02D3DB0E51"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
         }
         "FileType"
         {
@@ -674,7 +726,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:CandySur "
         "ProductCode" = "8:{65BA397A-E463-4C0F-8254-B3FB8438797F}"
-        "PackageCode" = "8:{DF489A99-23F6-4194-9927-B308CCBD01BE}"
+        "PackageCode" = "8:{586C1C31-86BC-4E05-AD65-2DC0F1BE4B7E}"
         "UpgradeCode" = "8:{B52163E3-6564-47A2-9BE5-C7494A0AE7EB}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

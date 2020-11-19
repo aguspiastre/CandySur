@@ -109,6 +109,7 @@
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.pictureBox1);
             this.Name = "GenerarContraseña";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Generar Contraseña";
             this.Load += new System.EventHandler(this.GenerarContraseña_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

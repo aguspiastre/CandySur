@@ -62,7 +62,14 @@ namespace CandySur.SEG.Service
                     scope.Complete();
                 }
 
-                this.EnviarMailContraseña(password, usuario.Mail);
+                try
+                {
+                    this.EnviarMailContraseña(password, usuario.Mail);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("El usuario se dio de alta correctamente, pero ocurrio un error al momento de enviar el mail con su contraseña. Descripcion del error:" + ex.Message);
+                }
             }
             catch (Exception ex)
             {

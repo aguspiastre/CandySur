@@ -33,7 +33,9 @@ namespace CandySur.UI
             this.KeyDown += Form11_KeyDown;
             this.KeyPreview = true;
 
-            helpProvider.HelpNamespace = System.IO.Path.Combine(Application.StartupPath, "CandySur - Ayuda en linea.chm");
+            String exeDirectory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
+
+            helpProvider.HelpNamespace = System.IO.Path.Combine(exeDirectory, "CandySur - Ayuda en linea.chm");
         }
 
         private void consultarToolStripMenuItem_Click(object sender, EventArgs e)
