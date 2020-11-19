@@ -85,6 +85,7 @@ namespace CandySur.SEG.Service
                 string password = this.GenerarContraseña();
 
                 usuario.Contraseña = Encrypt.Encriptar(password, (int)TipoEncriptacion.Irreversible);
+                usuario.NombreUsuario = Encrypt.Encriptar(usuario.NombreUsuario, (int)TipoEncriptacion.Reversible);
 
                 usuario.DVH = dv.CalcularDVH(this.ConcatenarRegistro(usuario));
 
@@ -118,6 +119,7 @@ namespace CandySur.SEG.Service
                     throw new Exception("Contraseña incorrecta.");
 
                 usuario.Contraseña = Encrypt.Encriptar(passwordNueva, (int)TipoEncriptacion.Irreversible);
+                usuario.NombreUsuario = Encrypt.Encriptar(usuario.NombreUsuario, (int)TipoEncriptacion.Reversible);
 
                 usuario.DVH = dv.CalcularDVH(this.ConcatenarRegistro(usuario));
 

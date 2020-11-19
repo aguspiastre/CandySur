@@ -37,7 +37,7 @@ namespace CandySur.UI.Perfil
                 }
                 else
                 {
-                    usuarioService.CambiarContraseña(Session.Usuario.Nombre, txtContraseñaActual.Text, txtRepetirpw.Text);
+                    usuarioService.CambiarContraseña(Session.Usuario.NombreUsuario, txtContraseñaActual.Text, txtRepetirpw.Text);
 
                     SEG.Entity.Bitacora reg = new SEG.Entity.Bitacora
                     {

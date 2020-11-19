@@ -21,18 +21,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_14CF55CFC7A164EB6D3D0A898E39CB37"
-        "OwnerKey" = "8:_F57B96F0D1FF874478423A4E52060616"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_14CF55CFC7A164EB6D3D0A898E39CB37"
-        "OwnerKey" = "8:_77410307D044408A99862DBEC8198BD8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_4DD14D235DD90A4A59B06A4AB7739A4E"
         "OwnerKey" = "8:_77410307D044408A99862DBEC8198BD8"
         "MsmSig" = "8:_UNDEFINED"
@@ -51,31 +39,31 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_91D1F5C9A51192514EB87EB7CB643535"
-        "OwnerKey" = "8:_F57B96F0D1FF874478423A4E52060616"
+        "MsmKey" = "8:_9CDAA9028DF7E705D4754948E2A1D458"
+        "OwnerKey" = "8:_D9C8D0D862FA06E06152291B202C21C1"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_91D1F5C9A51192514EB87EB7CB643535"
+        "MsmKey" = "8:_9CDAA9028DF7E705D4754948E2A1D458"
         "OwnerKey" = "8:_77410307D044408A99862DBEC8198BD8"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_91D1F5C9A51192514EB87EB7CB643535"
-        "OwnerKey" = "8:_A977B9112AAB696D87DA38D2F664AF8D"
+        "MsmKey" = "8:_9CDAA9028DF7E705D4754948E2A1D458"
+        "OwnerKey" = "8:_C94BB6F4A77CD1792D68EA68730521DA"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_A977B9112AAB696D87DA38D2F664AF8D"
-        "OwnerKey" = "8:_F57B96F0D1FF874478423A4E52060616"
+        "MsmKey" = "8:_A5F3B2942E514E28A6A577C92E83B9F0"
+        "OwnerKey" = "8:_D9C8D0D862FA06E06152291B202C21C1"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_A977B9112AAB696D87DA38D2F664AF8D"
+        "MsmKey" = "8:_A5F3B2942E514E28A6A577C92E83B9F0"
         "OwnerKey" = "8:_77410307D044408A99862DBEC8198BD8"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -93,44 +81,56 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_E811CC53A9077ACE43ABAECA114BE5E3"
-        "OwnerKey" = "8:_91D1F5C9A51192514EB87EB7CB643535"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_E811CC53A9077ACE43ABAECA114BE5E3"
+        "MsmKey" = "8:_BF654B3AF97D575E4C6BCCFB0550879B"
         "OwnerKey" = "8:_77410307D044408A99862DBEC8198BD8"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_E811CC53A9077ACE43ABAECA114BE5E3"
-        "OwnerKey" = "8:_A977B9112AAB696D87DA38D2F664AF8D"
+        "MsmKey" = "8:_BF654B3AF97D575E4C6BCCFB0550879B"
+        "OwnerKey" = "8:_9CDAA9028DF7E705D4754948E2A1D458"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_F57B96F0D1FF874478423A4E52060616"
+        "MsmKey" = "8:_BF654B3AF97D575E4C6BCCFB0550879B"
+        "OwnerKey" = "8:_D9C8D0D862FA06E06152291B202C21C1"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_C94BB6F4A77CD1792D68EA68730521DA"
+        "OwnerKey" = "8:_D9C8D0D862FA06E06152291B202C21C1"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_C94BB6F4A77CD1792D68EA68730521DA"
         "OwnerKey" = "8:_77410307D044408A99862DBEC8198BD8"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_F5C79DA5AA98DA5188B7DE80C8F5E821"
+        "MsmKey" = "8:_D9C8D0D862FA06E06152291B202C21C1"
         "OwnerKey" = "8:_77410307D044408A99862DBEC8198BD8"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_F5C79DA5AA98DA5188B7DE80C8F5E821"
-        "OwnerKey" = "8:_91D1F5C9A51192514EB87EB7CB643535"
+        "MsmKey" = "8:_E1EDA1EE60CED497AA3F0036C4F44A19"
+        "OwnerKey" = "8:_9CDAA9028DF7E705D4754948E2A1D458"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_F5C79DA5AA98DA5188B7DE80C8F5E821"
-        "OwnerKey" = "8:_F57B96F0D1FF874478423A4E52060616"
+        "MsmKey" = "8:_E1EDA1EE60CED497AA3F0036C4F44A19"
+        "OwnerKey" = "8:_77410307D044408A99862DBEC8198BD8"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E1EDA1EE60CED497AA3F0036C4F44A19"
+        "OwnerKey" = "8:_C94BB6F4A77CD1792D68EA68730521DA"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -160,37 +160,37 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_F57B96F0D1FF874478423A4E52060616"
+        "OwnerKey" = "8:_D9C8D0D862FA06E06152291B202C21C1"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_A977B9112AAB696D87DA38D2F664AF8D"
+        "OwnerKey" = "8:_C94BB6F4A77CD1792D68EA68730521DA"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_14CF55CFC7A164EB6D3D0A898E39CB37"
+        "OwnerKey" = "8:_A5F3B2942E514E28A6A577C92E83B9F0"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_91D1F5C9A51192514EB87EB7CB643535"
+        "OwnerKey" = "8:_9CDAA9028DF7E705D4754948E2A1D458"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_E811CC53A9077ACE43ABAECA114BE5E3"
+        "OwnerKey" = "8:_E1EDA1EE60CED497AA3F0036C4F44A19"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_F5C79DA5AA98DA5188B7DE80C8F5E821"
+        "OwnerKey" = "8:_BF654B3AF97D575E4C6BCCFB0550879B"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -218,6 +218,29 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.5.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.5.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.5.2"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Net.Framework.3.5.SP1"
+                    {
+                    "Name" = "8:.NET Framework 3.5 SP1"
+                    "ProductCode" = "8:Microsoft.Net.Framework.3.5.SP1"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.SqlServer.Express.11.0"
+                    {
+                    "Name" = "8:SQL Server 2012 Express"
+                    "ProductCode" = "8:Microsoft.SqlServer.Express.11.0"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Windows.Installer.4.5"
+                    {
+                    "Name" = "8:Windows Installer 4.5"
+                    "ProductCode" = "8:Microsoft.Windows.Installer.4.5"
+                    }
+                }
             }
         }
         "Release"
@@ -248,6 +271,21 @@
                     {
                     "Name" = "8:Microsoft .NET Framework 4.5 (x86 and x64)"
                     "ProductCode" = "8:.NETFramework,Version=v4.5"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Net.Framework.3.5.SP1"
+                    {
+                    "Name" = "8:.NET Framework 3.5 SP1"
+                    "ProductCode" = "8:Microsoft.Net.Framework.3.5.SP1"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.SqlServer.Express.11.0"
+                    {
+                    "Name" = "8:SQL Server 2012 Express"
+                    "ProductCode" = "8:Microsoft.SqlServer.Express.11.0"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Windows.Installer.4.5"
+                    {
+                    "Name" = "8:Windows Installer 4.5"
+                    "ProductCode" = "8:Microsoft.Windows.Installer.4.5"
                     }
                 }
             }
@@ -298,37 +336,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_14CF55CFC7A164EB6D3D0A898E39CB37"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_14CF55CFC7A164EB6D3D0A898E39CB37"
-                    {
-                    "Name" = "8:Newtonsoft.Json.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Newtonsoft.Json.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_7BF38D48E67E4B6BABBE4A02D3DB0E51"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_4DD14D235DD90A4A59B06A4AB7739A4E"
@@ -393,14 +400,14 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_91D1F5C9A51192514EB87EB7CB643535"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9CDAA9028DF7E705D4754948E2A1D458"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:CandySur.DLL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_91D1F5C9A51192514EB87EB7CB643535"
+                    "_9CDAA9028DF7E705D4754948E2A1D458"
                     {
                     "Name" = "8:CandySur.DLL.dll"
                     "Attributes" = "3:512"
@@ -424,20 +431,20 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A977B9112AAB696D87DA38D2F664AF8D"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A5F3B2942E514E28A6A577C92E83B9F0"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:CandySur.SEG, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_A977B9112AAB696D87DA38D2F664AF8D"
+                    "_A5F3B2942E514E28A6A577C92E83B9F0"
                     {
-                    "Name" = "8:CandySur.SEG.dll"
+                    "Name" = "8:Newtonsoft.Json.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:CandySur.SEG.dll"
+            "SourcePath" = "8:Newtonsoft.Json.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_7BF38D48E67E4B6BABBE4A02D3DB0E51"
@@ -486,20 +493,20 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E811CC53A9077ACE43ABAECA114BE5E3"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_BF654B3AF97D575E4C6BCCFB0550879B"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:CandySur.UTIL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:CandySur.BE, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_E811CC53A9077ACE43ABAECA114BE5E3"
+                    "_BF654B3AF97D575E4C6BCCFB0550879B"
                     {
-                    "Name" = "8:CandySur.UTIL.dll"
+                    "Name" = "8:CandySur.BE.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:CandySur.UTIL.dll"
+            "SourcePath" = "8:CandySur.BE.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_7BF38D48E67E4B6BABBE4A02D3DB0E51"
@@ -517,14 +524,45 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F57B96F0D1FF874478423A4E52060616"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C94BB6F4A77CD1792D68EA68730521DA"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:CandySur.SEG, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_C94BB6F4A77CD1792D68EA68730521DA"
+                    {
+                    "Name" = "8:CandySur.SEG.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:CandySur.SEG.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_7BF38D48E67E4B6BABBE4A02D3DB0E51"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D9C8D0D862FA06E06152291B202C21C1"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:CandySur.BLL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_F57B96F0D1FF874478423A4E52060616"
+                    "_D9C8D0D862FA06E06152291B202C21C1"
                     {
                     "Name" = "8:CandySur.BLL.dll"
                     "Attributes" = "3:512"
@@ -548,20 +586,20 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F5C79DA5AA98DA5188B7DE80C8F5E821"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E1EDA1EE60CED497AA3F0036C4F44A19"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:CandySur.BE, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:CandySur.UTIL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_F5C79DA5AA98DA5188B7DE80C8F5E821"
+                    "_E1EDA1EE60CED497AA3F0036C4F44A19"
                     {
-                    "Name" = "8:CandySur.BE.dll"
+                    "Name" = "8:CandySur.UTIL.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:CandySur.BE.dll"
+            "SourcePath" = "8:CandySur.UTIL.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_7BF38D48E67E4B6BABBE4A02D3DB0E51"
@@ -609,7 +647,7 @@
             }
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_7BF38D48E67E4B6BABBE4A02D3DB0E51"
             {
-            "DefaultLocation" = "8:[ProgramFilesFolder][Manufacturer]\\[ProductName]"
+            "DefaultLocation" = "8:[ProgramFiles64Folder][Manufacturer]\\[ProductName]"
             "Name" = "8:#1925"
             "AlwaysCreate" = "11:FALSE"
             "Condition" = "8:"
@@ -636,7 +674,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:CandySur "
         "ProductCode" = "8:{65BA397A-E463-4C0F-8254-B3FB8438797F}"
-        "PackageCode" = "8:{97BF583B-84DE-4FC1-8DD9-F3F689A39AE4}"
+        "PackageCode" = "8:{DF489A99-23F6-4194-9927-B308CCBD01BE}"
         "UpgradeCode" = "8:{B52163E3-6564-47A2-9BE5-C7494A0AE7EB}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -657,7 +695,7 @@
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
-        "TargetPlatform" = "3:0"
+        "TargetPlatform" = "3:1"
         "PreBuildEvent" = "8:"
         "PostBuildEvent" = "8:"
         "RunPostBuildEvent" = "3:0"
@@ -1185,7 +1223,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_77410307D044408A99862DBEC8198BD8"
             {
-            "SourcePath" = "8:..\\CandySur.UI\\obj\\Release\\CandySur.UI.exe"
+            "SourcePath" = "8:..\\CandySur.UI\\obj\\Debug\\CandySur.UI.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_7BF38D48E67E4B6BABBE4A02D3DB0E51"

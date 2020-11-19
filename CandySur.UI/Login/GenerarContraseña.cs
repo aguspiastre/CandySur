@@ -34,8 +34,9 @@ namespace CandySur.UI.Login
                 else
                 {
                     usuarioService.GenerarContraseña(txtUsuario.Text, txtEmail.Text);
-                }
 
+                    MessageBox.Show("Contraseña generada correctamente.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             catch (Exception ex)
             {

@@ -23,7 +23,7 @@ namespace CandySur.SEG.Repository
             string sqlCommand = @"INSERT INTO Usuario_Hist (ID_USUARIO, NOMBRE, APELLIDO, DNI, NOMBRE_USUARIO, CONTRASEÑA, DIRECCION, TELEFONO, REINTENTOS, MAIL, FECHA_NAC, ELIMINADO, BLOQUEADO, FECHA_MODIF)
                                 VALUES (" + reg.Id_Usuario + "," + "'" + reg.Nombre + "'" + "," + "'" + reg.Apellido + "'" + "," + reg.DNI + "," + "'" + reg.NombreUsuario + "'" + "," +
                     "'" + reg.Contraseña + "'" + "," + "'" + reg.Direccion + "'" + "," + reg.Telefono + "," + reg.Reintentos + "," + "'" + reg.Mail + "'" + "," +
-                    "'" + reg.FechaNac.ToShortDateString() + "'" + "," + Convert.ToInt16(reg.Eliminado) + "," + Convert.ToInt16(reg.Bloqueado) + "," + "'" + reg.Fecha_Modif.ToShortDateString() + "'" + ")";
+                    "'" + reg.FechaNac.ToShortDateString() + "'" + "," + Convert.ToInt16(reg.Eliminado) + "," + Convert.ToInt16(reg.Bloqueado) + "," + "'" + reg.Fecha_Modif.ToString() + "'" + ")";
 
 
             return db.ExecuteSqlCommand(sqlCommand);
