@@ -58,6 +58,9 @@ namespace CandySur.UI.Backup_Restore
         {
             try
             {
+                if (cmbBackup.SelectedItem == null)
+                    throw new Exception("Debe seleccionar un Backup previo a realizar el Restore.");
+                
                 string fullUri = RUTA_DESTINO + @"\" + cmbBackup.SelectedItem.ToString();
 
                 databaseService.RealizarRestore("CandySur", fullUri);
